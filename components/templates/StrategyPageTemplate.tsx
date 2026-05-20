@@ -97,6 +97,7 @@ export function StrategyPageTemplate({ content, locale }: StrategyPageTemplatePr
           <article className="guide-card" key={section.heading}>
             <span className="card-rule" />
             <h2>{section.heading}</h2>
+            {section.subheading ? <h3>{section.subheading}</h3> : null}
             {section.body.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
             {section.list && section.list.length > 0 ? <ul>{section.list.map((item) => <li key={item}>{item}</li>)}</ul> : null}
           </article>
