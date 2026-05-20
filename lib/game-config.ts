@@ -15,8 +15,8 @@ export const gameConfig = {
   defaultLocale: "en",
   completedLocales: ["en"],
 
-  coreSlugs: ["", "codes", "updates", "beginners-guide", "crops"],
-  completedCoreSlugs: ["", "codes", "updates", "beginners-guide", "crops"],
+  coreSlugs: ["", "codes", "updates", "beginners-guide", "crops", "upgrades"],
+  completedCoreSlugs: ["", "codes", "updates", "beginners-guide", "crops", "upgrades"],
   englishOnlySlugs: ["scripts"],
   completedEnglishOnlySlugs: ["scripts"],
 
