@@ -25,6 +25,7 @@ export type HeroBlock = {
 
 export type TextSection = {
   heading: string;
+  subheading?: string;
   body: string[];
   list?: string[];
 };
