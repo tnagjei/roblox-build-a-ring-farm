@@ -81,6 +81,39 @@ function SnapshotTable({ table }: { table: HomeHubTable }) {
 }
 
 export function HomePageTemplate({ content, locale }: HomePageTemplateProps) {
+  const tierListPath = getLocalizedPath(locale, "tier-list");
+  const directoryCards = content.directory.cards.some((card) => card.href === tierListPath || card.href === "/tier-list/")
+    ? content.directory.cards
+    : [
+        ...content.directory.cards,
+        {
+          href: tierListPath,
+          title: "Tier List",
+          description: "Compare community reported effects, gear shop routes, weather events, and farming value without treating any tier as official."
+        }
+      ];
+  const popularSearches = content.popularSearches.some((card) => card.href === "/tier-list/" || card.href === tierListPath)
+    ? content.popularSearches
+    : [
+        ...content.popularSearches,
+        {
+          href: tierListPath,
+          title: `${siteData.game.name} Tier List`,
+          description: "Compare community reported rare effects, event boosts, sprays, and farming routes.",
+          coversLabel: "Covers",
+          covers: "Effects · Sprays · Routes"
+        }
+      ];
+  const faqItems = content.faq.some((item) => item.q.toLowerCase().includes("tier list"))
+    ? content.faq
+    : [
+        ...content.faq,
+        {
+          q: "Is there an official Build A Ring Farm tier list?",
+          a: "No verified official tier list has been confirmed. The tier list page organizes community reported effects and route logic only."
+        }
+      ];
+
   return (
     <main className="page-main">
       <JsonLd data={buildWebsiteJsonLd()} />
@@ -96,12 +129,12 @@ export function HomePageTemplate({ content, locale }: HomePageTemplateProps) {
             lede: content.hero.lede,
             focus: content.hero.eyebrow,
             primaryKeyword: siteData.pages.find((page) => page.key === "home")?.primaryKeyword || siteData.game.name,
-            faq: content.faq
+            faq: faqItems
           } as any),
           inLanguage: locale === "zh-tw" ? "zh-TW" : locale
         }}
       />
-      <JsonLd data={buildFaqJsonLd({ faq: content.faq } as any)} />
+      <JsonLd data={buildFaqJsonLd({ faq: faqItems } as any)} />
       <JsonLd data={buildBreadcrumbJsonLd({ path: getLocalizedPath(locale, ""), h1: content.hero.h1 } as any)} />
 
       <section className="page-hero">
@@ -160,7 +193,7 @@ export function HomePageTemplate({ content, locale }: HomePageTemplateProps) {
         <h2>{content.directory.title}</h2>
       </section>
       <section className="route-grid" aria-label={content.directory.title}>
-        {content.directory.cards.map((card) => (
+        {directoryCards.map((card) => (
           <Link className="route-card" href={card.href} key={card.href}>
             <span className="card-rule" />
             <h2>{card.title}</h2>
@@ -223,7 +256,7 @@ export function HomePageTemplate({ content, locale }: HomePageTemplateProps) {
         <h2>{content.popularSearchesMeta.title}</h2>
       </section>
       <section className="search-entrance-grid" aria-label={content.popularSearchesMeta.ariaLabel}>
-        {content.popularSearches.map((card) => (
+        {popularSearches.map((card) => (
           <Link className="search-entrance-card" href={card.href} key={card.href}>
             <span className="card-rule" />
             <h3>{card.title}</h3>
@@ -240,7 +273,7 @@ export function HomePageTemplate({ content, locale }: HomePageTemplateProps) {
           <h2>{content.faqMeta.title}</h2>
         </div>
         <div className="faq-list">
-          {content.faq.map((item) => (
+          {faqItems.map((item) => (
             <details key={item.q}>
               <summary>{item.q}</summary>
               <p>{item.a}</p>
