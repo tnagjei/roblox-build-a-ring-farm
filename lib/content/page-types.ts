@@ -56,8 +56,8 @@ export type HomePageContent = {
   slug: "";
   hero: HeroBlock;
   stats: StatItem[];
-  overviewSections: TextSection[];
-  snapshotTables: HomeHubTable[];
+  overviewSections?: TextSection[];
+  snapshotTables?: HomeHubTable[];
   directory: {
     eyebrow: string;
     title: string;
