@@ -14,7 +14,6 @@ import { completedCoreSlugs, completedEnglishOnlySlugs } from "@/lib/page-regist
 import { siteData } from "@/lib/site-data";
 import AdBanner from "./AdBanner";
 import SmartLink from "./SmartLink";
-import SmallBanner from "./SmallBanner";
 
 type SiteChromeProps = {
   children: React.ReactNode;
@@ -25,6 +24,14 @@ type FriendLink = {
   url: string;
   badgeUrl?: string;
 };
+
+type NavItem = {
+  href: string;
+  label: string;
+};
+
+const primaryNavSlugs = ["codes", "beginners-guide", "crops", "money-farming"];
+const guideMenuSlugs = ["seeds", "upgrades", "advanced-crops", "weather-events", "updates"];
 
 function shortLocaleLabel(code: string): string {
   const labels: Record<string, string> = {
@@ -60,6 +67,12 @@ function labelForSlug(slug: string): string {
     .join(" ");
 }
 
+function pageForSlug(slug: string, locale: Locale): NavItem | null {
+  const page = siteData.pages.find((item) => item.key === slug);
+  if (!page) return null;
+  return { href: getLocalizedPath(locale, page.path), label: page.focus };
+}
+
 function getCurrentLocale(pathname: string): Locale {
   const firstSegment = pathname.split("/").filter(Boolean)[0];
   const matched = completedLocales.find((item) => item.code === firstSegment)?.code;
@@ -87,11 +100,20 @@ export function SiteChrome({ children }: SiteChromeProps) {
   const currentLocale = getCurrentLocale(pathname);
   const currentSlug = normalizedCurrentSlug(pathname);
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
+  const [isGuidesOpen, setIsGuidesOpen] = useState(false);
   const coreNavKeys = completedCoreSlugs.filter((slug) => slug !== "");
-  const coreNavItems = coreNavKeys
+  const footerNavItems = coreNavKeys
     .map((key) => siteData.pages.find((p) => p.key === key))
     .filter((p) => p !== undefined)
     .map((p) => ({ href: getLocalizedPath(currentLocale, p.path), label: p.focus }));
+  const primaryNavItems = primaryNavSlugs
+    .filter((slug) => completedCoreSlugs.includes(slug as never))
+    .map((slug) => pageForSlug(slug, currentLocale))
+    .filter((item): item is NavItem => Boolean(item));
+  const guideMenuItems = guideMenuSlugs
+    .filter((slug) => completedCoreSlugs.includes(slug as never))
+    .map((slug) => pageForSlug(slug, currentLocale))
+    .filter((item): item is NavItem => Boolean(item));
   const currentLanguage = completedLocales.find((item) => item.code === currentLocale);
   const isEnglish = currentLocale === gameConfig.defaultLocale;
   const developerName = siteData.game.creator.name || "the game developer";
@@ -109,11 +131,48 @@ export function SiteChrome({ children }: SiteChromeProps) {
           </span>
         </Link>
         <nav className="site-nav" aria-label="Main navigation">
-          {coreNavItems.map((item) => (
+          {primaryNavItems.map((item) => (
             <Link key={item.href} href={item.href}>
               {item.label}
             </Link>
           ))}
+          <div className="guide-dropdown">
+            <button
+              type="button"
+              className="guide-dropdown-trigger"
+              aria-label="Open guide navigation"
+              aria-expanded={isGuidesOpen}
+              aria-haspopup="menu"
+              onClick={() => setIsGuidesOpen((current) => !current)}
+              onBlur={(event) => {
+                if (!event.currentTarget.parentElement?.contains(event.relatedTarget as Node | null)) {
+                  setIsGuidesOpen(false);
+                }
+              }}
+            >
+              <span>Guides</span>
+              <strong>▾</strong>
+            </button>
+            {isGuidesOpen ? (
+              <div
+                className="guide-dropdown-menu"
+                role="menu"
+                aria-label="Guide navigation"
+                onMouseDown={(event) => event.preventDefault()}
+              >
+                {guideMenuItems.map((item) => (
+                  <Link key={item.href} href={item.href} role="menuitem" onClick={() => setIsGuidesOpen(false)}>
+                    {item.label}
+                  </Link>
+                ))}
+                {isEnglish ? englishHighIntentSlugs.map((item) => (
+                  <Link key={item.href} href={item.href} role="menuitem" onClick={() => setIsGuidesOpen(false)}>
+                    {item.label}
+                  </Link>
+                )) : null}
+              </div>
+            ) : null}
+          </div>
           <div className="language-dropdown">
             <button
               type="button"
@@ -155,14 +214,13 @@ export function SiteChrome({ children }: SiteChromeProps) {
           <SmartLink className="nav-cta" label="Open Game" />
         </nav>
       </header>
-      <SmallBanner />
       {children}
       <AdBanner />
       <footer className="site-footer">
         <div className="footer-clusters">
           <div className="footer-cluster">
             <h3>Guides</h3>
-            {coreNavItems.map((item) => (
+            {footerNavItems.map((item) => (
               <Link href={item.href} key={item.href}>{item.label}</Link>
             ))}
             {isEnglish ? englishHighIntentSlugs.map((item) => (
@@ -177,11 +235,7 @@ export function SiteChrome({ children }: SiteChromeProps) {
           </div>
           <div className="footer-cluster">
             <h3>Official & Contact</h3>
-            <a
-              href={siteData.game.robloxUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href={siteData.game.robloxUrl} target="_blank" rel="noopener noreferrer">
               Play on Roblox
             </a>
             {gameConfig.robloxGroupUrl ? (
@@ -197,24 +251,9 @@ export function SiteChrome({ children }: SiteChromeProps) {
           <section className="friend-links-section">
             <div className="friend-links-container">
               <div className="friend-links-scroller">
-                {[
-                  ...friendLinks,
-                  ...friendLinks,
-                  ...friendLinks,
-                  ...friendLinks
-                ].map((link, i) => (
-                  <a
-                    key={`${link.url}-${i}`}
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="friend-link-item"
-                  >
-                    {link.badgeUrl ? (
-                      <img src={link.badgeUrl} alt={link.name} />
-                    ) : (
-                      <span className="friend-link-text">{link.name}</span>
-                    )}
+                {[...friendLinks, ...friendLinks, ...friendLinks, ...friendLinks].map((link, i) => (
+                  <a key={`${link.url}-${i}`} href={link.url} target="_blank" rel="noopener noreferrer" className="friend-link-item">
+                    {link.badgeUrl ? <img src={link.badgeUrl} alt={link.name} /> : <span className="friend-link-text">{link.name}</span>}
                   </a>
                 ))}
               </div>
@@ -223,17 +262,14 @@ export function SiteChrome({ children }: SiteChromeProps) {
         )}
         <div className="footer-summary">
           <strong>{siteData.site.name}</strong>
-          <p>
-            Independent fan guide. Not affiliated with Roblox Corporation or {developerName}.
-          </p>
+          <p>Independent fan guide. Not affiliated with Roblox Corporation or {developerName}.</p>
         </div>
         <div className="footer-meta">
           <span>Contact: {siteData.site.contactEmail}</span>
           <span>Last full check: {siteData.site.lastFullCheck}</span>
         </div>
         <p className="copyright">
-          © 2026 {siteData.site.copyrightOwner}. All Roblox trademarks belong
-          to their respective owners.
+          © 2026 {siteData.site.copyrightOwner}. All Roblox trademarks belong to their respective owners.
         </p>
       </footer>
     </div>
