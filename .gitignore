@@ -12,3 +12,6 @@ npm-debug.log*
 tsconfig.tsbuildinfo
 docs/plans/2026-05-07-competitor-seo-upgrade-plan.md
 public/GSC报错截图.png
+
+# macOS system files
+.DS_Store

@@ -1,6 +1,6 @@
 // input: page data, route paths, and environment site URL
 // output: Next metadata and schema.org JSON-LD objects
-// pos: SEO contract layer
+// pos: SEO contract layer（更新规则：文件变更需同步本注释与所属目录 README）
 
 import type { Metadata } from "next";
 import { siteData, type SitePage } from "@/lib/site-data";
@@ -24,6 +24,7 @@ export function absoluteUrl(path: string): string {
 
 export function buildMetadata(page: SitePage): Metadata {
   const canonical = absoluteUrl(page.path);
+  const socialImage = absoluteUrl("/opengraph-image");
 
   return {
     metadataBase: new URL(siteUrl),
@@ -39,10 +40,10 @@ export function buildMetadata(page: SitePage): Metadata {
       siteName: siteData.site.name,
       images: [
         {
-          url: siteData.assets.hero,
-          width: 768,
-          height: 432,
-          alt: `${siteData.game.name} Roblox thumbnail`
+          url: socialImage,
+          width: 1200,
+          height: 630,
+          alt: `${siteData.game.name} social guide image`
         }
       ],
       type: "article"
@@ -51,7 +52,7 @@ export function buildMetadata(page: SitePage): Metadata {
       card: "summary_large_image",
       title: page.title,
       description: page.description,
-      images: [siteData.assets.hero]
+      images: [socialImage]
     }
   };
 }

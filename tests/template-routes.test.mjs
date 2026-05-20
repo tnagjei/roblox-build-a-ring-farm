@@ -28,7 +28,7 @@ test("sitemap route count matches completed pages", () => {
   const completedEnglishOnlySlugs = extractArray(config, "completedEnglishOnlySlugs");
 
   const expectedCount = completedLocales.length * completedCoreSlugs.length + completedEnglishOnlySlugs.length;
-  assert.equal(expectedCount, 5);
+  assert.equal(expectedCount, 8);
 });
 
 test("localized core routes exist for completed core slugs", () => {

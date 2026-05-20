@@ -8,6 +8,9 @@
 - README.md：本目录说明
 - globals.css：全站视觉样式
 - layout.tsx：根布局和全局 metadata
+- icon.tsx：浏览器标签、收藏夹和安装入口图标
+- opengraph-image.tsx：社交分享图动态生成路由
+- manifest.ts：PWA manifest 和安装图标配置
 - page.tsx：首页
 - sitemap.ts：sitemap.xml 生成
 - robots.ts：robots.txt 生成

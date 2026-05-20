@@ -1,6 +1,6 @@
 // input: Next.js App Router children, site config, and site data
 // output: root HTML layout with shared chrome and optional integrations
-// pos: app root layout
+// pos: app root layout（更新规则：文件变更需同步本注释与所属目录 README）
 
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
@@ -20,7 +20,7 @@ const thirdPartyAdScripts = gameConfig.analytics.thirdPartyAdScripts;
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${gameConfig.siteName} | Codes, Tier List, Units, Updates`,
+    default: `${gameConfig.siteName} | Codes, Crops, Upgrades, Updates`,
     template: "%s"
   },
   description: siteData.site.description,

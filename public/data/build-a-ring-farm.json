@@ -51,7 +51,7 @@
     ]
   },
   "assets": {
-    "icon": "/icon.png",
+    "icon": "/icon",
     "hero": "/official-hero-image",
     "thumbnails": []
   },

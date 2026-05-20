@@ -6,4 +6,8 @@
 
 ## Files
 - README.md：本目录说明
+- favicon.svg：静态 SVG 站点图标备用资源
+- logo.svg：品牌 SVG 源图
+- logo.png：品牌 PNG 下载图
+- logo.webp：品牌 WEBP 下载图
 - data/：站点公开 JSON 数据
