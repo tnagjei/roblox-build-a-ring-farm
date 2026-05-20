@@ -1,6 +1,6 @@
 # Build A Ring Farm 对标站数据审计
 
-> 用途：记录对标站出现过的内容、数据和页面机会，但不把对标站数据当成官方事实。  
+> 用途：记录对标站和 Google 交叉来源出现过的内容、数据和页面机会，但不把非官方数据直接当成官方事实。  
 > 审计时间：2026-05-20  
 > 审计对象：
 >
@@ -8,13 +8,14 @@
 > https://www.buildaringfarm.online/
 > https://www.buildaringfarm.wiki/
 > https://buildaringfarm.net/  抓取失败，未纳入有效证据
+> Google cross-source checks: PCGamesN, Game.Guide, Beebom, Pro Game Guides
 > ```
 
 ---
 
 ## 1. 总结
 
-对标站确实覆盖了以下数据和内容方向：
+对标站和 Google 搜索结果交叉确认：这个游戏确实存在一批被多站反复引用的数据方向：
 
 ```text
 Active code claims
@@ -30,45 +31,138 @@ Wiki / Trello / Discord guide
 Crop values / rarities / plants
 ```
 
-但这些仍不能当成官方事实。当前站点应继续保持：
+但这些来源仍然不是官方 Roblox 页面或开发者公告。因此当前站点可以把它们从“单一对标站线索”升级为：
 
 ```text
-Community reported
-Needs verification
+Cross-source community reported
 ```
 
-除非拿到官方页面、开发者公告、Discord 官方公告截图或可复现实机截图。
+不能直接升级为：
+
+```text
+Verified official
+Verified in-game
+```
 
 ---
 
-## 2. 可用于验证台账的数据
+## 2. Google 交叉来源结果
 
-### 2.1 Code claims
+### 2.1 Codes 交叉结果
 
-对标站出现的 code claims：
+多个第三方站确认过以下 code claims：
+
+```text
+100KVISITS
+2KLIKES
+UPDATE1
+UPDATE2
+THANKYOU
+BARF:3
+```
+
+交叉情况：
+
+```text
+PCGamesN: 100KVISITS / UPDATE1 / 2KLIKES
+Pro Game Guides: 100KVISITS / UPDATE1 / 2KLIKES
+Beebom: UPDATE2 / THANKYOU / BARF:3 / 100KVISITS / 2KLIKES
+Game.Guide: UPDATE2 / THANKYOU / BARF:3 / 100KVISITS / 2KLIKES / UPDATE1
+buildaringfarm.wiki: 100KVISITS / 2KLIKES / UPDATE1
+```
+
+判断：
+
+```text
+这些 codes 已经不是单站孤证，可以作为 Cross-source community reported。
+但仍需实机 redeem UI 测试后才能改成 Verified in-game。
+```
+
+---
+
+### 2.2 Mutations / sprays 交叉结果
+
+Pro Game Guides 明确列出 mutations、multipliers、event chances 和 spray shop prices。对标站也出现同组数据。
+
+交叉数据：
+
+```text
+Wet → 1.5x → Rain 8% → Wet Spray $10M
+Frozen → 1.75x → Blizzard 4% → Frozen Spray $750M
+Void → 2.25x → Black Hole 3% → Void Spray $1B
+Radioactive → 3x → Nuclear 2% → Radioactive Spray $10B
+Rainbow → 5x → Galaxy 1% → Rainbow Spray $1T
+```
+
+判断：
+
+```text
+mutation multiplier + spray price + event odds 可以作为 Cross-source community reported。
+仍不能写成 official，因为没有官方来源或实机截图。
+```
+
+---
+
+### 2.3 Fertilizer 交叉结果
+
+交叉出现：
+
+```text
+UPDATE1 → 3 Strong Fertilizers
+Strong Fertilizer / Strong Fertilizers as reward or boost item
+```
+
+判断：
+
+```text
+Strong Fertilizer 存在概率较高，但仍应保持 Cross-source community reported，直到实机验证。
+```
+
+---
+
+### 2.4 Offline income 交叉结果
+
+多个页面都提到 offline earnings / offline income，但具体 rate、offline mutation、offline event、offline spray behavior 没有强交叉证据。
+
+判断：
+
+```text
+offline earnings 作为方向可以保留 Verified direction。
+exact offline rate 和 rare effect offline behavior 仍 Needs verification。
+```
+
+---
+
+## 3. 可用于验证台账的数据
+
+### 3.1 Code claims
 
 ```text
 UPDATE2 → 1 Tropical Seed Pack
 THANKYOU → 1 Autumn Spray
 BARF:3 → 1 Acid Spray
-100KVISITS → 5-minute Time Skip
+100KVISITS → 5-minute Time Skip 或 cash / $1,072 存在来源差异
 2KLIKES → 1 Tropical Seed Pack
 UPDATE1 → 3 Strong Fertilizers
+```
+
+注意：
+
+```text
+100KVISITS reward 存在来源冲突：部分来源写 5-minute Time Skip，PCGamesN 写 $1,072。
 ```
 
 处理方式：
 
 ```text
+可以作为 Cross-source community reported
 不能写成 verified active codes
-只能进入 DATA_VERIFICATION.md 的 competitor/community claim
 需要实机 code redeem UI 验证
 ```
 
 ---
 
-### 2.2 Spray claims
-
-对标站出现的 spray 数据：
+### 3.2 Spray claims
 
 ```text
 Acid Spray → $1M → removes current mutation → no direct multiplier
@@ -82,7 +176,7 @@ Rainbow Spray → $1T → applies Rainbow mutation → 5x
 处理方式：
 
 ```text
-可以作为 competitor/community claim 记录
+可以作为 Cross-source community reported
 不能写成官方 gear shop price
 不能写成 verified in-game multiplier
 需要 gear shop UI 截图 + 使用前后作物值截图
@@ -90,9 +184,7 @@ Rainbow Spray → $1T → applies Rainbow mutation → 5x
 
 ---
 
-### 2.3 Mutation / rare effect claims
-
-对标站出现的 mutation tier：
+### 3.3 Mutation / rare effect claims
 
 ```text
 S Tier → Rainbow → 5x
@@ -106,15 +198,12 @@ D Tier → Wet → 1.5x
 
 ```text
 当前站点可以继续写 community reported tier
-不能写 official tier list
-不能写 verified multiplier
+如果页面正文需要更强表达，建议写 cross-source community reported，不写 official
 ```
 
 ---
 
-### 2.4 Weather event claims
-
-对标站出现的 event odds / effect claims：
+### 3.4 Weather event claims
 
 ```text
 Rain Event → Wet → 8% → 1.5x
@@ -129,55 +218,13 @@ Offline Farming → no event mutation gain while offline
 
 ```text
 event names 可继续作为 community reported
-chance / odds 必须保持 Needs verification
+chance / odds 可标 Cross-source community reported，但不能写 official probability
 offline event behavior 仍需实机验证
 ```
 
 ---
 
-### 2.5 Fertilizer claims
-
-对标站出现的 fertilizer 数据：
-
-```text
-Strong Fertilizer
-UPDATE1 → 3 Strong Fertilizers
-Used as crop boost / growth booster
-Best used on higher-value crops
-No direct mutation multiplier
-```
-
-处理方式：
-
-```text
-可以作为 community reported
-不能写官方价格、官方 growth multiplier、官方 cooldown
-需要实机截图或 code redeem proof
-```
-
----
-
-### 2.6 Offline income claims
-
-对标站共同强调：
-
-```text
-offline income / offline earnings exists
-active mutation timing requires online play
-offline earnings are support income
-```
-
-处理方式：
-
-```text
-offline earnings 方向可保持 Verified direction
-exact offline rate 仍 Needs verification
-offline mutation / event / spray 行为仍 Needs verification
-```
-
----
-
-## 3. 页面机会判断
+## 4. 页面机会判断
 
 ### 可以后续考虑，但不应马上做
 
@@ -241,53 +288,72 @@ Official Trello page
 
 ---
 
-## 4. 对当前站点的建议
+## 5. 对当前站点的建议
 
-### 不改页面正文的原因
+### 可以调整的表达
 
-当前对标站数据仍然只是 competitor/community claim。直接写进页面正文会提高假数据风险。
-
-### 应改的是台账
-
-这些数据应进入：
+把部分页面中的：
 
 ```text
-DATA_VERIFICATION.md
+Community reported
 ```
 
-作为待验证目标，而不是进入页面正文作为事实。
+在更具体的数据表旁升级为：
+
+```text
+Cross-source community reported
+```
+
+但不能写：
+
+```text
+Official
+Verified
+Confirmed by developer
+```
+
+### 仍不建议直接改成事实的原因
+
+```text
+1. 这些站不是官方来源
+2. Roblox 小游戏数据更新快
+3. 100KVISITS reward 已出现来源冲突
+4. 多站重复可能来自互相引用或同一个社区来源
+```
 
 ### 下一步验证优先级
 
 ```text
 1. Code redeem UI 是否存在
 2. UPDATE1 / UPDATE2 / THANKYOU / BARF:3 / 100KVISITS / 2KLIKES 是否有效
-3. Gear Shop 是否有 Acid / Wet / Frozen / Void / Radioactive / Rainbow Spray
-4. Gear Shop prices 是否与对标站一致
-5. Spray 使用前后作物值是否对应 1.5x / 1.75x / 2.25x / 3x / 5x
-6. Weather events 是否存在以及是否对应 mutation
-7. Offline 是否不会触发 event mutation
+3. 100KVISITS reward 到底是 5-minute Time Skip 还是 $1,072
+4. Gear Shop 是否有 Acid / Wet / Frozen / Void / Radioactive / Rainbow Spray
+5. Gear Shop prices 是否与交叉来源一致
+6. Spray 使用前后作物 value 是否对应 1.5x / 1.75x / 2.25x / 3x / 5x
+7. Weather events 是否存在以及是否对应 mutation
+8. Offline 是否不会触发 event mutation
 ```
 
 ---
 
-## 5. 最终判断
+## 6. 最终判断
 
 Verifiable:
 
 ```text
-两个可抓取对标站都覆盖了 codes、sprays、mutations、fertilizer、offline income、farm layout 等主题。
-对标站中出现了具体 spray prices、mutation multipliers、weather event chances、code rewards。
+Google 交叉结果找到 PCGamesN、Game.Guide、Beebom、Pro Game Guides 等独立页面。
+Codes、sprays、mutations、weather events、fertilizer 不是单一对标站孤证。
+100KVISITS reward 存在来源冲突。
 ```
 
 Judgment:
 
 ```text
-这些数据对站点有参考价值，但目前只能作为待验证线索，不应升级为官方事实。
+这些数据可以从普通 Community reported 升级为 Cross-source community reported，但仍不能升级为 official 或 verified in-game。
 ```
 
 Confidence ≠ Correctness:
 
 ```text
-对标站互相重复不等于真实。只有官方来源或实机可复现测试，才能把页面状态从 Community reported / Needs verification 升级为 Verified。
+多站一致提高可信度，但不等于事实。来源冲突说明仍必须保留验证边界。
 ```
