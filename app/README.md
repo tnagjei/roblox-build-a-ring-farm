@@ -26,6 +26,7 @@
 - seeds/：seeds 长尾 SEO 页面
 - advanced-crops/：advanced crops 长尾 SEO 页面
 - upgrades/：upgrades 长尾 SEO 页面
+- money-farming/：money farming 长尾 SEO 页面
 - updates/：更新日志页面
 - update-log/：更新日志别名跳转页面
 - scripts/：脚本安全页面
