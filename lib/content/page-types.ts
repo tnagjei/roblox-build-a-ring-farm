@@ -40,11 +40,24 @@ export type StatItem = {
   detail: string;
 };
 
+export type HomeHubTable = {
+  eyebrow: string;
+  title: string;
+  rows: Array<{
+    label: string;
+    value: string;
+    detail: string;
+    status: string;
+  }>;
+};
+
 export type HomePageContent = {
   meta: SeoMeta;
   slug: "";
   hero: HeroBlock;
   stats: StatItem[];
+  overviewSections: TextSection[];
+  snapshotTables: HomeHubTable[];
   directory: {
     eyebrow: string;
     title: string;
