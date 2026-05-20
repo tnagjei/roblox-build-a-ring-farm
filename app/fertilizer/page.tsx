@@ -9,16 +9,20 @@ const pageTitle = "Build A Ring Farm Fertilizer Guide | Growth & ROI";
 const pageDescription = "Build A Ring Farm fertilizer guide covering community reported Strong Fertilizer use, crop timing, sprays, upgrades, ROI, and source status.";
 const heroImage = "/official-hero-image";
 
-export const metadata: Metadata = {
-  title: pageTitle,
-  description: pageDescription,
-  alternates: { canonical: "https://www.buildaringfarm.org/fertilizer/" }
-};
+export const metadata: Metadata = { title: pageTitle, description: pageDescription, alternates: { canonical: "https://www.buildaringfarm.org/fertilizer/" } };
 
 const rows = [
   { item: "Strong Fertilizer", role: "Growth or farming boost lead", use: "Use after crop route is stable", status: "Community reported" },
   { item: "Code reward fertilizer", role: "Bonus progression lead", use: "Treat as extra help, not route foundation", status: "Community reported" },
   { item: "Event timing support", role: "Possible timing tool", use: "Needs in-game test before stronger claims", status: "Needs verification" }
+];
+
+const decisionRows = [
+  { situation: "Plots are idle", action: "Do not use fertilizer yet", reason: "Fix planting and harvest rhythm before spending items." },
+  { situation: "Cash is low", action: "Compare with basic upgrades", reason: "A repeatable upgrade may beat one fertilizer use." },
+  { situation: "Crop route is stable", action: "Consider fertilizer testing", reason: "Timing tools are safer after normal cash flow works." },
+  { situation: "Event or mutation is active", action: "Record evidence first", reason: "Do not mix unverified fertilizer, event, and mutation claims." },
+  { situation: "After a major update", action: "Retest before publishing", reason: "Growth behavior or rewards may have changed." }
 ];
 
 const sections = [
@@ -50,7 +54,7 @@ export default function FertilizerPage() {
     <main className="page-main">
       <section className="page-hero compact-hero"><div className="hero-copy"><p className="eyebrow">Fertilizer and growth guide</p><h1>Build A Ring Farm Fertilizer Guide</h1><p className="lede">Use this Build A Ring Farm fertilizer guide to compare community reported Strong Fertilizer, crop timing, sprays, upgrades, ROI, and source status without treating any fertilizer claim as official.</p><div className="hero-actions"><Link className="primary-link" href="/gear-shop/">Read gear shop</Link><Link className="secondary-link" href="/money-farming/">Read money farming</Link></div></div><img className="hero-image" src={heroImage} alt="Build A Ring Farm Roblox thumbnail" /></section>
       <section className="guide-card evidence-note-card"><span className="card-rule" /><p className="eyebrow">Evidence note</p><h2>Fertilizer data is community reported</h2><p>This page does not claim official fertilizer prices, exact growth boosts, cooldowns, or offline behavior.</p></section>
-      <section className="content-grid single-column-grid"><article className="guide-card data-card"><span className="card-rule" /><p className="eyebrow">Community table</p><h2>Reported fertilizer uses</h2><div className="data-list">{rows.map((row) => <div className="data-row four-field-row" key={row.item}><div><span>Item</span><strong>{row.item}</strong></div><div><span>Role</span><strong>{row.role}</strong></div><div><span>Use</span><strong>{row.use}</strong></div><div><span>Status</span><Badge value={row.status} /></div></div>)}</div></article></section>
+      <section className="content-grid single-column-grid"><article className="guide-card data-card"><span className="card-rule" /><p className="eyebrow">Community table</p><h2>Reported fertilizer uses</h2><div className="data-list">{rows.map((row) => <div className="data-row four-field-row" key={row.item}><div><span>Item</span><strong>{row.item}</strong></div><div><span>Role</span><strong>{row.role}</strong></div><div><span>Use</span><strong>{row.use}</strong></div><div><span>Status</span><Badge value={row.status} /></div></div>)}</div></article><article className="guide-card data-card"><span className="card-rule" /><p className="eyebrow">Decision table</p><h2>Use before or after upgrades?</h2><div className="data-list">{decisionRows.map((row) => <div className="data-row three-field-row" key={row.situation}><div><span>Situation</span><strong>{row.situation}</strong></div><div><span>Action</span><strong>{row.action}</strong></div><div><span>Reason</span><strong>{row.reason}</strong></div></div>)}</div></article></section>
       <section className="content-grid">{sections.map((section) => <article className="guide-card" key={section.h2}><span className="card-rule" /><h2>{section.h2}</h2><h3>{section.h3}</h3>{section.body.map((p) => <p key={p}>{p}</p>)}<ul>{section.list.map((item) => <li key={item}>{item}</li>)}</ul></article>)}</section>
       <section className="section-heading"><p className="eyebrow">Related guides</p><h2>What to read next</h2></section><section className="route-grid">{relatedLinks.map((link) => <Link className="route-card" href={link.href} key={link.href}><span className="card-rule" /><h2>{link.title}</h2><p>{link.description}</p></Link>)}</section>
       <section className="faq-section"><div className="section-heading"><p className="eyebrow">FAQ</p><h2>Build A Ring Farm Fertilizer Guide FAQ</h2></div><div className="faq-list">{faq.map((item) => <details key={item.q}><summary>{item.q}</summary><p>{item.a}</p></details>)}</div></section>
