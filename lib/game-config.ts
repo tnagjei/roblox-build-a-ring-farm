@@ -8,7 +8,7 @@ export const gameConfig = {
   gameName: "Build A Ring Farm",
   gameSlug: "build-a-ring-farm",
   primaryKeyword: "Build A Ring Farm",
-  siteDomain: "https://buildaringfarm.org",
+  siteDomain: "https://www.buildaringfarm.org",
   contactEmail: "tangjei414@gmail.com",
   copyrightOwner: "tangjei414@gmail.com",
 
