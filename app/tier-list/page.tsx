@@ -1,13 +1,14 @@
 // input: `/tier-list/` route request
-// output: English community reported tier list guide page with source boundaries
+// output: English cross-source community reported tier list guide page with source boundaries
 // pos: tier-list route（更新规则：文件变更需同步本注释与所属目录 README）
 
 import type { Metadata } from "next";
 import Link from "next/link";
 
 const pageTitle = "Build A Ring Farm Tier List Guide | Effects & Crops";
-const pageDescription = "Build A Ring Farm tier list guide covering community reported crop effects, sprays, event boosts, farming routes, and source status.";
+const pageDescription = "Build A Ring Farm tier list guide covering cross-source community reported crop effects, sprays, event boosts, farming routes, and source status.";
 const heroImage = "/official-hero-image";
+const crossSourceStatus = "Cross-source community reported";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -18,42 +19,42 @@ export const metadata: Metadata = {
 };
 
 const summaryCards = [
-  { title: "Not official", description: "No official Build A Ring Farm tier list has been confirmed. This page organizes community reported effects only." },
+  { title: "Not official", description: "No official Build A Ring Farm tier list has been confirmed. This page organizes cross-source community reported effects only." },
   { title: "Effect-first ranking", description: "The current safe tier list ranks reported rare effects, not unverified crop prices." },
   { title: "Use as a route filter", description: "A tier list should help decide what to test next, not replace seeds, crops, upgrades, and ROI logic." }
 ];
 
 const effectTierRows = [
-  { tier: "S", item: "Rainbow", reason: "Highest reported value boost and strongest rare effect lead.", source: "Community reported" },
-  { tier: "A", item: "Radioactive", reason: "Strong reported value boost, usually treated as late progression.", source: "Community reported" },
-  { tier: "B", item: "Void", reason: "Reported as a higher-value effect but below Radioactive and Rainbow.", source: "Community reported" },
-  { tier: "C", item: "Frozen", reason: "Useful reported mid-tier effect connected to Blizzard-style routes.", source: "Community reported" },
-  { tier: "D", item: "Wet", reason: "Entry-level reported effect, useful for understanding event and spray systems.", source: "Community reported" }
+  { tier: "S", item: "Rainbow", reason: "Highest reported value boost and strongest rare effect lead.", source: crossSourceStatus },
+  { tier: "A", item: "Radioactive", reason: "Strong reported value boost, usually treated as late progression.", source: crossSourceStatus },
+  { tier: "B", item: "Void", reason: "Reported as a higher-value effect but below Radioactive and Rainbow.", source: crossSourceStatus },
+  { tier: "C", item: "Frozen", reason: "Useful reported mid-tier effect connected to Blizzard-style routes.", source: crossSourceStatus },
+  { tier: "D", item: "Wet", reason: "Entry-level reported effect, useful for understanding event and spray systems.", source: crossSourceStatus }
 ];
 
 const routeTierRows = [
   { route: "Stable crop loop", tier: "S for beginners", useCase: "Seeds, crops, harvests, selling, and basic upgrades before rare-effect chasing.", status: "Strategy" },
   { route: "Gear shop testing", tier: "A after cash flow", useCase: "Sprays and fertilizer once normal crop cycles are stable.", status: "Strategy" },
-  { route: "Weather event chasing", tier: "B until verified", useCase: "Reported effects such as Rain, Blizzard, Black Hole, Nuclear, and Galaxy.", status: "Community reported" },
+  { route: "Weather event chasing", tier: "B until verified", useCase: "Reported effects such as Rain, Blizzard, Black Hole, Nuclear, and Galaxy.", status: crossSourceStatus },
   { route: "Code reward planning", tier: "Bonus only", useCase: "Use code rewards as extra progress, not as the foundation of a route.", status: "Pending" }
 ];
 
 const sections = [
   {
     heading: "What this Build A Ring Farm tier list means",
-    subheading: "Community reported ranking",
+    subheading: "Cross-source community reported ranking",
     body: [
-      "This Build A Ring Farm tier list is not an official Roblox ranking. It is a practical guide that organizes community reported rare effects, route value, sprays, and event leads into a safer decision structure.",
+      "This Build A Ring Farm tier list is not an official Roblox ranking. It is a practical guide that organizes cross-source community reported rare effects, route value, sprays, and event leads into a safer decision structure.",
       "The page does not claim that any crop price, drop rate, or rare effect value is official. Use it to decide what to research next, then confirm details through the gear shop, advanced crops, weather events, and money farming pages."
     ],
-    list: ["No official tier list has been confirmed.", "Effects are ranked as community reported leads.", "Exact crop prices and rare rates remain pending.", "Use this as a planning layer, not a final truth table."]
+    list: ["No official tier list has been confirmed.", "Effects are ranked as cross-source community reported leads.", "Exact crop prices and rare rates remain pending.", "Use this as a planning layer, not a final truth table."]
   },
   {
     heading: "Best reported effects for farming value",
     subheading: "Effect tier logic",
     body: [
       "The safest tier list structure is effect-first. Effects such as Rainbow, Radioactive, Void, Frozen, and Wet are easier to compare than unverified crop names because the current available data is mostly about value boosts and event links.",
-      "Rainbow is placed highest because community sources report it as the strongest value boost. That does not make it official. It only means Rainbow deserves the highest priority for future verification."
+      "Rainbow is placed highest because multiple community sources report it as the strongest value boost. That does not make it official. It only means Rainbow deserves the highest priority for future verification."
     ],
     list: ["S tier means strongest reported value lead.", "A and B tiers may still be useful depending on cost and trigger difficulty.", "Lower tiers can still matter for beginners or testing.", "Any tier can change after updates."]
   },
@@ -70,8 +71,8 @@ const sections = [
     heading: "Best event-based effects",
     subheading: "Weather event tiers",
     body: [
-      "Weather events are a second route into rare effects. Community reports connect Rain with Wet, Blizzard with Frozen, Black Hole with Void, Nuclear with Radioactive, and Galaxy with Rainbow.",
-      "Event-based effects are harder to rank because they depend on timing, chance, online behavior, and whether event effects stack with gear shop sprays. For now, event tiers should stay community reported until repeatable evidence exists."
+      "Weather events are a second route into rare effects. Multiple community sources connect Rain with Wet, Blizzard with Frozen, Black Hole with Void, Nuclear with Radioactive, and Galaxy with Rainbow.",
+      "Event-based effects are harder to rank because they depend on timing, chance, online behavior, and whether event effects stack with gear shop sprays. For now, event tiers should stay cross-source community reported until repeatable evidence exists."
     ],
     list: ["Galaxy is the strongest reported event lead because it connects to Rainbow.", "Nuclear is a strong reported lead because it connects to Radioactive.", "Rain is useful for entry-level testing but not necessarily best value.", "Offline event behavior still needs verification."]
   },
@@ -80,7 +81,7 @@ const sections = [
     subheading: "Pending evidence",
     body: [
       "A stronger tier list needs verified crop names, exact crop prices, gear shop prices, spray behavior, event odds, stacking rules, and offline behavior. Without that evidence, the page should not pretend to be a final ranking.",
-      "The long-term plan is to keep the tier list useful but honest: show the current community reported order, explain why each tier exists, and clearly mark the claims that still need testing."
+      "The long-term plan is to keep the tier list useful but honest: show the current cross-source community reported order, explain why each tier exists, and clearly mark the claims that still need testing."
     ],
     list: ["Exact crop prices.", "Exact rare effect values after updates.", "Whether sprays stack with events.", "Whether rare effects can trigger while offline.", "Whether a new update changes tier order."]
   }
@@ -96,8 +97,8 @@ const relatedLinks = [
 ];
 
 const faq = [
-  { q: "Is there an official Build A Ring Farm tier list?", a: "No verified official tier list has been confirmed here. This page organizes community reported effects and route logic only." },
-  { q: "What is the best reported effect in Build A Ring Farm?", a: "Community sources report Rainbow as the strongest value boost lead, but this site does not treat it as official data." },
+  { q: "Is there an official Build A Ring Farm tier list?", a: "No verified official tier list has been confirmed here. This page organizes cross-source community reported effects and route logic only." },
+  { q: "What is the best reported effect in Build A Ring Farm?", a: "Multiple community sources report Rainbow as the strongest value boost lead, but this site does not treat it as official data." },
   { q: "Should beginners follow the tier list first?", a: "No. Beginners should stabilize seeds, crops, selling, and upgrades before chasing rare effects." },
   { q: "Can the tier list change after updates?", a: "Yes. Any tier based on community data should be rechecked after updates, new gear shop values, or new event behavior." }
 ];
@@ -111,10 +112,10 @@ export default function TierListPage() {
     <main className="page-main">
       <section className="page-hero compact-hero">
         <div className="hero-copy">
-          <p className="eyebrow">Community reported tier list</p>
+          <p className="eyebrow">Cross-source community reported tier list</p>
           <h1>Build A Ring Farm Tier List Guide</h1>
           <p className="lede">
-            Use this Build A Ring Farm tier list guide to compare community reported effects, sprays, weather event boosts, and farming routes without treating any tier as official Roblox data.
+            Use this Build A Ring Farm tier list guide to compare cross-source community reported effects, sprays, weather event boosts, and farming routes without treating any tier as official Roblox data.
           </p>
           <div className="hero-actions">
             <Link className="primary-link" href="/advanced-crops/">Read advanced crops</Link>
@@ -129,7 +130,7 @@ export default function TierListPage() {
         <p className="eyebrow">Evidence note</p>
         <h2>No official tier list has been confirmed</h2>
         <p>
-          This page is a community reported Build A Ring Farm tier list. It should help players organize research, but it should not be used as proof of official crop prices, official effect values, or official best routes.
+          This page is a cross-source community reported Build A Ring Farm tier list. It should help players organize research, but it should not be used as proof of official crop prices, official effect values, or official best routes.
         </p>
       </section>
 
@@ -144,13 +145,13 @@ export default function TierListPage() {
       </section>
 
       <section className="section-heading">
-        <p className="eyebrow">Community table</p>
+        <p className="eyebrow">Cross-source table</p>
         <h2>Reported rare effect tier list</h2>
       </section>
       <section className="content-grid single-column-grid">
         <article className="guide-card data-card">
           <span className="card-rule" />
-          <p className="eyebrow">Community reported</p>
+          <p className="eyebrow">Cross-source community reported</p>
           <h2>Effect tiers</h2>
           <div className="data-list">
             {effectTierRows.map((row) => (
