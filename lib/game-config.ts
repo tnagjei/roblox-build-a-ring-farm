@@ -15,8 +15,8 @@ export const gameConfig = {
   defaultLocale: "en",
   completedLocales: ["en"],
 
-  coreSlugs: ["", "codes", "updates", "beginners-guide", "crops", "seeds", "upgrades", "gear-shop", "advanced-crops", "money-farming", "weather-events", "tier-list"],
-  completedCoreSlugs: ["", "codes", "updates", "beginners-guide", "crops", "seeds", "upgrades", "gear-shop", "advanced-crops", "money-farming", "weather-events", "tier-list"],
+  coreSlugs: ["", "codes", "updates", "beginners-guide", "crops", "seeds", "upgrades", "gear-shop", "sprays", "advanced-crops", "money-farming", "weather-events", "tier-list"],
+  completedCoreSlugs: ["", "codes", "updates", "beginners-guide", "crops", "seeds", "upgrades", "gear-shop", "sprays", "advanced-crops", "money-farming", "weather-events", "tier-list"],
   englishOnlySlugs: ["scripts"],
   completedEnglishOnlySlugs: ["scripts"],
 
