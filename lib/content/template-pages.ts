@@ -36,7 +36,7 @@ function pageTitle(slug: string) {
 export function createTemplateHomePage(locale = "en"): HomePageContent {
   return {
     meta: {
-      title: withLocale(`${gameConfig.gameName} Wiki | Codes, Crops & Guide`, locale),
+      title: withLocale(`${gameConfig.gameName} Wiki & Guide | Codes, Crops, Upgrades`, locale),
       description: `${gameConfig.gameName} wiki for Roblox players: check codes status, seeds, crops, advanced crops, weather events, upgrades, money farming, updates, and offline income tips.`
     },
     slug: "",
