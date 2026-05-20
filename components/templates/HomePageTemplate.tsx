@@ -81,38 +81,61 @@ function SnapshotTable({ table }: { table: HomeHubTable }) {
 }
 
 export function HomePageTemplate({ content, locale }: HomePageTemplateProps) {
+  const spraysPath = getLocalizedPath(locale, "sprays");
   const tierListPath = getLocalizedPath(locale, "tier-list");
-  const directoryCards = content.directory.cards.some((card) => card.href === tierListPath || card.href === "/tier-list/")
-    ? content.directory.cards
-    : [
-        ...content.directory.cards,
-        {
+  const directoryCards = [
+    ...content.directory.cards,
+    ...(content.directory.cards.some((card) => card.href === spraysPath || card.href === "/sprays/")
+      ? []
+      : [{
+          href: spraysPath,
+          title: "Sprays",
+          description: "Compare community reported spray effects, rare crop routes, gear shop use, weather events, and ROI without treating any spray claim as official."
+        }]),
+    ...(content.directory.cards.some((card) => card.href === tierListPath || card.href === "/tier-list/")
+      ? []
+      : [{
           href: tierListPath,
           title: "Tier List",
           description: "Compare community reported effects, gear shop routes, weather events, and farming value without treating any tier as official."
-        }
-      ];
-  const popularSearches = content.popularSearches.some((card) => card.href === "/tier-list/" || card.href === tierListPath)
-    ? content.popularSearches
-    : [
-        ...content.popularSearches,
-        {
+        }])
+  ];
+  const popularSearches = [
+    ...content.popularSearches,
+    ...(content.popularSearches.some((card) => card.href === "/sprays/" || card.href === spraysPath)
+      ? []
+      : [{
+          href: spraysPath,
+          title: `${siteData.game.name} Sprays`,
+          description: "Compare community reported spray effects, gear shop use, rare crop value, and weather event alternatives.",
+          coversLabel: "Covers",
+          covers: "Sprays · Effects · ROI"
+        }]),
+    ...(content.popularSearches.some((card) => card.href === "/tier-list/" || card.href === tierListPath)
+      ? []
+      : [{
           href: tierListPath,
           title: `${siteData.game.name} Tier List`,
           description: "Compare community reported rare effects, event boosts, sprays, and farming routes.",
           coversLabel: "Covers",
           covers: "Effects · Sprays · Routes"
-        }
-      ];
-  const faqItems = content.faq.some((item) => item.q.toLowerCase().includes("tier list"))
-    ? content.faq
-    : [
-        ...content.faq,
-        {
+        }])
+  ];
+  const faqItems = [
+    ...content.faq,
+    ...(content.faq.some((item) => item.q.toLowerCase().includes("spray"))
+      ? []
+      : [{
+          q: "Are Build A Ring Farm sprays official on this site?",
+          a: "No. Spray names, prices, effects, and stacking behavior are treated as community reported until official notes or in-game evidence confirms them."
+        }]),
+    ...(content.faq.some((item) => item.q.toLowerCase().includes("tier list"))
+      ? []
+      : [{
           q: "Is there an official Build A Ring Farm tier list?",
           a: "No verified official tier list has been confirmed. The tier list page organizes community reported effects and route logic only."
-        }
-      ];
+        }])
+  ];
 
   return (
     <main className="page-main">
