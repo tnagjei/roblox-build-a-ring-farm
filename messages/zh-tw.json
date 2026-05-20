@@ -1,0 +1,32 @@
+{
+  "nav": {
+    "codes": "兌換碼",
+    "tierList": "強度排行",
+    "units": "單位攻略",
+    "beginnerGuide": "新手指南",
+    "updates": "更新資訊",
+    "language": "語言"
+  },
+  "actions": {
+    "openRoblox": "打開 Roblox 頁面",
+    "backHome": "返回首頁",
+    "checkCodes": "查看代碼狀態",
+    "openYouTube": "在 YouTube 打開"
+  },
+  "table": {
+    "code": "代碼",
+    "status": "狀態",
+    "source": "來源",
+    "reward": "獎勵",
+    "notes": "備註",
+    "reason": "原因",
+    "action": "建議動作"
+  },
+  "footer": {
+    "guides": "攻略",
+    "gameInfo": "遊戲資訊",
+    "safety": "安全與資源",
+    "community": "社群",
+    "site": "網站"
+  }
+}

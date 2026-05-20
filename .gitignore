@@ -1,0 +1,14 @@
+# input: local build and dependency artifacts
+# output: git ignore rules for generated files
+# pos: repository hygiene config（更新规则：文件变更需同步本注释与所属目录 README）
+
+node_modules/
+.next/
+out/
+dist/
+.env*
+!.env.example
+npm-debug.log*
+tsconfig.tsbuildinfo
+docs/plans/2026-05-07-competitor-seo-upgrade-plan.md
+public/GSC报错截图.png

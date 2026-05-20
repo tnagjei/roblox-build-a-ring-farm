@@ -1,0 +1,32 @@
+{
+  "nav": {
+    "codes": "Codes",
+    "tierList": "Tier List",
+    "units": "Units",
+    "beginnerGuide": "คู่มือเริ่มต้น",
+    "updates": "อัปเดต",
+    "language": "ภาษา"
+  },
+  "actions": {
+    "openRoblox": "เปิดหน้า Roblox",
+    "backHome": "กลับหน้าแรก",
+    "checkCodes": "ตรวจสถานะ Codes",
+    "openYouTube": "เปิดใน YouTube"
+  },
+  "table": {
+    "code": "Code",
+    "status": "สถานะ",
+    "source": "แหล่งที่มา",
+    "reward": "รางวัล",
+    "notes": "หมายเหตุ",
+    "reason": "เหตุผล",
+    "action": "สิ่งที่ควรทำ"
+  },
+  "footer": {
+    "guides": "คู่มือ",
+    "gameInfo": "ข้อมูลเกม",
+    "safety": "ความปลอดภัยและแหล่งข้อมูล",
+    "community": "ชุมชน",
+    "site": "เว็บไซต์"
+  }
+}

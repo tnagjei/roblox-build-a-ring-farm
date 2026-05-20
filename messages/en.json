@@ -1,0 +1,32 @@
+{
+  "nav": {
+    "codes": "Codes",
+    "tierList": "Tier List",
+    "units": "Units",
+    "beginnerGuide": "Beginner Guide",
+    "updates": "Updates",
+    "language": "Language"
+  },
+  "actions": {
+    "openRoblox": "Open Roblox page",
+    "backHome": "Back home",
+    "checkCodes": "Check codes status",
+    "openYouTube": "Open on YouTube"
+  },
+  "table": {
+    "code": "Code",
+    "status": "Status",
+    "source": "Source",
+    "reward": "Reward",
+    "notes": "Notes",
+    "reason": "Reason",
+    "action": "Action"
+  },
+  "footer": {
+    "guides": "Guides",
+    "gameInfo": "Game Info",
+    "safety": "Safety & Resources",
+    "community": "Community",
+    "site": "Site"
+  }
+}

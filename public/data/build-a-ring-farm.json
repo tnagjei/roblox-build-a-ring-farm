@@ -1,0 +1,162 @@
+{
+  "site": {
+    "name": "Build A Ring Farm Guide",
+    "shortName": "Build A Ring Farm",
+    "description": "Independent Build A Ring Farm guide for Roblox players, covering safe codes tracking, beginner farming steps, update notes, and source-checked gameplay tips.",
+    "contactEmail": "tangjei414@gmail.com",
+    "copyrightOwner": "tangjei414@gmail.com",
+    "lastFullCheck": "2026-05-20",
+    "defaultBaseUrl": "https://buildaringfarm.org",
+    "aliases": ["Build A Ring Farm", "Build A Ring Farm Roblox"],
+    "friendLinks": []
+  },
+  "game": {
+    "name": "Build A Ring Farm",
+    "officialDisplayName": "[🌽] Build A Ring Farm",
+    "alternateNames": ["Build A Ring Farm Roblox"],
+    "creator": {
+      "id": 989438225,
+      "name": "Gamecreates",
+      "type": "Group",
+      "ownerName": "",
+      "memberCount": null
+    },
+    "robloxUrl": "https://www.roblox.com/games/107646426076756/Build-A-Ring-Farm",
+    "rootPlaceId": 107646426076756,
+    "universeId": 10039338037,
+    "created": "2026-04-15T12:24:44.616Z",
+    "updated": "2026-05-20T01:46:36.655083Z",
+    "visits": 7359919,
+    "playing": 20240,
+    "favorites": 231628,
+    "maxPlayers": 6,
+    "upVotes": 73304,
+    "downVotes": 1083,
+    "approvalRate": "98.5%",
+    "genre": "Simulation / Incremental Simulator",
+    "descriptionSummary": "Build A Ring Farm is a Roblox farming simulator where players grow and harvest plants, upgrade the farm, expand production, sell crops for cash, and keep earning while offline.",
+    "codeSystemSignal": "No official or in-game code system has been verified yet.",
+    "liveStatsCheckedAt": "2026-05-20T00:00:00Z",
+    "officialLinks": [
+      {
+        "label": "Roblox Game Page",
+        "url": "https://www.roblox.com/games/107646426076756/Build-A-Ring-Farm",
+        "status": "verified"
+      }
+    ],
+    "sourceConfidence": [
+      {
+        "label": "Roblox game page",
+        "level": "verified"
+      },
+      {
+        "label": "Official social links",
+        "level": "pending"
+      },
+      {
+        "label": "In-game checks",
+        "level": "pending"
+      }
+    ]
+  },
+  "assets": {
+    "icon": "/icon.png",
+    "hero": "/official-hero-image",
+    "thumbnails": []
+  },
+  "codes": {
+    "verifiedCountLabel": "0 verified codes",
+    "officialStatus": "No verified official codes yet",
+    "lastChecked": "2026-05-20",
+    "verificationPolicy": "Do not publish active codes without official or in-game proof.",
+    "hasRedeemSystem": "unknown",
+    "verifiedActiveCodes": [],
+    "expiredCodes": [],
+    "thirdPartyConflictSummary": "No third-party code claims have been accepted as verified.",
+    "pendingCodes": [],
+    "redeemGuide": {
+      "confidence": "unknown",
+      "steps": [],
+      "note": "Add redemption steps only after checking the real in-game UI."
+    },
+    "conflictMatrix": [],
+    "verificationChecklist": [
+      "Check the official Roblox game page.",
+      "Check developer-linked official channels only after source verification.",
+      "Run an in-game redemption test before promoting any code to active.",
+      "Record source, date, and result for every code change."
+    ],
+    "inGameTestLog": [],
+    "screenshotPlaceholder": "No screenshot proof has been added.",
+    "whyOtherSitesShowCodes": "Other sites may publish unverified strings. This site keeps unverified claims separate from verified active codes.",
+    "communityReportedCodes": []
+  },
+  "pages": [
+    {
+      "key": "home",
+      "path": "/",
+      "title": "Build A Ring Farm Guide | Codes, Tips & Updates",
+      "description": "Build A Ring Farm guide for Roblox players with codes status, beginner farming tips, update notes, official links, and safe source checks.",
+      "h1": "Build A Ring Farm Guide",
+      "lede": "Track Build A Ring Farm basics, official Roblox data, safe code status, and beginner farming guidance without treating rumors as facts.",
+      "focus": "Hub",
+      "relatedPages": ["codes", "beginners-guide", "updates"],
+      "faq": [
+        {
+          "q": "Is this an official Build A Ring Farm website?",
+          "a": "No. This is an independent fan guide. The official game page is on Roblox."
+        },
+        {
+          "q": "Does Build A Ring Farm have verified active codes?",
+          "a": "No verified official codes have been confirmed yet."
+        }
+      ],
+      "primaryKeyword": "Build A Ring Farm guide"
+    },
+    {
+      "key": "codes",
+      "path": "/codes/",
+      "title": "Build A Ring Farm Codes 2026 | Verified Status",
+      "description": "Check Build A Ring Farm codes status, pending claims, safe redemption notes, and why this guide keeps unverified code strings separate.",
+      "h1": "Build A Ring Farm Codes",
+      "lede": "Use this page to check verified Build A Ring Farm codes. Right now there are 0 verified official codes.",
+      "focus": "Codes",
+      "relatedPages": ["beginners-guide", "updates"],
+      "sections": [],
+      "faq": [
+        {
+          "q": "Are there verified Build A Ring Farm codes today?",
+          "a": "No. The current verified count is 0 because no official or in-game proof has been recorded."
+        }
+      ],
+      "primaryKeyword": "Build A Ring Farm codes"
+    },
+    {
+      "key": "updates",
+      "path": "/updates/",
+      "title": "Build A Ring Farm Updates | Roblox Change Tracker",
+      "description": "Follow Build A Ring Farm updates with Roblox page checks, gameplay change notes, and recheck points for codes, rewards, and farm systems.",
+      "h1": "Build A Ring Farm Updates",
+      "lede": "The official Roblox game record was checked on 2026-05-20 and showed the latest update timestamp as 2026-05-20T01:46:36.655083Z.",
+      "focus": "Updates",
+      "relatedPages": ["codes", "beginners-guide"],
+      "sections": [],
+      "faq": [],
+      "primaryKeyword": "Build A Ring Farm updates"
+    },
+    {
+      "key": "beginners-guide",
+      "path": "/beginners-guide/",
+      "title": "Build A Ring Farm Beginner Guide | First Farm Tips",
+      "description": "Start Build A Ring Farm with simple farming tips for growing crops, upgrading production, selling plants, and avoiding unsafe Roblox links.",
+      "h1": "Build A Ring Farm Beginner Guide",
+      "lede": "Build A Ring Farm is about growing plants, upgrading your farm, selling crops for cash, and using offline earnings to keep progress moving.",
+      "focus": "Beginner Guide",
+      "relatedPages": ["codes", "updates"],
+      "sections": [],
+      "faq": [],
+      "primaryKeyword": "Build A Ring Farm beginner guide"
+    }
+  ],
+  "youtubeVideos": []
+}
