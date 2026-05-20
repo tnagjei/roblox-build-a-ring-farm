@@ -158,7 +158,7 @@ export type CodesPageContent = {
 
 export type StrategyPageContent = {
   meta: SeoMeta;
-  slug: "updates" | "beginners-guide" | "scripts";
+  slug: "updates" | "beginners-guide" | "scripts" | "crops";
   hero: HeroBlock;
   summaryCards: Array<{
     title: string;
