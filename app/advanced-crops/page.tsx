@@ -19,9 +19,9 @@ export const metadata: Metadata = {
 };
 
 const summaryCards = [
-  { title: "Community reported", description: "Tables below are useful leads, not official Roblox-confirmed numbers." },
+  { title: "Community reported", description: "Useful leads from community sources, not official Roblox-confirmed numbers." },
   { title: "Event timing", description: "Separate normal farming from limited events, boosts, and online-only systems." },
-  { title: "Spray checks", description: "Record spray costs and effects as source status until in-game proof is available." }
+  { title: "Spray checks", description: "Treat spray costs and effects as source-status items until in-game proof exists." }
 ];
 
 const effectRows = [
@@ -33,12 +33,12 @@ const effectRows = [
 ];
 
 const sprayRows = [
-  { item: "Acid Spray", reportedCost: "$1,000,000", reportedUse: "Clears an existing rare crop effect", status: "Community reported" },
-  { item: "Wet Spray", reportedCost: "$10,000,000", reportedUse: "Applies Wet effect", status: "Community reported" },
-  { item: "Frozen Spray", reportedCost: "$750,000,000", reportedUse: "Applies Frozen effect", status: "Community reported" },
-  { item: "Void Spray", reportedCost: "$1,000,000,000", reportedUse: "Applies Void effect", status: "Community reported" },
-  { item: "Radioactive Spray", reportedCost: "$10,000,000,000", reportedUse: "Applies Radioactive effect", status: "Community reported" },
-  { item: "Rainbow Spray", reportedCost: "$1,000,000,000,000", reportedUse: "Applies Rainbow effect", status: "Community reported" }
+  { item: "Acid Spray", reportedCost: "$1,000,000", reportedUse: "Clears existing rare effect", status: "Community reported" },
+  { item: "Wet Spray", reportedCost: "$10,000,000", reportedUse: "Applies Wet", status: "Community reported" },
+  { item: "Frozen Spray", reportedCost: "$750,000,000", reportedUse: "Applies Frozen", status: "Community reported" },
+  { item: "Void Spray", reportedCost: "$1,000,000,000", reportedUse: "Applies Void", status: "Community reported" },
+  { item: "Radioactive Spray", reportedCost: "$10,000,000,000", reportedUse: "Applies Radioactive", status: "Community reported" },
+  { item: "Rainbow Spray", reportedCost: "$1,000,000,000,000", reportedUse: "Applies Rainbow", status: "Community reported" }
 ];
 
 const eventRows = [
@@ -54,7 +54,7 @@ const sections = [
     heading: "Source status: official vs community reported",
     body: [
       "The official Roblox page confirms the broad game loop: grow plants, harvest, upgrade the farm, sell plants for cash, and earn while offline. It does not publish exact rare effect values, spray prices, event odds, or ranking tables.",
-      "That means the tables on this page should be treated as community reported leads. They are useful for SEO and player research, but they should be rechecked after updates before being described as official facts."
+      "The rows above should be treated as community reported leads. They are useful for player research, but they should be rechecked after updates before being described as official facts."
     ],
     list: ["Official: game name, creator, basic farming loop, upgrades, selling, offline earnings.", "Community reported: rare effect values, spray costs, event odds, and tier ordering.", "Pending: offline rare effect behavior and exact item behavior after future updates."]
   },
@@ -99,7 +99,7 @@ const faq = [
 ];
 
 function StatusBadge({ status }: { status: string }) {
-  return <span className="eyebrow">{status}</span>;
+  return <span className="source-badge">{status}</span>;
 }
 
 export default function AdvancedCropsPage() {
@@ -120,7 +120,7 @@ export default function AdvancedCropsPage() {
         <img className="hero-image" src={siteData.assets.hero} alt={`${siteData.game.name} Roblox thumbnail`} />
       </section>
 
-      <section className="guide-card">
+      <section className="guide-card evidence-note-card">
         <span className="card-rule" />
         <p className="eyebrow">Evidence note</p>
         <h2>Community reported values, not official Roblox data</h2>
@@ -139,53 +139,57 @@ export default function AdvancedCropsPage() {
         ))}
       </section>
 
-      <section className="content-grid">
-        <article className="guide-card">
+      <section className="section-heading">
+        <p className="eyebrow">Community tables</p>
+        <h2>Reported values players search for</h2>
+      </section>
+
+      <section className="content-grid single-column-grid">
+        <article className="guide-card data-card">
           <span className="card-rule" />
           <p className="eyebrow">Community table</p>
           <h2>Reported rare crop values</h2>
-          <table>
-            <thead>
-              <tr><th>Effect</th><th>Reported value</th><th>Status</th></tr>
-            </thead>
-            <tbody>
-              {effectRows.map((row) => (
-                <tr key={row.effect}><td>{row.effect}</td><td>{row.value}</td><td><StatusBadge status={row.status} /></td></tr>
-              ))}
-            </tbody>
-          </table>
+          <div className="data-list">
+            {effectRows.map((row) => (
+              <div className="data-row three-field-row" key={row.effect}>
+                <div><span>Effect</span><strong>{row.effect}</strong></div>
+                <div><span>Reported value</span><strong>{row.value}</strong></div>
+                <div><span>Status</span><StatusBadge status={row.status} /></div>
+              </div>
+            ))}
+          </div>
         </article>
 
-        <article className="guide-card">
+        <article className="guide-card data-card">
           <span className="card-rule" />
           <p className="eyebrow">Community table</p>
           <h2>Reported gear shop sprays</h2>
-          <table>
-            <thead>
-              <tr><th>Item</th><th>Reported cost</th><th>Reported use</th><th>Status</th></tr>
-            </thead>
-            <tbody>
-              {sprayRows.map((row) => (
-                <tr key={row.item}><td>{row.item}</td><td>{row.reportedCost}</td><td>{row.reportedUse}</td><td><StatusBadge status={row.status} /></td></tr>
-              ))}
-            </tbody>
-          </table>
+          <div className="data-list">
+            {sprayRows.map((row) => (
+              <div className="data-row four-field-row" key={row.item}>
+                <div><span>Item</span><strong>{row.item}</strong></div>
+                <div><span>Reported cost</span><strong>{row.reportedCost}</strong></div>
+                <div><span>Reported use</span><strong>{row.reportedUse}</strong></div>
+                <div><span>Status</span><StatusBadge status={row.status} /></div>
+              </div>
+            ))}
+          </div>
         </article>
 
-        <article className="guide-card">
+        <article className="guide-card data-card">
           <span className="card-rule" />
           <p className="eyebrow">Community table</p>
           <h2>Reported event odds</h2>
-          <table>
-            <thead>
-              <tr><th>Event</th><th>Reported effect</th><th>Reported chance</th><th>Status</th></tr>
-            </thead>
-            <tbody>
-              {eventRows.map((row) => (
-                <tr key={row.eventName}><td>{row.eventName}</td><td>{row.reportedEffect}</td><td>{row.reportedChance}</td><td><StatusBadge status={row.status} /></td></tr>
-              ))}
-            </tbody>
-          </table>
+          <div className="data-list">
+            {eventRows.map((row) => (
+              <div className="data-row four-field-row" key={row.eventName}>
+                <div><span>Event</span><strong>{row.eventName}</strong></div>
+                <div><span>Reported effect</span><strong>{row.reportedEffect}</strong></div>
+                <div><span>Reported chance</span><strong>{row.reportedChance}</strong></div>
+                <div><span>Status</span><StatusBadge status={row.status} /></div>
+              </div>
+            ))}
+          </div>
         </article>
       </section>
 
