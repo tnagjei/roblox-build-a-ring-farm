@@ -100,6 +100,7 @@ export function createTemplateHomePage(locale = "en"): HomePageContent {
       title: "Build A Ring Farm wiki sections",
       cards: [
         { href: localizedHref(locale, "crops"), title: "Crops", description: "Learn crop flow, harvest timing, selling logic, and upgrade priorities." },
+        { href: localizedHref(locale, "upgrades"), title: "Upgrades", description: "Plan gear shop choices, ROI checks, and farm progression upgrades." },
         { href: localizedHref(locale, "beginners-guide"), title: "Farming Guide", description: "Learn the crop, harvest, upgrade, expand, sell, and offline income loop." },
         { href: localizedHref(locale, "codes"), title: "Codes", description: "Check verified Build A Ring Farm codes status, pending claims, and safe redemption notes." },
         { href: localizedHref(locale, "updates"), title: "Updates", description: "Track official Roblox changes, update signals, and recheck points." },
@@ -147,6 +148,7 @@ export function createTemplateHomePage(locale = "en"): HomePageContent {
     popularSearches: [
       { href: "/codes/", title: `${gameConfig.gameName} Codes`, description: "Check whether any official or in-game code proof exists.", coversLabel: "Covers", covers: "Codes · Status · Safety" },
       { href: "/crops/", title: `${gameConfig.gameName} Crops`, description: "Understand crop flow, harvest timing, selling, upgrades, and reinvestment.", coversLabel: "Covers", covers: "Crops · Farming · Cash" },
+      { href: "/upgrades/", title: `${gameConfig.gameName} Upgrades`, description: "Plan gear shop choices, ROI checks, mutation value, and upgrade timing.", coversLabel: "Covers", covers: "Upgrades · Gear · ROI" },
       { href: "/beginners-guide/", title: `${gameConfig.gameName} Beginner Guide`, description: "Start with crops, upgrades, selling, expansion, and offline earnings.", coversLabel: "Covers", covers: "Crops · Upgrade · Sell" },
       { href: "/updates/", title: `${gameConfig.gameName} Updates`, description: "Follow update checks and recheck points for codes, rewards, and farm systems.", coversLabel: "Covers", covers: "Updates · Sources · Changes" }
     ],
@@ -291,6 +293,7 @@ function createCropsPage(locale: string): StrategyPageContent {
     relatedLinks: [
       { href: localizedHref(locale, "beginners-guide"), title: "Beginner Guide", description: "Learn the full early-game farming route." },
       { href: localizedHref(locale, "codes"), title: "Codes", description: "Check whether verified codes exist before using code lists." },
+      { href: localizedHref(locale, "upgrades"), title: "Upgrades", description: "Plan upgrade timing after the crop loop is stable." },
       { href: localizedHref(locale, "updates"), title: "Updates", description: "Review update triggers that may change crops or upgrades." }
     ],
     faq: [
@@ -302,9 +305,81 @@ function createCropsPage(locale: string): StrategyPageContent {
   };
 }
 
+function createUpgradesPage(locale: string): StrategyPageContent {
+  return {
+    meta: {
+      title: withLocale(`${gameConfig.gameName} Upgrades Guide | Gear Shop & ROI`, locale),
+      description: `${gameConfig.gameName} upgrades guide for Roblox players. Learn gear shop planning, ROI checks, mutation value, crop efficiency, and safe upgrade timing.`
+    },
+    slug: "upgrades",
+    hero: {
+      eyebrow: "Upgrades and gear guide",
+      h1: withLocale(`${gameConfig.gameName} Upgrades Guide`, locale),
+      lede: "Use this Build A Ring Farm upgrades guide to decide when to buy gear, when to expand, and how to compare upgrade value without relying on unverified prices or fake multipliers.",
+      primaryAction: { label: "Read crops guide", href: localizedHref(locale, "crops") },
+      secondaryAction: { label: "Open beginner guide", href: localizedHref(locale, "beginners-guide") }
+    },
+    summaryCards: [
+      { title: "Upgrade goal", description: "Buy upgrades that improve repeated crop cycles, not only one harvest." },
+      { title: "Gear shop logic", description: "Judge gear by farming speed, output value, mutation support, and cash recovery time." },
+      { title: "No fake multipliers", description: "This page avoids unverified gear prices, mutation odds, and exact ROI numbers." }
+    ],
+    sections: [
+      {
+        heading: "How upgrades work in Build A Ring Farm",
+        body: [
+          "Upgrades matter because they change how efficiently your farm turns time into cash. A good upgrade should make future crop cycles easier, faster, or more valuable.",
+          "For early players, the core question is not whether an item sounds powerful. The core question is whether that upgrade helps the next several farming cycles pay back its cost."
+        ],
+        list: ["Improve crop output or harvest speed.", "Reduce idle time between harvests.", "Support expansion into more plots or stronger farming cycles.", "Avoid upgrades that delay basic progression without clear benefit."]
+      },
+      {
+        heading: "Gear shop upgrade strategy",
+        body: [
+          "Competing guides often highlight gear shop items because they are useful search targets. The safer way to cover this topic is to explain how to evaluate gear before publishing exact numbers.",
+          "Before buying gear, check whether it helps with farming speed, selling value, mutation value, or long-term expansion. If the gear only helps rarely, it may be worse than a basic farm upgrade."
+        ],
+        list: ["Ask what farming problem the gear solves.", "Compare the price with your normal cash-per-cycle.", "Prefer upgrades that help every crop cycle.", "Treat mutation-related claims as pending until verified in-game."]
+      },
+      {
+        heading: "ROI checklist for upgrades",
+        body: [
+          "ROI means return on investment. In Chinese, ROI 可以理解为“投入回报比”：你花出去的金币，要多久能靠更高产出赚回来。",
+          "A simple upgrade rule is this: if an upgrade makes every future harvest better, it is usually safer than an upgrade that only helps in rare cases. But exact ROI requires verified in-game numbers."
+        ],
+        list: ["How much does the upgrade cost?", "How much faster or stronger is each harvest after buying it?", "How many crop cycles are needed to earn the cost back?", "Will a new update change the upgrade value?"]
+      },
+      {
+        heading: "When to delay upgrades",
+        body: [
+          "Not every upgrade should be purchased immediately. If buying it empties your cash and leaves plots idle, the upgrade can slow progress instead of speeding it up.",
+          "Delay an upgrade when its benefit is unclear, when your crop loop is unstable, or when the item depends on a mechanic that has not been verified yet."
+        ],
+        list: ["Delay unclear gear purchases.", "Do not buy based only on community hype.", "Keep enough cash to continue planting and selling.", "Recheck upgrade advice after major updates."]
+      }
+    ],
+    relatedLinks: [
+      { href: localizedHref(locale, "crops"), title: "Crops", description: "Understand crop cycles before judging upgrade ROI." },
+      { href: localizedHref(locale, "beginners-guide"), title: "Beginner Guide", description: "Learn the full first-session progression route." },
+      { href: localizedHref(locale, "updates"), title: "Updates", description: "Track changes that may affect gear and upgrades." },
+      { href: localizedHref(locale, "codes"), title: "Codes", description: "Check whether verified codes can support upgrade progression." }
+    ],
+    faq: [
+      { q: "What are upgrades in Build A Ring Farm?", a: "Upgrades are purchases or systems that can improve farming speed, crop output, selling efficiency, expansion, or long-term progression." },
+      { q: "What should I upgrade first in Build A Ring Farm?", a: "A single best first upgrade has not been verified here yet. Beginners should favor upgrades that improve repeated crop cycles and prevent idle plots." },
+      { q: "Does this page list gear shop prices?", a: "No. This guide does not publish exact gear prices or mutation multipliers until they are verified from official or in-game evidence." },
+      { q: "What does ROI mean for upgrades?", a: "ROI means return on investment. For upgrades, it asks how many crop cycles are needed before the upgrade earns back its cost." }
+    ]
+  };
+}
+
 export function createTemplateStrategyPage(slug: StrategySlug, locale = "en"): StrategyPageContent {
   if (slug === "crops") {
     return createCropsPage(locale);
+  }
+
+  if (slug === "upgrades") {
+    return createUpgradesPage(locale);
   }
 
   const label = pageTitle(slug);
