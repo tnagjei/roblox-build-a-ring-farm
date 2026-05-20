@@ -2,12 +2,12 @@
   "site": {
     "name": "Build A Ring Farm Guide",
     "shortName": "Build A Ring Farm",
-    "description": "Build A Ring Farm guide for Roblox players, covering farming basics, codes status, official update checks, safe gameplay tips, and source-checked game information.",
+    "description": "Build A Ring Farm wiki and guide for Roblox players, covering codes status, crops, upgrades, official update checks, safe gameplay tips, and source-checked game information.",
     "contactEmail": "tangjei414@gmail.com",
     "copyrightOwner": "tangjei414@gmail.com",
     "lastFullCheck": "2026-05-20",
     "defaultBaseUrl": "https://buildaringfarm.org",
-    "aliases": ["Build A Ring Farm", "Build A Ring Farm Roblox", "Build A Ring Farm Guide"],
+    "aliases": ["Build A Ring Farm", "Build A Ring Farm Roblox", "Build A Ring Farm Wiki", "Build A Ring Farm Guide"],
     "friendLinks": []
   },
   "game": {
@@ -95,27 +95,31 @@
     {
       "key": "home",
       "path": "/",
-      "title": "Build A Ring Farm | Roblox Farming Guide, Codes & Tips",
-      "description": "Build A Ring Farm guide for Roblox players: grow and harvest plants, upgrade your farm, sell crops for cash, check codes status, and track updates.",
-      "h1": "Build A Ring Farm",
-      "lede": "Build A Ring Farm is a Roblox farming simulator about growing plants, upgrading your farm, selling crops for cash, and earning while offline.",
-      "focus": "Build A Ring Farm",
+      "title": "Build A Ring Farm Wiki | Codes, Crops & Guide",
+      "description": "Build A Ring Farm wiki for Roblox players: check codes status, learn crops, upgrades, beginner routes, update notes, safe links, and offline income tips.",
+      "h1": "Build A Ring Farm Wiki",
+      "lede": "Build A Ring Farm is a Roblox farming simulator about growing crops, upgrading your ring-shaped farm, selling harvests for cash, and using offline income to keep progress moving.",
+      "focus": "Build A Ring Farm Wiki",
       "relatedPages": ["codes", "beginners-guide", "updates"],
       "faq": [
         {
-          "q": "What is Build A Ring Farm?",
-          "a": "Build A Ring Farm is a Roblox farming simulator where players grow and harvest plants, upgrade and expand a farm, sell crops for cash, and keep earning offline."
+          "q": "What is Build A Ring Farm Wiki?",
+          "a": "Build A Ring Farm Wiki is an independent fan guide for the Roblox farming simulator Build A Ring Farm."
         },
         {
-          "q": "Is this an official Build A Ring Farm website?",
-          "a": "No. This is an independent fan guide. The official game page is on Roblox."
+          "q": "What does this Build A Ring Farm guide cover?",
+          "a": "It covers codes status, beginner farming routes, crops, upgrades, update checks, safety notes, and offline income basics."
         },
         {
           "q": "Does Build A Ring Farm have verified active codes?",
           "a": "No verified official codes have been confirmed yet."
+        },
+        {
+          "q": "Is this an official Build A Ring Farm website?",
+          "a": "No. This is an independent fan guide. The official game page is on Roblox."
         }
       ],
-      "primaryKeyword": "Build A Ring Farm"
+      "primaryKeyword": "Build A Ring Farm Wiki"
     },
     {
       "key": "codes",
