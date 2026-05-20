@@ -20,6 +20,10 @@ Build A Ring Farm seeds
 Build A Ring Farm crops
 Build A Ring Farm gear shop
 Build A Ring Farm sprays
+Build A Ring Farm mutations
+Build A Ring Farm fertilizer
+Build A Ring Farm offline income
+Build A Ring Farm farm layout
 Build A Ring Farm tier list
 Build A Ring Farm advanced crops
 Build A Ring Farm weather events
@@ -33,6 +37,8 @@ Build A Ring Farm money farming
 Community reported
 Pending
 Needs verification
+Strategy
+Verified direction
 ```
 
 禁止把社区数据、对标站数据、Discord 玩家口径、截图猜测写成官方确认。
@@ -53,6 +59,10 @@ Needs verification
 /upgrades/
 /gear-shop/
 /sprays/
+/mutations/
+/fertilizer/
+/offline-income/
+/farm-layout/
 /tier-list/
 /advanced-crops/
 /money-farming/
@@ -121,6 +131,10 @@ completedCoreSlugs
 ```text
 gear-shop
 sprays
+mutations
+fertilizer
+offline-income
+farm-layout
 tier-list
 ```
 
@@ -148,6 +162,10 @@ seeds
 crops
 gear-shop
 sprays
+mutations
+fertilizer
+offline-income
+farm-layout
 tier-list
 advanced-crops
 weather-events
@@ -178,6 +196,10 @@ Seeds
 Upgrades
 Gear Shop
 Sprays
+Mutations
+Fertilizer
+Offline Income
+Farm Layout
 Advanced Crops
 Weather Events
 Tier List
@@ -190,13 +212,23 @@ Scripts
 首页模板。当前已做兜底入口注入：
 
 ```text
-如果首页 directory 没有 /sprays/，自动追加 Sprays card
-如果 popular searches 没有 /sprays/，自动追加 Sprays 热门搜索
-如果 FAQ 没有 spray 问题，自动追加 Sprays 官方性边界 FAQ
-如果首页 directory 没有 /tier-list/，自动追加 Tier List card
-如果 popular searches 没有 /tier-list/，自动追加 Tier List 热门搜索
-如果 FAQ 没有 tier list 问题，自动追加 Tier List 官方性边界 FAQ
+Sprays
+Mutations
+Fertilizer
+Offline Income
+Farm Layout
+Tier List
 ```
+
+兜底注入范围：
+
+```text
+Directory card
+Popular search card
+FAQ 边界问题
+```
+
+目的：避免新增页面成为孤岛页。
 
 ### `components/templates/StrategyPageTemplate.tsx`
 
@@ -360,7 +392,79 @@ Wet → D
 
 全部标注 `Community reported`。不得写官方确认价格、官方确认效果、stacking 规则、offline 行为。
 
-### 5.6 内页 SEO 合规扫尾
+### 5.6 Mutations 页面工程
+
+路径：
+
+```text
+/mutations/
+```
+
+TDK：
+
+```text
+Title: Build A Ring Farm Mutations Guide | Effects & Tiers
+Description: Build A Ring Farm mutations guide covering community reported mutation effects, sprays, weather events, tier logic, stacking checks, and source status.
+H1: Build A Ring Farm Mutations Guide
+```
+
+边界：mutation 倍率、堆叠规则、离线触发规则全部不得写成官方确认。当前统一标注 `Community reported / Needs verification`。
+
+### 5.7 Fertilizer 页面工程
+
+路径：
+
+```text
+/fertilizer/
+```
+
+TDK：
+
+```text
+Title: Build A Ring Farm Fertilizer Guide | Growth & ROI
+Description: Build A Ring Farm fertilizer guide covering community reported Strong Fertilizer use, crop timing, sprays, upgrades, ROI, and source status.
+H1: Build A Ring Farm Fertilizer Guide
+```
+
+边界：Strong Fertilizer 价格、成长倍率、冷却、离线行为全部不得写成官方确认。
+
+### 5.8 Offline Income 页面工程
+
+路径：
+
+```text
+/offline-income/
+```
+
+TDK：
+
+```text
+Title: Build A Ring Farm Offline Income Guide | AFK Cash
+Description: Build A Ring Farm offline income guide covering offline earnings, logout checks, crops, upgrades, weather events, mutations, and source status.
+H1: Build A Ring Farm Offline Income Guide
+```
+
+边界：官方方向可写“offline earnings”，但 exact rates、offline weather events、offline mutations、offline sprays 全部 `Needs verification`。
+
+### 5.9 Farm Layout 页面工程
+
+路径：
+
+```text
+/farm-layout/
+```
+
+TDK：
+
+```text
+Title: Build A Ring Farm Farm Layout Guide | Profit Routes
+Description: Build A Ring Farm farm layout guide covering early layouts, ring expansion, active plots, crop routes, upgrade timing, offline income, and source status.
+H1: Build A Ring Farm Farm Layout Guide
+```
+
+边界：不写未验证最优布局图、具体覆盖范围或收益倍率。layout 建议只做 checklist 和阶段策略。
+
+### 5.10 内页 SEO 合规扫尾
 
 已重点优化：
 
@@ -370,6 +474,10 @@ Wet → D
 /upgrades/
 /gear-shop/
 /sprays/
+/mutations/
+/fertilizer/
+/offline-income/
+/farm-layout/
 /tier-list/
 /advanced-crops/
 /weather-events/
@@ -386,7 +494,7 @@ Description 尽量 140–160 字符
 多个 H3
 canonical
 FAQ
-Community reported / Pending 标注
+Community reported / Pending / Needs verification 标注
 内链互相承接
 ```
 
@@ -400,6 +508,10 @@ Community reported / Pending 标注
 /upgrades/        Upgrade ROI, gear timing. 不写精确 ROI 表。
 /gear-shop/       Gear shop, sprays, fertilizer, ROI. 不写官方价格和官方效果。
 /sprays/          Spray effects, rare routes, event comparison. 不写官方价格、stacking、offline 行为。
+/mutations/       Mutation effects, tier logic, stacking checks. 不写官方倍率、官方堆叠规则。
+/fertilizer/      Strong Fertilizer, crop timing, ROI. 不写官方价格、成长倍率、冷却。
+/offline-income/  Offline earnings, AFK checks. 不写未验证离线事件、离线 mutation、精确收益率。
+/farm-layout/     Layout checklist, expansion timing. 不写未验证最优布局图或收益倍率。
 /tier-list/       Community reported effect tiers. 不写官方榜单。
 /advanced-crops/  Rare effects, sprays, event odds. 不把倍率写成官方确认。
 /weather-events/  Rain, Blizzard, Black Hole, Nuclear, Galaxy. 概率和倍率全部 Community reported。
@@ -478,6 +590,8 @@ FAQ
 Community reported
 Needs verification
 Pending
+Strategy
+Verified direction
 ```
 
 ### 禁止写假数据
@@ -489,6 +603,10 @@ Pending
 未验证 seed pack 概率
 未验证 gear shop 价格
 未验证 spray 官方效果
+未验证 mutation 官方倍率
+未验证 fertilizer 成长倍率
+未验证 offline rare effect 行为
+未验证 farm layout 最大收益图
 未验证 tier list 官方排名
 未验证每秒收益
 未验证 code active 状态
@@ -507,7 +625,7 @@ https://www.buildaringfarm.online/
 https://www.buildaringfarm.wiki/
 ```
 
-可吸收结构，不可复制未验证具体数据。倍率、事件概率、喷雾价格、tier ranking 等必须标注 `Community reported`。
+可吸收结构，不可复制未验证具体数据。倍率、事件概率、喷雾价格、tier ranking、mutation stacking、fertilizer claims 等必须标注 `Community reported` 或 `Needs verification`。
 
 ---
 
@@ -526,26 +644,19 @@ npm run dev
 
 ```text
 /
-/sprays/
-/tier-list/
-/gear-shop/
-/sitemap.xml
-Guides 下拉
-Footer Guides
-```
-
-### P1：下一批长尾页
-
-优先考虑：
-
-```text
+/mutations/
 /fertilizer/
 /offline-income/
 /farm-layout/
-/mutations/
+/sprays/
+/tier-list/
+/sitemap.xml
+Guides 下拉
+Footer Guides
+首页入口
 ```
 
-其中 `/fertilizer/` 最顺，因为它能承接 `/gear-shop/`、`/sprays/`、`/money-farming/`。
+### P1：不要马上做 Discord / Trello
 
 暂不优先：
 
@@ -559,6 +670,17 @@ Footer Guides
 ```text
 No verified official Discord / Trello has been confirmed yet.
 ```
+
+### P2：后续可考虑页面
+
+```text
+/crop-values/
+/rarities/
+/codes-update-log/
+/wiki-trello-discord/
+```
+
+但前提是先确认本地构建通过，并检查新增页面没有重复、空壳或假数据问题。
 
 ---
 
@@ -588,6 +710,10 @@ Verifiable:
 ```text
 /gear-shop 已新增并接入导航、数据源、首页内链。
 /sprays 已新增并接入 game-config、data source、Guides 下拉、首页入口。
+/mutations 已新增并接入 game-config、data source、Guides 下拉、首页入口。
+/fertilizer 已新增并接入 game-config、data source、Guides 下拉、首页入口。
+/offline-income 已新增并接入 game-config、data source、Guides 下拉、首页入口。
+/farm-layout 已新增并接入 game-config、data source、Guides 下拉、首页入口。
 /tier-list 已新增并接入导航、数据源、首页入口。
 /crops 与 /upgrades 已从通用模板升级为专用 SEO 内容。
 顶部导航已压缩为主导航 + Guides 下拉。
@@ -598,11 +724,11 @@ public/data/build-a-ring-farm.json 已完成多轮 TDK 同步。
 Judgment:
 
 ```text
-当前项目已经从核心页面生产阶段进入长尾扩展 + 数据验证阶段。
+当前项目已经完成第一轮主题集群搭建，下一步应以构建验证、页面质量审计、内链密度和事实边界检查为主，而不是继续无脑扩页。
 ```
 
 Confidence ≠ Correctness:
 
 ```text
-后续是否继续做 fertilizer、offline-income、farm-layout、mutations，需要看搜索意图和页面质量，不应只因为对标站有就盲目复制。
+后续是否继续做 crop-values、rarities、wiki-trello-discord，需要看搜索意图和证据可得性，不应只因为对标站有就盲目复制。
 ```
