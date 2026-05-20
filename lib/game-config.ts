@@ -28,10 +28,10 @@ export const gameConfig = {
   creatorType: "Group",
 
   analytics: {
-    googleAnalyticsId: "",
-    yandexVerification: "",
-    clarityId: "",
-    adsenseClient: "",
+    googleAnalyticsId: "G-PPB0397NMC",
+    yandexVerification: "44eddf75ef99733d",
+    clarityId: "wty71lzhdp",
+    adsenseClient: "ca-pub-3083296102953963",
     thirdPartyAdScripts: [] as string[]
   },
 
