@@ -1,13 +1,14 @@
 // input: `/weather-events/` route request
-// output: English weather events guide page with community reported event data
+// output: English weather events guide page with cross-source community reported event data
 // pos: weather-events route（更新规则：文件变更需同步本注释与所属目录 README）
 
 import type { Metadata } from "next";
 import Link from "next/link";
 
 const pageTitle = "Build A Ring Farm Weather Events Guide | Event Effects";
-const pageDescription = "Build A Ring Farm weather events guide covering Rain, Blizzard, Galaxy, reported effects, chances, rare crop value, sprays, and source checks.";
+const pageDescription = "Build A Ring Farm weather events guide covering Rain, Blizzard, Galaxy, cross-source reported effects, chances, rare crop value, sprays, and source checks.";
 const heroImage = "/official-hero-image";
+const crossSourceStatus = "Cross-source community reported";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -18,17 +19,17 @@ export const metadata: Metadata = {
 };
 
 const summaryCards = [
-  { title: "Community reported odds", description: "Event chances below are community reported and should not be treated as official Roblox values." },
+  { title: "Cross-source community reported odds", description: "Event chances below appear across multiple community sources but should not be treated as official Roblox values." },
   { title: "Rare crop effects", description: "Weather and event effects can connect to rare crop value, sprays, and advanced crop routes." },
   { title: "Offline limit checks", description: "Offline earnings are official, but offline event triggering needs separate verification." }
 ];
 
 const eventRows = [
-  { eventName: "Rain Event", reportedEffect: "Wet", reportedChance: "8%", reportedValue: "1.5x", status: "Community reported" },
-  { eventName: "Blizzard Event", reportedEffect: "Frozen", reportedChance: "4%", reportedValue: "1.75x", status: "Community reported" },
-  { eventName: "Black Hole Event", reportedEffect: "Void", reportedChance: "3%", reportedValue: "2.25x", status: "Community reported" },
-  { eventName: "Nuclear Event", reportedEffect: "Radioactive", reportedChance: "2%", reportedValue: "3x", status: "Community reported" },
-  { eventName: "Galaxy Event", reportedEffect: "Rainbow", reportedChance: "1%", reportedValue: "5x", status: "Community reported" }
+  { eventName: "Rain Event", reportedEffect: "Wet", reportedChance: "8%", reportedValue: "1.5x", status: crossSourceStatus },
+  { eventName: "Blizzard Event", reportedEffect: "Frozen", reportedChance: "4%", reportedValue: "1.75x", status: crossSourceStatus },
+  { eventName: "Black Hole Event", reportedEffect: "Void", reportedChance: "3%", reportedValue: "2.25x", status: crossSourceStatus },
+  { eventName: "Nuclear Event", reportedEffect: "Radioactive", reportedChance: "2%", reportedValue: "3x", status: crossSourceStatus },
+  { eventName: "Galaxy Event", reportedEffect: "Rainbow", reportedChance: "1%", reportedValue: "5x", status: crossSourceStatus }
 ];
 
 const sections = [
@@ -36,8 +37,8 @@ const sections = [
     heading: "How weather events fit into Build A Ring Farm",
     subheading: "Event role in farming",
     body: [
-      "Weather events are useful because they may change crop outcomes, rare crop effects, and farming value. Community sources report that events such as Rain, Blizzard, Black Hole, Nuclear, and Galaxy can connect to specific rare crop effects.",
-      "The official Roblox page confirms the broad farming loop and offline earnings, but it does not publish event odds or rare effect values. Treat the event table as community reported until official notes, developer posts, or in-game screenshots confirm it."
+      "Weather events are useful because they may change crop outcomes, rare crop effects, and farming value. Multiple community sources report that events such as Rain, Blizzard, Black Hole, Nuclear, and Galaxy can connect to specific rare crop effects.",
+      "The official Roblox page confirms the broad farming loop and offline earnings, but it does not publish event odds or rare effect values. Treat the event table as cross-source community reported until official notes, developer posts, or in-game screenshots confirm it."
     ],
     list: ["Events can affect rare crop outcomes.", "Reported odds are not official confirmation.", "Event data should be rechecked after updates.", "Offline event behavior needs separate testing."]
   },
@@ -64,14 +65,14 @@ const sections = [
     subheading: "Pending evidence",
     body: [
       "The most important missing evidence is whether the reported event odds are still current after updates, whether event effects can trigger while offline, and whether event effects stack with sprays or other systems.",
-      "Until that evidence exists, avoid writing confirmed language such as official odds, guaranteed effects, or best event route. Use community reported, pending, or needs verification instead."
+      "Until that evidence exists, avoid writing confirmed language such as official odds, guaranteed effects, or best event route. Use cross-source community reported, pending, or needs verification instead."
     ],
     list: ["Exact event odds.", "Whether effects trigger offline.", "Whether effects stack with sprays.", "Whether values changed after the latest update."]
   }
 ];
 
 const relatedLinks = [
-  { href: "/advanced-crops/", title: "Advanced Crops", description: "Review rare crop values, sprays, and community reported effects." },
+  { href: "/advanced-crops/", title: "Advanced Crops", description: "Review rare crop values, sprays, and cross-source community reported effects." },
   { href: "/gear-shop/", title: "Gear Shop", description: "Compare sprays and gear shop choices with event effects." },
   { href: "/upgrades/", title: "Upgrades", description: "Compare upgrades and ROI with event effects." },
   { href: "/money-farming/", title: "Money Farming", description: "Build a cash route that does not depend only on random events." },
@@ -80,8 +81,8 @@ const relatedLinks = [
 ];
 
 const faq = [
-  { q: "Are Build A Ring Farm weather event odds official?", a: "No. The odds on this page are community reported and should be rechecked after updates." },
-  { q: "Which weather event has the strongest reported effect?", a: "Community sources report Galaxy Event as connected to Rainbow, with a reported 5x value effect, but this is not official-source verified here." },
+  { q: "Are Build A Ring Farm weather event odds official?", a: "No. The odds on this page are cross-source community reported and should be rechecked after updates." },
+  { q: "Which weather event has the strongest reported effect?", a: "Multiple community sources report Galaxy Event as connected to Rainbow, with a reported 5x value effect, but this is not official-source verified here." },
   { q: "Can weather events happen while offline?", a: "Offline event behavior is not verified here yet. The official page confirms offline earnings, but not offline rare event triggering." },
   { q: "Should beginners focus on weather events?", a: "No. Beginners should stabilize seeds, crops, selling, and upgrades before planning around rare event outcomes." }
 ];
@@ -98,7 +99,7 @@ export default function WeatherEventsPage() {
           <p className="eyebrow">Weather and event guide</p>
           <h1>Build A Ring Farm Weather Events Guide</h1>
           <p className="lede">
-            Use this Build A Ring Farm weather events guide to review community reported Rain, Blizzard, Black Hole, Nuclear, and Galaxy event effects without treating unverified odds as official facts.
+            Use this Build A Ring Farm weather events guide to review cross-source community reported Rain, Blizzard, Black Hole, Nuclear, and Galaxy event effects without treating unverified odds as official facts.
           </p>
           <div className="hero-actions">
             <Link className="primary-link" href="/advanced-crops/">Read advanced crops</Link>
@@ -119,13 +120,13 @@ export default function WeatherEventsPage() {
       </section>
 
       <section className="section-heading">
-        <p className="eyebrow">Community table</p>
+        <p className="eyebrow">Cross-source table</p>
         <h2>Reported weather event effects</h2>
       </section>
       <section className="content-grid single-column-grid">
         <article className="guide-card data-card">
           <span className="card-rule" />
-          <p className="eyebrow">Community reported</p>
+          <p className="eyebrow">Cross-source community reported</p>
           <h2>Event odds and value effects</h2>
           <div className="data-list">
             {eventRows.map((row) => (
