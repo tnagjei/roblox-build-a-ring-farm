@@ -6,6 +6,7 @@ import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import "./globals.css";
 import "./language.css";
+import "./nav-fixes.css";
 import { SiteChrome } from "@/components/SiteChrome";
 import { gameConfig } from "@/lib/game-config";
 import { siteData } from "@/lib/site-data";
