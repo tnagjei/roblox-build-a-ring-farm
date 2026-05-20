@@ -1,5 +1,5 @@
 // input: Next.js App Router children, site config, and site data
-// output: root HTML layout with shared chrome and optional integrations
+// output: root HTML layout with shared chrome and optional production integrations
 // pos: app root layout（更新规则：文件变更需同步本注释与所属目录 README）
 
 import type { Metadata, Viewport } from "next";
@@ -11,11 +11,12 @@ import { gameConfig } from "@/lib/game-config";
 import { siteData } from "@/lib/site-data";
 import { siteUrl } from "@/lib/seo";
 
-const googleAnalyticsId = process.env.NEXT_PUBLIC_GA_ID || gameConfig.analytics.googleAnalyticsId;
-const adsenseClient = process.env.NEXT_PUBLIC_ADSENSE_CLIENT || gameConfig.analytics.adsenseClient;
-const clarityId = process.env.NEXT_PUBLIC_CLARITY_ID || gameConfig.analytics.clarityId;
+const isProduction = process.env.NODE_ENV === "production";
+const googleAnalyticsId = isProduction ? process.env.NEXT_PUBLIC_GA_ID || gameConfig.analytics.googleAnalyticsId : "";
+const adsenseClient = isProduction ? process.env.NEXT_PUBLIC_ADSENSE_CLIENT || gameConfig.analytics.adsenseClient : "";
+const clarityId = isProduction ? process.env.NEXT_PUBLIC_CLARITY_ID || gameConfig.analytics.clarityId : "";
 const yandexVerification = process.env.NEXT_PUBLIC_YANDEX_VERIFICATION || gameConfig.analytics.yandexVerification;
-const thirdPartyAdScripts = gameConfig.analytics.thirdPartyAdScripts;
+const thirdPartyAdScripts = isProduction ? gameConfig.analytics.thirdPartyAdScripts : [];
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
