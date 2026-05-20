@@ -7,6 +7,7 @@
 ## Files
 - README.md：本目录说明
 - globals.css：全站视觉样式
+- nav-fixes.css：顶部导航下拉浮层修复样式
 - layout.tsx：根布局和全局 metadata
 - icon.tsx：浏览器标签、收藏夹和安装入口图标
 - opengraph-image.tsx：社交分享图动态生成路由
@@ -24,8 +25,9 @@
 - beginners-guide/：新手指南页面
 - crops/：crops 长尾 SEO 页面
 - seeds/：seeds 长尾 SEO 页面
-- advanced-crops/：advanced crops 长尾 SEO 页面
 - upgrades/：upgrades 长尾 SEO 页面
+- gear-shop/：gear shop 长尾 SEO 页面
+- advanced-crops/：advanced crops 长尾 SEO 页面
 - money-farming/：money farming 长尾 SEO 页面
 - weather-events/：weather events 长尾 SEO 页面
 - updates/：更新日志页面
