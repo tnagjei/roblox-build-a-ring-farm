@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const pageTitle = "Build A Ring Farm Weather Events Guide | Rain, Blizzard & Galaxy";
 const pageDescription = "Build A Ring Farm weather events guide with community reported event effects, chances, rare crop value, offline limits, sprays, and safe source checks.";
-const heroImage = "/images/hero.webp";
+const heroImage = "/official-hero-image";
 
 export const metadata: Metadata = {
   title: pageTitle,
