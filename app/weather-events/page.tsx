@@ -5,8 +5,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-const pageTitle = "Build A Ring Farm Weather Events Guide | Rain, Blizzard & Galaxy";
-const pageDescription = "Build A Ring Farm weather events guide with community reported event effects, chances, rare crop value, offline limits, sprays, and safe source checks.";
+const pageTitle = "Build A Ring Farm Weather Events Guide | Event Effects";
+const pageDescription = "Build A Ring Farm weather events guide covering Rain, Blizzard, Galaxy, reported effects, chances, rare crop value, sprays, and source checks.";
 const heroImage = "/official-hero-image";
 
 export const metadata: Metadata = {
@@ -34,6 +34,7 @@ const eventRows = [
 const sections = [
   {
     heading: "How weather events fit into Build A Ring Farm",
+    subheading: "Event role in farming",
     body: [
       "Weather events are useful because they may change crop outcomes, rare crop effects, and farming value. Community sources report that events such as Rain, Blizzard, Black Hole, Nuclear, and Galaxy can connect to specific rare crop effects.",
       "The official Roblox page confirms the broad farming loop and offline earnings, but it does not publish event odds or rare effect values. Treat the event table as community reported until official notes, developer posts, or in-game screenshots confirm it."
@@ -42,6 +43,7 @@ const sections = [
   },
   {
     heading: "Best way to use event information",
+    subheading: "Event planning rule",
     body: [
       "Do not plan your entire money route around a low-chance event. Use event information as a bonus layer on top of normal farming, seeds, crops, upgrades, and money farming routes.",
       "If a reported event effect appears, compare it with spray costs and crop value before spending more. A strong event effect on a weak crop may still be worse than a steady upgrade path."
@@ -50,14 +52,16 @@ const sections = [
   },
   {
     heading: "Events, sprays, and advanced crops",
+    subheading: "How effects overlap",
     body: [
       "Weather events overlap with advanced crops because both can affect rare crop value. Sprays may apply specific effects directly, while events may trigger effects through timing or chance.",
-      "That makes the event page part of the same SEO cluster as advanced crops, upgrades, and money farming. The safest content strategy is to show the reported data, label its status, and link to the deeper pages."
+      "That makes the event page part of the same SEO cluster as advanced crops, upgrades, gear shop, and money farming. The safest content strategy is to show the reported data, label its status, and link to the deeper pages."
     ],
-    list: ["Use advanced crops for reported value boosts.", "Use upgrades for spray and ROI decisions.", "Use money farming for route planning.", "Use this page for event timing and chance leads."]
+    list: ["Use advanced crops for reported value boosts.", "Use gear shop for spray decisions.", "Use upgrades for ROI decisions.", "Use this page for event timing and chance leads."]
   },
   {
     heading: "What still needs verification",
+    subheading: "Pending evidence",
     body: [
       "The most important missing evidence is whether the reported event odds are still current after updates, whether event effects can trigger while offline, and whether event effects stack with sprays or other systems.",
       "Until that evidence exists, avoid writing confirmed language such as official odds, guaranteed effects, or best event route. Use community reported, pending, or needs verification instead."
@@ -68,7 +72,8 @@ const sections = [
 
 const relatedLinks = [
   { href: "/advanced-crops/", title: "Advanced Crops", description: "Review rare crop values, sprays, and community reported effects." },
-  { href: "/upgrades/", title: "Upgrades", description: "Compare sprays and gear shop choices with event effects." },
+  { href: "/gear-shop/", title: "Gear Shop", description: "Compare sprays and gear shop choices with event effects." },
+  { href: "/upgrades/", title: "Upgrades", description: "Compare upgrades and ROI with event effects." },
   { href: "/money-farming/", title: "Money Farming", description: "Build a cash route that does not depend only on random events." },
   { href: "/crops/", title: "Crops", description: "Understand the normal crop cycle before optimizing event effects." },
   { href: "/updates/", title: "Updates", description: "Recheck events after Roblox or developer updates." }
@@ -140,6 +145,7 @@ export default function WeatherEventsPage() {
           <article className="guide-card" key={section.heading}>
             <span className="card-rule" />
             <h2>{section.heading}</h2>
+            <h3>{section.subheading}</h3>
             {section.body.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
             <ul>{section.list.map((item) => <li key={item}>{item}</li>)}</ul>
           </article>
