@@ -7,8 +7,8 @@ import Link from "next/link";
 import { siteData } from "@/lib/site-data";
 import { absoluteUrl } from "@/lib/seo";
 
-const pageTitle = "Build A Ring Farm Money Farming Guide | Cash, Crops & Upgrades";
-const pageDescription = "Build A Ring Farm money farming guide for Roblox players. Learn cash routes, seed choices, crop cycles, upgrades, offline income, code rewards, and safe progression tips.";
+const pageTitle = "Build A Ring Farm Money Farming Guide | Cash Routes";
+const pageDescription = "Build A Ring Farm money farming guide covering cash routes, seeds, crop cycles, upgrades, offline income, code rewards, and safe progression.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -41,6 +41,7 @@ const mistakeRows = [
 const sections = [
   {
     heading: "How money farming works in Build A Ring Farm",
+    subheading: "Cash loop basics",
     body: [
       "Money farming in Build A Ring Farm is the process of turning seeds into crops, crops into cash, and cash into upgrades that improve the next cycle.",
       "The official game page confirms the core loop of growing plants, harvesting, upgrading, expanding, selling plants for cash, and earning while offline. Exact per-second earnings and best-crop values are not published on the official page, so this guide avoids fake income numbers."
@@ -49,6 +50,7 @@ const sections = [
   },
   {
     heading: "Best early money farming route",
+    subheading: "Early cash route",
     body: [
       "The safest early money route is simple: keep every plot active, sell consistently, and buy upgrades that help every future harvest. Do not hold too much cash if a useful upgrade can improve repeated cycles.",
       "Early players should avoid over-focusing on rare crop effects. If your base crop cycle is weak, rare-effect chasing can slow you down instead of helping."
@@ -57,6 +59,7 @@ const sections = [
   },
   {
     heading: "When codes can help money farming",
+    subheading: "Rewards as bonus progress",
     body: [
       "Some third-party code pages report rewards such as cash, fertilizer, sprays, time skips, or seed packs. These rewards can support money farming, but the exact active-code status should be checked before relying on them.",
       "Use codes as a bonus source of progress, not as the foundation of your money route. Codes can expire, rewards can change, and community lists can disagree."
@@ -65,17 +68,19 @@ const sections = [
   },
   {
     heading: "Advanced money route: crops, gear, and rare effects",
+    subheading: "Late route checks",
     body: [
       "Once your basic crop cycle is stable, the next step is to compare crop value, gear shop choices, and reported rare crop effects. This is where ROI matters most.",
       "A reported high-value effect is not automatically the best choice. You still need to consider trigger difficulty, event timing, spray cost, and whether the same cash could improve normal farming more reliably."
     ],
-    list: ["Use the crops guide for base farming decisions.", "Use the upgrades guide for ROI thinking.", "Use advanced crops for community reported rare values.", "Recheck everything after major updates."]
+    list: ["Use the crops guide for base farming decisions.", "Use the gear shop guide for sprays and item timing.", "Use advanced crops for community reported rare values.", "Recheck everything after major updates."]
   }
 ];
 
 const relatedLinks = [
   { href: "/seeds/", title: "Seeds", description: "Choose seed packs and seed routes that support cash flow." },
   { href: "/crops/", title: "Crops", description: "Understand the crop loop behind every money route." },
+  { href: "/gear-shop/", title: "Gear Shop", description: "Compare sprays, fertilizer, and item ROI before spending cash." },
   { href: "/upgrades/", title: "Upgrades", description: "Compare upgrade cost against repeated cycle value." },
   { href: "/advanced-crops/", title: "Advanced Crops", description: "Review community reported rare effects and value boosts." },
   { href: "/codes/", title: "Codes", description: "Check code rewards that may support progression." }
@@ -162,6 +167,7 @@ export default function MoneyFarmingPage() {
           <article className="guide-card" key={section.heading}>
             <span className="card-rule" />
             <h2>{section.heading}</h2>
+            <h3>{section.subheading}</h3>
             {section.body.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
             <ul>{section.list.map((item) => <li key={item}>{item}</li>)}</ul>
           </article>
