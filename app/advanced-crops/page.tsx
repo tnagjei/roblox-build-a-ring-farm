@@ -7,8 +7,8 @@ import Link from "next/link";
 import { siteData } from "@/lib/site-data";
 import { absoluteUrl } from "@/lib/seo";
 
-const pageTitle = "Build A Ring Farm Advanced Crops Guide | Rare Effects, Sprays & Event Odds";
-const pageDescription = "Build A Ring Farm advanced crops guide with community reported rare effects, spray costs, event odds, value boosts, offline limits, and safe source checks.";
+const pageTitle = "Build A Ring Farm Advanced Crops Guide | Rare Effects";
+const pageDescription = "Build A Ring Farm advanced crops guide covering rare effects, sprays, event odds, value boosts, offline limits, and source-checked claims.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -52,6 +52,7 @@ const eventRows = [
 const sections = [
   {
     heading: "Source status: official vs community reported",
+    subheading: "Evidence boundary",
     body: [
       "The official Roblox page confirms the broad game loop: grow plants, harvest, upgrade the farm, sell plants for cash, and earn while offline. It does not publish exact rare effect values, spray prices, event odds, or ranking tables.",
       "The rows above should be treated as community reported leads. They are useful for player research, but they should be rechecked after updates before being described as official facts."
@@ -60,6 +61,7 @@ const sections = [
   },
   {
     heading: "Tier list logic without fake certainty",
+    subheading: "How to compare effects",
     body: [
       "Competitor pages often use a tier list because it is easy for players to scan. This page can use the same structure, but the current safe version labels values by source status instead of pretending that every number is official.",
       "A useful tier list should compare repeatability, value boost, trigger difficulty, gear cost, and whether the effect helps normal farming or only rare situations."
@@ -68,6 +70,7 @@ const sections = [
   },
   {
     heading: "Gear shop sprays and rare crop value",
+    subheading: "Sprays and crop value",
     body: [
       "Community sources report that sprays can apply specific rare crop effects directly. This is useful because event-based effects may be random, slow, or online-dependent.",
       "The practical rule is to compare spray cost against the crop value you are improving. A high-price spray is usually more logical on your strongest crops than on low-value early crops."
@@ -76,6 +79,7 @@ const sections = [
   },
   {
     heading: "Offline limits and event effects",
+    subheading: "Offline behavior checks",
     body: [
       "Players care whether rare crop effects can happen while offline. Community pages suggest active play matters for event-based effects, while the official page only confirms that the farm can earn offline.",
       "For now, offline rare effect claims should stay pending. When tested, record the date, version state, starting crop, offline duration, and final result before updating the page."
@@ -86,7 +90,9 @@ const sections = [
 
 const relatedLinks = [
   { href: "/crops/", title: "Crops", description: "Start with the normal crop loop before chasing rare effects." },
+  { href: "/gear-shop/", title: "Gear Shop", description: "Compare sprays, fertilizer, and gear value against rare crop effects." },
   { href: "/upgrades/", title: "Upgrades", description: "Compare gear and spray value against basic upgrade ROI." },
+  { href: "/weather-events/", title: "Weather Events", description: "Review event effects that may connect to rare crop values." },
   { href: "/updates/", title: "Updates", description: "Check update notes that may change rare crop behavior." },
   { href: "/codes/", title: "Codes", description: "Review verified code status before using code claims for progression." }
 ];
@@ -113,7 +119,7 @@ export default function AdvancedCropsPage() {
             Use this Build A Ring Farm advanced crops guide to review community reported rare effects, event-based value boosts, sprays, and offline limits without treating unverified numbers as official facts.
           </p>
           <div className="hero-actions">
-            <Link className="primary-link" href="/upgrades/">Read upgrades guide</Link>
+            <Link className="primary-link" href="/gear-shop/">Read gear shop guide</Link>
             <Link className="secondary-link" href="/crops/">Read crops guide</Link>
           </div>
         </div>
@@ -198,6 +204,7 @@ export default function AdvancedCropsPage() {
           <article className="guide-card" key={section.heading}>
             <span className="card-rule" />
             <h2>{section.heading}</h2>
+            <h3>{section.subheading}</h3>
             {section.body.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
             <ul>{section.list.map((item) => <li key={item}>{item}</li>)}</ul>
           </article>
