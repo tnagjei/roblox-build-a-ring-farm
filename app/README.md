@@ -20,6 +20,7 @@
 - codes/：codes 页面
 - beginners-guide/：新手指南页面
 - crops/：crops 长尾 SEO 页面
+- seeds/：seeds 长尾 SEO 页面
 - advanced-crops/：advanced crops 长尾 SEO 页面
 - upgrades/：upgrades 长尾 SEO 页面
 - updates/：更新日志页面
