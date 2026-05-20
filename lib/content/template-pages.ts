@@ -95,12 +95,94 @@ export function createTemplateHomePage(locale = "en"): HomePageContent {
       { valueKey: "favorites", label: "Favorites", detail: "Roblox API snapshot" },
       { valueKey: "approval", label: "Approval", detail: "Roblox API snapshot" }
     ],
+    overviewSections: [
+      {
+        heading: "What is Build A Ring Farm?",
+        body: [
+          "Build A Ring Farm is a Roblox farming simulator built around a simple loop: grow plants, harvest crops, sell them for cash, upgrade your farm, expand the ring-shaped layout, and collect offline income between sessions.",
+          "This homepage works as a Build A Ring Farm wiki hub. It connects codes, seeds, crops, advanced crop effects, upgrades, money farming, updates, and source checks in one place."
+        ],
+        list: ["Grow and harvest plants.", "Sell crops for cash.", "Upgrade and expand the farm.", "Use offline income as support progress."]
+      },
+      {
+        heading: "Build A Ring Farm quick start route",
+        body: [
+          "New players should focus on stable farming before chasing rare outcomes. Keep plots active, harvest often, sell regularly, and reinvest cash into upgrades that improve repeated crop cycles.",
+          "If you receive seed packs, sprays, fertilizer, or time skips from codes, treat them as progression boosts rather than the entire plan. Rewards can change or expire."
+        ],
+        list: ["Start with seeds and normal crops.", "Avoid idle plots.", "Reinvest cash into upgrades.", "Check codes only as bonus progress."]
+      },
+      {
+        heading: "Seeds, crops, and crop value",
+        body: [
+          "Seeds are inputs, crops are outputs, and crop value is the cash engine behind the game. A good Build A Ring Farm route connects seed choices to crop cycles, then turns crop income into better upgrades.",
+          "Exact seed pack contents, drop odds, and crop prices should be verified before being published as fixed facts. This site labels unverified data as community reported."
+        ],
+        list: ["Seeds decide what you can grow.", "Crops decide cash flow.", "Upgrades improve future cycles.", "Rare effects should be source checked."]
+      },
+      {
+        heading: "Money farming and upgrades",
+        body: [
+          "Money farming is not just about one best crop. It is about keeping cash moving through seeds, crops, selling, upgrades, and offline income. Strong upgrades are the ones that improve multiple future harvests.",
+          "Use ROI thinking before buying gear: ask how many crop cycles are needed to earn back the cost, and whether that item improves normal farming or only rare situations."
+        ],
+        list: ["Keep cash cycling.", "Buy upgrades that repeat value.", "Delay unclear gear purchases.", "Recheck advice after updates."]
+      },
+      {
+        heading: "Sources and verification policy",
+        body: [
+          "The official Roblox page confirms the game name, creator, basic farming loop, upgrades, selling plants for cash, and offline earnings. It does not confirm every code reward, spray cost, rare crop value, or event chance.",
+          "For that reason, this Build A Ring Farm guide separates official facts from community reported claims. Community data can be useful, but it should be rechecked after updates."
+        ],
+        list: ["Official source: Roblox game page.", "Community data: code lists, rare effect tables, spray costs, event odds.", "Pending data: exact in-game values without screenshots."]
+      },
+      {
+        heading: "What to read after the homepage",
+        body: [
+          "Use this homepage as the starting point, then move into the specific guide that matches your question. Codes help with rewards, seeds and crops explain the farming loop, upgrades explain ROI, and advanced crops cover community reported rare effects.",
+          "If your goal is faster cash, read the money farming page after you understand seeds, crops, and upgrades."
+        ],
+        list: ["Codes for reported rewards.", "Seeds for crop inputs.", "Crops for farming basics.", "Money farming for progression routes."]
+      }
+    ],
+    snapshotTables: [
+      {
+        eyebrow: "Codes snapshot",
+        title: "Reported Build A Ring Farm code rewards",
+        rows: [
+          { label: "UPDATE2", value: "Tropical Seed Pack", detail: "Reported by third-party code pages", status: "Community reported" },
+          { label: "THANKYOU", value: "Autumn Spray", detail: "Reported by third-party code pages", status: "Community reported" },
+          { label: "BARF:3", value: "Acid Spray", detail: "Reported by third-party code pages", status: "Community reported" }
+        ]
+      },
+      {
+        eyebrow: "Advanced crops snapshot",
+        title: "Reported rare crop values",
+        rows: [
+          { label: "Rainbow", value: "5x", detail: "Highest reported value boost", status: "Community reported" },
+          { label: "Radioactive", value: "3x", detail: "Reported rare crop effect", status: "Community reported" },
+          { label: "Void", value: "2.25x", detail: "Reported rare crop effect", status: "Community reported" }
+        ]
+      },
+      {
+        eyebrow: "Events snapshot",
+        title: "Reported event effect chances",
+        rows: [
+          { label: "Rain Event", value: "Wet 8%", detail: "Reported event effect", status: "Community reported" },
+          { label: "Blizzard Event", value: "Frozen 4%", detail: "Reported event effect", status: "Community reported" },
+          { label: "Galaxy Event", value: "Rainbow 1%", detail: "Reported event effect", status: "Community reported" }
+        ]
+      }
+    ],
     directory: {
       eyebrow: "Build A Ring Farm navigation",
       title: "Build A Ring Farm wiki sections",
       cards: [
+        { href: localizedHref(locale, "seeds"), title: "Seeds", description: "Use seed packs, crop unlocks, and reported rewards as farming inputs." },
         { href: localizedHref(locale, "crops"), title: "Crops", description: "Learn crop flow, harvest timing, selling logic, and upgrade priorities." },
+        { href: localizedHref(locale, "advanced-crops"), title: "Advanced Crops", description: "Review rare crop effects, value boosts, event timing, and spray checks." },
         { href: localizedHref(locale, "upgrades"), title: "Upgrades", description: "Plan gear shop choices, ROI checks, and farm progression upgrades." },
+        { href: localizedHref(locale, "money-farming"), title: "Money Farming", description: "Connect seeds, crops, upgrades, codes, and offline income into a cash route." },
         { href: localizedHref(locale, "beginners-guide"), title: "Farming Guide", description: "Learn the crop, harvest, upgrade, expand, sell, and offline income loop." },
         { href: localizedHref(locale, "codes"), title: "Codes", description: "Check verified Build A Ring Farm codes status, pending claims, and safe redemption notes." },
         { href: localizedHref(locale, "updates"), title: "Updates", description: "Track official Roblox changes, update signals, and recheck points." },
@@ -111,9 +193,9 @@ export function createTemplateHomePage(locale = "en"): HomePageContent {
       eyebrow: "Build A Ring Farm coverage",
       title: "What this wiki covers",
       cards: [
-        { title: "Crops and upgrades", description: "Explain the verified grow, harvest, upgrade, expand, sell, and offline earning loop." },
-        { title: "Codes status", description: "Separate verified codes from pending community claims instead of publishing unsupported strings." },
-        { title: "Updates and sources", description: "Use Roblox, developer-linked channels, and in-game checks before changing game facts." }
+        { title: "Seeds and crops", description: "Explain how seed packs, crop cycles, harvesting, selling, and reinvestment connect." },
+        { title: "Codes and rewards", description: "Separate verified status from community reported code rewards and pending claims." },
+        { title: "Upgrades and money routes", description: "Use ROI thinking to connect gear, sprays, rare effects, offline income, and cash flow." }
       ]
     },
     verification: {
@@ -146,9 +228,12 @@ export function createTemplateHomePage(locale = "en"): HomePageContent {
       ariaLabel: homeCopy.popularAria
     },
     popularSearches: [
-      { href: "/codes/", title: `${gameConfig.gameName} Codes`, description: "Check whether any official or in-game code proof exists.", coversLabel: "Covers", covers: "Codes · Status · Safety" },
+      { href: "/codes/", title: `${gameConfig.gameName} Codes`, description: "Check whether any official or in-game code proof exists.", coversLabel: "Covers", covers: "Codes · Rewards · Status" },
+      { href: "/seeds/", title: `${gameConfig.gameName} Seeds`, description: "Review seed packs, crop unlocks, code rewards, and progression inputs.", coversLabel: "Covers", covers: "Seeds · Packs · Rewards" },
       { href: "/crops/", title: `${gameConfig.gameName} Crops`, description: "Understand crop flow, harvest timing, selling, upgrades, and reinvestment.", coversLabel: "Covers", covers: "Crops · Farming · Cash" },
-      { href: "/upgrades/", title: `${gameConfig.gameName} Upgrades`, description: "Plan gear shop choices, ROI checks, mutation value, and upgrade timing.", coversLabel: "Covers", covers: "Upgrades · Gear · ROI" },
+      { href: "/advanced-crops/", title: `${gameConfig.gameName} Advanced Crops`, description: "Review rare crop effects, value boosts, sprays, and event timing.", coversLabel: "Covers", covers: "Rare · Boosts · Events" },
+      { href: "/upgrades/", title: `${gameConfig.gameName} Upgrades`, description: "Plan gear shop choices, ROI checks, crop value, and upgrade timing.", coversLabel: "Covers", covers: "Upgrades · Gear · ROI" },
+      { href: "/money-farming/", title: `${gameConfig.gameName} Money Farming`, description: "Plan cash routes through seeds, crops, upgrades, offline income, and rewards.", coversLabel: "Covers", covers: "Cash · Route · Offline" },
       { href: "/beginners-guide/", title: `${gameConfig.gameName} Beginner Guide`, description: "Start with crops, upgrades, selling, expansion, and offline earnings.", coversLabel: "Covers", covers: "Crops · Upgrade · Sell" },
       { href: "/updates/", title: `${gameConfig.gameName} Updates`, description: "Follow update checks and recheck points for codes, rewards, and farm systems.", coversLabel: "Covers", covers: "Updates · Sources · Changes" }
     ],
@@ -158,9 +243,13 @@ export function createTemplateHomePage(locale = "en"): HomePageContent {
     },
     faq: [
       { q: "What is Build A Ring Farm Wiki?", a: "Build A Ring Farm Wiki is an independent fan guide for the Roblox farming simulator Build A Ring Farm." },
-      { q: "What does this Build A Ring Farm guide cover?", a: "It covers codes status, beginner farming routes, crops, upgrades, update checks, safety notes, and offline income basics." },
-      { q: "Does Build A Ring Farm have verified active codes?", a: "No verified official codes have been confirmed yet." },
-      { q: "Is this an official Build A Ring Farm website?", a: "No. This is an independent fan guide. The official game page is on Roblox." }
+      { q: "What does this Build A Ring Farm guide cover?", a: "It covers codes status, seeds, crops, beginner routes, upgrades, advanced crops, money farming, update checks, safety notes, and offline income basics." },
+      { q: "Is this an official Build A Ring Farm website?", a: "No. This is an independent fan guide. The official game page is on Roblox." },
+      { q: "Does Build A Ring Farm have verified active codes?", a: "No verified official codes have been confirmed here yet. Some rewards are listed as community reported until rechecked." },
+      { q: "What are seeds used for in Build A Ring Farm?", a: "Seeds are farming inputs that lead into crops, harvests, selling, cash flow, and upgrades." },
+      { q: "What are advanced crops?", a: "Advanced crops refer to rare crop effects, value boosts, event effects, and spray-related outcomes that need source checks before exact numbers are treated as facts." },
+      { q: "What is the best way to make money in Build A Ring Farm?", a: "The safest route is to keep plots active, harvest and sell consistently, then reinvest into upgrades that improve repeated crop cycles." },
+      { q: "Does offline income work in Build A Ring Farm?", a: "The official Roblox page says the farm earns while offline, but exact offline rare-effect behavior is still pending verification." }
     ]
   };
 }
@@ -254,7 +343,7 @@ function createCropsPage(locale: string): StrategyPageContent {
     summaryCards: [
       { title: "Crop loop", description: "Plant, wait, harvest, sell, upgrade, and repeat without wasting early cash." },
       { title: "Upgrade timing", description: "Prioritize upgrades that reduce waiting, increase output, or help expand production." },
-      { title: "No fake values", description: "This page avoids unverified crop prices, mutation rates, and reward numbers." }
+      { title: "No fake values", description: "This page avoids unverified crop prices, rare rates, and reward numbers." }
     ],
     sections: [
       {
@@ -284,10 +373,10 @@ function createCropsPage(locale: string): StrategyPageContent {
       {
         heading: "Why this page does not list fake crop prices",
         body: [
-          "Some competing pages publish crop tables before proving the source. That can attract clicks, but it creates a trust problem when prices, mutations, or upgrade effects are wrong.",
-          "This site should add crop names, values, and mutation data only after a recorded source check. That makes the page slower to fill, but safer for long-term SEO."
+          "Some competing pages publish crop tables before proving the source. That can attract clicks, but it creates a trust problem when prices, rare effects, or upgrade effects are wrong.",
+          "This site should add crop names, values, and advanced crop data only after a recorded source check. That makes the page slower to fill, but safer for long-term SEO."
         ],
-        list: ["Do not invent crop prices.", "Do not invent mutation rates.", "Do not copy unsupported community tables.", "Add a source note when real crop data is verified."]
+        list: ["Do not invent crop prices.", "Do not invent rare crop rates.", "Do not copy unsupported community tables.", "Add a source note when real crop data is verified."]
       }
     ],
     relatedLinks: [
@@ -309,7 +398,7 @@ function createUpgradesPage(locale: string): StrategyPageContent {
   return {
     meta: {
       title: withLocale(`${gameConfig.gameName} Upgrades Guide | Gear Shop & ROI`, locale),
-      description: `${gameConfig.gameName} upgrades guide for Roblox players. Learn gear shop planning, ROI checks, mutation value, crop efficiency, and safe upgrade timing.`
+      description: `${gameConfig.gameName} upgrades guide for Roblox players. Learn gear shop planning, ROI checks, rare crop value, crop efficiency, and safe upgrade timing.`
     },
     slug: "upgrades",
     hero: {
@@ -321,8 +410,8 @@ function createUpgradesPage(locale: string): StrategyPageContent {
     },
     summaryCards: [
       { title: "Upgrade goal", description: "Buy upgrades that improve repeated crop cycles, not only one harvest." },
-      { title: "Gear shop logic", description: "Judge gear by farming speed, output value, mutation support, and cash recovery time." },
-      { title: "No fake multipliers", description: "This page avoids unverified gear prices, mutation odds, and exact ROI numbers." }
+      { title: "Gear shop logic", description: "Judge gear by farming speed, output value, rare crop support, and cash recovery time." },
+      { title: "No fake multipliers", description: "This page avoids unverified gear prices, rare effect odds, and exact ROI numbers." }
     ],
     sections: [
       {
@@ -337,9 +426,9 @@ function createUpgradesPage(locale: string): StrategyPageContent {
         heading: "Gear shop upgrade strategy",
         body: [
           "Competing guides often highlight gear shop items because they are useful search targets. The safer way to cover this topic is to explain how to evaluate gear before publishing exact numbers.",
-          "Before buying gear, check whether it helps with farming speed, selling value, mutation value, or long-term expansion. If the gear only helps rarely, it may be worse than a basic farm upgrade."
+          "Before buying gear, check whether it helps with farming speed, selling value, rare crop value, or long-term expansion. If the gear only helps rarely, it may be worse than a basic farm upgrade."
         ],
-        list: ["Ask what farming problem the gear solves.", "Compare the price with your normal cash-per-cycle.", "Prefer upgrades that help every crop cycle.", "Treat mutation-related claims as pending until verified in-game."]
+        list: ["Ask what farming problem the gear solves.", "Compare the price with your normal cash-per-cycle.", "Prefer upgrades that help every crop cycle.", "Treat rare-effect claims as pending until verified in-game."]
       },
       {
         heading: "ROI checklist for upgrades",
@@ -367,7 +456,7 @@ function createUpgradesPage(locale: string): StrategyPageContent {
     faq: [
       { q: "What are upgrades in Build A Ring Farm?", a: "Upgrades are purchases or systems that can improve farming speed, crop output, selling efficiency, expansion, or long-term progression." },
       { q: "What should I upgrade first in Build A Ring Farm?", a: "A single best first upgrade has not been verified here yet. Beginners should favor upgrades that improve repeated crop cycles and prevent idle plots." },
-      { q: "Does this page list gear shop prices?", a: "No. This guide does not publish exact gear prices or mutation multipliers until they are verified from official or in-game evidence." },
+      { q: "Does this page list gear shop prices?", a: "No. This guide does not publish exact gear prices or rare crop multipliers until they are verified from official or in-game evidence." },
       { q: "What does ROI mean for upgrades?", a: "ROI means return on investment. For upgrades, it asks how many crop cycles are needed before the upgrade earns back its cost." }
     ]
   };
