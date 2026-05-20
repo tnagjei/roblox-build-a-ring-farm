@@ -1,11 +1,11 @@
 // input: typed localized homepage content and locale
 // output: full homepage layout without embedded long-form translations
-// pos: multilingual homepage template
+// pos: multilingual homepage template（更新规则：文件变更需同步本注释与所属目录 README）
 
 import Link from "next/link";
 import { HomeVideoGuides } from "@/components/HomeVideoGuides";
 import { JsonLd } from "@/components/JsonLd";
-import type { HomePageContent, StatItem } from "@/lib/content/page-types";
+import type { HomeHubTable, HomePageContent, StatItem, TextSection } from "@/lib/content/page-types";
 import type { Locale } from "@/lib/i18n/locales";
 import { getLocalizedPath } from "@/lib/i18n/routes";
 import { siteData } from "@/lib/site-data";
@@ -47,6 +47,37 @@ function statValue(stat: StatItem): string {
 
 function actionHref(href: string): string {
   return href === "roblox" ? siteData.game.robloxUrl : href;
+}
+
+function HubSection({ section }: { section: TextSection }) {
+  return (
+    <article className="guide-card hub-section-card">
+      <span className="card-rule" />
+      <h2>{section.heading}</h2>
+      {section.body.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+      {section.list ? <ul>{section.list.map((item) => <li key={item}>{item}</li>)}</ul> : null}
+    </article>
+  );
+}
+
+function SnapshotTable({ table }: { table: HomeHubTable }) {
+  return (
+    <article className="guide-card data-card">
+      <span className="card-rule" />
+      <p className="eyebrow">{table.eyebrow}</p>
+      <h2>{table.title}</h2>
+      <div className="data-list">
+        {table.rows.map((row) => (
+          <div className="data-row four-field-row" key={`${table.title}-${row.label}-${row.value}`}>
+            <div><span>Name</span><strong>{row.label}</strong></div>
+            <div><span>Value</span><strong>{row.value}</strong></div>
+            <div><span>Detail</span><strong>{row.detail}</strong></div>
+            <div><span>Status</span><span className="source-badge">{row.status}</span></div>
+          </div>
+        ))}
+      </div>
+    </article>
+  );
 }
 
 export function HomePageTemplate({ content, locale }: HomePageTemplateProps) {
@@ -106,6 +137,22 @@ export function HomePageTemplate({ content, locale }: HomePageTemplateProps) {
         {content.stats.map((stat) => (
           <StatBox key={`${stat.valueKey}-${stat.label}`} value={statValue(stat)} label={stat.label} detail={stat.detail} />
         ))}
+      </section>
+
+      <section className="section-heading">
+        <p className="eyebrow">Wiki hub</p>
+        <h2>Build A Ring Farm guide overview</h2>
+      </section>
+      <section className="content-grid">
+        {content.overviewSections.map((section) => <HubSection key={section.heading} section={section} />)}
+      </section>
+
+      <section className="section-heading">
+        <p className="eyebrow">Quick data</p>
+        <h2>Build A Ring Farm snapshots</h2>
+      </section>
+      <section className="content-grid single-column-grid">
+        {content.snapshotTables.map((table) => <SnapshotTable key={table.title} table={table} />)}
       </section>
 
       <section className="section-heading">
