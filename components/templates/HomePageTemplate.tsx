@@ -22,87 +22,6 @@ type HomePageTemplateProps = {
   locale: Locale;
 };
 
-const defaultOverviewSections: TextSection[] = [
-  {
-    heading: "What is Build A Ring Farm?",
-    body: [
-      "Build A Ring Farm is a Roblox farming simulator built around a simple loop: grow plants, harvest crops, sell them for cash, upgrade your farm, expand the ring-shaped layout, and collect offline income between sessions.",
-      "This homepage works as a Build A Ring Farm wiki hub. It connects codes, seeds, crops, advanced crop effects, upgrades, money farming, updates, and source checks in one place."
-    ],
-    list: ["Grow and harvest plants.", "Sell crops for cash.", "Upgrade and expand the farm.", "Use offline income as support progress."]
-  },
-  {
-    heading: "Build A Ring Farm quick start route",
-    body: [
-      "New players should focus on stable farming before chasing rare outcomes. Keep plots active, harvest often, sell regularly, and reinvest cash into upgrades that improve repeated crop cycles.",
-      "If you receive seed packs, sprays, fertilizer, or time skips from codes, treat them as progression boosts rather than the entire plan. Rewards can change or expire."
-    ],
-    list: ["Start with seeds and normal crops.", "Avoid idle plots.", "Reinvest cash into upgrades.", "Check codes only as bonus progress."]
-  },
-  {
-    heading: "Seeds, crops, and crop value",
-    body: [
-      "Seeds are inputs, crops are outputs, and crop value is the cash engine behind the game. A good Build A Ring Farm route connects seed choices to crop cycles, then turns crop income into better upgrades.",
-      "Exact seed pack contents, drop odds, and crop prices should be verified before being published as fixed facts. This site labels unverified data as community reported."
-    ],
-    list: ["Seeds decide what you can grow.", "Crops decide cash flow.", "Upgrades improve future cycles.", "Rare effects should be source checked."]
-  },
-  {
-    heading: "Money farming and upgrades",
-    body: [
-      "Money farming is not just about one best crop. It is about keeping cash moving through seeds, crops, selling, upgrades, and offline income. Strong upgrades are the ones that improve multiple future harvests.",
-      "Use ROI thinking before buying gear: ask how many crop cycles are needed to earn back the cost, and whether that item improves normal farming or only rare situations."
-    ],
-    list: ["Keep cash cycling.", "Buy upgrades that repeat value.", "Delay unclear gear purchases.", "Recheck advice after updates."]
-  },
-  {
-    heading: "Sources and verification policy",
-    body: [
-      "The official Roblox page confirms the game name, creator, basic farming loop, upgrades, selling plants for cash, and offline earnings. It does not confirm every code reward, spray cost, rare crop value, or event chance.",
-      "For that reason, this Build A Ring Farm guide separates official facts from community reported claims. Community data can be useful, but it should be rechecked after updates."
-    ],
-    list: ["Official source: Roblox game page.", "Community data: code lists, rare effect tables, spray costs, event odds.", "Pending data: exact in-game values without screenshots."]
-  },
-  {
-    heading: "What to read after the homepage",
-    body: [
-      "Use this homepage as the starting point, then move into the specific guide that matches your question. Codes help with rewards, seeds and crops explain the farming loop, upgrades explain ROI, and advanced crops cover community reported rare effects.",
-      "If your goal is faster cash, read the money farming page after you understand seeds, crops, and upgrades."
-    ],
-    list: ["Codes for reported rewards.", "Seeds for crop inputs.", "Crops for farming basics.", "Money farming for progression routes."]
-  }
-];
-
-const defaultSnapshotTables: HomeHubTable[] = [
-  {
-    eyebrow: "Codes snapshot",
-    title: "Reported Build A Ring Farm code rewards",
-    rows: [
-      { label: "UPDATE2", value: "Tropical Seed Pack", detail: "Reported by third-party code pages", status: "Community reported" },
-      { label: "THANKYOU", value: "Autumn Spray", detail: "Reported by third-party code pages", status: "Community reported" },
-      { label: "BARF:3", value: "Acid Spray", detail: "Reported by third-party code pages", status: "Community reported" }
-    ]
-  },
-  {
-    eyebrow: "Advanced crops snapshot",
-    title: "Reported rare crop values",
-    rows: [
-      { label: "Rainbow", value: "5x", detail: "Highest reported value boost", status: "Community reported" },
-      { label: "Radioactive", value: "3x", detail: "Reported rare crop effect", status: "Community reported" },
-      { label: "Void", value: "2.25x", detail: "Reported rare crop effect", status: "Community reported" }
-    ]
-  },
-  {
-    eyebrow: "Events snapshot",
-    title: "Reported event effect chances",
-    rows: [
-      { label: "Rain Event", value: "Wet 8%", detail: "Reported event effect", status: "Community reported" },
-      { label: "Blizzard Event", value: "Frozen 4%", detail: "Reported event effect", status: "Community reported" },
-      { label: "Galaxy Event", value: "Rainbow 1%", detail: "Reported event effect", status: "Community reported" }
-    ]
-  }
-];
-
 function statValue(stat: StatItem): string {
   switch (stat.valueKey) {
     case "playing":
@@ -162,9 +81,6 @@ function SnapshotTable({ table }: { table: HomeHubTable }) {
 }
 
 export function HomePageTemplate({ content, locale }: HomePageTemplateProps) {
-  const overviewSections = content.overviewSections ?? defaultOverviewSections;
-  const snapshotTables = content.snapshotTables ?? defaultSnapshotTables;
-
   return (
     <main className="page-main">
       <JsonLd data={buildWebsiteJsonLd()} />
@@ -228,7 +144,7 @@ export function HomePageTemplate({ content, locale }: HomePageTemplateProps) {
         <h2>Build A Ring Farm guide overview</h2>
       </section>
       <section className="content-grid">
-        {overviewSections.map((section) => <HubSection key={section.heading} section={section} />)}
+        {content.overviewSections.map((section) => <HubSection key={section.heading} section={section} />)}
       </section>
 
       <section className="section-heading">
@@ -236,7 +152,7 @@ export function HomePageTemplate({ content, locale }: HomePageTemplateProps) {
         <h2>Build A Ring Farm snapshots</h2>
       </section>
       <section className="content-grid single-column-grid">
-        {snapshotTables.map((table) => <SnapshotTable key={table.title} table={table} />)}
+        {content.snapshotTables.map((table) => <SnapshotTable key={table.title} table={table} />)}
       </section>
 
       <section className="section-heading">
