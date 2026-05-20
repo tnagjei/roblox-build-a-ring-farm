@@ -27,6 +27,7 @@
 - seeds/：seeds 长尾 SEO 页面
 - upgrades/：upgrades 长尾 SEO 页面
 - gear-shop/：gear shop 长尾 SEO 页面
+- sprays/：sprays 长尾 SEO 页面
 - tier-list/：tier list 长尾 SEO 页面
 - advanced-crops/：advanced crops 长尾 SEO 页面
 - money-farming/：money farming 长尾 SEO 页面
