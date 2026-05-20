@@ -33,6 +33,12 @@ Last checked
 Next action
 ```
 
+对标站审计详见：
+
+```text
+COMPETITOR_DATA_AUDIT.md
+```
+
 ---
 
 ## 2. Rare effect / mutation claims
@@ -40,13 +46,14 @@ Next action
 | Claim | Used on pages | Current status | Source type | Need screenshot | Need in-game test | Last checked | Next action |
 |---|---|---:|---|---:|---:|---|---|
 | Rainbow is the strongest reported effect | `/tier-list/`, `/advanced-crops/`, `/sprays/`, `/mutations/` | Community reported | Competitor/community pattern | Yes | Yes | 2026-05-20 | Capture in-game before/after value test |
-| Rainbow 5x value boost | `/advanced-crops/`, `/tier-list/` | Needs verification | Competitor/community claim | Yes | Yes | 2026-05-20 | Do not publish as official until tested |
-| Radioactive 3x value boost | `/advanced-crops/`, `/tier-list/` | Needs verification | Competitor/community claim | Yes | Yes | 2026-05-20 | Do not publish as official until tested |
-| Void 2.25x value boost | `/advanced-crops/`, `/tier-list/` | Needs verification | Competitor/community claim | Yes | Yes | 2026-05-20 | Do not publish as official until tested |
-| Frozen 1.75x value boost | `/advanced-crops/`, `/tier-list/` | Needs verification | Competitor/community claim | Yes | Yes | 2026-05-20 | Do not publish as official until tested |
-| Wet 1.5x value boost | `/advanced-crops/`, `/tier-list/` | Needs verification | Competitor/community claim | Yes | Yes | 2026-05-20 | Do not publish as official until tested |
+| Rainbow 5x value boost | `/advanced-crops/`, `/tier-list/`, `/sprays/`, `/mutations/` | Needs verification | Competitor claim: Rainbow Spray $1T / Rainbow 5x | Yes | Yes | 2026-05-20 | Do not publish as official until tested |
+| Radioactive 3x value boost | `/advanced-crops/`, `/tier-list/`, `/sprays/`, `/mutations/` | Needs verification | Competitor claim: Radioactive Spray $10B / Radioactive 3x | Yes | Yes | 2026-05-20 | Do not publish as official until tested |
+| Void 2.25x value boost | `/advanced-crops/`, `/tier-list/`, `/sprays/`, `/mutations/` | Needs verification | Competitor claim: Void Spray $1B / Void 2.25x | Yes | Yes | 2026-05-20 | Do not publish as official until tested |
+| Frozen 1.75x value boost | `/advanced-crops/`, `/tier-list/`, `/sprays/`, `/mutations/` | Needs verification | Competitor claim: Frozen Spray $750M / Frozen 1.75x | Yes | Yes | 2026-05-20 | Do not publish as official until tested |
+| Wet 1.5x value boost | `/advanced-crops/`, `/tier-list/`, `/sprays/`, `/mutations/` | Needs verification | Competitor claim: Wet Spray $10M / Wet 1.5x | Yes | Yes | 2026-05-20 | Do not publish as official until tested |
+| Acid removes current mutation | `/sprays/`, `/gear-shop/` | Needs verification | Competitor claim: Acid Spray removes current mutation | Yes | Yes | 2026-05-20 | Verify with one crop and screenshot before/after |
 | Mutation stacking works | `/mutations/`, `/advanced-crops/`, `/tier-list/` | Needs verification | Community claim risk | Yes | Yes | 2026-05-20 | Test one variable at a time |
-| Mutations work offline | `/mutations/`, `/offline-income/`, `/advanced-crops/` | Needs verification | Unknown | Yes | Yes | 2026-05-20 | Compare before logout and after login |
+| Mutations work offline | `/mutations/`, `/offline-income/`, `/advanced-crops` | Needs verification | Unknown / competitor says active mutation timing needs online play | Yes | Yes | 2026-05-20 | Compare before logout and after login |
 
 ---
 
@@ -54,13 +61,13 @@ Next action
 
 | Claim | Used on pages | Current status | Source type | Need screenshot | Need in-game test | Last checked | Next action |
 |---|---|---:|---|---:|---:|---|---|
-| Wet Spray exists | `/sprays/`, `/gear-shop/`, `/tier-list/` | Community reported | Competitor/community pattern | Yes | Yes | 2026-05-20 | Verify in gear shop UI |
-| Frozen Spray exists | `/sprays/`, `/gear-shop/`, `/tier-list/` | Community reported | Competitor/community pattern | Yes | Yes | 2026-05-20 | Verify in gear shop UI |
-| Void Spray exists | `/sprays/`, `/gear-shop/`, `/tier-list/` | Community reported | Competitor/community pattern | Yes | Yes | 2026-05-20 | Verify in gear shop UI |
-| Radioactive Spray exists | `/sprays/`, `/gear-shop/`, `/tier-list/` | Community reported | Competitor/community pattern | Yes | Yes | 2026-05-20 | Verify in gear shop UI |
-| Rainbow Spray exists | `/sprays/`, `/gear-shop/`, `/tier-list/` | Community reported | Competitor/community pattern | Yes | Yes | 2026-05-20 | Verify in gear shop UI |
-| Acid Spray exists | `/sprays/`, `/gear-shop/` | Community reported | Competitor/community pattern | Yes | Yes | 2026-05-20 | Verify in gear shop UI |
-| Spray prices | `/sprays/`, `/gear-shop/` | Needs verification | Unknown | Yes | Yes | 2026-05-20 | Do not publish exact prices yet |
+| Acid Spray exists | `/sprays/`, `/gear-shop/` | Community reported | Competitor claim: $1M, removes current mutation | Yes | Yes | 2026-05-20 | Verify in gear shop UI |
+| Wet Spray exists | `/sprays/`, `/gear-shop/`, `/tier-list/` | Community reported | Competitor claim: $10M, Wet 1.5x | Yes | Yes | 2026-05-20 | Verify in gear shop UI |
+| Frozen Spray exists | `/sprays/`, `/gear-shop/`, `/tier-list/` | Community reported | Competitor claim: $750M, Frozen 1.75x | Yes | Yes | 2026-05-20 | Verify in gear shop UI |
+| Void Spray exists | `/sprays/`, `/gear-shop/`, `/tier-list/` | Community reported | Competitor claim: $1B, Void 2.25x | Yes | Yes | 2026-05-20 | Verify in gear shop UI |
+| Radioactive Spray exists | `/sprays/`, `/gear-shop/`, `/tier-list/` | Community reported | Competitor claim: $10B, Radioactive 3x | Yes | Yes | 2026-05-20 | Verify in gear shop UI |
+| Rainbow Spray exists | `/sprays/`, `/gear-shop/`, `/tier-list/` | Community reported | Competitor claim: $1T, Rainbow 5x | Yes | Yes | 2026-05-20 | Verify in gear shop UI |
+| Spray prices | `/sprays/`, `/gear-shop/` | Needs verification | Competitor claims listed in COMPETITOR_DATA_AUDIT.md | Yes | Yes | 2026-05-20 | Do not publish exact prices yet |
 | Spray effects stack with weather events | `/sprays/`, `/weather-events/`, `/mutations/` | Needs verification | Community claim risk | Yes | Yes | 2026-05-20 | Test event + spray separately |
 | Sprays work offline | `/sprays/`, `/offline-income/` | Needs verification | Unknown | Yes | Yes | 2026-05-20 | Test logout state after spray use |
 
@@ -70,17 +77,17 @@ Next action
 
 | Claim | Used on pages | Current status | Source type | Need screenshot | Need in-game test | Last checked | Next action |
 |---|---|---:|---|---:|---:|---|---|
-| Rain Event exists | `/weather-events/`, `/sprays/`, `/mutations/` | Community reported | Competitor/community pattern | Yes | Yes | 2026-05-20 | Capture event UI or in-game effect |
-| Blizzard Event exists | `/weather-events/`, `/sprays/`, `/mutations/` | Community reported | Competitor/community pattern | Yes | Yes | 2026-05-20 | Capture event UI or in-game effect |
-| Black Hole Event exists | `/weather-events/`, `/sprays/`, `/mutations/` | Community reported | Competitor/community pattern | Yes | Yes | 2026-05-20 | Capture event UI or in-game effect |
-| Nuclear Event exists | `/weather-events/`, `/sprays/`, `/mutations/` | Community reported | Competitor/community pattern | Yes | Yes | 2026-05-20 | Capture event UI or in-game effect |
-| Galaxy Event exists | `/weather-events/`, `/sprays/`, `/mutations/` | Community reported | Competitor/community pattern | Yes | Yes | 2026-05-20 | Capture event UI or in-game effect |
+| Rain Event exists | `/weather-events/`, `/sprays/`, `/mutations/` | Community reported | Competitor claim: Rain → Wet → 8% → 1.5x | Yes | Yes | 2026-05-20 | Capture event UI or in-game effect |
+| Blizzard Event exists | `/weather-events/`, `/sprays/`, `/mutations/` | Community reported | Competitor claim: Blizzard → Frozen → 4% → 1.75x | Yes | Yes | 2026-05-20 | Capture event UI or in-game effect |
+| Black Hole Event exists | `/weather-events/`, `/sprays/`, `/mutations/` | Community reported | Competitor claim: Black Hole → Void → 3% → 2.25x | Yes | Yes | 2026-05-20 | Capture event UI or in-game effect |
+| Nuclear Event exists | `/weather-events/`, `/sprays/`, `/mutations/` | Community reported | Competitor claim: Nuclear → Radioactive → 2% → 3x | Yes | Yes | 2026-05-20 | Capture event UI or in-game effect |
+| Galaxy Event exists | `/weather-events/`, `/sprays/`, `/mutations/` | Community reported | Competitor claim: Galaxy → Rainbow → 1% → 5x | Yes | Yes | 2026-05-20 | Capture event UI or in-game effect |
 | Rain 8% chance | `/weather-events/` | Needs verification | Competitor/community claim | Yes | Yes | 2026-05-20 | Do not publish as official probability |
 | Blizzard 4% chance | `/weather-events/` | Needs verification | Competitor/community claim | Yes | Yes | 2026-05-20 | Do not publish as official probability |
 | Black Hole 3% chance | `/weather-events/` | Needs verification | Competitor/community claim | Yes | Yes | 2026-05-20 | Do not publish as official probability |
 | Nuclear 2% chance | `/weather-events/` | Needs verification | Competitor/community claim | Yes | Yes | 2026-05-20 | Do not publish as official probability |
 | Galaxy 1% chance | `/weather-events/` | Needs verification | Competitor/community claim | Yes | Yes | 2026-05-20 | Do not publish as official probability |
-| Weather events happen offline | `/weather-events/`, `/offline-income/` | Needs verification | Unknown | Yes | Yes | 2026-05-20 | Test logout / login state |
+| Weather events happen offline | `/weather-events/`, `/offline-income/` | Needs verification | Competitor signal says no event mutation gain while offline, still needs test | Yes | Yes | 2026-05-20 | Test logout / login state |
 
 ---
 
@@ -88,12 +95,12 @@ Next action
 
 | Claim | Used on pages | Current status | Source type | Need screenshot | Need in-game test | Last checked | Next action |
 |---|---|---:|---|---:|---:|---|---|
-| Strong Fertilizer exists | `/fertilizer/`, `/gear-shop/`, `/money-farming/` | Community reported | Competitor/community pattern | Yes | Yes | 2026-05-20 | Verify item in-game |
+| Strong Fertilizer exists | `/fertilizer/`, `/gear-shop/`, `/money-farming/` | Community reported | Competitor claim and code reward claim | Yes | Yes | 2026-05-20 | Verify item in-game |
 | Strong Fertilizer price | `/fertilizer/`, `/gear-shop/` | Needs verification | Unknown | Yes | Yes | 2026-05-20 | Do not publish exact price |
-| Strong Fertilizer growth effect | `/fertilizer/`, `/crops/` | Needs verification | Unknown | Yes | Yes | 2026-05-20 | Time before/after crop growth |
+| Strong Fertilizer growth effect | `/fertilizer/`, `/crops/` | Needs verification | Competitor says crop boost / growth booster | Yes | Yes | 2026-05-20 | Time before/after crop growth |
 | Fertilizer cooldown | `/fertilizer/` | Needs verification | Unknown | Yes | Yes | 2026-05-20 | Test repeated use |
 | Fertilizer works offline | `/fertilizer/`, `/offline-income/` | Needs verification | Unknown | Yes | Yes | 2026-05-20 | Test logout state after use |
-| Code reward fertilizer | `/fertilizer/`, `/codes/` | Community reported | Competitor/community pattern | Yes | Yes | 2026-05-20 | Do not add as active code reward until code verified |
+| UPDATE1 gives 3 Strong Fertilizers | `/fertilizer/`, `/codes/` | Needs verification | Competitor code claim | Yes | Yes | 2026-05-20 | Test code only if redeem UI exists |
 
 ---
 
@@ -101,9 +108,9 @@ Next action
 
 | Claim | Used on pages | Current status | Source type | Need screenshot | Need in-game test | Last checked | Next action |
 |---|---|---:|---|---:|---:|---|---|
-| Game supports offline earnings | `/offline-income/`, `/money-farming/`, `/farm-layout/` | Verified direction | Official Roblox page direction | No | Yes | 2026-05-20 | Keep wording broad; avoid exact rates |
+| Game supports offline earnings | `/offline-income/`, `/money-farming/`, `/farm-layout/` | Verified direction | Official Roblox page direction + competitor repetition | No | Yes | 2026-05-20 | Keep wording broad; avoid exact rates |
 | Exact offline cash rate | `/offline-income/`, `/money-farming/` | Needs verification | Unknown | Yes | Yes | 2026-05-20 | Do not publish cash-per-second or exact formulas |
-| Offline rare effects trigger | `/offline-income/`, `/mutations/`, `/advanced-crops/` | Needs verification | Unknown | Yes | Yes | 2026-05-20 | Test before and after login |
+| Offline rare effects trigger | `/offline-income/`, `/mutations/`, `/advanced-crops/` | Needs verification | Unknown / competitor signal says no event mutation gain while offline | Yes | Yes | 2026-05-20 | Test before and after login |
 | Offline sprays persist | `/offline-income/`, `/sprays/` | Needs verification | Unknown | Yes | Yes | 2026-05-20 | Test spray state before logout |
 
 ---
@@ -124,12 +131,28 @@ Next action
 | Claim | Used on pages | Current status | Source type | Need screenshot | Need in-game test | Last checked | Next action |
 |---|---|---:|---|---:|---:|---|---|
 | 0 verified official codes | `/codes/`, `/` | Current site status | Site verification state | No | Yes | 2026-05-20 | Recheck official sources and in-game UI |
-| Active code strings from competitor sites | `/codes/` | Rejected until verified | Competitor/community claim | Yes | Yes | 2026-05-20 | Do not publish as active without proof |
+| UPDATE2 gives 1 Tropical Seed Pack | `/codes/`, `/seeds/` | Needs verification | Competitor code claim | Yes | Yes | 2026-05-20 | Test only after redeem UI verified |
+| THANKYOU gives 1 Autumn Spray | `/codes/`, `/sprays/` | Needs verification | Competitor code claim | Yes | Yes | 2026-05-20 | Test only after redeem UI verified |
+| BARF:3 gives 1 Acid Spray | `/codes/`, `/sprays/` | Needs verification | Competitor code claim | Yes | Yes | 2026-05-20 | Test only after redeem UI verified |
+| 100KVISITS gives 5-minute Time Skip | `/codes/` | Needs verification | Competitor code claim | Yes | Yes | 2026-05-20 | Test only after redeem UI verified |
+| 2KLIKES gives 1 Tropical Seed Pack | `/codes/`, `/seeds/` | Needs verification | Competitor code claim | Yes | Yes | 2026-05-20 | Test only after redeem UI verified |
+| UPDATE1 gives 3 Strong Fertilizers | `/codes/`, `/fertilizer/` | Needs verification | Competitor code claim | Yes | Yes | 2026-05-20 | Test only after redeem UI verified |
 | Redeem system exists | `/codes/` | Unknown | Unknown | Yes | Yes | 2026-05-20 | Confirm in-game UI before writing redemption steps |
 
 ---
 
-## 9. Update workflow
+## 9. Page opportunities from competitors
+
+| Opportunity | Competitor signal | Current action | Risk |
+|---|---|---|---|
+| `/crop-values/` | Competitors cover crop values, plants, rarities | Hold | High fake table risk |
+| `/rarities/` | Competitors cover rarities / exotic seeds | Hold | High unverified list risk |
+| `/wiki-trello-discord/` | Competitors cover Discord / Trello / Wiki guide | Only if framed as official link verification | Official link risk |
+| `/controls/` | Competitors cover controls and controller settings | Low priority | Weak topic fit |
+
+---
+
+## 10. Update workflow
 
 When any claim is verified:
 
