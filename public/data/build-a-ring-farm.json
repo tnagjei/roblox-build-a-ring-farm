@@ -2,7 +2,7 @@
   "site": {
     "name": "Build A Ring Farm Guide",
     "shortName": "Build A Ring Farm",
-    "description": "Build A Ring Farm wiki and guide for Roblox players, covering codes status, seeds, crops, gear shop, advanced crops, weather events, upgrades, money farming, official update checks, safe gameplay tips, and source-checked game information.",
+    "description": "Build A Ring Farm wiki and guide for Roblox players, covering codes status, seeds, crops, gear shop, tier list, advanced crops, weather events, upgrades, money farming, official update checks, safe gameplay tips, and source-checked game information.",
     "contactEmail": "tangjei414@gmail.com",
     "copyrightOwner": "tangjei414@gmail.com",
     "lastFullCheck": "2026-05-20",
@@ -88,14 +88,14 @@
       "key": "home",
       "path": "/",
       "title": "Build A Ring Farm Wiki & Guide | Codes, Crops, Upgrades",
-      "description": "Build A Ring Farm wiki for Roblox players: check codes status, seeds, crops, gear shop, advanced crops, weather events, upgrades, money farming, updates, and offline income tips.",
+      "description": "Build A Ring Farm wiki for Roblox players: check codes status, seeds, crops, gear shop, tier list, advanced crops, weather events, upgrades, money farming, updates, and offline income tips.",
       "h1": "Build A Ring Farm Wiki",
       "lede": "Build A Ring Farm is a Roblox farming simulator about growing crops, upgrading your ring-shaped farm, selling harvests for cash, and using offline income to keep progress moving.",
       "focus": "Build A Ring Farm Wiki",
-      "relatedPages": ["codes", "seeds", "crops", "gear-shop", "advanced-crops", "weather-events", "upgrades", "money-farming", "beginners-guide", "updates"],
+      "relatedPages": ["codes", "seeds", "crops", "gear-shop", "tier-list", "advanced-crops", "weather-events", "upgrades", "money-farming", "beginners-guide", "updates"],
       "faq": [
         { "q": "What is Build A Ring Farm Wiki?", "a": "Build A Ring Farm Wiki is an independent fan guide for the Roblox farming simulator Build A Ring Farm." },
-        { "q": "What does this Build A Ring Farm guide cover?", "a": "It covers codes status, seeds, crops, gear shop, beginner farming routes, upgrades, advanced crops, weather events, money farming, update checks, safety notes, and offline income basics." },
+        { "q": "What does this Build A Ring Farm guide cover?", "a": "It covers codes status, seeds, crops, gear shop, tier list, beginner farming routes, upgrades, advanced crops, weather events, money farming, update checks, safety notes, and offline income basics." },
         { "q": "Does Build A Ring Farm have verified active codes?", "a": "No verified official codes have been confirmed here yet. Some rewards are listed as community reported until rechecked." },
         { "q": "Is this an official Build A Ring Farm website?", "a": "No. This is an independent fan guide. The official game page is on Roblox." }
       ],
@@ -109,7 +109,7 @@
       "h1": "Build A Ring Farm Codes",
       "lede": "Use this page to check verified Build A Ring Farm codes. Right now there are 0 verified official codes.",
       "focus": "Codes",
-      "relatedPages": ["seeds", "beginners-guide", "crops", "gear-shop", "upgrades", "money-farming", "updates"],
+      "relatedPages": ["seeds", "beginners-guide", "crops", "gear-shop", "tier-list", "upgrades", "money-farming", "updates"],
       "sections": [],
       "faq": [
         { "q": "Are there verified Build A Ring Farm codes today?", "a": "No. The current verified count is 0 because no official or in-game proof has been recorded." }
@@ -124,7 +124,7 @@
       "h1": "Build A Ring Farm Seeds Guide",
       "lede": "Use this Build A Ring Farm seeds guide to understand seed packs, crop unlocks, planting choices, reported code rewards, and how seeds fit into crop value and progression.",
       "focus": "Seeds",
-      "relatedPages": ["crops", "gear-shop", "advanced-crops", "upgrades", "money-farming", "codes"],
+      "relatedPages": ["crops", "gear-shop", "tier-list", "advanced-crops", "upgrades", "money-farming", "codes"],
       "sections": [],
       "faq": [
         { "q": "What are seeds used for in Build A Ring Farm?", "a": "Seeds start the farming loop by giving players crops to grow, harvest, sell, and reinvest into upgrades." },
@@ -140,7 +140,7 @@
       "h1": "Build A Ring Farm Crops Guide",
       "lede": "Use this Build A Ring Farm crops guide to understand the farming loop: plant crops, wait for growth, harvest, sell for cash, upgrade production, and reinvest into a larger farm.",
       "focus": "Crops",
-      "relatedPages": ["seeds", "gear-shop", "advanced-crops", "weather-events", "upgrades", "money-farming", "codes"],
+      "relatedPages": ["seeds", "gear-shop", "tier-list", "advanced-crops", "weather-events", "upgrades", "money-farming", "codes"],
       "sections": [],
       "faq": [
         { "q": "What are crops in Build A Ring Farm?", "a": "Crops are the core farming items players grow, harvest, and sell for cash in Build A Ring Farm." },
@@ -158,13 +158,31 @@
       "h1": "Build A Ring Farm Gear Shop Guide",
       "lede": "Use this Build A Ring Farm gear shop guide to compare sprays, fertilizer, rare crop value, upgrade timing, and ROI checks without treating unverified gear data as official facts.",
       "focus": "Gear Shop",
-      "relatedPages": ["upgrades", "advanced-crops", "weather-events", "money-farming", "crops"],
+      "relatedPages": ["tier-list", "upgrades", "advanced-crops", "weather-events", "money-farming", "crops"],
       "sections": [],
       "faq": [
         { "q": "Is the Build A Ring Farm gear shop official on this site?", "a": "No. This is an independent fan guide. Gear shop prices and spray effects are community reported until stronger evidence is available." },
         { "q": "Should beginners buy sprays first?", "a": "Usually no. Beginners should keep plots active, sell crops, and buy reliable upgrades before spending heavily on rare effect testing." }
       ],
       "primaryKeyword": "Build A Ring Farm gear shop"
+    },
+    {
+      "key": "tier-list",
+      "path": "/tier-list/",
+      "title": "Build A Ring Farm Tier List Guide | Effects & Crops",
+      "description": "Build A Ring Farm tier list guide covering community reported crop effects, sprays, event boosts, farming routes, and source status.",
+      "h1": "Build A Ring Farm Tier List Guide",
+      "lede": "Use this Build A Ring Farm tier list guide to compare community reported effects, sprays, weather event boosts, and farming routes without treating any tier as official Roblox data.",
+      "focus": "Tier List",
+      "relatedPages": ["advanced-crops", "gear-shop", "weather-events", "money-farming", "crops", "upgrades"],
+      "sections": [],
+      "faq": [
+        { "q": "Is there an official Build A Ring Farm tier list?", "a": "No verified official tier list has been confirmed here. This page organizes community reported effects and route logic only." },
+        { "q": "What is the best reported effect in Build A Ring Farm?", "a": "Community sources report Rainbow as the strongest value boost lead, but this site does not treat it as official data." },
+        { "q": "Should beginners follow the tier list first?", "a": "No. Beginners should stabilize seeds, crops, selling, and upgrades before chasing rare effects." },
+        { "q": "Can the tier list change after updates?", "a": "Yes. Any tier based on community data should be rechecked after updates, new gear shop values, or new event behavior." }
+      ],
+      "primaryKeyword": "Build A Ring Farm tier list"
     },
     {
       "key": "advanced-crops",
@@ -174,7 +192,7 @@
       "h1": "Build A Ring Farm Advanced Crops Guide",
       "lede": "Use this Build A Ring Farm advanced crops guide to review community reported rare effects, event-based value boosts, sprays, and offline limits without treating unverified numbers as official facts.",
       "focus": "Advanced Crops",
-      "relatedPages": ["gear-shop", "weather-events", "upgrades", "money-farming", "crops", "updates"],
+      "relatedPages": ["tier-list", "gear-shop", "weather-events", "upgrades", "money-farming", "crops", "updates"],
       "sections": [],
       "faq": [
         { "q": "Are these rare crop values official?", "a": "No. The exact values on this page are community reported and should be rechecked after updates." },
@@ -190,7 +208,7 @@
       "h1": "Build A Ring Farm Weather Events Guide",
       "lede": "Use this Build A Ring Farm weather events guide to review community reported Rain, Blizzard, Black Hole, Nuclear, and Galaxy event effects without treating unverified odds as official facts.",
       "focus": "Weather Events",
-      "relatedPages": ["advanced-crops", "gear-shop", "upgrades", "money-farming", "crops", "updates"],
+      "relatedPages": ["tier-list", "advanced-crops", "gear-shop", "upgrades", "money-farming", "crops", "updates"],
       "sections": [],
       "faq": [
         { "q": "Are Build A Ring Farm weather event odds official?", "a": "No. The odds on this page are community reported and should be rechecked after updates." },
@@ -206,7 +224,7 @@
       "h1": "Build A Ring Farm Upgrades Guide",
       "lede": "Use this Build A Ring Farm upgrades guide to decide when to buy gear, when to expand, and how to compare upgrade value without relying on unverified prices or fake multipliers.",
       "focus": "Upgrades",
-      "relatedPages": ["gear-shop", "crops", "advanced-crops", "weather-events", "money-farming", "codes", "updates"],
+      "relatedPages": ["tier-list", "gear-shop", "crops", "advanced-crops", "weather-events", "money-farming", "codes", "updates"],
       "sections": [],
       "faq": [
         { "q": "What are upgrades in Build A Ring Farm?", "a": "Upgrades are purchases or systems that can improve farming speed, crop output, selling efficiency, expansion, or long-term progression." },
@@ -224,7 +242,7 @@
       "h1": "Build A Ring Farm Money Farming Guide",
       "lede": "Use this Build A Ring Farm money farming guide to plan cash routes through seeds, crops, upgrades, rare crop effects, code rewards, and offline income without relying on fake per-second numbers.",
       "focus": "Money Farming",
-      "relatedPages": ["seeds", "crops", "gear-shop", "upgrades", "advanced-crops", "weather-events", "codes"],
+      "relatedPages": ["tier-list", "seeds", "crops", "gear-shop", "upgrades", "advanced-crops", "weather-events", "codes"],
       "sections": [],
       "faq": [
         { "q": "What is the best way to make money in Build A Ring Farm?", "a": "The safest general route is to keep plots active, harvest consistently, sell crops, and reinvest into upgrades that improve repeated crop cycles." },
@@ -240,7 +258,7 @@
       "h1": "Build A Ring Farm Updates",
       "lede": "The official Roblox game record was checked on 2026-05-20 and showed the latest update timestamp as 2026-05-20T01:46:36.655083Z.",
       "focus": "Updates",
-      "relatedPages": ["codes", "seeds", "crops", "gear-shop", "advanced-crops", "weather-events", "upgrades", "money-farming"],
+      "relatedPages": ["codes", "seeds", "crops", "gear-shop", "tier-list", "advanced-crops", "weather-events", "upgrades", "money-farming"],
       "sections": [],
       "faq": [],
       "primaryKeyword": "Build A Ring Farm updates"
@@ -253,7 +271,7 @@
       "h1": "Build A Ring Farm Beginner Guide",
       "lede": "Build A Ring Farm is about growing plants, upgrading your farm, selling crops for cash, and using offline earnings to keep progress moving.",
       "focus": "Beginner Guide",
-      "relatedPages": ["codes", "seeds", "crops", "gear-shop", "upgrades", "money-farming", "updates"],
+      "relatedPages": ["codes", "seeds", "crops", "gear-shop", "tier-list", "upgrades", "money-farming", "updates"],
       "sections": [],
       "faq": [],
       "primaryKeyword": "Build A Ring Farm beginner guide"
