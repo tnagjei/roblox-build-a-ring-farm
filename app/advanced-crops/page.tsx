@@ -7,8 +7,8 @@ import Link from "next/link";
 import { siteData } from "@/lib/site-data";
 import { absoluteUrl } from "@/lib/seo";
 
-const pageTitle = "Build A Ring Farm Advanced Crops Guide | Rare Effects";
-const pageDescription = "Build A Ring Farm advanced crops guide for Roblox players. Learn rare crop effects, value boosts, event timing, sprays, offline limits, and safe source checks.";
+const pageTitle = "Build A Ring Farm Advanced Crops Guide | Rare Effects, Sprays & Event Odds";
+const pageDescription = "Build A Ring Farm advanced crops guide with community reported rare effects, spray costs, event odds, value boosts, offline limits, and safe source checks.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -19,24 +19,49 @@ export const metadata: Metadata = {
 };
 
 const summaryCards = [
-  { title: "Rare crop effects", description: "Track visual or value-changing crop states without inventing exact odds." },
-  { title: "Event timing", description: "Separate normal farming from limited events, weather, boosts, or timed systems." },
-  { title: "Spray checks", description: "Record what sprays or gear do only after in-game evidence is available." }
+  { title: "Community reported", description: "Tables below are useful leads, not official Roblox-confirmed numbers." },
+  { title: "Event timing", description: "Separate normal farming from limited events, boosts, and online-only systems." },
+  { title: "Spray checks", description: "Record spray costs and effects as source status until in-game proof is available." }
+];
+
+const effectRows = [
+  { effect: "Rainbow", value: "5x", status: "Community reported" },
+  { effect: "Radioactive", value: "3x", status: "Community reported" },
+  { effect: "Void", value: "2.25x", status: "Community reported" },
+  { effect: "Frozen", value: "1.75x", status: "Community reported" },
+  { effect: "Wet", value: "1.5x", status: "Community reported" }
+];
+
+const sprayRows = [
+  { item: "Acid Spray", reportedCost: "$1,000,000", reportedUse: "Clears an existing rare crop effect", status: "Community reported" },
+  { item: "Wet Spray", reportedCost: "$10,000,000", reportedUse: "Applies Wet effect", status: "Community reported" },
+  { item: "Frozen Spray", reportedCost: "$750,000,000", reportedUse: "Applies Frozen effect", status: "Community reported" },
+  { item: "Void Spray", reportedCost: "$1,000,000,000", reportedUse: "Applies Void effect", status: "Community reported" },
+  { item: "Radioactive Spray", reportedCost: "$10,000,000,000", reportedUse: "Applies Radioactive effect", status: "Community reported" },
+  { item: "Rainbow Spray", reportedCost: "$1,000,000,000,000", reportedUse: "Applies Rainbow effect", status: "Community reported" }
+];
+
+const eventRows = [
+  { eventName: "Rain Event", reportedEffect: "Wet", reportedChance: "8%", status: "Community reported" },
+  { eventName: "Blizzard Event", reportedEffect: "Frozen", reportedChance: "4%", status: "Community reported" },
+  { eventName: "Black Hole Event", reportedEffect: "Void", reportedChance: "3%", status: "Community reported" },
+  { eventName: "Nuclear Event", reportedEffect: "Radioactive", reportedChance: "2%", status: "Community reported" },
+  { eventName: "Galaxy Event", reportedEffect: "Rainbow", reportedChance: "1%", status: "Community reported" }
 ];
 
 const sections = [
   {
-    heading: "How advanced crops should be judged",
+    heading: "Source status: official vs community reported",
     body: [
-      "Advanced crops are useful only when they change expected value, farming speed, or progression decisions. A rare effect that looks good but does not improve cash flow may not be worth chasing early.",
-      "The safest approach is to treat every rare effect as pending until the site records source evidence. That evidence can be an official note, a repeatable in-game test, or a clearly documented screenshot set."
+      "The official Roblox page confirms the broad game loop: grow plants, harvest, upgrade the farm, sell plants for cash, and earn while offline. It does not publish exact rare effect values, spray prices, event odds, or ranking tables.",
+      "That means the tables on this page should be treated as community reported leads. They are useful for SEO and player research, but they should be rechecked after updates before being described as official facts."
     ],
-    list: ["Does the crop sell for more?", "Does the effect appear only during an event?", "Does gear or spray improve the result?", "Can the result happen while offline?"]
+    list: ["Official: game name, creator, basic farming loop, upgrades, selling, offline earnings.", "Community reported: rare effect values, spray costs, event odds, and tier ordering.", "Pending: offline rare effect behavior and exact item behavior after future updates."]
   },
   {
-    heading: "Tier list logic without fake numbers",
+    heading: "Tier list logic without fake certainty",
     body: [
-      "Competitor pages often use a tier list because it is easy for players to scan. This page can use the same structure later, but the current safe version explains the ranking logic instead of inventing exact tiers.",
+      "Competitor pages often use a tier list because it is easy for players to scan. This page can use the same structure, but the current safe version labels values by source status instead of pretending that every number is official.",
       "A useful tier list should compare repeatability, value boost, trigger difficulty, gear cost, and whether the effect helps normal farming or only rare situations."
     ],
     list: ["High tier: repeatable value boost with clear farming use.", "Medium tier: useful but dependent on timing, gear, or event state.", "Low tier: visually interesting but weak for cash recovery.", "Pending tier: not enough verified data yet."]
@@ -44,16 +69,16 @@ const sections = [
   {
     heading: "Gear shop sprays and rare crop value",
     body: [
-      "Some guides discuss spray-like items or gear shop tools as ways to improve special crop outcomes. That is a useful topic, but exact item effects must be verified before being written as facts.",
-      "Until item behavior is recorded, describe the decision rule: buy only if the tool improves repeated crop cycles, improves expected value, or helps recover its cost faster than basic upgrades."
+      "Community sources report that sprays can apply specific rare crop effects directly. This is useful because event-based effects may be random, slow, or online-dependent.",
+      "The practical rule is to compare spray cost against the crop value you are improving. A high-price spray is usually more logical on your strongest crops than on low-value early crops."
     ],
     list: ["Check whether the item affects one crop or many cycles.", "Check whether the result is event-only.", "Check whether offline progress changes the outcome.", "Do not publish copied odds without source notes."]
   },
   {
     heading: "Offline limits and event effects",
     body: [
-      "Players care whether rare crop effects can happen while offline. This is a high-value question, but it needs direct testing because Roblox simulator systems often handle offline progress differently from active play.",
-      "For now, offline claims should stay pending. When tested, record the date, version state, starting crop, offline duration, and final result before updating the page."
+      "Players care whether rare crop effects can happen while offline. Community pages suggest active play matters for event-based effects, while the official page only confirms that the farm can earn offline.",
+      "For now, offline rare effect claims should stay pending. When tested, record the date, version state, starting crop, offline duration, and final result before updating the page."
     ],
     list: ["Record before and after screenshots.", "Test active play separately from offline progress.", "Repeat after major updates.", "Keep uncertain claims clearly labeled as pending."]
   }
@@ -67,11 +92,15 @@ const relatedLinks = [
 ];
 
 const faq = [
-  { q: "What are advanced crops in Build A Ring Farm?", a: "Advanced crops are crops with rare effects, higher value behavior, event interactions, or gear-related outcomes that need verification before exact values are published." },
-  { q: "Is there a verified advanced crop tier list?", a: "Not yet. This page explains ranking logic but does not publish a fixed tier list until values and triggers are verified." },
-  { q: "Can sprays improve crop value?", a: "Spray and gear effects should be tested in-game before being treated as facts. This page keeps unverified item effects pending." },
-  { q: "Can rare crop effects happen offline?", a: "Offline behavior is not verified here yet. It should be tested separately from active play before publishing a claim." }
+  { q: "Are these rare crop values official?", a: "No. The exact values on this page are community reported and should be rechecked after updates." },
+  { q: "What is the strongest reported rare crop effect?", a: "Community sources report Rainbow as the highest listed value boost at 5x, but this is not official-source verified on this site yet." },
+  { q: "Can sprays improve crop value?", a: "Community sources report spray items for Wet, Frozen, Void, Radioactive, and Rainbow effects. Exact item behavior should still be tested in-game." },
+  { q: "Can rare crop effects happen offline?", a: "Offline behavior is not verified here yet. The official page confirms offline earnings, but not rare effect triggering while offline." }
 ];
+
+function StatusBadge({ status }: { status: string }) {
+  return <span className="eyebrow">{status}</span>;
+}
 
 export default function AdvancedCropsPage() {
   return (
@@ -81,7 +110,7 @@ export default function AdvancedCropsPage() {
           <p className="eyebrow">Advanced crop effects guide</p>
           <h1>Build A Ring Farm Advanced Crops Guide</h1>
           <p className="lede">
-            Use this Build A Ring Farm advanced crops guide to understand rare crop effects, event-based value boosts, sprays, and why exact multipliers should be verified before publishing.
+            Use this Build A Ring Farm advanced crops guide to review community reported rare effects, event-based value boosts, sprays, and offline limits without treating unverified numbers as official facts.
           </p>
           <div className="hero-actions">
             <Link className="primary-link" href="/upgrades/">Read upgrades guide</Link>
@@ -89,6 +118,15 @@ export default function AdvancedCropsPage() {
           </div>
         </div>
         <img className="hero-image" src={siteData.assets.hero} alt={`${siteData.game.name} Roblox thumbnail`} />
+      </section>
+
+      <section className="guide-card">
+        <span className="card-rule" />
+        <p className="eyebrow">Evidence note</p>
+        <h2>Community reported values, not official Roblox data</h2>
+        <p>
+          The official Roblox page confirms the basic Build A Ring Farm gameplay loop, but not the exact values below. Treat these rows as research leads until official notes, developer posts, or in-game screenshots confirm them.
+        </p>
       </section>
 
       <section className="research-grid" aria-label="Advanced crop effects summary">
@@ -99,6 +137,56 @@ export default function AdvancedCropsPage() {
             <p>{card.description}</p>
           </article>
         ))}
+      </section>
+
+      <section className="content-grid">
+        <article className="guide-card">
+          <span className="card-rule" />
+          <p className="eyebrow">Community table</p>
+          <h2>Reported rare crop values</h2>
+          <table>
+            <thead>
+              <tr><th>Effect</th><th>Reported value</th><th>Status</th></tr>
+            </thead>
+            <tbody>
+              {effectRows.map((row) => (
+                <tr key={row.effect}><td>{row.effect}</td><td>{row.value}</td><td><StatusBadge status={row.status} /></td></tr>
+              ))}
+            </tbody>
+          </table>
+        </article>
+
+        <article className="guide-card">
+          <span className="card-rule" />
+          <p className="eyebrow">Community table</p>
+          <h2>Reported gear shop sprays</h2>
+          <table>
+            <thead>
+              <tr><th>Item</th><th>Reported cost</th><th>Reported use</th><th>Status</th></tr>
+            </thead>
+            <tbody>
+              {sprayRows.map((row) => (
+                <tr key={row.item}><td>{row.item}</td><td>{row.reportedCost}</td><td>{row.reportedUse}</td><td><StatusBadge status={row.status} /></td></tr>
+              ))}
+            </tbody>
+          </table>
+        </article>
+
+        <article className="guide-card">
+          <span className="card-rule" />
+          <p className="eyebrow">Community table</p>
+          <h2>Reported event odds</h2>
+          <table>
+            <thead>
+              <tr><th>Event</th><th>Reported effect</th><th>Reported chance</th><th>Status</th></tr>
+            </thead>
+            <tbody>
+              {eventRows.map((row) => (
+                <tr key={row.eventName}><td>{row.eventName}</td><td>{row.reportedEffect}</td><td>{row.reportedChance}</td><td><StatusBadge status={row.status} /></td></tr>
+              ))}
+            </tbody>
+          </table>
+        </article>
       </section>
 
       <section className="content-grid">
