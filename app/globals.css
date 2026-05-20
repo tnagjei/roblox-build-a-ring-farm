@@ -255,6 +255,10 @@ h3 {
   margin-top: 28px;
 }
 
+.single-column-grid {
+  grid-template-columns: 1fr;
+}
+
 .guide-card,
 .route-card,
 .research-card {
@@ -262,6 +266,70 @@ h3 {
   border: 1px solid var(--line);
   padding: 24px;
   background: rgba(255, 253, 246, 0.86);
+}
+
+.evidence-note-card {
+  margin-top: 0;
+}
+
+.data-card {
+  overflow: hidden;
+}
+
+.data-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.data-row {
+  display: grid;
+  gap: 12px;
+  align-items: center;
+  border: 1px solid var(--line);
+  padding: 14px;
+  background: rgba(248, 247, 239, 0.72);
+}
+
+.three-field-row {
+  grid-template-columns: minmax(120px, 1fr) minmax(120px, 0.8fr) minmax(160px, 0.9fr);
+}
+
+.four-field-row {
+  grid-template-columns: minmax(150px, 1fr) minmax(160px, 0.9fr) minmax(180px, 1.2fr) minmax(160px, 0.9fr);
+}
+
+.data-row span {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--muted);
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.data-row strong {
+  display: block;
+  overflow-wrap: anywhere;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.source-badge {
+  display: inline-block;
+  width: fit-content;
+  margin: 0;
+  border: 1px solid rgba(196, 72, 54, 0.24);
+  padding: 4px 8px;
+  color: var(--accent-3);
+  background: rgba(196, 72, 54, 0.08);
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 10px;
+  font-weight: 900;
+  line-height: 1.1;
+  text-transform: uppercase;
 }
 
 .guide-card h2,
@@ -912,6 +980,11 @@ details p {
     grid-template-columns: 1fr;
   }
 
+  .three-field-row,
+  .four-field-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
   .video-card:first-child {
     grid-column: auto;
   }
@@ -984,7 +1057,9 @@ details p {
     font-size: 44px;
   }
 
-  .status-row {
+  .status-row,
+  .three-field-row,
+  .four-field-row {
     grid-template-columns: 1fr;
   }
 
