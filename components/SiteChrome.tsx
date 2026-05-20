@@ -31,7 +31,7 @@ type NavItem = {
 };
 
 const primaryNavSlugs = ["codes", "beginners-guide", "crops", "money-farming"];
-const guideMenuSlugs = ["seeds", "upgrades", "advanced-crops", "weather-events", "updates"];
+const guideMenuSlugs = ["seeds", "upgrades", "gear-shop", "advanced-crops", "weather-events", "updates"];
 
 function shortLocaleLabel(code: string): string {
   const labels: Record<string, string> = {
