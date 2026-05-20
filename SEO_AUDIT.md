@@ -1,43 +1,39 @@
 # Build A Ring Farm 全站 SEO 质量审计
 
-> 审计对象：`tnagjei/roblox-build-a-ring-farm`
-> 审计时间：2026-05-20
-> 审计目标：确认当前页面集群是否具备收录基础，并找出下一步应该修复的 P0 / P1 / P2 问题。
+> 审计对象：`tnagjei/roblox-build-a-ring-farm`  
+> 初始审计时间：2026-05-20  
+> 状态更新时间：2026-05-20  
+> 审计目标：确认当前页面集群是否具备收录基础，并跟踪 P0 / P1 / P2 修复状态。
 
 ---
 
-## 1. 结论
+## 1. 当前结论
 
-当前项目已经具备基础收录条件：
+当前项目已经具备基础收录条件，并已完成两项关键修复：
 
 ```text
-核心页面已注册到 game-config
-sitemap 使用 page-registry 自动生成
-robots 指向 sitemap
-Guides 下拉覆盖主要页面
-首页通过 HomePageTemplate 兜底补入新增长尾页入口
-public/data 已覆盖大部分页面 TDK 与 relatedPages
+llms.txt 已从旧版摘要升级为完整主题集群摘要
+首页入口已从硬编码兜底改为基于 siteData.pages 补全
 ```
 
-但还没有到“继续大规模扩页”的阶段。
+仍不建议继续大规模扩页。
 
-当前最大问题不是缺页面，而是：
+当前剩余重点是：
 
 ```text
-首页内容源不够干净
-llms.txt 过旧，只覆盖 codes / beginner / updates / scripts
-public/data 部分 description 过长或重复
-新增长尾页是批量生产，存在模板感和薄内容风险
-数据验证体系还没有落地
+本地 npm run build 验证
+public/data FAQ 完整度
+数据验证台账 DATA_VERIFICATION.md
+批量新页模板感降低
 ```
 
 ---
 
-## 2. P0 问题
+## 2. P0 状态
 
-### P0-1：必须本地跑 build
+### P0-1：本地 build 验证
 
-这批新增长尾页较多，必须本地验证：
+状态：未在本轮工具侧验证，必须本地执行。
 
 ```bash
 git pull origin main
@@ -49,6 +45,9 @@ npm run dev
 重点检查：
 
 ```text
+/
+/llms.txt
+/llms-full.txt
 /mutations/
 /fertilizer/
 /offline-income/
@@ -57,49 +56,29 @@ npm run dev
 /tier-list/
 /sitemap.xml
 /robots.txt
-/llms.txt
-/llms-full.txt
 ```
 
-原因：当前审计只能基于仓库静态文件，不能替代本地 `next build`。
+原因：仓库静态审计不能替代 Next.js 本地构建。
 
 ---
 
-### P0-2：`llms.txt` 内容明显滞后
+### P0-2：`llms.txt` 内容滞后
 
-当前 `llms.txt` 只列出：
+状态：已处理。
+
+已更新：
+
+```text
+app/llms.txt/route.ts
+```
+
+当前覆盖：
 
 ```text
 Codes
 Beginner Guide
-Updates
-Scripts Safety
-Roblox Game
-```
-
-它没有覆盖：
-
-```text
-gear-shop
-sprays
-mutations
-fertilizer
-offline-income
-farm-layout
-tier-list
-advanced-crops
-weather-events
-money-farming
-upgrades
-crops
-seeds
-```
-
-风险：AI crawler 只读 `llms.txt` 时，对站点主题理解会偏旧。
-
-建议：更新 `app/llms.txt/route.ts`，至少补入 8 个核心商业页：
-
-```text
+Crops
+Seeds
 Gear Shop
 Sprays
 Mutations
@@ -107,72 +86,71 @@ Fertilizer
 Offline Income
 Farm Layout
 Tier List
+Advanced Crops
+Weather Events
+Upgrades
 Money Farming
+Updates
+Scripts Safety
+Roblox Game
+```
+
+价值：AI crawler 现在能更完整理解当前主题集群，不再只看到 codes / beginner / updates / scripts。
+
+---
+
+## 3. P1 状态
+
+### P1-1：首页入口依赖硬编码兜底
+
+状态：已处理。
+
+已更新：
+
+```text
+components/templates/HomePageTemplate.tsx
+```
+
+当前逻辑：
+
+```text
+不再硬编码 Sprays / Mutations / Fertilizer / Offline Income / Farm Layout / Tier List 的完整文案列表
+改为从 siteData.pages 自动补全首页 Directory card、Popular search、FAQ
+```
+
+注意：这不是把入口写回 `template-pages.ts`，而是把入口来源统一到 `public/data/build-a-ring-farm.json`。
+
+新约束：
+
+```text
+以后新增页面如果想自动进入首页，必须先同步 public/data/build-a-ring-farm.json
 ```
 
 ---
 
-## 3. P1 问题
+### P1-2：`public/data` 首页 description 过长且重复
 
-### P1-1：首页入口依赖模板兜底，内容源不干净
+状态：未处理。
 
-当前 `HomePageTemplate.tsx` 会兜底注入：
+问题：首页 description 仍可能存在关键词堆叠或 offline income 重复。
 
-```text
-Sprays
-Mutations
-Fertilizer
-Offline Income
-Farm Layout
-Tier List
-```
-
-优点：避免孤岛页。
-
-问题：这些入口没有正式写回 `lib/content/template-pages.ts`，导致首页真实内容源与渲染层不一致。
-
-风险：
-
-```text
-后续维护者只看 template-pages.ts，会误判首页缺入口
-内容逻辑散落在 template 和 content factory 两处
-首页 popular searches / directory / FAQ 的来源不统一
-```
-
-建议：把这些入口正式迁入 `lib/content/template-pages.ts`，然后删除 `HomePageTemplate.tsx` 中的兜底注入逻辑。
-
----
-
-### P1-2：`public/data` 的首页 description 过长且重复
-
-当前首页 description 包含两次 offline income：
-
-```text
-... offline income, farm layout, tier list ... updates, and offline income tips.
-```
-
-建议改成更短版本：
+建议目标文案：
 
 ```text
 Build A Ring Farm wiki covering codes, crops, gear shop, sprays, mutations, fertilizer, offline income, layouts, tier list, weather events, and money farming.
 ```
 
-目标：控制在 140–160 字符左右，避免堆关键词过重。
+优先级：P1。
 
 ---
 
-### P1-3：`public/data` 多数新页面 FAQ 只有 1 条
+### P1-3：`public/data` 多数新页面 FAQ 不够完整
 
-当前 `public/data/build-a-ring-farm.json` 中很多页面 `faq` 只保留 1 条。
+状态：未完全处理。
 
-风险：
+因为首页 FAQ 现在会从 `siteData.pages` 读取新页面 FAQ 第一条，所以 public/data 的 FAQ 完整度变得更重要。
 
-```text
-llms-full.txt 读取 public/data 时，FAQ 信息偏薄
-后续如果组件直接读取 siteData.pages，FAQ 丰富度不足
-```
-
-建议：把实际页面中的 4 条 FAQ 同步回 public/data，优先：
+建议优先同步 4 条左右 FAQ：
 
 ```text
 sprays
@@ -187,30 +165,15 @@ weather-events
 money-farming
 ```
 
+优先级：P1。
+
 ---
 
 ### P1-4：批量新页面模板感偏强
 
-以下页面是批量新增：
+状态：未处理。
 
-```text
-/mutations/
-/fertilizer/
-/offline-income/
-/farm-layout/
-```
-
-它们结构合格，但语义相似度较高：
-
-```text
-Evidence note
-Community table
-What still needs verification
-Related guides
-FAQ
-```
-
-这不是错误，但后续应补“更具体的玩家场景”：
+需要增强具体玩家场景：
 
 ```text
 /mutations/：增加 stacking test checklist
@@ -219,20 +182,15 @@ FAQ
 /farm-layout/：增加 beginner / mid-game / late-game layout checklist
 ```
 
+优先级：P1。
+
 ---
 
-## 4. P2 问题
+## 4. P2 状态
 
-### P2-1：数据验证体系还没落地
+### P2-1：数据验证体系未落地
 
-当前站点大量使用：
-
-```text
-Community reported
-Needs verification
-```
-
-这是正确的，但需要一个统一验证台账。
+状态：未处理。
 
 建议新增：
 
@@ -240,7 +198,20 @@ Needs verification
 DATA_VERIFICATION.md
 ```
 
-记录：
+字段：
+
+```text
+Claim
+Used on pages
+Current status
+Source type
+Need screenshot
+Need in-game test
+Last checked
+Next action
+```
+
+首批记录：
 
 ```text
 Rainbow 5x
@@ -268,36 +239,34 @@ Offline sprays
 Farm layout profit claims
 ```
 
-字段建议：
-
-```text
-Claim
-Used on pages
-Current status
-Source type
-Need screenshot
-Need in-game test
-Last checked
-Next action
-```
+优先级：P2，但对长期可信度很重要。
 
 ---
 
-### P2-2：可以做结构化内链审计
+### P2-2：结构化内链审计未做
 
-当前 relatedPages 比较密，但还没检查：
+状态：未处理。
+
+后续可新增：
+
+```text
+INTERNAL_LINK_AUDIT.md
+```
+
+检查：
 
 ```text
 每页是否至少链接 4 个相关页面
 是否存在只进不出的页面
-是否存在入口过多导致首页卡片太长
+是否存在首页入口过多导致可读性下降
+是否存在 sitemap 有但导航/首页没有的页面
 ```
-
-建议后续做一个 `INTERNAL_LINK_AUDIT.md`。
 
 ---
 
-### P2-3：暂不建议继续扩页面
+### P2-3：暂缓继续扩页
+
+状态：维持。
 
 暂缓：
 
@@ -319,35 +288,29 @@ Crop Values / Rarities 只能做 community reported 页面，不能写假表格
 
 ## 5. 通过项
 
-### 5.1 sitemap 机制通过
+### sitemap 机制通过
 
 `sitemap.ts` 使用 `sitemapRoutes` 自动生成 URL，`sitemapRoutes` 来自 `page-registry.ts`。
 
 只要页面进入 `completedCoreSlugs`，理论上会进入 sitemap。
 
----
-
-### 5.2 robots 机制通过
+### robots 机制通过
 
 `robots.ts` 指向 `/sitemap.xml`，并给普通 crawler 开放 `/`。
 
 AI crawler 规则使用 `robotsAllowedRoutes`，与 sitemap 路由同源。
 
----
-
-### 5.3 canonical 机制基本通过
+### canonical 机制基本通过
 
 首页使用 `buildLocalizedMetadata` 生成 canonical。
 
 手写页面使用 `metadata.alternates.canonical`。
 
-需要注意：后续新增页面建议统一改用 `absoluteUrl()`，减少硬编码域名。
+后续新增页面建议统一改用 `absoluteUrl()`，减少硬编码域名。
 
----
+### 导航覆盖通过
 
-### 5.4 导航覆盖通过
-
-Guides 下拉已覆盖：
+Guides 下拉已覆盖核心新增页：
 
 ```text
 Seeds
@@ -364,6 +327,19 @@ Tier List
 Updates
 ```
 
+### 首页入口覆盖通过
+
+首页现在通过 `siteData.pages` 自动补全：
+
+```text
+Sprays
+Mutations
+Fertilizer
+Offline Income
+Farm Layout
+Tier List
+```
+
 ---
 
 ## 6. 推荐修复顺序
@@ -372,24 +348,22 @@ Updates
 
 ```text
 1. 本地 npm run build
-2. 更新 llms.txt
-3. 清理首页内容源，把兜底入口正式写进 template-pages.ts
+2. 压缩 public/data 首页 description
+3. 同步 public/data 新页面 FAQ 完整度
 ```
 
 ### 第二优先级
 
 ```text
-4. 同步 public/data FAQ 到 4 条左右
-5. 压缩 public/data 首页 description
-6. 给四个批量新页增加更具体的 checklist / decision tree
+4. 给四个批量新页增加 checklist / decision tree
+5. 新建 DATA_VERIFICATION.md
 ```
 
 ### 第三优先级
 
 ```text
-7. 新建 DATA_VERIFICATION.md
-8. 做 INTERNAL_LINK_AUDIT.md
-9. 再考虑 crop-values / rarities / wiki-trello-discord
+6. 做 INTERNAL_LINK_AUDIT.md
+7. 再考虑 crop-values / rarities / wiki-trello-discord
 ```
 
 ---
@@ -399,21 +373,20 @@ Updates
 Verifiable:
 
 ```text
-当前页面集群已经注册到 game-config。
-sitemap 和 robots 使用统一 page-registry。
-首页通过模板兜底注入新增长尾页入口。
-Guides 下拉已包含核心新增页。
-public/data 已覆盖新增长尾页基础 TDK。
+llms.txt 已更新为完整主题集群摘要。
+首页入口已改为从 siteData.pages 补全。
+Guides 下拉已覆盖核心新增页。
+sitemap 和 robots 机制使用统一 page-registry。
 ```
 
 Judgment:
 
 ```text
-当前站点不是缺页面，而是需要降低模板感、补齐 AI crawler 摘要、统一首页内容源和建立数据验证台账。
+当前站点最该做的是构建验证、public/data 完整度、数据验证台账和批量页增强，而不是继续扩页。
 ```
 
 Confidence ≠ Correctness:
 
 ```text
-没有本地 build 输出前，不能断言构建完全通过。必须以 npm run build 结果为准。
+没有本地 build 输出前，不能断言构建完全通过。
 ```
