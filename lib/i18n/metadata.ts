@@ -1,5 +1,5 @@
 // input: locale, slug, title, description, and page localization scope
-// output: Next.js metadata alternates for localized or English-only pages
+// output: Next.js metadata alternates and social metadata for localized or English-only pages
 // pos: i18n metadata helper
 
 import { gameConfig } from "@/lib/game-config";
@@ -21,6 +21,44 @@ function localizedLanguages(slug: string) {
   return languages;
 }
 
+function buildSocialMetadata({
+  title,
+  description,
+  canonical,
+  type = "website"
+}: {
+  title: string;
+  description: string;
+  canonical: string;
+  type?: "website" | "article";
+}) {
+  const socialImage = absoluteUrl("/opengraph-image");
+
+  return {
+    openGraph: {
+      title,
+      description,
+      url: canonical,
+      siteName: gameConfig.siteName,
+      images: [
+        {
+          url: socialImage,
+          width: 1200,
+          height: 630,
+          alt: `${gameConfig.gameName} social guide image`
+        }
+      ],
+      type
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [socialImage]
+    }
+  };
+}
+
 export function buildLocalizedMetadata({
   locale,
   slug,
@@ -32,13 +70,16 @@ export function buildLocalizedMetadata({
   title: string;
   description: string;
 }) {
+  const canonical = absoluteUrl(getLocalizedPath(locale, slug));
+
   return {
     title,
     description,
     alternates: {
-      canonical: absoluteUrl(getLocalizedPath(locale, slug)),
+      canonical,
       languages: localizedLanguages(slug)
-    }
+    },
+    ...buildSocialMetadata({ title, description, canonical })
   };
 }
 
@@ -51,15 +92,18 @@ export function buildEnglishOnlyMetadata({
   title: string;
   description: string;
 }) {
+  const canonical = absoluteUrl(getLocalizedPath(gameConfig.defaultLocale as Locale, slug));
+
   return {
     title,
     description,
     alternates: {
-      canonical: absoluteUrl(getLocalizedPath(gameConfig.defaultLocale as Locale, slug)),
+      canonical,
       languages: {
-        en: absoluteUrl(getLocalizedPath(gameConfig.defaultLocale as Locale, slug)),
-        "x-default": absoluteUrl(getLocalizedPath(gameConfig.defaultLocale as Locale, slug))
+        en: canonical,
+        "x-default": canonical
       }
-    }
+    },
+    ...buildSocialMetadata({ title, description, canonical })
   };
 }
