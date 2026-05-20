@@ -19,6 +19,7 @@
 - terms/：使用条款页面
 - codes/：codes 页面
 - beginners-guide/：新手指南页面
+- crops/：crops 长尾 SEO 页面
 - updates/：更新日志页面
 - update-log/：更新日志别名跳转页面
 - scripts/：脚本安全页面
