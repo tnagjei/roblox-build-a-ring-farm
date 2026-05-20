@@ -1,6 +1,6 @@
 // input: locale, slug, and shared site config
 // output: source-aware content objects for game pages
-// pos: reusable content factory
+// pos: reusable content factory（更新规则：文件变更需同步本注释与所属目录 README）
 
 import type { CodesPageContent, HomePageContent, StrategyPageContent } from "@/lib/content/page-types";
 import { gameConfig } from "@/lib/game-config";
@@ -78,15 +78,15 @@ export function createTemplateHomePage(locale = "en"): HomePageContent {
 
   return {
     meta: {
-      title: withLocale(`${gameConfig.siteName} | Codes, Tier List, Units, Updates`, locale),
-      description: `${gameConfig.siteName} with source-aware Roblox codes status, beginner tips, update notes, and safe player guidance.`
+      title: withLocale(`${gameConfig.gameName} | Roblox Farming Guide, Codes & Tips`, locale),
+      description: `${gameConfig.gameName} guide for Roblox players: grow and harvest plants, upgrade your farm, sell crops for cash, check codes status, and track updates.`
     },
     slug: "",
     hero: {
-      eyebrow: "Source-aware Roblox guide",
-      h1: withLocale(`${gameConfig.gameName} Guide`, locale),
-      lede: "Use official Roblox data and in-game checks to follow farming progress, updates, code status, and safety notes without treating rumors as facts.",
-      primaryAction: { label: "Check codes", href: localizedHref(locale, "codes") },
+      eyebrow: "Roblox farming simulator guide",
+      h1: withLocale(gameConfig.gameName, locale),
+      lede: "Build A Ring Farm is a Roblox farming simulator about growing plants, upgrading your farm, selling crops for cash, and earning while offline.",
+      primaryAction: { label: "Start beginner guide", href: localizedHref(locale, "beginners-guide") },
       secondaryAction: { label: "Open Roblox page", href: "roblox", external: true }
     },
     stats: [
@@ -96,21 +96,21 @@ export function createTemplateHomePage(locale = "en"): HomePageContent {
       { valueKey: "approval", label: "Approval", detail: "Roblox API snapshot" }
     ],
     directory: {
-      eyebrow: "Guide structure",
-      title: "Build A Ring Farm guides",
+      eyebrow: "Build A Ring Farm guide structure",
+      title: "Build A Ring Farm Roblox guides",
       cards: [
-        { href: localizedHref(locale, "codes"), title: "Codes", description: "Track verified active codes, pending claims, and safe redemption notes." },
-        { href: localizedHref(locale, "beginners-guide"), title: "Beginner Guide", description: "Learn the basic grow, harvest, upgrade, and sell loop." },
+        { href: localizedHref(locale, "beginners-guide"), title: "Beginner Guide", description: "Learn the grow, harvest, upgrade, expand, sell, and offline earnings loop." },
+        { href: localizedHref(locale, "codes"), title: "Codes", description: "Check verified Build A Ring Farm codes status and safe redemption notes." },
         { href: localizedHref(locale, "updates"), title: "Updates", description: "Track official Roblox changes and recheck triggers." },
         { href: "/scripts/", title: "Scripts Safety", description: "Avoid unsafe downloads, credential requests, and copied exploit links." }
       ]
     },
     research: {
-      eyebrow: "Verification policy",
-      title: "No fake data",
+      eyebrow: "Build A Ring Farm facts",
+      title: "What this guide verifies",
       cards: [
-        { title: "Codes", description: "Keep active codes empty until official or in-game evidence exists." },
-        { title: "Rewards", description: "Do not publish reward claims without traceable source notes." },
+        { title: "Gameplay loop", description: "Focus on the verified grow, harvest, upgrade, expand, sell, and offline earning loop." },
+        { title: "Codes status", description: "Keep active codes empty until official or in-game evidence exists." },
         { title: "Official status", description: "Do not claim official affiliation unless it is proven." }
       ]
     },
@@ -144,16 +144,17 @@ export function createTemplateHomePage(locale = "en"): HomePageContent {
       ariaLabel: homeCopy.popularAria
     },
     popularSearches: [
-      { href: "/codes/", title: `${gameConfig.gameName} Codes`, description: "Check whether any official or in-game code proof exists.", coversLabel: "Covers", covers: "Codes · Status · Safety" },
-      { href: "/beginners-guide/", title: `${gameConfig.gameName} Beginner Guide`, description: "Start with crops, upgrades, selling, and offline earnings.", coversLabel: "Covers", covers: "Farm · Upgrade · Sell" }
+      { href: "/beginners-guide/", title: `${gameConfig.gameName} Beginner Guide`, description: "Start with farming, upgrades, selling, expansion, and offline earnings.", coversLabel: "Covers", covers: "Farm · Upgrade · Sell" },
+      { href: "/codes/", title: `${gameConfig.gameName} Codes`, description: "Check whether any official or in-game code proof exists.", coversLabel: "Covers", covers: "Codes · Status · Safety" }
     ],
     faqMeta: {
       eyebrow: homeCopy.faqEyebrow,
-      title: `${gameConfig.gameName} Guide FAQ`
+      title: `${gameConfig.gameName} FAQ`
     },
     faq: [
-      { q: "Is this an official website?", a: "No. This is an independent fan guide unless official ownership is verified." },
-      { q: "Can I publish active codes immediately?", a: "No. Active codes require official or in-game proof." }
+      { q: "What is Build A Ring Farm?", a: "Build A Ring Farm is a Roblox farming simulator where players grow and harvest plants, upgrade and expand a farm, sell crops for cash, and keep earning offline." },
+      { q: "Is this an official Build A Ring Farm website?", a: "No. This is an independent fan guide. The official game page is on Roblox." },
+      { q: "Does Build A Ring Farm have verified active codes?", a: "No verified official codes have been confirmed yet." }
     ]
   };
 }
