@@ -80,62 +80,93 @@ function SnapshotTable({ table }: { table: HomeHubTable }) {
   );
 }
 
+type ExtraHomeLink = {
+  slug: string;
+  title: string;
+  description: string;
+  covers?: string;
+  faqQ?: string;
+  faqA?: string;
+};
+
+function hasPath<T extends { href: string }>(items: T[], path: string, slug: string) {
+  return items.some((item) => item.href === path || item.href === `/${slug}/`);
+}
+
 export function HomePageTemplate({ content, locale }: HomePageTemplateProps) {
-  const spraysPath = getLocalizedPath(locale, "sprays");
-  const tierListPath = getLocalizedPath(locale, "tier-list");
-  const directoryCards = [
-    ...content.directory.cards,
-    ...(content.directory.cards.some((card) => card.href === spraysPath || card.href === "/sprays/")
-      ? []
-      : [{
-          href: spraysPath,
-          title: "Sprays",
-          description: "Compare community reported spray effects, rare crop routes, gear shop use, weather events, and ROI without treating any spray claim as official."
-        }]),
-    ...(content.directory.cards.some((card) => card.href === tierListPath || card.href === "/tier-list/")
-      ? []
-      : [{
-          href: tierListPath,
-          title: "Tier List",
-          description: "Compare community reported effects, gear shop routes, weather events, and farming value without treating any tier as official."
-        }])
+  const extraLinks: ExtraHomeLink[] = [
+    {
+      slug: "sprays",
+      title: "Sprays",
+      description: "Compare community reported spray effects, rare crop routes, gear shop use, weather events, and ROI without treating any spray claim as official.",
+      covers: "Sprays · Effects · ROI",
+      faqQ: "Are Build A Ring Farm sprays official on this site?",
+      faqA: "No. Spray names, prices, effects, and stacking behavior are treated as community reported until official notes or in-game evidence confirms them."
+    },
+    {
+      slug: "mutations",
+      title: "Mutations",
+      description: "Compare community reported mutations, effect tiers, spray routes, weather event links, stacking questions, and source status.",
+      covers: "Mutations · Effects · Stacking",
+      faqQ: "Are Build A Ring Farm mutations official on this site?",
+      faqA: "No. Mutation effects, stacking rules, and offline behavior are treated as community reported or needs verification until stronger evidence exists."
+    },
+    {
+      slug: "fertilizer",
+      title: "Fertilizer",
+      description: "Review Strong Fertilizer, crop timing, sprays, upgrades, ROI, and source status without claiming official prices or growth values.",
+      covers: "Fertilizer · Growth · ROI",
+      faqQ: "Is Build A Ring Farm fertilizer official on this site?",
+      faqA: "No. Fertilizer prices, growth behavior, cooldowns, and offline effects are treated as community reported or needs verification."
+    },
+    {
+      slug: "offline-income",
+      title: "Offline Income",
+      description: "Separate offline earnings from unverified offline weather events, mutations, sprays, rare-effect behavior, and exact income rates.",
+      covers: "Offline · AFK · Cash",
+      faqQ: "Does Build A Ring Farm offline income include rare effects?",
+      faqA: "Offline earning is supported as a broad game direction, but offline mutations, weather events, sprays, and exact rates still need separate verification."
+    },
+    {
+      slug: "farm-layout",
+      title: "Farm Layout",
+      description: "Plan active plots, ring expansion, crop routes, upgrades, and offline preparation without relying on fake best-layout claims.",
+      covers: "Layout · Plots · Expansion",
+      faqQ: "Is there an official best Build A Ring Farm layout?",
+      faqA: "No verified official best layout has been confirmed here. The farm layout page uses checklist logic instead of fake maximum-profit layouts."
+    },
+    {
+      slug: "tier-list",
+      title: "Tier List",
+      description: "Compare community reported effects, gear shop routes, weather events, and farming value without treating any tier as official.",
+      covers: "Effects · Sprays · Routes",
+      faqQ: "Is there an official Build A Ring Farm tier list?",
+      faqA: "No verified official tier list has been confirmed. The tier list page organizes community reported effects and route logic only."
+    }
   ];
-  const popularSearches = [
-    ...content.popularSearches,
-    ...(content.popularSearches.some((card) => card.href === "/sprays/" || card.href === spraysPath)
-      ? []
-      : [{
-          href: spraysPath,
-          title: `${siteData.game.name} Sprays`,
-          description: "Compare community reported spray effects, gear shop use, rare crop value, and weather event alternatives.",
-          coversLabel: "Covers",
-          covers: "Sprays · Effects · ROI"
-        }]),
-    ...(content.popularSearches.some((card) => card.href === "/tier-list/" || card.href === tierListPath)
-      ? []
-      : [{
-          href: tierListPath,
-          title: `${siteData.game.name} Tier List`,
-          description: "Compare community reported rare effects, event boosts, sprays, and farming routes.",
-          coversLabel: "Covers",
-          covers: "Effects · Sprays · Routes"
-        }])
-  ];
-  const faqItems = [
-    ...content.faq,
-    ...(content.faq.some((item) => item.q.toLowerCase().includes("spray"))
-      ? []
-      : [{
-          q: "Are Build A Ring Farm sprays official on this site?",
-          a: "No. Spray names, prices, effects, and stacking behavior are treated as community reported until official notes or in-game evidence confirms them."
-        }]),
-    ...(content.faq.some((item) => item.q.toLowerCase().includes("tier list"))
-      ? []
-      : [{
-          q: "Is there an official Build A Ring Farm tier list?",
-          a: "No verified official tier list has been confirmed. The tier list page organizes community reported effects and route logic only."
-        }])
-  ];
+
+  const extraDirectoryCards = extraLinks
+    .map((item) => ({ href: getLocalizedPath(locale, item.slug), title: item.title, description: item.description, slug: item.slug }))
+    .filter((item) => !hasPath(content.directory.cards, item.href, item.slug));
+  const directoryCards = [...content.directory.cards, ...extraDirectoryCards];
+
+  const extraPopularSearches = extraLinks
+    .map((item) => ({
+      href: getLocalizedPath(locale, item.slug),
+      title: `${siteData.game.name} ${item.title}`,
+      description: item.description,
+      coversLabel: "Covers",
+      covers: item.covers || item.title,
+      slug: item.slug
+    }))
+    .filter((item) => !hasPath(content.popularSearches, item.href, item.slug));
+  const popularSearches = [...content.popularSearches, ...extraPopularSearches];
+
+  const extraFaqItems = extraLinks
+    .filter((item) => item.faqQ && item.faqA)
+    .map((item) => ({ q: item.faqQ as string, a: item.faqA as string }))
+    .filter((item) => !content.faq.some((faq) => faq.q.toLowerCase() === item.q.toLowerCase()));
+  const faqItems = [...content.faq, ...extraFaqItems];
 
   return (
     <main className="page-main">
