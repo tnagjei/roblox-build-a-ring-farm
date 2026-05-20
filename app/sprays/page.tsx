@@ -1,13 +1,14 @@
 // input: `/sprays/` route request
-// output: English sprays guide page with community reported spray data and safe source boundaries
+// output: English sprays guide page with cross-source community reported spray data and safe source boundaries
 // pos: sprays route（更新规则：文件变更需同步本注释与所属目录 README）
 
 import type { Metadata } from "next";
 import Link from "next/link";
 
 const pageTitle = "Build A Ring Farm Sprays Guide | Effects & ROI";
-const pageDescription = "Build A Ring Farm sprays guide covering community reported spray effects, gear shop use, rare crop value, weather events, ROI, and source status.";
+const pageDescription = "Build A Ring Farm sprays guide covering cross-source community reported spray effects, gear shop use, rare crop value, weather events, ROI, and source status.";
 const heroImage = "/official-hero-image";
+const crossSourceStatus = "Cross-source community reported";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -18,26 +19,26 @@ export const metadata: Metadata = {
 };
 
 const summaryCards = [
-  { title: "Community reported", description: "Spray names, prices, and effects should be treated as community reported unless official or in-game proof confirms them." },
+  { title: "Cross-source community reported", description: "Spray names, prices, and effects appear across multiple community guide sources, but still need official or in-game proof." },
   { title: "Effect testing", description: "Sprays may help test rare effects directly, but they should not replace stable crop and cash routes." },
   { title: "ROI first", description: "Compare spray cost against crop value and repeated farming cycles before spending heavily." }
 ];
 
 const sprayRows = [
-  { item: "Wet Spray", reportedEffect: "Wet", reportedUse: "Entry-level effect testing and Rain route comparison.", status: "Community reported" },
-  { item: "Frozen Spray", reportedEffect: "Frozen", reportedUse: "Mid-tier effect testing and Blizzard route comparison.", status: "Community reported" },
-  { item: "Void Spray", reportedEffect: "Void", reportedUse: "Higher-value effect testing and Black Hole route comparison.", status: "Community reported" },
-  { item: "Radioactive Spray", reportedEffect: "Radioactive", reportedUse: "Late progression effect testing and Nuclear route comparison.", status: "Community reported" },
-  { item: "Rainbow Spray", reportedEffect: "Rainbow", reportedUse: "Highest reported effect testing and Galaxy route comparison.", status: "Community reported" },
-  { item: "Acid Spray", reportedEffect: "Acid / effect reset lead", reportedUse: "Special effect testing after source checks.", status: "Community reported" }
+  { item: "Wet Spray", reportedEffect: "Wet", reportedUse: "Entry-level effect testing and Rain route comparison.", status: crossSourceStatus },
+  { item: "Frozen Spray", reportedEffect: "Frozen", reportedUse: "Mid-tier effect testing and Blizzard route comparison.", status: crossSourceStatus },
+  { item: "Void Spray", reportedEffect: "Void", reportedUse: "Higher-value effect testing and Black Hole route comparison.", status: crossSourceStatus },
+  { item: "Radioactive Spray", reportedEffect: "Radioactive", reportedUse: "Late progression effect testing and Nuclear route comparison.", status: crossSourceStatus },
+  { item: "Rainbow Spray", reportedEffect: "Rainbow", reportedUse: "Highest reported effect testing and Galaxy route comparison.", status: crossSourceStatus },
+  { item: "Acid Spray", reportedEffect: "Acid / effect reset lead", reportedUse: "Special effect testing after source checks.", status: crossSourceStatus }
 ];
 
 const effectRows = [
-  { effect: "Rainbow", tier: "S", valueLead: "Highest reported value boost lead", status: "Community reported" },
-  { effect: "Radioactive", tier: "A", valueLead: "Strong reported rare effect lead", status: "Community reported" },
-  { effect: "Void", tier: "B", valueLead: "Higher-value reported effect lead", status: "Community reported" },
-  { effect: "Frozen", tier: "C", valueLead: "Mid-tier reported effect lead", status: "Community reported" },
-  { effect: "Wet", tier: "D", valueLead: "Entry-level reported effect lead", status: "Community reported" }
+  { effect: "Rainbow", tier: "S", valueLead: "Highest reported value boost lead", status: crossSourceStatus },
+  { effect: "Radioactive", tier: "A", valueLead: "Strong reported rare effect lead", status: crossSourceStatus },
+  { effect: "Void", tier: "B", valueLead: "Higher-value reported effect lead", status: crossSourceStatus },
+  { effect: "Frozen", tier: "C", valueLead: "Mid-tier reported effect lead", status: crossSourceStatus },
+  { effect: "Wet", tier: "D", valueLead: "Entry-level reported effect lead", status: crossSourceStatus }
 ];
 
 const sections = [
@@ -45,16 +46,16 @@ const sections = [
     heading: "What are sprays in Build A Ring Farm?",
     subheading: "Spray role in progression",
     body: [
-      "Sprays are community reported gear shop items that may connect to rare crop effects such as Wet, Frozen, Void, Radioactive, and Rainbow. They matter because players use them to test or support rare-effect routes instead of waiting only for weather events.",
-      "The official Roblox page confirms the broad farming loop, upgrades, selling plants for cash, and offline earnings. It does not confirm every spray price, spray effect, stacking rule, or best spray route. Treat every spray table as a research lead until in-game proof exists."
+      "Sprays are cross-source community reported gear shop items that may connect to rare crop effects such as Wet, Frozen, Void, Radioactive, and Rainbow. They matter because players use them to test or support rare-effect routes instead of waiting only for weather events.",
+      "The official Roblox page confirms the broad farming loop, upgrades, selling plants for cash, and offline earnings. It does not confirm every spray price, spray effect, stacking rule, or best spray route. Treat every spray table as a cross-source research lead until in-game proof exists."
     ],
-    list: ["Use sprays after the base crop loop is stable.", "Treat spray data as community reported.", "Do not assume every spray is profitable.", "Recheck spray behavior after updates."]
+    list: ["Use sprays after the base crop loop is stable.", "Treat spray data as cross-source community reported.", "Do not assume every spray is profitable.", "Recheck spray behavior after updates."]
   },
   {
     heading: "Sprays vs weather events",
     subheading: "Two paths to rare effects",
     body: [
-      "Weather events and sprays can point to similar effect names, but they are not the same decision. Community reports connect Rain with Wet, Blizzard with Frozen, Black Hole with Void, Nuclear with Radioactive, and Galaxy with Rainbow.",
+      "Weather events and sprays can point to similar effect names, but they are not the same decision. Multiple community sources connect Rain with Wet, Blizzard with Frozen, Black Hole with Void, Nuclear with Radioactive, and Galaxy with Rainbow.",
       "A spray may be more direct than waiting for an event, but it can also cost more cash. A weather event may be free, but it can depend on timing, chance, and whether the player is online. This is why sprays should be compared with event routes instead of ranked alone."
     ],
     list: ["Wet Spray compares with Rain Event.", "Frozen Spray compares with Blizzard Event.", "Void Spray compares with Black Hole Event.", "Radioactive Spray compares with Nuclear Event.", "Rainbow Spray compares with Galaxy Event."]
@@ -72,7 +73,7 @@ const sections = [
     heading: "Sprays, gear shop, and tier list pages",
     subheading: "How this page fits the wiki",
     body: [
-      "This sprays page should not replace the gear shop page. The gear shop page explains item decision-making and ROI. The advanced crops page explains reported rare value boosts. The tier list page organizes effects and routes by community reported priority.",
+      "This sprays page should not replace the gear shop page. The gear shop page explains item decision-making and ROI. The advanced crops page explains reported rare value boosts. The tier list page organizes effects and routes by cross-source community reported priority.",
       "This page focuses on spray-specific intent: which spray names players search for, how sprays connect to rare effects, and what still needs verification before publishing stronger claims."
     ],
     list: ["Use Gear Shop for item buying logic.", "Use Advanced Crops for rare value context.", "Use Tier List for effect priority logic.", "Use Weather Events for event-based alternatives."]
@@ -90,7 +91,7 @@ const sections = [
 
 const relatedLinks = [
   { href: "/gear-shop/", title: "Gear Shop", description: "Compare sprays with other gear shop decisions and ROI timing." },
-  { href: "/advanced-crops/", title: "Advanced Crops", description: "Review community reported rare effect values and source status." },
+  { href: "/advanced-crops/", title: "Advanced Crops", description: "Review cross-source community reported rare effect values and source status." },
   { href: "/tier-list/", title: "Tier List", description: "Compare reported effects and routes without treating tiers as official." },
   { href: "/weather-events/", title: "Weather Events", description: "Compare spray effects with reported weather event effects." },
   { href: "/money-farming/", title: "Money Farming", description: "Check whether spray spending fits your cash route." },
@@ -98,8 +99,8 @@ const relatedLinks = [
 ];
 
 const faq = [
-  { q: "Are Build A Ring Farm sprays official on this site?", a: "No. Spray names and effects are treated as community reported until official notes or in-game evidence confirms them." },
-  { q: "What is the best reported spray?", a: "Community routes usually point to Rainbow Spray as the strongest effect lead, but this site does not treat that as official data." },
+  { q: "Are Build A Ring Farm sprays official on this site?", a: "No. Spray names and effects are cross-source community reported until official notes or in-game evidence confirms them." },
+  { q: "What is the best reported spray?", a: "Multiple community sources point to Rainbow Spray as the strongest effect lead, but this site does not treat that as official data." },
   { q: "Should beginners buy sprays first?", a: "Usually no. Beginners should stabilize seeds, crops, selling, and upgrades before spending heavily on spray testing." },
   { q: "Can sprays stack with weather events?", a: "Stacking behavior has not been verified here yet. Treat spray and event interaction claims as needs verification." }
 ];
@@ -116,7 +117,7 @@ export default function SpraysPage() {
           <p className="eyebrow">Sprays and rare effects guide</p>
           <h1>Build A Ring Farm Sprays Guide</h1>
           <p className="lede">
-            Use this Build A Ring Farm sprays guide to compare community reported spray effects, gear shop use, rare crop value, weather events, ROI, and source status without treating any spray claim as official data.
+            Use this Build A Ring Farm sprays guide to compare cross-source community reported spray effects, gear shop use, rare crop value, weather events, ROI, and source status without treating any spray claim as official data.
           </p>
           <div className="hero-actions">
             <Link className="primary-link" href="/gear-shop/">Read gear shop</Link>
@@ -129,9 +130,9 @@ export default function SpraysPage() {
       <section className="guide-card evidence-note-card">
         <span className="card-rule" />
         <p className="eyebrow">Evidence note</p>
-        <h2>Spray data is community reported</h2>
+        <h2>Spray data is cross-source community reported</h2>
         <p>
-          This page does not claim official spray prices, official effects, or official best spray routes. Use the tables as research leads until screenshots, developer notes, or repeatable in-game tests confirm them.
+          This page does not claim official spray prices, official effects, or official best spray routes. Use the tables as cross-source research leads until screenshots, developer notes, or repeatable in-game tests confirm them.
         </p>
       </section>
 
@@ -146,13 +147,13 @@ export default function SpraysPage() {
       </section>
 
       <section className="section-heading">
-        <p className="eyebrow">Community table</p>
+        <p className="eyebrow">Cross-source table</p>
         <h2>Reported Build A Ring Farm sprays</h2>
       </section>
       <section className="content-grid single-column-grid">
         <article className="guide-card data-card">
           <span className="card-rule" />
-          <p className="eyebrow">Community reported</p>
+          <p className="eyebrow">Cross-source community reported</p>
           <h2>Spray effects and use cases</h2>
           <div className="data-list">
             {sprayRows.map((row) => (
