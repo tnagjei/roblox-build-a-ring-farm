@@ -99,6 +99,7 @@ export function createTemplateHomePage(locale = "en"): HomePageContent {
       eyebrow: "Build A Ring Farm navigation",
       title: "Build A Ring Farm wiki sections",
       cards: [
+        { href: localizedHref(locale, "crops"), title: "Crops", description: "Learn crop flow, harvest timing, selling logic, and upgrade priorities." },
         { href: localizedHref(locale, "beginners-guide"), title: "Farming Guide", description: "Learn the crop, harvest, upgrade, expand, sell, and offline income loop." },
         { href: localizedHref(locale, "codes"), title: "Codes", description: "Check verified Build A Ring Farm codes status, pending claims, and safe redemption notes." },
         { href: localizedHref(locale, "updates"), title: "Updates", description: "Track official Roblox changes, update signals, and recheck points." },
@@ -145,8 +146,8 @@ export function createTemplateHomePage(locale = "en"): HomePageContent {
     },
     popularSearches: [
       { href: "/codes/", title: `${gameConfig.gameName} Codes`, description: "Check whether any official or in-game code proof exists.", coversLabel: "Covers", covers: "Codes · Status · Safety" },
+      { href: "/crops/", title: `${gameConfig.gameName} Crops`, description: "Understand crop flow, harvest timing, selling, upgrades, and reinvestment.", coversLabel: "Covers", covers: "Crops · Farming · Cash" },
       { href: "/beginners-guide/", title: `${gameConfig.gameName} Beginner Guide`, description: "Start with crops, upgrades, selling, expansion, and offline earnings.", coversLabel: "Covers", covers: "Crops · Upgrade · Sell" },
-      { href: "/beginners-guide/", title: `${gameConfig.gameName} Crops Guide`, description: "Use the beginner route to understand planting, harvesting, selling, and reinvestment.", coversLabel: "Covers", covers: "Crops · Farming · Cash" },
       { href: "/updates/", title: `${gameConfig.gameName} Updates`, description: "Follow update checks and recheck points for codes, rewards, and farm systems.", coversLabel: "Covers", covers: "Updates · Sources · Changes" }
     ],
     faqMeta: {
@@ -234,7 +235,78 @@ export function createTemplateCodesPage(locale = "en"): CodesPageContent {
   };
 }
 
+function createCropsPage(locale: string): StrategyPageContent {
+  return {
+    meta: {
+      title: withLocale(`${gameConfig.gameName} Crops Guide | Farming & Harvest Tips`, locale),
+      description: `${gameConfig.gameName} crops guide for Roblox players. Learn crop flow, harvest timing, selling logic, upgrade priorities, offline income, and safe source checks.`
+    },
+    slug: "crops",
+    hero: {
+      eyebrow: "Crops and farming guide",
+      h1: withLocale(`${gameConfig.gameName} Crops Guide`, locale),
+      lede: "Use this Build A Ring Farm crops guide to understand the farming loop: plant crops, wait for growth, harvest, sell for cash, upgrade production, and reinvest into a larger farm.",
+      primaryAction: { label: "Read beginner guide", href: localizedHref(locale, "beginners-guide") },
+      secondaryAction: { label: "Check codes", href: localizedHref(locale, "codes") }
+    },
+    summaryCards: [
+      { title: "Crop loop", description: "Plant, wait, harvest, sell, upgrade, and repeat without wasting early cash." },
+      { title: "Upgrade timing", description: "Prioritize upgrades that reduce waiting, increase output, or help expand production." },
+      { title: "No fake values", description: "This page avoids unverified crop prices, mutation rates, and reward numbers." }
+    ],
+    sections: [
+      {
+        heading: "How crops work in Build A Ring Farm",
+        body: [
+          "Build A Ring Farm is built around a simple farming loop. You grow crops, harvest them, sell the harvest for cash, and use that cash to expand or upgrade the farm.",
+          "For SEO and accuracy, this guide separates confirmed gameplay behavior from unverified tables. Until a crop value is checked in-game or from an official source, it should not be presented as a fixed number."
+        ],
+        list: ["Grow crops on available plots.", "Harvest when the crop is ready.", "Sell harvests for cash.", "Use cash for upgrades, expansion, or faster progression."]
+      },
+      {
+        heading: "Best early crop strategy",
+        body: [
+          "The safest early strategy is not to chase a single crop name. Focus on keeping plots active, avoiding idle time, and reinvesting cash into systems that increase the next harvest cycle.",
+          "If two crop choices are available, compare time to grow, expected selling value, and whether the crop supports your next upgrade. Do not judge only by the final sale number."
+        ],
+        list: ["Keep every available plot working.", "Reinvest early cash instead of holding it too long.", "Favor consistent harvest cycles before risky long waits.", "Check whether an upgrade improves every later crop cycle."]
+      },
+      {
+        heading: "Crops, upgrades, and offline income",
+        body: [
+          "Crops matter because they feed the rest of the economy. A better farming cycle gives more cash, and more cash gives more upgrade options.",
+          "Offline income should be treated as a progress booster, not a replacement for checking the farm. Revisit after upgrades, major updates, or new crop mechanics because balance can change."
+        ],
+        list: ["Use active play to unlock and improve farm systems.", "Use offline income to keep momentum between sessions.", "Recheck crop advice after major game updates."]
+      },
+      {
+        heading: "Why this page does not list fake crop prices",
+        body: [
+          "Some competing pages publish crop tables before proving the source. That can attract clicks, but it creates a trust problem when prices, mutations, or upgrade effects are wrong.",
+          "This site should add crop names, values, and mutation data only after a recorded source check. That makes the page slower to fill, but safer for long-term SEO."
+        ],
+        list: ["Do not invent crop prices.", "Do not invent mutation rates.", "Do not copy unsupported community tables.", "Add a source note when real crop data is verified."]
+      }
+    ],
+    relatedLinks: [
+      { href: localizedHref(locale, "beginners-guide"), title: "Beginner Guide", description: "Learn the full early-game farming route." },
+      { href: localizedHref(locale, "codes"), title: "Codes", description: "Check whether verified codes exist before using code lists." },
+      { href: localizedHref(locale, "updates"), title: "Updates", description: "Review update triggers that may change crops or upgrades." }
+    ],
+    faq: [
+      { q: "What are crops in Build A Ring Farm?", a: "Crops are the core farming items players grow, harvest, and sell for cash in Build A Ring Farm." },
+      { q: "What is the best crop in Build A Ring Farm?", a: "A single best crop has not been verified here yet. Compare growth time, sale value, and upgrade goals before choosing." },
+      { q: "Does this page list all crop prices?", a: "No. This guide does not publish fixed crop prices until they are verified from official or in-game evidence." },
+      { q: "How should beginners use crops?", a: "Beginners should keep plots active, harvest consistently, sell for cash, and reinvest into upgrades or expansion." }
+    ]
+  };
+}
+
 export function createTemplateStrategyPage(slug: StrategySlug, locale = "en"): StrategyPageContent {
+  if (slug === "crops") {
+    return createCropsPage(locale);
+  }
+
   const label = pageTitle(slug);
 
   return {
