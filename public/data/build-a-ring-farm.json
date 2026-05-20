@@ -100,7 +100,7 @@
       "h1": "Build A Ring Farm Wiki",
       "lede": "Build A Ring Farm is a Roblox farming simulator about growing crops, upgrading your ring-shaped farm, selling harvests for cash, and using offline income to keep progress moving.",
       "focus": "Build A Ring Farm Wiki",
-      "relatedPages": ["codes", "beginners-guide", "updates"],
+      "relatedPages": ["codes", "beginners-guide", "crops", "updates"],
       "faq": [
         {
           "q": "What is Build A Ring Farm Wiki?",
@@ -129,7 +129,7 @@
       "h1": "Build A Ring Farm Codes",
       "lede": "Use this page to check verified Build A Ring Farm codes. Right now there are 0 verified official codes.",
       "focus": "Codes",
-      "relatedPages": ["beginners-guide", "updates"],
+      "relatedPages": ["beginners-guide", "crops", "updates"],
       "sections": [],
       "faq": [
         {
@@ -140,6 +140,28 @@
       "primaryKeyword": "Build A Ring Farm codes"
     },
     {
+      "key": "crops",
+      "path": "/crops/",
+      "title": "Build A Ring Farm Crops Guide | Farming & Harvest Tips",
+      "description": "Build A Ring Farm crops guide for Roblox players. Learn crop flow, harvest timing, selling logic, upgrade priorities, offline income, and safe source checks.",
+      "h1": "Build A Ring Farm Crops Guide",
+      "lede": "Use this Build A Ring Farm crops guide to understand the farming loop: plant crops, wait for growth, harvest, sell for cash, upgrade production, and reinvest into a larger farm.",
+      "focus": "Crops",
+      "relatedPages": ["beginners-guide", "codes", "updates"],
+      "sections": [],
+      "faq": [
+        {
+          "q": "What are crops in Build A Ring Farm?",
+          "a": "Crops are the core farming items players grow, harvest, and sell for cash in Build A Ring Farm."
+        },
+        {
+          "q": "What is the best crop in Build A Ring Farm?",
+          "a": "A single best crop has not been verified here yet. Compare growth time, sale value, and upgrade goals before choosing."
+        }
+      ],
+      "primaryKeyword": "Build A Ring Farm crops"
+    },
+    {
       "key": "updates",
       "path": "/updates/",
       "title": "Build A Ring Farm Updates | Roblox Change Tracker",
@@ -147,7 +169,7 @@
       "h1": "Build A Ring Farm Updates",
       "lede": "The official Roblox game record was checked on 2026-05-20 and showed the latest update timestamp as 2026-05-20T01:46:36.655083Z.",
       "focus": "Updates",
-      "relatedPages": ["codes", "beginners-guide"],
+      "relatedPages": ["codes", "beginners-guide", "crops"],
       "sections": [],
       "faq": [],
       "primaryKeyword": "Build A Ring Farm updates"
@@ -160,7 +182,7 @@
       "h1": "Build A Ring Farm Beginner Guide",
       "lede": "Build A Ring Farm is about growing plants, upgrading your farm, selling crops for cash, and using offline earnings to keep progress moving.",
       "focus": "Beginner Guide",
-      "relatedPages": ["codes", "updates"],
+      "relatedPages": ["codes", "crops", "updates"],
       "sections": [],
       "faq": [],
       "primaryKeyword": "Build A Ring Farm beginner guide"
