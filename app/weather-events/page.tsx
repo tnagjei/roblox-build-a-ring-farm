@@ -4,17 +4,16 @@
 
 import type { Metadata } from "next";
 import Link from "next/link";
-import { siteData } from "@/lib/site-data";
-import { absoluteUrl } from "@/lib/seo";
 
 const pageTitle = "Build A Ring Farm Weather Events Guide | Rain, Blizzard & Galaxy";
 const pageDescription = "Build A Ring Farm weather events guide with community reported event effects, chances, rare crop value, offline limits, sprays, and safe source checks.";
+const heroImage = "/images/hero.webp";
 
 export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: {
-    canonical: absoluteUrl("/weather-events/")
+    canonical: "https://buildaringfarm.org/weather-events/"
   }
 };
 
@@ -101,7 +100,7 @@ export default function WeatherEventsPage() {
             <Link className="secondary-link" href="/money-farming/">Read money farming</Link>
           </div>
         </div>
-        <img className="hero-image" src={siteData.assets.hero} alt={`${siteData.game.name} Roblox thumbnail`} />
+        <img className="hero-image" src={heroImage} alt="Build A Ring Farm Roblox thumbnail" />
       </section>
 
       <section className="research-grid" aria-label="Weather events summary">
