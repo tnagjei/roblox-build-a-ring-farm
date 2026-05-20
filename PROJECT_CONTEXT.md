@@ -18,6 +18,7 @@ Build A Ring Farm crops
 Build A Ring Farm seeds
 Build A Ring Farm upgrades
 Build A Ring Farm gear shop
+Build A Ring Farm tier list
 Build A Ring Farm advanced crops
 Build A Ring Farm money farming
 Build A Ring Farm weather events
@@ -37,7 +38,7 @@ Needs verification
 
 ## 2. 当前已完成页面矩阵
 
-当前核心页面已经完成并通过 `next build`：
+当前核心页面已经完成并通过过多轮 `next build`：
 
 ```text
 /
@@ -48,6 +49,7 @@ Needs verification
 /seeds/
 /upgrades/
 /gear-shop/
+/tier-list/
 /advanced-crops/
 /money-farming/
 /weather-events/
@@ -58,13 +60,14 @@ Needs verification
 
 ```text
 /gear-shop
+/tier-list
 /weather-events
 /money-farming
 /seeds
 /advanced-crops
 ```
 
-都能被 Next.js 识别为静态路由。
+都应被 Next.js 识别为静态路由。
 
 ---
 
@@ -132,6 +135,7 @@ completedCoreSlugs
 
 ```text
 gear-shop
+tier-list
 ```
 
 ---
@@ -168,6 +172,7 @@ codes
 seeds
 crops
 gear-shop
+tier-list
 advanced-crops
 weather-events
 upgrades
@@ -176,17 +181,17 @@ updates
 beginners-guide
 ```
 
-最近已完成一次 `public/data` TDK 同步，确保下列页面的 `title / description / relatedPages / faq` 与页面 metadata 尽量一致：
+每次改页面 TDK 后，必须同步 `public/data/build-a-ring-farm.json` 中对应页面的：
 
 ```text
-home
-seeds
-crops
-gear-shop
-advanced-crops
-weather-events
-upgrades
-money-farming
+title
+description
+h1
+lede
+focus
+relatedPages
+faq
+primaryKeyword
 ```
 
 ---
@@ -220,6 +225,22 @@ subheading?: string
 
 ---
 
+### `components/templates/HomePageTemplate.tsx`
+
+首页渲染模板。
+
+当前已经做了 Tier List 兜底入口注入：
+
+```text
+如果 content.directory.cards 没有 /tier-list/，模板自动追加 Tier List card
+如果 content.popularSearches 没有 /tier-list/，模板自动追加 Tier List popular search
+如果 FAQ 没有 tier list 问题，模板自动追加官方性边界 FAQ
+```
+
+目的：避免 `/tier-list/` 成为孤岛页。
+
+---
+
 ### `lib/content/template-pages.ts`
 
 首页与模板型策略页内容工厂。
@@ -238,14 +259,7 @@ fallback strategy page 内容
 
 注意：`/crops/` 和 `/upgrades/` 已经从通用 fallback 升级为专用 SEO 内容结构。
 
-首页已加入 Gear Shop 相关入口：
-
-```text
-Gear shop snapshot
-Gear Shop directory card
-Gear Shop popular search card
-What is the gear shop FAQ
-```
+首页已加入 Gear Shop 相关入口，Tier List 入口目前由 `HomePageTemplate.tsx` 兜底追加。
 
 ---
 
@@ -275,6 +289,7 @@ Upgrades
 Gear Shop
 Advanced Crops
 Weather Events
+Tier List
 Updates
 Scripts
 ```
@@ -291,16 +306,6 @@ Scripts
 
 之前 `Guides` 下拉菜单缺少浮层定位，导致菜单项被挤进 Header，整个导航栏被撑高、变丑。这个文件用于把 `Guides` 和 `Language` 下拉变成真正的 overlay dropdown。
 
-该文件负责：
-
-```text
-.guide-dropdown
-.guide-dropdown-trigger
-.guide-dropdown-menu
-.language-dropdown-menu
-移动端下拉对齐
-```
-
 不要随便删除。
 
 ---
@@ -309,9 +314,7 @@ Scripts
 
 当前广告组件已临时禁用，直接 `return null`。
 
-原因：
-
-页面底部曾出现裸露英文：
+原因：页面底部曾出现裸露英文：
 
 ```text
 Sponsored
@@ -393,7 +396,7 @@ Community reported
 lib/content/template-pages.ts
 ```
 
-模板 fallback 已清理，`HomePageTemplate.tsx` 只负责渲染内容层传入的数据。
+并通过 `HomePageTemplate.tsx` 兜底补入 Tier List 入口。
 
 ---
 
@@ -410,22 +413,24 @@ public/data/build-a-ring-farm.json
 ```text
 seeds
 gear-shop
+tier-list
 advanced-crops
 money-farming
 weather-events
 ```
 
-页面之间的 relatedPages 已补齐，形成内链关系：
+页面之间的 relatedPages 已补齐，形成内链关系，包括：
 
 ```text
-seeds → crops / gear-shop / advanced-crops / upgrades / money-farming / codes
-crops → seeds / gear-shop / advanced-crops / weather-events / upgrades / money-farming / codes
-gear-shop → upgrades / advanced-crops / weather-events / money-farming / crops
-advanced-crops → gear-shop / weather-events / upgrades / money-farming / crops / updates
-weather-events → advanced-crops / gear-shop / upgrades / money-farming / crops / updates
-upgrades → gear-shop / crops / advanced-crops / weather-events / money-farming / codes / updates
-money-farming → seeds / crops / gear-shop / upgrades / advanced-crops / weather-events / codes
-updates → codes / seeds / crops / gear-shop / advanced-crops / weather-events / upgrades / money-farming
+seeds → crops / gear-shop / tier-list / advanced-crops / upgrades / money-farming / codes
+crops → seeds / gear-shop / tier-list / advanced-crops / weather-events / upgrades / money-farming / codes
+gear-shop → tier-list / upgrades / advanced-crops / weather-events / money-farming / crops
+tier-list → advanced-crops / gear-shop / weather-events / money-farming / crops / upgrades
+advanced-crops → tier-list / gear-shop / weather-events / upgrades / money-farming / crops / updates
+weather-events → tier-list / advanced-crops / gear-shop / upgrades / money-farming / crops / updates
+upgrades → tier-list / gear-shop / crops / advanced-crops / weather-events / money-farming / codes / updates
+money-farming → tier-list / seeds / crops / gear-shop / upgrades / advanced-crops / weather-events / codes
+updates → codes / seeds / crops / gear-shop / tier-list / advanced-crops / weather-events / upgrades / money-farming
 ```
 
 ---
@@ -433,10 +438,6 @@ updates → codes / seeds / crops / gear-shop / advanced-crops / weather-events 
 ### 5.3 导航压缩优化
 
 顶部导航已从全页面平铺改成主导航 + Guides 下拉。
-
-原因：
-
-页面矩阵扩大后，顶部按钮过多，视觉拥挤，移动端更差。
 
 当前策略：
 
@@ -501,20 +502,68 @@ FAQ
 Community reported
 ```
 
-已同步：
+---
+
+### 5.6 Tier List 页面工程
+
+已新增并注册：
 
 ```text
-lib/game-config.ts
-app/gear-shop/page.tsx
-app/gear-shop/README.md
-components/SiteChrome.tsx
-app/README.md
-public/data/build-a-ring-farm.json
+/tier-list/
+```
+
+TDK：
+
+```text
+Title:
+Build A Ring Farm Tier List Guide | Effects & Crops
+
+Description:
+Build A Ring Farm tier list guide covering community reported crop effects, sprays, event boosts, farming routes, and source status.
+
+H1:
+Build A Ring Farm Tier List Guide
+```
+
+页面内容模块：
+
+```text
+What this Build A Ring Farm tier list means
+Reported rare effect tier list
+Route tiers
+Best reported effects for farming value
+Best gear shop support for tier routes
+Best event-based effects
+What still needs verification
+FAQ
+```
+
+已明确写入边界：
+
+```text
+No official Build A Ring Farm tier list has been confirmed.
+This page organizes community reported effects and route logic only.
+```
+
+Effect tiers 当前为社区报告结构：
+
+```text
+S → Rainbow
+A → Radioactive
+B → Void
+C → Frozen
+D → Wet
+```
+
+全部标注：
+
+```text
+Community reported
 ```
 
 ---
 
-### 5.6 内页 SEO 合规扫尾
+### 5.7 内页 SEO 合规扫尾
 
 已按 SEO 文件要求对内页做统一校准：
 
@@ -540,13 +589,12 @@ Community reported / Pending 标注
 /crops/
 /upgrades/
 /gear-shop/
+/tier-list/
 ```
-
-其中 `/crops/` 和 `/upgrades/` 原先使用通用策略模板，现在已在 `template-pages.ts` 中加入专用内容结构。
 
 ---
 
-### 5.7 Public Data TDK 同步
+### 5.8 Public Data TDK 同步
 
 已同步：
 
@@ -561,6 +609,7 @@ home
 seeds
 crops
 gear-shop
+tier-list
 advanced-crops
 weather-events
 upgrades
@@ -575,7 +624,7 @@ money-farming
 
 ### `/seeds/`
 
-定位：种子与 seed packs 页面。
+定位：种子与 seed packs 页面。数据边界：不写未验证 seed pack 掉落率或概率。
 
 TDK：
 
@@ -583,23 +632,11 @@ TDK：
 Build A Ring Farm Seeds Guide | Packs & Progression
 ```
 
-内容方向：
-
-```text
-seed packs
-crop unlocks
-beginner seed strategy
-code rewards related to seeds
-seeds vs crops vs upgrades
-```
-
-数据边界：不写未验证 seed pack 掉落率或概率。
-
 ---
 
 ### `/crops/`
 
-定位：作物、收获、售卖和基础 farming loop 页面。
+定位：作物、收获、售卖和基础 farming loop 页面。数据边界：不写未验证 crop price，不写未验证 rare crop rate。
 
 TDK：
 
@@ -607,25 +644,11 @@ TDK：
 Build A Ring Farm Crops Guide | Farming Tips
 ```
 
-内容方向：
-
-```text
-crop cycles
-harvest timing
-selling
-seeds
-gear shop choices
-upgrades
-source-checked farming tips
-```
-
-数据边界：不写未验证 crop price，不写未验证 rare crop rate。
-
 ---
 
 ### `/upgrades/`
 
-定位：升级、gear ROI、升级时机页面。
+定位：升级、gear ROI、升级时机页面。数据边界：不写未验证 gear prices，不写精确 ROI 表。
 
 TDK：
 
@@ -633,24 +656,11 @@ TDK：
 Build A Ring Farm Upgrades Guide | Gear ROI
 ```
 
-内容方向：
-
-```text
-upgrade loop
-gear shop timing
-ROI checks
-sprays
-rare effects
-bad upgrade timing
-```
-
-数据边界：不写未验证 gear prices，不写精确 ROI 表。
-
 ---
 
 ### `/gear-shop/`
 
-定位：Gear Shop、sprays、fertilizer、ROI 页面。
+定位：Gear Shop、sprays、fertilizer、ROI 页面。数据边界：不写官方确认价格，不写官方确认效果。
 
 TDK：
 
@@ -658,37 +668,29 @@ TDK：
 Build A Ring Farm Gear Shop Guide | Sprays & ROI
 ```
 
-内容方向：
+---
+
+### `/tier-list/`
+
+定位：社区报告 tier list、rare effects、route tiers 页面。数据边界：不写官方榜单，不写未验证 crop price。
+
+TDK：
 
 ```text
-sprays
-fertilizer
-gear shop items
-sprays vs weather events
-gear shop ROI checklist
-when to buy gear
-what still needs verification
+Build A Ring Farm Tier List Guide | Effects & Crops
 ```
 
-已列入的 community reported 项：
+核心边界：
 
 ```text
-Wet Spray
-Frozen Spray
-Void Spray
-Radioactive Spray
-Rainbow Spray
-Acid Spray
-Strong Fertilizer
+No official Build A Ring Farm tier list has been confirmed.
 ```
-
-数据边界：不写官方确认价格，不写官方确认效果。
 
 ---
 
 ### `/money-farming/`
 
-定位：赚钱路线页。
+定位：赚钱路线页。数据边界：不写具体 `$ / s` 每秒收益，不写 fake income table。
 
 TDK：
 
@@ -696,25 +698,11 @@ TDK：
 Build A Ring Farm Money Farming Guide | Cash Routes
 ```
 
-内容方向：
-
-```text
-cash route
-seed choices
-crop cycles
-upgrades
-offline income
-code rewards
-money farming mistakes
-```
-
-数据边界：不写具体 `$ / s` 每秒收益，不写 fake income table。
-
 ---
 
 ### `/advanced-crops/`
 
-定位：高级作物、稀有效果、喷雾、事件效果页面。
+定位：高级作物、稀有效果、喷雾、事件效果页面。数据边界：不把社区倍率写成官方确认。
 
 TDK：
 
@@ -722,23 +710,11 @@ TDK：
 Build A Ring Farm Advanced Crops Guide | Rare Effects
 ```
 
-内容方向：
-
-```text
-rare crop values
-sprays
-event odds
-offline limits
-community reported value boosts
-```
-
-注意：之前表格横向挤压导致页面很丑，已改成纵向 data card 展示。
-
 ---
 
 ### `/weather-events/`
 
-定位：天气事件页面。
+定位：天气事件页面。全部事件倍率和概率标记 `Community reported`。
 
 TDK：
 
@@ -746,43 +722,13 @@ TDK：
 Build A Ring Farm Weather Events Guide | Event Effects
 ```
 
-表格内容：
-
-```text
-Rain Event → Wet → 8% → 1.5x
-Blizzard Event → Frozen → 4% → 1.75x
-Black Hole Event → Void → 3% → 2.25x
-Nuclear Event → Radioactive → 2% → 3x
-Galaxy Event → Rainbow → 1% → 5x
-```
-
-全部标记：
-
-```text
-Community reported
-```
-
-注意：该页面最初 404，是因为本地没有拉到远程文件，不是页面代码问题。
-
 ---
 
 ## 7. 已踩过的坑
 
 ### 7.1 本地 404 不一定是代码没写
 
-出现过：
-
-```text
-/weather-events/ 404
-```
-
-最终原因：
-
-```text
-本地分支落后 origin/main 7 个 commit
-本地有 app/README.md 改动阻止 git pull
-app/weather-events/ 目录没有拉下来
-```
+出现过 `/weather-events/ 404`。最终原因：本地分支落后远程，且本地改动阻止 `git pull`。
 
 处理方式：
 
@@ -790,14 +736,11 @@ app/weather-events/ 目录没有拉下来
 git status
 git stash -u
 git pull origin main
-ls app/weather-events
 ```
 
 ---
 
 ### 7.2 `require is not defined`
-
-曾在本地出现过 `require is not defined`。
 
 处理过的方向：
 
@@ -807,20 +750,9 @@ ls app/weather-events
 本地禁用三方广告统计脚本
 ```
 
-现在页面已经能正常渲染。
-
 ---
 
 ### 7.3 `.next` 删除失败
-
-出现过：
-
-```text
-rm: .next/dev: Directory not empty
-rm: .next: Directory not empty
-```
-
-原因通常是旧 `next dev` 进程仍在运行。
 
 处理：
 
@@ -834,29 +766,13 @@ npm run dev
 
 ### 7.4 下拉菜单撑开 Header
 
-出现过：
-
-```text
-Guides 下拉菜单被挤进 header
-导航栏高度变大
-视觉很丑
-```
-
 已通过 `app/nav-fixes.css` 修复。
 
 ---
 
 ### 7.5 页面 metadata 和 public data 不一致
 
-出现过：页面文件已经优化了 Title / Description，但 `public/data/build-a-ring-farm.json` 还是旧标题。
-
-处理方式：
-
-```text
-每次改页面 TDK 后，同步 public/data/build-a-ring-farm.json
-```
-
-否则后续导航、结构化数据、AI 摘要或自动化脚本可能读取旧数据。
+每次改页面 TDK 后，同步 `public/data/build-a-ring-farm.json`。
 
 ---
 
@@ -864,7 +780,7 @@ Guides 下拉菜单被挤进 header
 
 ### 8.1 不要只堆页面
 
-当前站点已经有核心页面矩阵。继续盲目新建页面不是最优先。优先级应该是：
+优先级应该是：
 
 ```text
 内链一致性
@@ -877,7 +793,7 @@ Guides 下拉菜单被挤进 header
 
 ### 8.2 首页必须是 Wiki Hub
 
-首页不是普通导航页。它承担：
+首页承担：
 
 ```text
 主关键词 Build A Ring Farm
@@ -896,12 +812,8 @@ FAQ
 
 ```text
 Community reported
-```
-
-或：
-
-```text
 Needs verification
+Pending
 ```
 
 ### 8.4 不写假数据
@@ -912,6 +824,7 @@ Needs verification
 未验证作物价格
 未验证 seed pack 概率
 未验证 gear shop 价格
+未验证 tier list 官方排名
 未验证每秒收益
 未验证 code active 状态
 未验证 Discord / Trello 官方链接
@@ -929,28 +842,11 @@ https://www.buildaringfarm.online/
 https://www.buildaringfarm.wiki/
 ```
 
-吸收的优点：
-
-```text
-Wiki Hub 首页结构
-Codes 模块
-Beginner Guide 模块
-Seeds and Crops Guide
-Advanced Crops / Mutations 类内容
-Gear Shop Guide 意图
-Money Farming Guide
-Weather Events Guide
-FAQ
-Play / Official CTA
-```
-
-但不能直接复制对标站的具体数据。对标站中的倍率、事件概率、喷雾价格等，必须作为 community reported，不得写成官方事实。
+可吸收结构，不可复制未验证具体数据。对标站中的倍率、事件概率、喷雾价格、tier ranking 等，必须作为 community reported，不得写成官方事实。
 
 ---
 
 ## 10. 下一步建议
-
-当前建议顺序：
 
 ### P0：本地构建验证
 
@@ -966,37 +862,36 @@ npm run dev
 重点看：
 
 ```text
+/
+/tier-list/
 /gear-shop/
-/crops/
-/upgrades/
 /sitemap.xml
+Guides 下拉
+Footer Guides
 ```
 
-### P1：考虑 `/tier-list/`
-
-只做 community reported tier list，不写官方榜单。
-
-建议边界：
-
-```text
-No official Build A Ring Farm tier list has been confirmed.
-This page organizes community reported effects and route logic only.
-```
-
-### P2：再拆长尾页
+### P1：再拆长尾页
 
 候选：
 
 ```text
-/fertilizer/
 /sprays/
+/fertilizer/
 /offline-income/
 /wiki/
 /discord/
 /trello/
 ```
 
-其中 Discord / Trello 必须谨慎：如果没有官方链接，页面应写：
+优先建议：
+
+```text
+/sprays/
+```
+
+原因：它能承接 `/gear-shop/`、`/advanced-crops/`、`/tier-list/`，风险低于 Discord / Trello。
+
+Discord / Trello 必须谨慎：如果没有官方链接，页面应写：
 
 ```text
 No verified official Discord / Trello has been confirmed yet.
@@ -1018,6 +913,7 @@ No verified official Discord / Trello has been confirmed yet.
 7. 修改 UI 时优先小范围 CSS patch，不要盲目重写 globals.css
 8. 修改页面 TDK 后必须同步 public/data/build-a-ring-farm.json
 9. 模板型页面若需要 H3，使用 section.subheading
+10. 新增页面后检查首页入口、Guides 下拉、Footer、sitemap、PROJECT_CONTEXT.md
 ```
 
 ---
@@ -1029,6 +925,7 @@ Verifiable:
 ```text
 项目已完成核心页面矩阵。
 /gear-shop 已新增并接入导航、数据源、首页内链。
+/tier-list 已新增并接入导航、数据源、首页入口。
 /crops 与 /upgrades 已从通用模板升级为专用 SEO 内容。
 Next build 已通过过多轮。
 /weather-events 已能正常渲染。
@@ -1040,11 +937,11 @@ public/data/build-a-ring-farm.json 已完成 TDK 同步。
 Judgment:
 
 ```text
-当前项目已经从“核心页面生产阶段”进入“主题集群扩展 + 数据验证阶段”。
+当前项目已经从“核心页面生产阶段”进入“长尾扩展 + 数据验证阶段”。
 ```
 
 Confidence ≠ Correctness:
 
 ```text
-后续是否继续做 tier-list、sprays、fertilizer、offline-income，需要看实际搜索量和页面质量，不应只因为对标站有就盲目复制。
+后续是否继续做 sprays、fertilizer、offline-income，需要看实际搜索量和页面质量，不应只因为对标站有就盲目复制。
 ```
