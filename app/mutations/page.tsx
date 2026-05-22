@@ -4,13 +4,26 @@
 
 import type { Metadata } from "next";
 import Link from "next/link";
+import { absoluteUrl } from "@/lib/seo";
 
-const pageTitle = "Build A Ring Farm Mutations Guide | Effects & Tiers";
-const pageDescription = "Build A Ring Farm mutations guide covering cross-source community reported mutation effects, sprays, weather events, tier logic, stacking checks, and source status.";
+const pageTitle = "Build A Ring Farm Mutations Guide | Rare Effects & Weather Events";
+const pageDescription = "Build A Ring Farm mutations guide covering rare effects, sprays, weather events, tier logic, stacking checks, money farming links, and source status.";
 const heroImage = "/official-hero-image";
 const crossSourceStatus = "Cross-source community reported";
 
-export const metadata: Metadata = { title: pageTitle, description: pageDescription, alternates: { canonical: "https://www.buildaringfarm.org/mutations/" } };
+export const metadata: Metadata = {
+  title: pageTitle,
+  description: pageDescription,
+  alternates: { canonical: absoluteUrl("/mutations/") },
+  openGraph: {
+    title: pageTitle,
+    description: pageDescription,
+    url: absoluteUrl("/mutations/"),
+    type: "article",
+    images: [{ url: absoluteUrl("/opengraph-image"), width: 1200, height: 630, alt: "Build A Ring Farm mutations guide" }]
+  },
+  twitter: { card: "summary_large_image", title: pageTitle, description: pageDescription, images: [absoluteUrl("/opengraph-image")] }
+};
 
 const mutationRows = [
   { mutation: "Rainbow", tier: "S", route: "Galaxy event or Rainbow Spray lead", status: crossSourceStatus },
@@ -30,6 +43,7 @@ const stackingChecks = [
 
 const sections = [
   { h2: "What are mutations in Build A Ring Farm?", h3: "Mutation meaning", body: ["Mutations are cross-source community reported rare crop effects that may change crop value or route priority. This page treats mutation names as research leads, not official Roblox data.", "The safest way to understand Build A Ring Farm mutations is to connect them with sprays, weather events, advanced crops, and tier-list logic without pretending the exact numbers are confirmed."], list: ["Use mutations as rare-effect leads.", "Do not treat multipliers as official unless verified.", "Compare mutations with spray cost and event timing."] },
+  { h2: "Build A Ring Farm mutation route by player stage", h3: "Beginner, mid-game, late-game", body: ["Beginners should not chase mutations first. The better route is to stabilize seeds, crops, selling, and upgrades before spending time on rare-effect testing.", "Mid-game players can start comparing Wet, Frozen, and Void routes if their base cash loop is stable. Late-game players can compare Radioactive and Rainbow leads only after checking spray cost, event timing, and crop value."], list: ["Beginner: crops, selling, upgrades.", "Mid-game: test lower-risk effect routes.", "Late-game: compare high-value mutation leads.", "Always recheck after updates."] },
   { h2: "Can mutations stack?", h3: "Stacking is unverified", body: ["Stacking behavior is one of the highest-risk claims. Unless repeatable in-game tests prove it, mutation stacking should stay marked as needs verification.", "A useful test should record the crop, active event, spray used, before value, after value, and whether the result persists offline."], list: ["Do not write guaranteed stacking.", "Do not copy stacking claims from competitors.", "Record screenshots before promoting a claim."] },
   { h2: "Mutations vs sprays and weather events", h3: "Two trigger paths", body: ["Multiple community sources connect mutations to both sprays and weather events. Sprays may directly test an effect, while events may trigger similar effects through timing or chance.", "This creates a clear internal-link cluster: sprays explain item use, weather events explain event routes, advanced crops explain value context, and this page explains mutation intent."], list: ["Wet connects to Rain and Wet Spray.", "Frozen connects to Blizzard and Frozen Spray.", "Rainbow connects to Galaxy and Rainbow Spray."] },
   { h2: "What still needs verification", h3: "Pending evidence", body: ["A strong mutation page needs exact effect behavior, confirmed values, stacking rules, offline behavior, and update history. Until then, this page should remain source-aware and conservative.", "If future tests confirm a mutation, record the source, date, test method, and result before changing its status."], list: ["Exact mutation values.", "Stacking rules.", "Offline behavior.", "Event and spray interactions."] }
