@@ -14,6 +14,7 @@ import { completedCoreSlugs, completedEnglishOnlySlugs } from "@/lib/page-regist
 import { siteData } from "@/lib/site-data";
 import AdBanner from "./AdBanner";
 import SponsorCta from "./SponsorCta";
+import SmallBanner from "./SmallBanner";
 
 type SiteChromeProps = { children: React.ReactNode };
 type FriendLink = { name: string; url: string; badgeUrl?: string };
@@ -116,6 +117,7 @@ export function SiteChrome({ children }: SiteChromeProps) {
         </div>
         <SponsorCta className="sponsor-card-cta" label="Visit Sponsor" />
       </div>
+      <SmallBanner />
       {children}
       <div className="sponsor-mobile-bar" role="complementary" aria-label="Sponsored link">
         <span>Sponsored</span>
