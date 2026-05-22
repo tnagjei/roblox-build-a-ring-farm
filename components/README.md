@@ -14,3 +14,4 @@
 - JsonLd.tsx：安全输出 schema.org JSON-LD
 - SiteChrome.tsx：站点头部、分组 footer 和导航
 - GuidePage.tsx：支持 H2/H3、多段落、列表、tool/unit/P2 hub、证据表和来源模块的攻略页通用模板
+- SocialBarAd.tsx: 社交条形广告脚本组件，在生产环境下按需异步加载

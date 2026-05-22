@@ -8,6 +8,7 @@ import "./globals.css";
 import "./language.css";
 import "./nav-fixes.css";
 import { SiteChrome } from "@/components/SiteChrome";
+import SocialBarAd from "@/components/SocialBarAd";
 import { gameConfig } from "@/lib/game-config";
 import { siteData } from "@/lib/site-data";
 import { siteUrl } from "@/lib/seo";
@@ -84,6 +85,7 @@ export default function RootLayout({
           <Script key={src} src={src} strategy="lazyOnload" />
         ))}
         <SiteChrome>{children}</SiteChrome>
+        <SocialBarAd />
       </body>
     </html>
   );
