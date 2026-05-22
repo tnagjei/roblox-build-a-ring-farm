@@ -1,5 +1,5 @@
 // input: app children, site config, page registry, and shared site data
-// output: locale-aware site navigation and footer shell limited to completed pages
+// output: locale-aware site navigation, sponsor CTA, and footer shell limited to completed pages
 // pos: global chrome component
 
 "use client";
@@ -13,7 +13,7 @@ import { gameConfig } from "@/lib/game-config";
 import { completedCoreSlugs, completedEnglishOnlySlugs } from "@/lib/page-registry";
 import { siteData } from "@/lib/site-data";
 import AdBanner from "./AdBanner";
-import SmartLink from "./SmartLink";
+import SponsorCta from "./SponsorCta";
 
 type SiteChromeProps = { children: React.ReactNode };
 type FriendLink = { name: string; url: string; badgeUrl?: string };
@@ -104,10 +104,23 @@ export function SiteChrome({ children }: SiteChromeProps) {
               </div>
             ) : null}
           </div>
-          <SmartLink className="nav-cta" label="Open Game" />
+          <SponsorCta className="sponsor-nav-cta" label="Sponsor" />
+          <a className="nav-cta" href={siteData.game.robloxUrl} target="_blank" rel="noopener noreferrer">Open Game</a>
         </nav>
       </header>
+      <div className="sponsor-hero-card" role="complementary" aria-label="Sponsored link">
+        <div>
+          <span>Sponsored</span>
+          <strong>Roblox player offer</strong>
+          <p>Optional sponsor link. The official game button stays in the header.</p>
+        </div>
+        <SponsorCta className="sponsor-card-cta" label="Visit Sponsor" />
+      </div>
       {children}
+      <div className="sponsor-mobile-bar" role="complementary" aria-label="Sponsored link">
+        <span>Sponsored</span>
+        <SponsorCta className="sponsor-mobile-cta" label="Visit Sponsor" />
+      </div>
       <AdBanner />
       <footer className="site-footer">
         <div className="footer-clusters">
