@@ -20,8 +20,8 @@ type SiteChromeProps = { children: React.ReactNode };
 type FriendLink = { name: string; url: string; badgeUrl?: string };
 type NavItem = { href: string; label: string };
 
-const primaryNavSlugs = ["codes", "beginners-guide", "crops", "money-farming"];
-const guideMenuSlugs = ["seeds", "upgrades", "gear-shop", "sprays", "mutations", "fertilizer", "offline-income", "farm-layout", "advanced-crops", "weather-events", "tier-list", "updates"];
+const primaryNavSlugs = ["codes", "calculator", "beginners-guide", "money-farming"];
+const guideMenuSlugs = ["rings", "update-3-status", "seeds", "crops", "upgrades", "gear-shop", "sprays", "mutations", "fertilizer", "offline-income", "farm-layout", "advanced-crops", "weather-events", "tier-list", "updates"];
 
 function shortLocaleLabel(code: string): string {
   const labels: Record<string, string> = { en: "EN", "zh-tw": "繁中", th: "TH" };
