@@ -9,6 +9,8 @@ import { absoluteUrl } from "@/lib/seo";
 const pageTitle = "Build A Ring Farm Update 3 Codes | Reported Status";
 const pageDescription = "Build A Ring Farm Update 3 codes status with reported leads, pending verification, recheck steps, Roblox source notes, and safe code testing rules.";
 const heroImage = "/official-hero-image";
+const lastChecked = "2026-05-25";
+const nextRecheck = "After the next Roblox game update or new in-game code-box proof";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -44,16 +46,16 @@ const sections = [
     heading: "Build A Ring Farm Update 3 codes status",
     subheading: "Reported only until proof exists",
     body: [
-      "The keyword report flags Build A Ring Farm Update 3 codes as a P0 freshness opportunity. The risk is speed: code sites can publish fast, but this site should not label an Update 3 claim as active unless official or repeatable in-game proof exists.",
+      "Many players search for Build A Ring Farm Update 3 codes as soon as a new update appears. The risk is speed: code sites can publish fast, but this site should not label an Update 3 claim as active unless official or repeatable in-game proof exists.",
       "For now, Update 3 code claims stay reported only or pending. This page exists so players can find the status quickly without the site pretending that unverified rewards are confirmed active codes."
     ],
     list: ["Confirmed active Update 3 codes: 0.", "Reported claims are testing leads only.", "Pending claims need stronger proof.", "No external downloads or verification pages are needed."]
   },
   {
-    heading: "What changed after the Update 3 signal",
+    heading: "What needs to be checked after Update 3",
     subheading: "Freshness checklist",
     body: [
-      "The report mentions public Update 3 signals around 2026-05-24 and warns that the target site last full check was 2026-05-20. That does not prove a specific code, mutation, event, price, or multiplier. It proves that the site needs a visible recheck workflow.",
+      "A fresh update signal does not prove a specific code, mutation, event, price, or multiplier. It only proves that the site needs a visible recheck workflow and clear status labels.",
       "The safest update page should show what needs checking: code box availability, code reward claims, Honeycomb mutation, Queen Bee event, Alien mutation, Farm mutation, gear shop prices, and spray prices."
     ],
     list: ["Recheck codes first.", "Recheck mutation leads next.", "Recheck gear shop and spray prices.", "Recheck calculator inputs only after values are stronger."]
@@ -109,6 +111,8 @@ export default function Update3StatusPage() {
         <p className="eyebrow">Current verdict</p>
         <h2>0 confirmed active Update 3 codes here</h2>
         <p>All unverified Update 3 codes, rewards, multipliers, prices, and event claims must remain reported or pending until stronger evidence exists.</p>
+        <p><strong>Last checked:</strong> {lastChecked}</p>
+        <p><strong>Next recheck:</strong> {nextRecheck}</p>
       </section>
 
       <section className="content-grid single-column-grid">
