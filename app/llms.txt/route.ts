@@ -7,6 +7,9 @@ import { absoluteUrl } from "@/lib/seo";
 
 const corePageKeys = [
   "codes",
+  "calculator",
+  "rings",
+  "update-3-status",
   "beginners-guide",
   "crops",
   "seeds",

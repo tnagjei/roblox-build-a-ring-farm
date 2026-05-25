@@ -1,6 +1,6 @@
 # Build A Ring Farm Guide
 
-- 用途：Build A Ring Farm Roblox 攻略站，覆盖 codes 状态、新手指南、更新追踪和安全提醒。
+- 用途：Build A Ring Farm Roblox 攻略站，覆盖 codes 状态、calculator、rings、Update 3 状态、新手指南、更新追踪和安全提醒。
 - 关键入口：`lib/game-config.ts`、`public/data/build-a-ring-farm.json`、`content/i18n/en/`、`app/`。
 - 边界原则：不编造 codes、奖励、数值、官方身份、Discord 链接或脚本下载。
 > 一旦根目录结构、运行方式或核心配置变化，请更新本文件
@@ -30,14 +30,14 @@ npm run dev
 
 - Game: Build A Ring Farm
 - Roblox URL: https://www.roblox.com/games/107646426076756/Build-A-Ring-Farm
-- Domain: https://buildaringfarm.org
+- Domain: https://www.buildaringfarm.org
 - GitHub repo target: `roblox-build-a-ring-farm`
 - Contact: tangjei414@gmail.com
 
 ## Environment Variables
 
 ```bash
-NEXT_PUBLIC_SITE_URL=https://buildaringfarm.org
+NEXT_PUBLIC_SITE_URL=https://www.buildaringfarm.org
 NEXT_PUBLIC_GA_ID=
 NEXT_PUBLIC_ADSENSE_CLIENT=
 NEXT_PUBLIC_CLARITY_ID=

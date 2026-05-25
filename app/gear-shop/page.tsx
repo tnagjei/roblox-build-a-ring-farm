@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: {
-    canonical: "https://buildaringfarm.org/gear-shop/"
+    canonical: "https://www.buildaringfarm.org/gear-shop/"
   }
 };
 
@@ -24,13 +24,13 @@ const summaryCards = [
 ];
 
 const gearRows = [
-  { item: "Wet Spray", role: "Applies Wet effect", useCase: "Low-risk rare effect testing", status: "Community reported" },
-  { item: "Frozen Spray", role: "Applies Frozen effect", useCase: "Mid-tier crop value testing", status: "Community reported" },
-  { item: "Void Spray", role: "Applies Void effect", useCase: "Higher-value rare effect attempts", status: "Community reported" },
-  { item: "Radioactive Spray", role: "Applies Radioactive effect", useCase: "Late progression value testing", status: "Community reported" },
-  { item: "Rainbow Spray", role: "Applies Rainbow effect", useCase: "Highest reported rare value testing", status: "Community reported" },
-  { item: "Acid Spray", role: "Applies Acid effect", useCase: "Special effect testing after source checks", status: "Community reported" },
-  { item: "Strong Fertilizer", role: "Growth or farming boost", useCase: "Speeding up repeat crop cycles", status: "Community reported" }
+  { item: "Wet Spray", role: "Applies Wet effect", useCase: "Price pending, low-risk rare effect testing", status: "Community reported" },
+  { item: "Frozen Spray", role: "Applies Frozen effect", useCase: "Price pending, mid-tier crop value testing", status: "Community reported" },
+  { item: "Void Spray", role: "Applies Void effect", useCase: "Price pending, higher-value rare effect attempts", status: "Community reported" },
+  { item: "Radioactive Spray", role: "Applies Radioactive effect", useCase: "Price pending, late progression value testing", status: "Community reported" },
+  { item: "Rainbow Spray", role: "Applies Rainbow effect", useCase: "Price pending, highest reported rare value testing", status: "Community reported" },
+  { item: "Acid Spray", role: "Applies Acid effect or reset lead", useCase: "Price pending, special effect testing after source checks", status: "Community reported" },
+  { item: "Strong Fertilizer", role: "Growth or farming boost", useCase: "Price pending, speeding up repeat crop cycles", status: "Community reported" }
 ];
 
 const sections = [
@@ -60,6 +60,15 @@ const sections = [
       "A strong gear shop purchase should either improve repeat farming, help unlock a better route, or support a rare effect test at the right time. If buying a spray empties your cash and leaves plots idle, it can slow the farm down even if the reported effect is valuable."
     ],
     list: ["How much cash will the item consume?", "Will it improve every cycle or only one crop?", "Can the same cash buy a more reliable upgrade?", "Does the item depend on unverified event behavior?"]
+  },
+  {
+    heading: "Gear shop prices and spray prices",
+    subheading: "Prices stay pending",
+    body: [
+      "The P1 keyword report calls out gear shop prices, spray prices, Acid Spray, and Rainbow Spray. These are worth covering because players search them before buying items, but exact prices should stay pending until in-game proof exists.",
+      "A useful gear shop table can show item names, reported roles, and ROI questions without publishing unsupported price numbers. If a price is later verified, record the source and date before changing the label."
+    ],
+    list: ["Acid Spray: community reported, price pending.", "Rainbow Spray: community reported, price pending.", "Spray prices: pending until checked.", "Gear shop prices: pending until checked."]
   },
   {
     heading: "When to buy gear shop items",
@@ -94,6 +103,7 @@ const faq = [
   { q: "What are the most important gear shop items?", a: "Community reports focus on sprays such as Wet, Frozen, Void, Radioactive, Rainbow, Acid, and farming boosts such as Strong Fertilizer." },
   { q: "Should beginners buy sprays first?", a: "Usually no. Beginners should keep plots active, sell crops, and buy reliable upgrades before spending heavily on rare effect testing." },
   { q: "Can sprays stack with weather events?", a: "This site has not verified stacking behavior yet. Treat spray and weather event interactions as needs verification." }
+  ,{ q: "Are gear shop prices verified?", a: "No. Gear shop prices, spray prices, Acid Spray cost, and Rainbow Spray cost stay pending until in-game proof exists." }
 ];
 
 function StatusBadge({ status }: { status: string }) {

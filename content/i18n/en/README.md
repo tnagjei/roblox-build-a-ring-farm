@@ -7,7 +7,7 @@
 ## Files
 - home.ts：首页内容
 - codes.ts：codes 状态页内容
-- updates.ts：更新追踪页内容
+- updates.ts：更新追踪页内容，包含 Update 3 reported/pending 状态
 - beginners-guide.ts：新手指南内容
 - crops.ts：crops 长尾 SEO 内容
 - upgrades.ts：upgrades 长尾 SEO 内容

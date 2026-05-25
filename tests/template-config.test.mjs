@@ -63,7 +63,7 @@ test("site data uses Build A Ring Farm domain and conservative code state", () =
   assert.equal(fs.existsSync(path.join(root, "public/data/noob-tower-defense.json")), false);
 
   const data = JSON.parse(fs.readFileSync(dataPath, "utf8"));
-  assert.equal(data.site.defaultBaseUrl, "https://buildaringfarm.org");
+  assert.equal(data.site.defaultBaseUrl, "https://www.buildaringfarm.org");
   assert.equal(data.game.rootPlaceId, 107646426076756);
   assert.equal(data.game.universeId, 10039338037);
   assert.equal(data.codes.verifiedActiveCodes.length, 0);

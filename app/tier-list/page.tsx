@@ -25,6 +25,9 @@ const summaryCards = [
 ];
 
 const effectTierRows = [
+  { tier: "S lead", item: "Honeycomb", reason: "Update 3 reported mutation lead that needs in-game value proof.", source: "Reported, pending verification" },
+  { tier: "A lead", item: "Alien", reason: "Update 3 reported mutation lead with no verified value here.", source: "Reported, pending verification" },
+  { tier: "A lead", item: "Farm mutation", reason: "Update 3 reported route lead that should be tested before ranking.", source: "Reported, pending verification" },
   { tier: "S", item: "Rainbow", reason: "Highest reported value boost and strongest rare effect lead.", source: crossSourceStatus },
   { tier: "A", item: "Radioactive", reason: "Strong reported value boost, usually treated as late progression.", source: crossSourceStatus },
   { tier: "B", item: "Void", reason: "Reported as a higher-value effect but below Radioactive and Rainbow.", source: crossSourceStatus },
@@ -77,6 +80,15 @@ const sections = [
     list: ["Galaxy is the strongest reported event lead because it connects to Rainbow.", "Nuclear is a strong reported lead because it connects to Radioactive.", "Rain is useful for entry-level testing but not necessarily best value.", "Offline event behavior still needs verification."]
   },
   {
+    heading: "Update 3 tier leads",
+    subheading: "New terms are not verified rankings",
+    body: [
+      "The report names Honeycomb mutation, Alien mutation, Farm mutation, and Queen Bee event as P1 opportunities. They should appear in the tier list because players are searching them, but they should not outrank older entries as verified facts.",
+      "Use lead labels until better evidence exists. A reported lead means the term deserves testing, not that the value, odds, or best route has been confirmed."
+    ],
+    list: ["Honeycomb: reported, pending verification.", "Alien: reported, pending verification.", "Farm mutation: reported, pending verification.", "Queen Bee: reported, pending verification."]
+  },
+  {
     heading: "What still needs verification",
     subheading: "Pending evidence",
     body: [
@@ -101,6 +113,7 @@ const faq = [
   { q: "What is the best reported effect in Build A Ring Farm?", a: "Multiple community sources report Rainbow as the strongest value boost lead, but this site does not treat it as official data." },
   { q: "Should beginners follow the tier list first?", a: "No. Beginners should stabilize seeds, crops, selling, and upgrades before chasing rare effects." },
   { q: "Can the tier list change after updates?", a: "Yes. Any tier based on community data should be rechecked after updates, new gear shop values, or new event behavior." }
+  ,{ q: "Are Honeycomb, Alien, and Farm mutation tiers verified?", a: "No. They are reported Update 3 leads and stay pending until official or repeatable in-game evidence exists." }
 ];
 
 function StatusBadge({ status }: { status: string }) {

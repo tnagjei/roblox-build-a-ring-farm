@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: pageTitle,
   description: pageDescription,
   alternates: {
-    canonical: "https://buildaringfarm.org/weather-events/"
+    canonical: "https://www.buildaringfarm.org/weather-events/"
   }
 };
 
@@ -25,6 +25,7 @@ const summaryCards = [
 ];
 
 const eventRows = [
+  { eventName: "Queen Bee Event", reportedEffect: "Honeycomb", reportedChance: "Pending", reportedValue: "Pending", status: "Reported, pending verification" },
   { eventName: "Rain Event", reportedEffect: "Wet", reportedChance: "8%", reportedValue: "1.5x", status: crossSourceStatus },
   { eventName: "Blizzard Event", reportedEffect: "Frozen", reportedChance: "4%", reportedValue: "1.75x", status: crossSourceStatus },
   { eventName: "Black Hole Event", reportedEffect: "Void", reportedChance: "3%", reportedValue: "2.25x", status: crossSourceStatus },
@@ -61,6 +62,15 @@ const sections = [
     list: ["Use advanced crops for reported value boosts.", "Use gear shop for spray decisions.", "Use upgrades for ROI decisions.", "Use this page for event timing and chance leads."]
   },
   {
+    heading: "Update 3 event leads",
+    subheading: "Queen Bee and Honeycomb are pending",
+    body: [
+      "The keyword report calls out Queen Bee event and Honeycomb mutation as P1 freshness opportunities. They belong on this page as reported leads, not as confirmed event odds or official values.",
+      "If a Queen Bee event appears in future in-game checks, record the server date, crop state, event text, visible effect, and sell result before changing any wording from pending."
+    ],
+    list: ["Queen Bee event: reported, pending verification.", "Honeycomb effect: reported, pending verification.", "Event odds: pending.", "Event value: pending."]
+  },
+  {
     heading: "What still needs verification",
     subheading: "Pending evidence",
     body: [
@@ -84,6 +94,7 @@ const faq = [
   { q: "Are Build A Ring Farm weather event odds official?", a: "No. The odds on this page are cross-source community reported and should be rechecked after updates." },
   { q: "Which weather event has the strongest reported effect?", a: "Multiple community sources report Galaxy Event as connected to Rainbow, with a reported 5x value effect, but this is not official-source verified here." },
   { q: "Can weather events happen while offline?", a: "Offline event behavior is not verified here yet. The official page confirms offline earnings, but not offline rare event triggering." },
+  { q: "Is the Queen Bee event verified?", a: "No. Queen Bee is treated as a reported Update 3 event lead and remains pending until stronger evidence exists." },
   { q: "Should beginners focus on weather events?", a: "No. Beginners should stabilize seeds, crops, selling, and upgrades before planning around rare event outcomes." }
 ];
 

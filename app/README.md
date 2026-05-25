@@ -22,6 +22,9 @@
 - privacy/：隐私政策页面
 - terms/：使用条款页面
 - codes/：codes 页面
+- calculator/：calculator 工具型 SEO 页面
+- rings/：rings 与 ring multipliers 页面
+- update-3-status/：Update 3 codes 状态页面
 - beginners-guide/：新手指南页面
 - crops/：crops 长尾 SEO 页面
 - seeds/：seeds 长尾 SEO 页面

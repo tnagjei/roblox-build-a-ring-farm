@@ -21,7 +21,7 @@ type HomePageTemplateProps = { content: HomePageContent; locale: Locale };
 type Card = { href: string; title: string; description: string };
 type SearchCard = Card & { coversLabel: string; covers: string };
 
-const homepageExtraKeys = ["sprays", "mutations", "fertilizer", "offline-income", "farm-layout", "tier-list"];
+const homepageExtraKeys = ["calculator", "rings", "update-3-status", "sprays", "mutations", "fertilizer", "offline-income", "farm-layout", "tier-list"];
 
 function statValue(stat: StatItem): string {
   switch (stat.valueKey) {

@@ -25,12 +25,12 @@ const summaryCards = [
 ];
 
 const sprayRows = [
-  { item: "Wet Spray", reportedEffect: "Wet", reportedUse: "Entry-level effect testing and Rain route comparison.", status: crossSourceStatus },
-  { item: "Frozen Spray", reportedEffect: "Frozen", reportedUse: "Mid-tier effect testing and Blizzard route comparison.", status: crossSourceStatus },
-  { item: "Void Spray", reportedEffect: "Void", reportedUse: "Higher-value effect testing and Black Hole route comparison.", status: crossSourceStatus },
-  { item: "Radioactive Spray", reportedEffect: "Radioactive", reportedUse: "Late progression effect testing and Nuclear route comparison.", status: crossSourceStatus },
-  { item: "Rainbow Spray", reportedEffect: "Rainbow", reportedUse: "Highest reported effect testing and Galaxy route comparison.", status: crossSourceStatus },
-  { item: "Acid Spray", reportedEffect: "Acid / effect reset lead", reportedUse: "Special effect testing after source checks.", status: crossSourceStatus }
+  { item: "Wet Spray", reportedEffect: "Wet", reportedUse: "Price pending, entry-level effect testing and Rain route comparison.", status: crossSourceStatus },
+  { item: "Frozen Spray", reportedEffect: "Frozen", reportedUse: "Price pending, mid-tier effect testing and Blizzard route comparison.", status: crossSourceStatus },
+  { item: "Void Spray", reportedEffect: "Void", reportedUse: "Price pending, higher-value effect testing and Black Hole route comparison.", status: crossSourceStatus },
+  { item: "Radioactive Spray", reportedEffect: "Radioactive", reportedUse: "Price pending, late progression effect testing and Nuclear route comparison.", status: crossSourceStatus },
+  { item: "Rainbow Spray", reportedEffect: "Rainbow", reportedUse: "Price pending, highest reported effect testing and Galaxy route comparison.", status: crossSourceStatus },
+  { item: "Acid Spray", reportedEffect: "Acid / effect reset lead", reportedUse: "Price pending, special effect testing after source checks.", status: crossSourceStatus }
 ];
 
 const effectRows = [
@@ -70,6 +70,15 @@ const sections = [
     list: ["Check your cash before buying.", "Use stronger sprays on stronger crop routes.", "Compare spray value with upgrades.", "Avoid buying sprays only because a tier list looks exciting."]
   },
   {
+    heading: "Spray prices after Update 3",
+    subheading: "Acid Spray and Rainbow Spray stay pending",
+    body: [
+      "The keyword report flags spray prices, Acid Spray, and Rainbow Spray as P1 work. This page now covers those terms, but it keeps exact costs pending because the current evidence is not strong enough to publish verified prices.",
+      "Use the gear shop page for buying logic and this sprays page for effect intent. If a future in-game check confirms a price, record the date, screenshot, and item context before changing the status."
+    ],
+    list: ["Acid Spray price: pending.", "Rainbow Spray price: pending.", "Spray prices: pending until checked.", "Effects: cross-source community reported."]
+  },
+  {
     heading: "Sprays, gear shop, and tier list pages",
     subheading: "How this page fits the wiki",
     body: [
@@ -103,6 +112,7 @@ const faq = [
   { q: "What is the best reported spray?", a: "Multiple community sources point to Rainbow Spray as the strongest effect lead, but this site does not treat that as official data." },
   { q: "Should beginners buy sprays first?", a: "Usually no. Beginners should stabilize seeds, crops, selling, and upgrades before spending heavily on spray testing." },
   { q: "Can sprays stack with weather events?", a: "Stacking behavior has not been verified here yet. Treat spray and event interaction claims as needs verification." }
+  ,{ q: "Are Acid Spray and Rainbow Spray prices verified?", a: "No. Acid Spray and Rainbow Spray prices stay pending until in-game proof confirms them." }
 ];
 
 function StatusBadge({ status }: { status: string }) {
