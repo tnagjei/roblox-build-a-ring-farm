@@ -43,7 +43,7 @@ const sections = [
     heading: "What rings do in Build A Ring Farm",
     subheading: "Ring system intent",
     body: [
-      "The keyword report flags rings, ring multipliers, best rings, and ring guide as P0 opportunities. That is a real gap because the game name itself includes Ring, but players still need a separate explanation of how ring choices may affect farming routes.",
+      "Many players search for rings, ring multipliers, best rings, and ring guides because the game name itself includes Ring. A separate rings page helps players understand how ring choices may affect farming routes.",
       "This Build A Ring Farm Rings Guide treats ring multipliers as reported or pending until stronger proof exists. It can explain upgrade timing, layout impact, and calculator use without inventing exact multiplier values."
     ],
     list: ["Explain the ring system clearly.", "Keep exact multipliers pending unless verified.", "Link ring estimates to the calculator.", "Connect rings with upgrades and money farming."]
