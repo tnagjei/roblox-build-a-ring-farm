@@ -5,6 +5,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { absoluteUrl } from "@/lib/seo";
+import CalculatorEstimator from "@/components/CalculatorEstimator";
 
 const pageTitle = "Build A Ring Farm Calculator | Profit & Rings Tool";
 const pageDescription = "Build A Ring Farm calculator for reported seed, plant, mutation, and ring multiplier estimates with pending values, safe ROI notes, and route links.";
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
 
 const estimateRows = [
   { input: "Plant count", use: "Count the crops you plan to sell.", status: "Player input" },
-  { input: "Seed or crop route", use: "Choose the route being compared.", status: "Pending value table" },
+  { input: "Observed base value", use: "Enter the crop value you actually see in game.", status: "Player input" },
   { input: "Mutation", use: "Compare Wet, Frozen, Void, Radioactive, Rainbow, Honeycomb, Alien, or Farm leads.", status: reportedStatus },
   { input: "Ring multiplier", use: "Apply a ring multiplier only after checking the rings page.", status: reportedStatus }
 ];
@@ -44,17 +45,17 @@ const sections = [
     heading: "How to use the Build A Ring Farm calculator",
     subheading: "Estimate, then verify",
     body: [
-      "This Build A Ring Farm calculator is a conservative planning page, not an official value engine. Use it to compare seed routes, plant count, reported mutations, and reported ring multipliers before spending cash or changing your farm route.",
+      "This Build A Ring Farm calculator is a conservative planning tool, not an official value engine. Use it to compare plant count, your observed base value, reported mutations, and reported ring multipliers before spending cash or changing your farm route.",
       "The safest way to use a calculator page is to treat every unverified number as pending. If a crop value, mutation boost, ring multiplier, spray price, or Update 3 reward has not been checked in-game or posted by an official source, it should remain reported or pending."
     ],
-    list: ["Start with plant count.", "Add a seed or crop route.", "Add only reported mutation leads.", "Use ring multipliers as pending estimates.", "Check results against real in-game selling."]
+    list: ["Start with plant count.", "Enter your observed base value.", "Add only reported mutation leads.", "Use ring multipliers as pending estimates.", "Check results against real in-game selling."]
   },
   {
-    heading: "Why calculator traffic matters",
-    subheading: "Tool intent beats another static guide",
+    heading: "Why this calculator stays conservative",
+    subheading: "Useful estimates without fake certainty",
     body: [
-      "The keyword report flags calculator, profit calculator, seed calculator, and ring multiplier calculator as P0 opportunities. That matters because players searching these terms are not only reading. They want to compare choices and decide what to do next.",
-      "A simple calculator page can also create better internal links. Seeds, money farming, mutations, rings, and Update 3 status pages can all point here when players need to estimate a route without trusting fake exact numbers."
+      "Many players want a profit calculator, seed calculator, and ring multiplier calculator because they are trying to decide what to do next. This page gives them a simple estimate workflow without pretending weak data is official.",
+      "Seeds, money farming, mutations, rings, and Update 3 status pages can all point here when players need to estimate a route without trusting fake exact numbers."
     ],
     list: ["Seed calculator intent belongs here.", "Profit calculator intent belongs here.", "Ring multiplier calculator intent belongs here.", "Reported and pending labels protect trust."]
   },
@@ -63,7 +64,7 @@ const sections = [
     subheading: "No fake precision",
     body: [
       "Do not publish a final cash-per-second number unless the input values are verified. A precise-looking formula can be more harmful than a plain pending label if the source data is weak.",
-      "The current page intentionally uses estimate tables and source labels instead of a hard-coded final result. That keeps the page useful for SEO while avoiding invented prices, invented multipliers, and invented active code rewards."
+      "The current estimator uses player inputs and source labels instead of a hard-coded final value table. That keeps the page useful while avoiding invented prices, invented multipliers, and invented active code rewards."
     ],
     list: ["No official crop prices without proof.", "No verified mutation multiplier unless tested.", "No verified ring multiplier unless tested.", "No active Update 3 code unless verified."]
   },
@@ -87,7 +88,7 @@ const relatedLinks = [
 ];
 
 const faq = [
-  { q: "Is this Build A Ring Farm calculator official?", a: "No. It is an independent planning guide. Inputs that are not verified stay reported or pending." },
+  { q: "Is this Build A Ring Farm calculator official?", a: "No. It is an independent planning tool. Inputs that are not verified stay reported or pending." },
   { q: "Can I use reported mutation multipliers?", a: "Yes, but only as estimates. Do not treat reported mutation values as verified unless in-game proof is recorded." },
   { q: "Does the calculator verify Update 3 codes?", a: "No. Update 3 code claims stay pending until official or repeatable in-game proof exists." },
   { q: "Why are some values missing?", a: "Missing values are safer than fake precision. Exact prices, multipliers, and rewards need source checks first." }
@@ -104,7 +105,7 @@ export default function CalculatorPage() {
         <div className="hero-copy">
           <p className="eyebrow">Profit and ring multiplier calculator</p>
           <h1>Build A Ring Farm Calculator</h1>
-          <p className="lede">Use this Build A Ring Farm calculator to compare reported seed, plant, mutation, and ring multiplier estimates without treating pending values as official facts.</p>
+          <p className="lede">Use this Build A Ring Farm calculator to compare plant count, observed crop value, reported mutation multipliers, and reported ring multipliers without treating pending values as official facts.</p>
           <div className="hero-actions">
             <Link className="primary-link" href="/rings/">Compare rings</Link>
             <Link className="secondary-link" href="/money-farming/">Plan money route</Link>
@@ -119,6 +120,8 @@ export default function CalculatorPage() {
         <h2>Calculator values are reported or pending</h2>
         <p>Unverified code rewards, mutation boosts, ring multipliers, crop prices, and gear prices must stay reported or pending until official or repeatable in-game evidence exists.</p>
       </section>
+
+      <CalculatorEstimator />
 
       <section className="content-grid single-column-grid">
         <article className="guide-card data-card">
