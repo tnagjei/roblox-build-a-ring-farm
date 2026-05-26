@@ -8,7 +8,13 @@
     "lastFullCheck": "2026-05-20",
     "defaultBaseUrl": "https://www.buildaringfarm.org",
     "aliases": ["Build A Ring Farm", "Build A Ring Farm Roblox", "Build A Ring Farm Wiki", "Build A Ring Farm Guide"],
-    "friendLinks": []
+    "friendLinks": [
+      {
+        "name": "Listed on ToolRain",
+        "url": "https://toolrain.com/item/build-a-ring-farm-wiki",
+        "badgeUrl": "https://toolrain.com/badges/badge-listed-light.svg"
+      }
+    ]
   },
   "game": {
     "name": "Build A Ring Farm",
