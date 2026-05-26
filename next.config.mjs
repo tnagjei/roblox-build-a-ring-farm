@@ -14,7 +14,6 @@ const legacyAssetRedirects = [
 const nextConfig = {
   reactStrictMode: true,
   trailingSlash: true,
-  skipTrailingSlashRedirect: true,
   async redirects() {
     return legacyAssetRedirects;
   }
