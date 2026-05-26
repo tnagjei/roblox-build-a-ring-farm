@@ -9,6 +9,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { buildLocalizedMetadata } from "@/lib/i18n/metadata";
 import { siteData } from "@/lib/site-data";
 import { absoluteUrl } from "@/lib/seo";
+import "./codes-page.css";
 
 const reportedCodes = [
   { code: "UPDATE2", reward: "Tropical Seed Pack", status: "Community reported", sourceStatus: "Needs testing", lastChecked: "May 2026" },
