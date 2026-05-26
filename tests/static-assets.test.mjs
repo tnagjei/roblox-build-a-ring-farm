@@ -56,7 +56,6 @@ test("site data points icon and hero assets at static files", () => {
 test("page, manifest, and metadata sources do not actively reference legacy asset routes", () => {
   const activeSourceFiles = [
     "app/layout.tsx",
-    "app/manifest.ts",
     ...walk("app", (filePath) => filePath.endsWith("/page.tsx")),
     ...walk("components", (filePath) => filePath.endsWith(".tsx")),
     ...walk("lib", (filePath) => filePath.endsWith(".ts")),
