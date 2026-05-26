@@ -8,7 +8,7 @@ import { absoluteUrl } from "@/lib/seo";
 
 const pageTitle = "Build A Ring Farm Update 3 Codes | Reported Status";
 const pageDescription = "Build A Ring Farm Update 3 codes status with reported leads, pending verification, recheck steps, Roblox source notes, and safe code testing rules.";
-const heroImage = "/official-hero-image";
+const heroImage = "/images/official-hero-image.webp";
 const lastChecked = "2026-05-25";
 const nextRecheck = "After the next Roblox game update or new in-game code-box proof";
 
@@ -21,9 +21,9 @@ export const metadata: Metadata = {
     description: pageDescription,
     url: absoluteUrl("/update-3-status/"),
     type: "article",
-    images: [{ url: absoluteUrl("/opengraph-image"), width: 1200, height: 630, alt: "Build A Ring Farm Update 3 status" }]
+    images: [{ url: absoluteUrl("/images/official-hero-image.webp"), width: 1200, height: 630, alt: "Build A Ring Farm Update 3 status" }]
   },
-  twitter: { card: "summary_large_image", title: pageTitle, description: pageDescription, images: [absoluteUrl("/opengraph-image")] }
+  twitter: { card: "summary_large_image", title: pageTitle, description: pageDescription, images: [absoluteUrl("/images/official-hero-image.webp")] }
 };
 
 const statusRows = [

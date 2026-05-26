@@ -1,3 +1,7 @@
+// input: home module source files and legacy image route source
+// output: regression checks for video embedding and static hero route migration
+// pos: homepage module tests（更新规则：文件变更需同步本注释与所属目录 README）
+
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
@@ -27,15 +31,18 @@ test("home video module does not include copied child-site video IDs", () => {
   }
 });
 
-test("official hero image route reads universe ID from data and has no child-site constants", () => {
-  const route = read("app/official-hero-image/route.ts");
+test("legacy official hero image route is replaced by static redirect config", () => {
+  const config = read("next.config.mjs");
+  const routePath = path.join(root, "app/official-hero-image/route.ts");
   const childSiteUniverseId = "100061" + "04044";
   const childSiteDomain = "wizardalchemy" + ".online";
 
-  assert.ok(route.includes("siteData.game.universeId"), "official hero route must use site data universeId");
-  assert.ok(route.includes("siteData.site.defaultBaseUrl"), "official hero route must use configured base URL for fallback");
-  assert.equal(route.includes(childSiteUniverseId), false, "child-site universeId must not be hardcoded");
-  assert.equal(route.includes(childSiteDomain), false, "child-site domain must not be hardcoded");
+  assert.equal(fs.existsSync(routePath), false, "legacy dynamic hero route should be removed after static redirects pass");
+  assert.ok(config.includes("/official-hero-image"), "next config must keep the old hero URL redirect");
+  assert.ok(config.includes("/images/official-hero-image.webp"), "old hero URL must redirect to the static hero asset");
+  assert.equal(config.includes("thumbnails.roblox.com"), false, "redirect config must not call the Roblox thumbnail API at request time");
+  assert.equal(config.includes(childSiteUniverseId), false, "child-site universeId must not be hardcoded");
+  assert.equal(config.includes(childSiteDomain), false, "child-site domain must not be hardcoded");
 });
 
 test("homepage template delegates video rendering to reusable module", () => {

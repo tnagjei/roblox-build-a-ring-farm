@@ -1,9 +1,9 @@
 // input: locale, slug, title, description, and page localization scope
 // output: Next.js metadata alternates and social metadata for localized or English-only pages
-// pos: i18n metadata helper
+// pos: i18n metadata helper（更新规则：文件变更需同步本注释与所属目录 README）
 
 import { gameConfig } from "@/lib/game-config";
-import { absoluteUrl } from "@/lib/seo";
+import { absoluteUrl, staticHeroImagePath } from "@/lib/seo";
 import { localeMeta, type Locale } from "./locales";
 import { getLocalizedPath } from "./routes";
 
@@ -32,7 +32,7 @@ function buildSocialMetadata({
   canonical: string;
   type?: "website" | "article";
 }) {
-  const socialImage = absoluteUrl("/opengraph-image");
+  const socialImage = absoluteUrl(staticHeroImagePath);
 
   return {
     openGraph: {

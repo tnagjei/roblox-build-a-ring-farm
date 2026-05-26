@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const pageTitle = "Build A Ring Farm Gear Shop Guide | Sprays & ROI";
 const pageDescription = "Build A Ring Farm gear shop guide for sprays, upgrades, rare crop value, ROI checks, source status, and safe Roblox farming progression.";
-const heroImage = "/official-hero-image";
+const heroImage = "/images/official-hero-image.webp";
 
 export const metadata: Metadata = {
   title: pageTitle,

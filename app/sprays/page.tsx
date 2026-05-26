@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const pageTitle = "Build A Ring Farm Sprays Guide | Effects & ROI";
 const pageDescription = "Build A Ring Farm sprays guide covering cross-source community reported spray effects, gear shop use, rare crop value, weather events, ROI, and source status.";
-const heroImage = "/official-hero-image";
+const heroImage = "/images/official-hero-image.webp";
 const crossSourceStatus = "Cross-source community reported";
 
 export const metadata: Metadata = {

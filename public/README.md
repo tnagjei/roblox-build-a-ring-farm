@@ -6,8 +6,13 @@
 
 ## Files
 - README.md：本目录说明
+- favicon.ico：浏览器兼容 favicon 静态文件
 - favicon.svg：静态 SVG 站点图标备用资源
+- icon.png：512px PNG 静态站点图标
+- apple-touch-icon.png：180px Apple 触屏图标
+- manifest.webmanifest：静态 PWA manifest
 - logo.svg：品牌 SVG 源图
 - logo.png：品牌 PNG 下载图
 - logo.webp：品牌 WEBP 下载图
+- images/：静态页面和社交图资源
 - data/：站点公开 JSON 数据

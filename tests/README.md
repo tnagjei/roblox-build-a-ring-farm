@@ -6,6 +6,7 @@
 
 ## Files
 - template-config.test.mjs：检查站点配置、保守代码状态和域名
-- template-home-modules.test.mjs：首页模块与视频配置回归
+- template-home-modules.test.mjs：首页模块、视频配置和旧 hero 路由静态跳转回归
 - template-routes.test.mjs：检查已完成路由数量和文件存在
 - keyword-opportunity-pages.test.mjs：检查 P0/P1 关键词机会页面和 reported/pending 口径
+- static-assets.test.mjs：检查静态 icon、hero、manifest 迁移与旧资源路径兼容配置

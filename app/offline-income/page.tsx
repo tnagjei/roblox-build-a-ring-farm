@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const pageTitle = "Build A Ring Farm Offline Income Guide | AFK Cash";
 const pageDescription = "Build A Ring Farm offline income guide covering offline earnings, logout checks, crops, upgrades, weather events, mutations, and source status.";
-const heroImage = "/official-hero-image";
+const heroImage = "/images/official-hero-image.webp";
 
 export const metadata: Metadata = { title: pageTitle, description: pageDescription, alternates: { canonical: "https://www.buildaringfarm.org/offline-income/" } };
 

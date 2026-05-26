@@ -15,6 +15,7 @@
 - `lib/content/template-pages.ts`：可复用页面内容生成器
 - `lib/i18n/`：语言、路由和 metadata helper
 - `public/data/build-a-ring-farm.json`：Build A Ring Farm 公开站点数据源
+- `public/icon.png`、`public/images/official-hero-image.webp`：静态 icon 和 hero 图片，旧图片 URL 由 `next.config.mjs` 跳转到这里
 - `tests/`：站点配置、路由和首页模块回归测试
 
 ## Run

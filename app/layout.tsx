@@ -29,6 +29,12 @@ export const metadata: Metadata = {
   description: siteData.site.description,
   applicationName: siteData.site.name,
   authors: [{ name: siteData.site.name }],
+  icons: {
+    shortcut: [{ url: "/favicon.ico", type: "image/x-icon" }],
+    icon: [{ url: "/icon.png", type: "image/png", sizes: "512x512" }],
+    apple: [{ url: "/apple-touch-icon.png", type: "image/png", sizes: "180x180" }]
+  },
+  manifest: "/manifest.webmanifest",
   alternates: {
     canonical: siteUrl
   },

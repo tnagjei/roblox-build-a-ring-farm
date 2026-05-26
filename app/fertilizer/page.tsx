@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const pageTitle = "Build A Ring Farm Fertilizer Guide | Growth & ROI";
 const pageDescription = "Build A Ring Farm fertilizer guide covering community reported Strong Fertilizer use, crop timing, sprays, upgrades, ROI, and source status.";
-const heroImage = "/official-hero-image";
+const heroImage = "/images/official-hero-image.webp";
 
 export const metadata: Metadata = { title: pageTitle, description: pageDescription, alternates: { canonical: "https://www.buildaringfarm.org/fertilizer/" } };
 

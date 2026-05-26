@@ -8,7 +8,7 @@ import { absoluteUrl } from "@/lib/seo";
 
 const pageTitle = "Build A Ring Farm Rings Guide | Multipliers & Upgrades";
 const pageDescription = "Build A Ring Farm rings guide covering reported ring multipliers, upgrade timing, best rings, calculator links, pending values, and safe source status.";
-const heroImage = "/official-hero-image";
+const heroImage = "/images/official-hero-image.webp";
 const reportedStatus = "Reported, pending verification";
 
 export const metadata: Metadata = {
@@ -20,9 +20,9 @@ export const metadata: Metadata = {
     description: pageDescription,
     url: absoluteUrl("/rings/"),
     type: "article",
-    images: [{ url: absoluteUrl("/opengraph-image"), width: 1200, height: 630, alt: "Build A Ring Farm rings guide" }]
+    images: [{ url: absoluteUrl("/images/official-hero-image.webp"), width: 1200, height: 630, alt: "Build A Ring Farm rings guide" }]
   },
-  twitter: { card: "summary_large_image", title: pageTitle, description: pageDescription, images: [absoluteUrl("/opengraph-image")] }
+  twitter: { card: "summary_large_image", title: pageTitle, description: pageDescription, images: [absoluteUrl("/images/official-hero-image.webp")] }
 };
 
 const ringRows = [

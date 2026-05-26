@@ -8,7 +8,7 @@ import { absoluteUrl } from "@/lib/seo";
 
 const pageTitle = "Build A Ring Farm Mutations Guide | Rare Effects & Weather Events";
 const pageDescription = "Build A Ring Farm mutations guide covering rare effects, sprays, weather events, tier logic, stacking checks, money farming links, and source status.";
-const heroImage = "/official-hero-image";
+const heroImage = "/images/official-hero-image.webp";
 const crossSourceStatus = "Cross-source community reported";
 
 export const metadata: Metadata = {
@@ -20,9 +20,9 @@ export const metadata: Metadata = {
     description: pageDescription,
     url: absoluteUrl("/mutations/"),
     type: "article",
-    images: [{ url: absoluteUrl("/opengraph-image"), width: 1200, height: 630, alt: "Build A Ring Farm mutations guide" }]
+    images: [{ url: absoluteUrl("/images/official-hero-image.webp"), width: 1200, height: 630, alt: "Build A Ring Farm mutations guide" }]
   },
-  twitter: { card: "summary_large_image", title: pageTitle, description: pageDescription, images: [absoluteUrl("/opengraph-image")] }
+  twitter: { card: "summary_large_image", title: pageTitle, description: pageDescription, images: [absoluteUrl("/images/official-hero-image.webp")] }
 };
 
 const mutationRows = [

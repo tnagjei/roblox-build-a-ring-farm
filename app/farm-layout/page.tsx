@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const pageTitle = "Build A Ring Farm Farm Layout Guide | Profit Routes";
 const pageDescription = "Build A Ring Farm farm layout guide covering early layouts, ring expansion, active plots, crop routes, upgrade timing, offline income, and source status.";
-const heroImage = "/official-hero-image";
+const heroImage = "/images/official-hero-image.webp";
 
 export const metadata: Metadata = { title: pageTitle, description: pageDescription, alternates: { canonical: "https://www.buildaringfarm.org/farm-layout/" } };
 

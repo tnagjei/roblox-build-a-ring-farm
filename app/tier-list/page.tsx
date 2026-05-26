@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const pageTitle = "Build A Ring Farm Tier List Guide | Effects & Crops";
 const pageDescription = "Build A Ring Farm tier list guide covering cross-source community reported crop effects, sprays, event boosts, farming routes, and source status.";
-const heroImage = "/official-hero-image";
+const heroImage = "/images/official-hero-image.webp";
 const crossSourceStatus = "Cross-source community reported";
 
 export const metadata: Metadata = {

@@ -8,6 +8,8 @@ import { siteData, type SitePage } from "@/lib/site-data";
 export const siteUrl = normalizeSiteUrl(
   process.env.NEXT_PUBLIC_SITE_URL || siteData.site.defaultBaseUrl
 );
+export const staticIconPath = "/icon.png";
+export const staticHeroImagePath = "/images/official-hero-image.webp";
 
 type UnitSchemaData = {
   name: string;
@@ -24,7 +26,7 @@ export function absoluteUrl(path: string): string {
 
 export function buildMetadata(page: SitePage): Metadata {
   const canonical = absoluteUrl(page.path);
-  const socialImage = absoluteUrl("/opengraph-image");
+  const socialImage = absoluteUrl(staticHeroImagePath);
 
   return {
     metadataBase: new URL(siteUrl),
@@ -63,7 +65,7 @@ export function buildArticleJsonLd(page: SitePage) {
     "@type": "Article",
     headline: page.h1,
     description: page.description,
-    image: [siteData.assets.hero],
+    image: [absoluteUrl(staticHeroImagePath)],
     datePublished: siteData.site.lastFullCheck,
     dateModified: siteData.site.lastFullCheck,
     author: {
@@ -76,7 +78,7 @@ export function buildArticleJsonLd(page: SitePage) {
       name: siteData.site.name,
       logo: {
         "@type": "ImageObject",
-        url: siteData.assets.icon
+        url: absoluteUrl(staticIconPath)
       }
     },
     mainEntityOfPage: absoluteUrl(page.path)
@@ -160,6 +162,7 @@ export function buildOrganizationJsonLd() {
     url: siteUrl,
     email: siteData.site.contactEmail,
     description: siteData.site.description,
+    logo: absoluteUrl(staticIconPath),
     sameAs: siteData.game.officialLinks
       .filter((link: { status: string; url: string }) => link.status === "verified" && link.url)
       .map((link: { url: string }) => link.url)
@@ -177,7 +180,11 @@ export function buildWebsiteJsonLd() {
     publisher: {
       "@type": "Organization",
       name: siteData.site.name,
-      email: siteData.site.contactEmail
+      email: siteData.site.contactEmail,
+      logo: {
+        "@type": "ImageObject",
+        url: absoluteUrl(staticIconPath)
+      }
     }
   };
 }
@@ -195,7 +202,7 @@ export function buildVideoGameJsonLd() {
     description: siteData.game.descriptionSummary,
     genre: siteData.game.genre,
     url: siteData.game.robloxUrl,
-    image: siteData.assets.hero,
+    image: absoluteUrl(staticHeroImagePath),
     publisher: {
       "@type": "Organization",
       name: siteData.game.creator.name

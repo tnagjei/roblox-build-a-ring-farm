@@ -1,7 +1,7 @@
 # app
-- 用途：Next.js App Router 页面、全局样式和 SEO metadata routes。
+- 用途：Next.js App Router 页面、全局样式和静态 SEO 辅助路由。
 - 关键入口：`page.tsx`、`layout.tsx`、`sitemap.ts`、`robots.ts`
-- 边界/依赖：页面只读 `lib` 和 `components`，不直接写外部数据。
+- 边界/依赖：页面只读 `lib` 和 `components`，旧图片路径由根 `next.config.mjs` 跳转到 `public` 静态资源。
 > 一旦本目录内容变化，请更新本文件
 
 ## Files
@@ -9,8 +9,6 @@
 - globals.css：全站视觉样式
 - nav-fixes.css：顶部导航下拉浮层修复样式
 - layout.tsx：根布局和全局 metadata
-- icon.tsx：浏览器标签、收藏夹和安装入口图标
-- opengraph-image.tsx：社交分享图动态生成路由
 - manifest.ts：PWA manifest 和安装图标配置
 - page.tsx：首页
 - sitemap.ts：sitemap.xml 生成

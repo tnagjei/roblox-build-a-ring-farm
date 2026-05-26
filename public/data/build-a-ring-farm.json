@@ -39,7 +39,7 @@
       { "label": "Community reports", "level": "needs verification" }
     ]
   },
-  "assets": { "icon": "/icon", "hero": "/official-hero-image", "thumbnails": [] },
+  "assets": { "icon": "/icon.png", "hero": "/images/official-hero-image.webp", "thumbnails": [] },
   "codes": {
     "verifiedCountLabel": "0 verified codes",
     "officialStatus": "No verified official codes yet",
