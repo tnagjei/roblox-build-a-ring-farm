@@ -3,11 +3,18 @@
   "short_name": "Build A Ring Farm",
   "description": "Build A Ring Farm wiki covering codes, calculator, rings, crops, gear shop, sprays, mutations, fertilizer, offline income, and money farming.",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#f8f7ef",
   "theme_color": "#17241f",
   "categories": ["games", "entertainment", "reference"],
   "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "16x16 32x32",
+      "type": "image/x-icon",
+      "purpose": "any"
+    },
     {
       "src": "/icon.png",
       "sizes": "512x512",
