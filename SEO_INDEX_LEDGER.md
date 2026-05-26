@@ -2,9 +2,9 @@
 
 > 站点：`https://www.buildaringfarm.org`  
 > 建立日期：2026-05-26  
-> 当前阶段：第 0 周到第 14 天观察期  
+> 当前阶段：第 0 周到第 14 天观察期 + 低风险长尾首批实验  
 > 目标指标：Index 覆盖页面数  
-> 规则：只记录索引状态，不改首页、不扩页、不动广告、不马上做 CTR 实验。
+> 规则：首页 TDH 不动；新增长尾页只限首批 3 个；所有新增页必须记录证据等级和复查日期。
 
 ---
 
@@ -20,6 +20,14 @@
 | www / 非 www | 非 www 正确 301 到 www | 技术风险基本排除 |
 | Robots | 全站允许核心页面，`/admin/`、`/private/`、`/user-content/` 禁止 | 核心页面抓取允许 |
 | 当前阶段 | 第 0 周到第 14 天观察期 | 不做内容优化，只更新台账 |
+
+### 1.1 2026-05-26 新增长尾实验记录
+
+| 页面 | 目标 Query | 上线日期 | 证据等级 | 第 7 天复查 | 第 14 天复查 | 实验边界 |
+|---|---|---|---|---|---|---|
+| `/rainbow-mutation/` | `build a ring farm rainbow mutation` | 2026-05-26 | Community reported, pending in-game check | 2026-06-02 | 2026-06-09 | 只做 source status 页面，不写固定数值 |
+| `/rainbow-spray/` | `build a ring farm rainbow spray` | 2026-05-26 | Community reported, pending in-game check | 2026-06-02 | 2026-06-09 | 只做 item source status 页面，不写固定价格 |
+| `/strong-fertilizer/` | `build a ring farm strong fertilizer` | 2026-05-26 | Community reported, pending in-game check | 2026-06-02 | 2026-06-09 | 只做 item source status 页面，不写固定效果 |
 
 ---
 
@@ -64,6 +72,7 @@
 | `/crops/` | 核心攻略页 | 已索引 | 已索引 | 已确认 | 待抽查 | 允许 | 待上传 | 待上传 | 待上传 | 待上传 | 核心页，需补 GSC 页面级数据 | 下次 GSC 导出补齐 |
 | `/seeds/` | 核心攻略页 | 已索引 | 已索引 | 已确认 | 待抽查 | 允许 | 待上传 | 待上传 | 待上传 | 待上传 | 核心页，需补 GSC 页面级数据 | 下次 GSC 导出补齐 |
 | `/fertilizer/` | 观察页 | 已索引 | 未索引，已请求编制索引 | 已确认 | 待抽查 | 允许 | 待上传 | 待上传 | 待上传 | 待上传 | Bing 未索引，Google 已索引 | 3 天后复查 Bing |
+| `/strong-fertilizer/` | 新增长尾页 | 待提交 / 待发现 | 待提交 / 待发现 | 已同步 | 待抽查 | 允许 | 0 | 0 | 待上传 | 待上传 | 首批长尾实验，证据等级为 community reported / pending | 2026-06-02 复查 GSC 与 Bing |
 | `/farm-layout/` | 观察页 | 已索引 | 未索引，请求时服务端错误 | 已确认 | 待抽查 | 允许 | 待上传 | 待上传 | 待上传 | 待上传 | Bing 未索引且提交异常 | 3 天后重试 Bing |
 | `/advanced-crops/` | 观察页 | 未索引，GSC 请求失败 | 已索引 | 已确认 | 待抽查 | 允许 | 待上传 | 待上传 | 待上传 | 待上传 | Google 未索引，需复查 | 3 天后重试 GSC 索引请求 |
 | `/weather-events/` | 观察页 | 已索引 | 未索引，已请求编制索引 | 已确认 | 待抽查 | 允许 | 待上传 | 待上传 | 待上传 | 待上传 | Bing 未索引，Google 已索引 | 3 天后复查 Bing |
@@ -73,6 +82,8 @@
 | `/update-3-status/` | 新增观察页 | 已索引 | 已索引 | 已确认出现 | 待抽查 | 允许 | 待上传 | 待上传 | 待上传 | 待上传 | 新加入台账，暂不优化 | 只观察 |
 | `/updates/` | 更新页 | 已索引 | 已索引 | 已确认 | 待抽查 | 允许 | 待上传 | 待上传 | 待上传 | 待上传 | 补数据 | 下次 GSC 导出补齐 |
 | `/beginners-guide/` | 新手页 | 已索引 | 已索引 | 已确认 | 待抽查 | 允许 | 待上传 | 待上传 | 待上传 | 待上传 | 补数据 | 下次 GSC 导出补齐 |
+| `/rainbow-mutation/` | 新增长尾页 | 待提交 / 待发现 | 待提交 / 待发现 | 已同步 | 待抽查 | 允许 | 0 | 0 | 待上传 | 待上传 | 首批长尾实验，证据等级为 community reported / pending | 2026-06-02 复查 GSC 与 Bing |
+| `/rainbow-spray/` | 新增长尾页 | 待提交 / 待发现 | 待提交 / 待发现 | 已同步 | 待抽查 | 允许 | 0 | 0 | 待上传 | 待上传 | 首批长尾实验，证据等级为 community reported / pending | 2026-06-02 复查 GSC 与 Bing |
 
 ---
 
@@ -105,8 +116,8 @@
 |---|---|
 | 不改首页 Title | 首页是最大流量入口 |
 | 不改首页 Description | 会污染当前最强页面判断 |
-| 不扩新页面 | 已经有足够页面观察 |
-| 不马上改 `/mutations/` | 需要等第 14 天确认 |
+| 不继续扩新页面 | 首批长尾实验已限缩到 3 个页面 |
+| 不改 `/mutations/` 正文和结构 | 本轮只做 Title / Description 搜索呈现实验 |
 | 不马上改 `/codes/` | 需要等第 14 天确认 |
 | 不因为 Bing 未索引就改页面 | Google 已经有分发表现，Bing 只是辅助搜索源 |
 | 不因为 GSC 请求失败就改内容 | 请求失败是工具状态，不等于页面质量问题 |

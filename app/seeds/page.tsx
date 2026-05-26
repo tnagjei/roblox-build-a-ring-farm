@@ -25,16 +25,68 @@ const summaryCards = [
 ];
 
 const seedPackRows = [
-  { name: "Tropical Seed Pack", source: "Community code lists", status: "Community reported", note: "Reported as a reward from some Build A Ring Farm code pages." },
-  { name: "General seed packs", source: "Gameplay category", status: "Pending", note: "Exact pack contents and odds should be verified before publishing tables." },
-  { name: "Event seed packs", source: "Update-dependent", status: "Pending", note: "Only add after an official update note or repeatable in-game evidence." }
+  {
+    key: "tropical-seed-pack",
+    fields: [
+      { label: "Name", value: "Tropical Seed Pack", sourceStatus: "Community reported" },
+      { label: "Source", value: "Third-party code pages", sourceStatus: "Community reported" },
+      { label: "Use", value: "Reward lead for seed route planning", sourceStatus: "Pending in-game check" },
+      { label: "Note", value: "Keep pack contents and odds pending.", sourceStatus: "Pending in-game check" }
+    ]
+  },
+  {
+    key: "general-seed-packs",
+    fields: [
+      { label: "Name", value: "General seed packs", sourceStatus: "Gameplay category" },
+      { label: "Source", value: "Seed pack concept from player-facing farming loop", sourceStatus: "Observed category, exact values pending" },
+      { label: "Use", value: "Crop unlock and route planning", sourceStatus: "Pending in-game check" },
+      { label: "Note", value: "Do not publish drop odds without evidence.", sourceStatus: "Pending source" }
+    ]
+  },
+  {
+    key: "event-seed-packs",
+    fields: [
+      { label: "Name", value: "Event seed packs", sourceStatus: "Update-dependent lead" },
+      { label: "Source", value: "Event or update claims", sourceStatus: "Pending source" },
+      { label: "Use", value: "Possible limited route support", sourceStatus: "Pending in-game check" },
+      { label: "Note", value: "Only upgrade after official or repeatable evidence.", sourceStatus: "Pending source" }
+    ]
+  }
 ];
 
 const codeRewardRows = [
-  { code: "UPDATE1", reportedReward: "Strong Fertilizer / seed-related rewards reported by third-party pages", status: "Community reported" },
-  { code: "UPDATE2", reportedReward: "Tropical Seed Pack reported by third-party pages", status: "Community reported" },
-  { code: "THANKYOU", reportedReward: "Autumn Spray reported by third-party pages", status: "Community reported" },
-  { code: "BARF:3", reportedReward: "Acid Spray reported by third-party pages", status: "Community reported" }
+  {
+    key: "update1",
+    fields: [
+      { label: "Code string", value: "UPDATE1", sourceStatus: "Community reported" },
+      { label: "Reported reward", value: "Strong Fertilizer or seed-related reward lead", sourceStatus: "Community reported" },
+      { label: "Use", value: "Testing lead only", sourceStatus: "Pending in-game check" }
+    ]
+  },
+  {
+    key: "update2",
+    fields: [
+      { label: "Code string", value: "UPDATE2", sourceStatus: "Community reported" },
+      { label: "Reported reward", value: "Tropical Seed Pack lead", sourceStatus: "Community reported" },
+      { label: "Use", value: "Testing lead only", sourceStatus: "Pending in-game check" }
+    ]
+  },
+  {
+    key: "thankyou",
+    fields: [
+      { label: "Code string", value: "THANKYOU", sourceStatus: "Community reported" },
+      { label: "Reported reward", value: "Autumn Spray lead", sourceStatus: "Community reported" },
+      { label: "Use", value: "Not a seed fact until tested", sourceStatus: "Pending in-game check" }
+    ]
+  },
+  {
+    key: "barf-3",
+    fields: [
+      { label: "Code string", value: "BARF:3", sourceStatus: "Community reported" },
+      { label: "Reported reward", value: "Acid Spray lead", sourceStatus: "Community reported" },
+      { label: "Use", value: "Not a seed fact until tested", sourceStatus: "Pending in-game check" }
+    ]
+  }
 ];
 
 const sections = [
@@ -79,6 +131,7 @@ const sections = [
 const relatedLinks = [
   { href: "/crops/", title: "Crops", description: "Turn seed choices into crop cycles, harvests, and selling decisions." },
   { href: "/gear-shop/", title: "Gear Shop", description: "Compare sprays, fertilizer, and ROI after the seed route is stable." },
+  { href: "/strong-fertilizer/", title: "Strong Fertilizer", description: "Check source status for fertilizer reward leads." },
   { href: "/advanced-crops/", title: "Advanced Crops", description: "Review rare crop effects and community reported value boosts." },
   { href: "/upgrades/", title: "Upgrades", description: "Use crop income to plan better upgrade timing." },
   { href: "/codes/", title: "Codes", description: "Check reported code rewards before relying on seed pack claims." }
@@ -91,8 +144,14 @@ const faq = [
   { q: "Can codes give seed packs?", a: "Some third-party code pages report seed pack rewards. These should be treated as community reported until rechecked." }
 ];
 
-function StatusBadge({ status }: { status: string }) {
-  return <span className="source-badge">{status}</span>;
+function FieldWithSource({ label, value, sourceStatus }: { label: string; value: string; sourceStatus: string }) {
+  return (
+    <div>
+      <span>{label}</span>
+      <strong>{value}</strong>
+      <span className="source-badge">{sourceStatus}</span>
+    </div>
+  );
 }
 
 export default function SeedsPage() {
@@ -135,11 +194,10 @@ export default function SeedsPage() {
           <h2>Reported seed pack information</h2>
           <div className="data-list">
             {seedPackRows.map((row) => (
-              <div className="data-row four-field-row" key={row.name}>
-                <div><span>Name</span><strong>{row.name}</strong></div>
-                <div><span>Source</span><strong>{row.source}</strong></div>
-                <div><span>Note</span><strong>{row.note}</strong></div>
-                <div><span>Status</span><StatusBadge status={row.status} /></div>
+              <div className="data-row four-field-row" key={row.key}>
+                {row.fields.map((field) => (
+                  <FieldWithSource key={`${row.key}-${field.label}`} {...field} />
+                ))}
               </div>
             ))}
           </div>
@@ -151,10 +209,10 @@ export default function SeedsPage() {
           <h2>Reported code rewards related to seeds</h2>
           <div className="data-list">
             {codeRewardRows.map((row) => (
-              <div className="data-row three-field-row" key={row.code}>
-                <div><span>Code</span><strong>{row.code}</strong></div>
-                <div><span>Reported reward</span><strong>{row.reportedReward}</strong></div>
-                <div><span>Status</span><StatusBadge status={row.status} /></div>
+              <div className="data-row three-field-row" key={row.key}>
+                {row.fields.map((field) => (
+                  <FieldWithSource key={`${row.key}-${field.label}`} {...field} />
+                ))}
               </div>
             ))}
           </div>

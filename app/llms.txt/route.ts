@@ -1,6 +1,6 @@
 // input: GET request for AI crawler summary
 // output: llms.txt plain text response
-// pos: `/llms.txt` route
+// pos: `/llms.txt` route（更新规则：文件变更需同步本注释与所属目录 README）
 
 import { siteData } from "@/lib/site-data";
 import { absoluteUrl } from "@/lib/seo";
@@ -15,8 +15,11 @@ const corePageKeys = [
   "seeds",
   "gear-shop",
   "sprays",
+  "rainbow-spray",
   "mutations",
+  "rainbow-mutation",
   "fertilizer",
+  "strong-fertilizer",
   "offline-income",
   "farm-layout",
   "tier-list",

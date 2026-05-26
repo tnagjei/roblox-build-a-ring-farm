@@ -100,6 +100,8 @@ const sections = [
 
 const relatedLinks = [
   { href: "/gear-shop/", title: "Gear Shop", description: "Compare sprays with other gear shop decisions and ROI timing." },
+  { href: "/rainbow-spray/", title: "Rainbow Spray", description: "Check Rainbow Spray source status before using it in a route." },
+  { href: "/rainbow-mutation/", title: "Rainbow Mutation", description: "Compare the related effect lead separately from the item." },
   { href: "/advanced-crops/", title: "Advanced Crops", description: "Review cross-source community reported rare effect values and source status." },
   { href: "/tier-list/", title: "Tier List", description: "Compare reported effects and routes without treating tiers as official." },
   { href: "/weather-events/", title: "Weather Events", description: "Compare spray effects with reported weather event effects." },

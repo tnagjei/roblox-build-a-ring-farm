@@ -92,6 +92,8 @@ const sections = [
 
 const relatedLinks = [
   { href: "/upgrades/", title: "Upgrades", description: "Compare gear shop choices with general upgrade timing and ROI logic." },
+  { href: "/rainbow-spray/", title: "Rainbow Spray", description: "Check Rainbow Spray source status before treating it as a route input." },
+  { href: "/strong-fertilizer/", title: "Strong Fertilizer", description: "Review the focused fertilizer source-status page." },
   { href: "/advanced-crops/", title: "Advanced Crops", description: "Review community reported rare crop values and spray-linked effects." },
   { href: "/weather-events/", title: "Weather Events", description: "Check reported event effects before planning spray use around events." },
   { href: "/money-farming/", title: "Money Farming", description: "Build a cash route before spending heavily on gear shop items." },
