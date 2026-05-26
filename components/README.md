@@ -11,6 +11,7 @@
 - SmartLink.tsx: 智能链接按钮组件，用于高转化率的 CTA
 - BrandIdentity.tsx：展示品牌资产与版权归属声明的组件
 - RelatedGrid.tsx：展示相关攻略或页面的网格组件
+- CalculatorEstimator.tsx：`/calculator/` 页面使用的 reported value estimator 客户端组件
 - JsonLd.tsx：安全输出 schema.org JSON-LD
 - SiteChrome.tsx：站点头部、分组 footer 和导航
 - GuidePage.tsx：支持 H2/H3、多段落、列表、tool/unit/P2 hub、证据表和来源模块的攻略页通用模板

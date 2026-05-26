@@ -29,8 +29,11 @@
 - upgrades/：upgrades 长尾 SEO 页面
 - gear-shop/：gear shop 长尾 SEO 页面
 - sprays/：sprays 长尾 SEO 页面
+- rainbow-spray/：Rainbow Spray source status 长尾 SEO 页面
 - mutations/：mutations 长尾 SEO 页面
+- rainbow-mutation/：Rainbow Mutation source status 长尾 SEO 页面
 - fertilizer/：fertilizer 长尾 SEO 页面
+- strong-fertilizer/：Strong Fertilizer source status 长尾 SEO 页面
 - offline-income/：offline income 长尾 SEO 页面
 - farm-layout/：farm layout 长尾 SEO 页面
 - tier-list/：tier list 长尾 SEO 页面

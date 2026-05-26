@@ -100,6 +100,7 @@ const sections = [
 ];
 
 const relatedLinks = [
+  { href: "/rainbow-mutation/", title: "Rainbow Mutation", description: "Check Rainbow source status before treating it as a top effect." },
   { href: "/advanced-crops/", title: "Advanced Crops", description: "Check reported rare effect values before trusting a tier order." },
   { href: "/gear-shop/", title: "Gear Shop", description: "Compare sprays, fertilizer, and ROI for high-tier effect testing." },
   { href: "/weather-events/", title: "Weather Events", description: "Review event effects that may connect to rare crop tiers." },

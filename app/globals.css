@@ -169,7 +169,10 @@ h3 { font-size: 20px; line-height: 1.2; }
 .four-field-row { grid-template-columns: minmax(150px, 1fr) minmax(160px, 0.9fr) minmax(180px, 1.2fr) minmax(160px, 0.9fr); }
 .data-row span { display: block; margin-bottom: 3px; color: var(--muted); font-family: ui-sans-serif, system-ui, sans-serif; font-size: 11px; font-weight: 800; text-transform: uppercase; }
 .data-row strong { display: block; overflow-wrap: anywhere; font-family: ui-sans-serif, system-ui, sans-serif; font-size: 14px; line-height: 1.35; }
+.data-row input { width: 100%; min-height: 40px; border: 1px solid rgba(9, 45, 44, 0.18); border-radius: 8px; padding: 8px 10px; color: var(--ink); background: rgba(255, 255, 255, 0.92); font: 700 14px/1.2 ui-sans-serif, system-ui, sans-serif; }
+.data-row input:focus { outline: 2px solid rgba(27, 127, 98, 0.26); outline-offset: 2px; }
 .source-badge { display: inline-block; width: fit-content; margin: 0; border: 1px solid rgba(196, 72, 54, 0.24); padding: 4px 8px; color: var(--accent-3); background: rgba(196, 72, 54, 0.08); font-family: ui-sans-serif, system-ui, sans-serif; font-size: 10px; font-weight: 900; line-height: 1.1; text-transform: uppercase; }
+.source-note { margin-top: 16px; color: var(--muted); font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13px; }
 .guide-card h2, .route-card h2, .research-card h2 { font-size: clamp(23px, 3vw, 34px); }
 .guide-card p, .route-card p, .research-card p { color: var(--muted); }
 .guide-subsection { margin-top: 18px; }
