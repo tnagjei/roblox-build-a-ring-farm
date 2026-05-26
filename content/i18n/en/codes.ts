@@ -6,38 +6,38 @@ import type { CodesPageContent } from "@/lib/content/page-types";
 
 export const enCodesPage: CodesPageContent = {
   meta: {
-    title: "Build A Ring Farm Codes 2026 | Update 3 Reported Status",
-    description: "Check Build A Ring Farm codes 2026, Update 3 reported leads, pending rewards, safe redemption rules, and active-code status without fake claims."
+    title: "Build A Ring Farm Codes 2026 | Reported Rewards & Safe Redeem",
+    description: "Check Build A Ring Farm codes, reported rewards, last checked status, safe redeem steps, and community code leads without fake active claims."
   },
   slug: "codes",
   hero: {
-    eyebrow: "Codes verification",
+    eyebrow: "Codes status",
     h1: "Build A Ring Farm Codes",
-    lede: "Use this Build A Ring Farm codes page to separate confirmed active codes from Update 3 reported leads, pending claims, expired strings, and unsafe third-party code pages.",
+    lede: "Check community reported Build A Ring Farm codes, possible rewards, last checked status, and safe redeem notes. This page separates reported leads from verified active codes.",
     primaryAction: { label: "Open Roblox page", href: "roblox", external: true },
     secondaryAction: { label: "Read money farming", href: "/money-farming/" }
   },
   verifiedCodes: {
     eyebrow: "Verified active codes",
     title: "Verified active Build A Ring Farm codes",
-    description: "No active Build A Ring Farm code is listed as verified here until it has official or repeatable in-game proof.",
+    description: "No Build A Ring Farm code is marked verified active here until official or repeatable in-game proof exists.",
     emptyCode: "No verified code yet",
     emptyReward: "No verified reward yet",
     emptySource: "No verified source yet"
   },
   communityCodes: {
-    eyebrow: "Community reports",
-    title: "Community reported code leads",
-    description: "Community reported code leads can be useful for testing, but they are not treated as verified active codes on this site.",
-    actionLabel: "Test only inside the game UI",
-    statusLabels: { "community reported": "Community reported", "not verified": "Not verified", pending: "Pending", verified: "Verified" }
+    eyebrow: "Community reported codes",
+    title: "Community reported Build A Ring Farm code leads",
+    description: "These code strings are useful testing leads, not verified active codes. Use them only inside the real Roblox game UI and treat the reward text as community reported until tested.",
+    actionLabel: "Copy only for in-game testing",
+    statusLabels: { "community reported": "Community reported", "not verified": "Not verified", "needs testing": "Needs testing", pending: "Pending", verified: "Verified", expired: "Expired" }
   },
   pendingCodes: {
-    eyebrow: "Pending claims",
-    title: "Pending Build A Ring Farm code claims",
-    description: "Pending claims stay below verified codes until source quality improves.",
+    eyebrow: "Pending reward checks",
+    title: "Pending Build A Ring Farm code reward checks",
+    description: "Reward claims stay pending until the code works inside the real game UI or appears in a trustworthy official source.",
     reasonLabel: "Reason",
-    defaultReason: "Official or in-game proof is missing.",
+    defaultReason: "Official or repeatable in-game proof is missing.",
     statusLabels: { pending: "Pending", verified: "Verified", "not verified": "Not verified" }
   },
   conflictMatrix: {
@@ -51,12 +51,12 @@ export const enCodesPage: CodesPageContent = {
     defaultReason: "Needs stronger evidence."
   },
   verificationWorkflow: {
-    eyebrow: "Workflow",
-    title: "How this Build A Ring Farm codes page verifies claims",
+    eyebrow: "Code safety workflow",
+    title: "How this Build A Ring Farm codes page handles reports",
     cards: [
-      { title: "Official source first", list: ["Check the official Roblox game page.", "Use developer-linked sources only after they are verified.", "Do not treat copied code lists as official proof."] },
-      { title: "In-game test", list: ["Test only inside the Roblox game UI.", "Record date, server state, and result.", "Promote a code to active only after repeatable proof."] },
-      { title: "Publish rule", list: ["Verified codes stay separate from community reported leads.", "Expired or failed codes should not be hidden if users still search them.", "Do not invent rewards to satisfy search intent."] }
+      { title: "Keep evidence levels separate", list: ["Verified active codes stay separate from community reported leads.", "Reported reward text stays pending until tested.", "Expired or failed strings can remain listed if players still search them."] },
+      { title: "Test only in the game", list: ["Open the official Roblox game page.", "Use only the real in-game redeem box if one is visible.", "Record date, reward result, and failure message before changing status."] },
+      { title: "Avoid fake redemption flows", list: ["Never require third-party tools for code redemption.", "Never ask players for account passwords.", "Never call a copied community string active without proof."] }
     ]
   },
   redeemGuide: {
@@ -64,61 +64,53 @@ export const enCodesPage: CodesPageContent = {
     title: "How to redeem Build A Ring Farm codes safely",
     steps: [
       "Open Build A Ring Farm from the official Roblox game page.",
-      "Look for a real in-game codes, settings, rewards, or gift button only inside the game UI.",
-      "Enter a code claim only if you understand whether it is verified, pending, or community reported.",
-      "Do not use third-party verification pages, browser add-ons, or download steps for code redemption.",
-      "Record whether the code worked before treating it as active."
+      "Look for a real in-game codes, rewards, gift, or settings button.",
+      "Copy a reported code only if you understand that the status may still be pending.",
+      "Paste the code inside the game UI and record whether it worked.",
+      "Do not use outside verification pages or tools for code redemption."
     ],
     note: "If the game does not show a real code input UI, keep the claim pending instead of calling it active."
   },
   sections: [
     {
-      heading: "Current Build A Ring Farm codes status",
+      heading: "Build A Ring Farm code status today",
       body: [
-        "The current verified active-code count on this site is still zero. That does not mean every third-party code claim is impossible; it means this site has not accepted any claim as verified active without stronger evidence.",
-        "Community pages may mention strings such as UPDATE2, THANKYOU, or BARF:3 with reported rewards like seed packs or sprays. These should be treated as community reported leads until tested inside the real game UI."
+        "The current verified active-code count on this site is still zero. The code cards above are community reported leads designed for safe in-game testing, not final proof.",
+        "This approach protects users from fake active-code lists while still answering the search intent behind Build A Ring Farm codes, rewards, and Update 3 code checks."
       ],
-      list: ["Verified active codes: 0", "Community reported leads: keep separate from active codes", "Unsafe pages: avoid external verification, add-ons, or downloads"]
+      list: ["Verified active codes: 0", "Community reported leads: listed separately", "Reward claims: pending until tested", "Redeem location: only inside the Roblox game UI"]
     },
     {
-      heading: "Update 3 reported codes status",
+      heading: "Why reported codes can fail",
       body: [
-        "Build A Ring Farm Update 3 code claims are reported only on this site until official or repeatable in-game proof exists. The report flagged Update 3 freshness as a P0 task, but freshness does not lower the evidence bar.",
-        "If a page, post, or comment claims an Update 3 reward, treat it as a pending test lead. Do not call it active, do not invent the reward, and do not ask players to use external verification tools."
+        "A reported Build A Ring Farm code may fail because the game has no confirmed redeem system, the string expired, the reward changed, the claim was copied from another site, or the code works only during a specific update window.",
+        "Because of that, this page does not hide uncertainty. It shows status, source confidence, and safe test rules instead of pretending every reported string is active."
       ],
-      list: ["Update 3 code claims: reported or pending", "Confirmed active Update 3 codes accepted here: 0", "Rewards: pending until tested", "Next step: test only inside the real game UI"]
+      list: ["The code may be expired.", "The reward may be different from the report.", "The game UI may not expose a redeem box yet.", "The source may be copying an unverified list."]
     },
     {
-      heading: "Why some Build A Ring Farm codes may not work",
+      heading: "How codes connect to farming progress",
       body: [
-        "Codes can fail for several normal reasons: the game may not have a verified code system, a code may have expired, a reward may have changed, the claim may have been copied from another site, or the code may require a specific update state.",
-        "Because of that, this page should answer code intent without inventing fake active rewards. The safer SEO angle is to explain status, source confidence, and test rules clearly."
+        "If a verified code gives seed packs, sprays, fertilizer, time skips, or cash, it can speed up early progression. Until verified, treat every reward as a testing lead.",
+        "Codes should be bonus progress. The stable route still comes from active plots, crops, selling, upgrades, and money farming decisions."
       ],
-      list: ["The code may be expired.", "The reward may have changed.", "The game UI may not have a confirmed redeem box.", "The source may be copying another unverified list.", "The code may be real but not yet tested here."]
+      list: ["Seed pack rewards can support early crops.", "Sprays may connect to mutations and advanced crops.", "Fertilizer rewards may affect timing checks.", "Cash rewards should be reinvested into useful upgrades."]
     },
     {
-      heading: "How codes connect to money farming",
+      heading: "Keeping the code list current",
       body: [
-        "If a Build A Ring Farm code gives seed packs, cash, sprays, fertilizer, or time skips, it can support faster progression. But code rewards should not replace the normal cash route.",
-        "Use codes as bonus progress. The main money farming route is still active plots, stable crops, selling, and upgrades that improve repeated crop cycles."
+        "Code pages get stale quickly when updates, social posts, or community claims change. This page keeps last checked labels and separates reported leads from verified active codes.",
+        "When a reported code fails, it should move toward expired or not verified instead of remaining in the main active area."
       ],
-      list: ["Seed pack rewards can support early crop routes.", "Spray rewards may connect to advanced crops and weather events.", "Cash rewards should be reinvested into useful upgrades.", "Expired codes should not be used as a progression plan."]
-    },
-    {
-      heading: "Safe code page rules",
-      body: [
-        "A safe Build A Ring Farm codes page should keep code testing inside Roblox and inside the game UI. It should not send players through outside verification steps or download pages.",
-        "If a site says a code requires extra tools, copied scripts, or external account checks, treat that as a safety risk rather than a normal code redemption step."
-      ],
-      list: ["Use official Roblox links.", "Test only inside the game UI.", "Do not install tools for code redemption.", "Do not trust fake verification pages."]
+      list: ["Recheck after updates.", "Record failure messages.", "Do not promote copied claims without proof.", "Keep status labels visible above the fold."]
     }
   ],
   faq: [
     { q: "Are there verified Build A Ring Farm codes today?", a: "No. The current verified active-code count on this site is zero because no official or repeatable in-game proof has been accepted yet." },
-    { q: "Are Build A Ring Farm Update 3 codes verified?", a: "No. Update 3 code claims are reported or pending here until official or repeatable in-game proof exists." },
-    { q: "Why do other sites show Build A Ring Farm codes?", a: "Some sites publish community reported strings or copied claims before verifying them. This site keeps those separate from verified active codes." },
-    { q: "Can community reported codes still be tested?", a: "Yes, but only inside the real game UI, and only with the understanding that they may be expired, wrong, or unverified." },
-    { q: "Can codes help with money farming?", a: "Yes, if a verified code gives cash, seed packs, sprays, fertilizer, or time skips. Until verified, treat reward claims as leads, not facts." },
-    { q: "What should I avoid on code sites?", a: "Avoid external verification pages, browser add-ons, downloads, or tool installs that claim they are required for code redemption." }
+    { q: "Can I test community reported Build A Ring Farm codes?", a: "Yes, but only inside the real Roblox game UI. Treat reward claims as pending until a working result is recorded." },
+    { q: "Why do other sites show active Build A Ring Farm codes?", a: "Some sites publish community strings before verifying them. This site keeps reported leads separate from verified active codes." },
+    { q: "Where do I paste Build A Ring Farm codes?", a: "Use only a real code, gift, reward, or settings button inside the game UI. If no redeem box appears, keep the claim pending." },
+    { q: "Can codes help with money farming?", a: "Yes, if a verified code gives cash, seed packs, sprays, fertilizer, or time skips. Until verified, use the reward as a lead, not a fact." },
+    { q: "What should I avoid on code pages?", a: "Avoid external verification pages, browser add-ons, downloads, or tools that claim they are required for code redemption." }
   ]
 };
