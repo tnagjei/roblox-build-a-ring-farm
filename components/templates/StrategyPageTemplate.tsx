@@ -65,7 +65,7 @@ export function StrategyPageTemplate({ content, locale }: StrategyPageTemplatePr
                   {content.hero.primaryAction.label}
                 </a>
               ) : (
-                <Link className="primary-link" href={content.hero.primaryAction.href}>{content.hero.primaryAction.label}</Link>
+                <Link prefetch={false} className="primary-link" href={content.hero.primaryAction.href}>{content.hero.primaryAction.label}</Link>
               )
             ) : null}
             {content.hero.secondaryAction ? (
@@ -74,7 +74,7 @@ export function StrategyPageTemplate({ content, locale }: StrategyPageTemplatePr
                   {content.hero.secondaryAction.label}
                 </a>
               ) : (
-                <Link className="secondary-link" href={content.hero.secondaryAction.href}>{content.hero.secondaryAction.label}</Link>
+                <Link prefetch={false} className="secondary-link" href={content.hero.secondaryAction.href}>{content.hero.secondaryAction.label}</Link>
               )
             ) : null}
           </div>
@@ -110,7 +110,7 @@ export function StrategyPageTemplate({ content, locale }: StrategyPageTemplatePr
       </section>
       <section className="route-grid" aria-label="Related guides">
         {content.relatedLinks.map((link) => (
-          <Link className="route-card" href={link.href} key={link.href}>
+          <Link prefetch={false} className="route-card" href={link.href} key={link.href}>
             <span className="card-rule" />
             <h2>{link.title}</h2>
             <p>{link.description}</p>

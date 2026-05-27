@@ -132,8 +132,8 @@ export default function TierListPage() {
             Use this Build A Ring Farm tier list guide to compare cross-source community reported effects, sprays, weather event boosts, and farming routes without treating any tier as official Roblox data.
           </p>
           <div className="hero-actions">
-            <Link className="primary-link" href="/advanced-crops/">Read advanced crops</Link>
-            <Link className="secondary-link" href="/gear-shop/">Read gear shop</Link>
+            <Link prefetch={false} className="primary-link" href="/advanced-crops/">Read advanced crops</Link>
+            <Link prefetch={false} className="secondary-link" href="/gear-shop/">Read gear shop</Link>
           </div>
         </div>
         <img className="hero-image" src={heroImage} alt="Build A Ring Farm Roblox thumbnail" />
@@ -214,7 +214,7 @@ export default function TierListPage() {
       </section>
       <section className="route-grid" aria-label="Related guides">
         {relatedLinks.map((link) => (
-          <Link className="route-card" href={link.href} key={link.href}>
+          <Link prefetch={false} className="route-card" href={link.href} key={link.href}>
             <span className="card-rule" />
             <h2>{link.title}</h2>
             <p>{link.description}</p>

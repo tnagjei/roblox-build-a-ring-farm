@@ -78,20 +78,20 @@ export function SiteChrome({ children }: SiteChromeProps) {
   return (
     <div className="site-shell">
       <header className="site-header">
-        <Link className="brand" href={getLocalizedPath(currentLocale, "")} aria-label={`${siteData.site.name} home`}>
+        <Link prefetch={false} className="brand" href={getLocalizedPath(currentLocale, "")} aria-label={`${siteData.site.name} home`}>
           <span className="brand-mark">{brandMark(siteData.site.shortName)}</span>
           <span><strong>{siteData.site.shortName}</strong><small>Roblox guide</small></span>
         </Link>
         <nav className="site-nav" aria-label="Main navigation">
-          {primaryNavItems.map((item) => <Link key={item.href} href={item.href}>{item.label}</Link>)}
+          {primaryNavItems.map((item) => <Link prefetch={false} key={item.href} href={item.href}>{item.label}</Link>)}
           <div className="guide-dropdown">
             <button type="button" className="guide-dropdown-trigger" aria-label="Open guide navigation" aria-expanded={isGuidesOpen} aria-haspopup="menu" onClick={() => setIsGuidesOpen((current) => !current)} onBlur={(event) => { if (!event.currentTarget.parentElement?.contains(event.relatedTarget as Node | null)) setIsGuidesOpen(false); }}>
               <span>Guides</span><strong>▾</strong>
             </button>
             {isGuidesOpen ? (
               <div className="guide-dropdown-menu" role="menu" aria-label="Guide navigation" onMouseDown={(event) => event.preventDefault()}>
-                {guideMenuItems.map((item) => <Link key={item.href} href={item.href} role="menuitem" onClick={() => setIsGuidesOpen(false)}>{item.label}</Link>)}
-                {isEnglish ? englishHighIntentSlugs.map((item) => <Link key={item.href} href={item.href} role="menuitem" onClick={() => setIsGuidesOpen(false)}>{item.label}</Link>) : null}
+                {guideMenuItems.map((item) => <Link prefetch={false} key={item.href} href={item.href} role="menuitem" onClick={() => setIsGuidesOpen(false)}>{item.label}</Link>)}
+                {isEnglish ? englishHighIntentSlugs.map((item) => <Link prefetch={false} key={item.href} href={item.href} role="menuitem" onClick={() => setIsGuidesOpen(false)}>{item.label}</Link>) : null}
               </div>
             ) : null}
           </div>
@@ -101,7 +101,7 @@ export function SiteChrome({ children }: SiteChromeProps) {
             </button>
             {isLanguageOpen ? (
               <div className="language-dropdown-menu" role="menu" aria-label="Language navigation" onMouseDown={(event) => event.preventDefault()}>
-                {completedLocales.map((item) => <Link key={item.code} href={getLocalizedPath(item.code, currentSlug)} role="menuitem" onClick={() => setIsLanguageOpen(false)}><span>{item.shortLabel}</span><strong>{item.label}</strong></Link>)}
+                {completedLocales.map((item) => <Link prefetch={false} key={item.code} href={getLocalizedPath(item.code, currentSlug)} role="menuitem" onClick={() => setIsLanguageOpen(false)}><span>{item.shortLabel}</span><strong>{item.label}</strong></Link>)}
               </div>
             ) : null}
           </div>
@@ -128,19 +128,19 @@ export function SiteChrome({ children }: SiteChromeProps) {
         <div className="footer-clusters">
           <div className="footer-cluster">
             <h3>Guides</h3>
-            {footerNavItems.map((item) => <Link href={item.href} key={item.href}>{item.label}</Link>)}
-            {isEnglish ? englishHighIntentSlugs.map((item) => <Link href={item.href} key={item.href}>{item.label}</Link>) : null}
+            {footerNavItems.map((item) => <Link prefetch={false} href={item.href} key={item.href}>{item.label}</Link>)}
+            {isEnglish ? englishHighIntentSlugs.map((item) => <Link prefetch={false} href={item.href} key={item.href}>{item.label}</Link>) : null}
           </div>
           <div className="footer-cluster">
             <h3>Languages</h3>
-            {completedLocales.map((item) => <Link href={getLocalizedPath(item.code, currentSlug)} key={item.code}>{item.label}</Link>)}
+            {completedLocales.map((item) => <Link prefetch={false} href={getLocalizedPath(item.code, currentSlug)} key={item.code}>{item.label}</Link>)}
           </div>
           <div className="footer-cluster">
             <h3>Official & Contact</h3>
             <a href={siteData.game.robloxUrl} target="_blank" rel="noopener noreferrer">Play on Roblox</a>
             {gameConfig.robloxGroupUrl ? <a href={gameConfig.robloxGroupUrl} target="_blank" rel="noopener noreferrer">{officialGroupLabel}</a> : null}
             <a href={`mailto:${siteData.site.contactEmail}`}>Contact</a>
-            <Link href={getLocalizedPath(currentLocale, "codes")}>Code Safety</Link>
+            <Link prefetch={false} href={getLocalizedPath(currentLocale, "codes")}>Code Safety</Link>
           </div>
         </div>
         {friendLinks.length > 0 && (

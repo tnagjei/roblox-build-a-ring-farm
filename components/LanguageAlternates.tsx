@@ -47,7 +47,7 @@ export function LanguageAlternates({
       </div>
       <div className="language-alternates-grid" aria-label="Language versions">
         {pages.map((page) => (
-          <Link className="language-alternate-card" href={page.path} key={page.path} hrefLang={page.hreflang}>
+          <Link prefetch={false} className="language-alternate-card" href={page.path} key={page.path} hrefLang={page.hreflang}>
             <span className="language-code">{page.hreflang}</span>
             <strong>{page.nativeName}</strong>
             <small>{page.title}</small>

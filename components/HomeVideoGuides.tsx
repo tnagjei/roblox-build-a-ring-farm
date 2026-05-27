@@ -127,7 +127,7 @@ export function HomeVideoGuides({
       </div>
       {note ? <p className="home-video-note">{note}</p> : null}
       {relatedLabel ? (
-        <Link className="home-video-related" href={localizedBeginnerHref(locale)}>
+        <Link prefetch={false} className="home-video-related" href={localizedBeginnerHref(locale)}>
           {relatedLabel}
         </Link>
       ) : null}

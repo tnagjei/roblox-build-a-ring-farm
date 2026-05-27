@@ -113,8 +113,8 @@ export default function WeatherEventsPage() {
             Use this Build A Ring Farm weather events guide to review cross-source community reported Rain, Blizzard, Black Hole, Nuclear, and Galaxy event effects without treating unverified odds as official facts.
           </p>
           <div className="hero-actions">
-            <Link className="primary-link" href="/advanced-crops/">Read advanced crops</Link>
-            <Link className="secondary-link" href="/money-farming/">Read money farming</Link>
+            <Link prefetch={false} className="primary-link" href="/advanced-crops/">Read advanced crops</Link>
+            <Link prefetch={false} className="secondary-link" href="/money-farming/">Read money farming</Link>
           </div>
         </div>
         <img className="hero-image" src={heroImage} alt="Build A Ring Farm Roblox thumbnail" />
@@ -170,7 +170,7 @@ export default function WeatherEventsPage() {
       </section>
       <section className="route-grid" aria-label="Related guides">
         {relatedLinks.map((link) => (
-          <Link className="route-card" href={link.href} key={link.href}>
+          <Link prefetch={false} className="route-card" href={link.href} key={link.href}>
             <span className="card-rule" />
             <h2>{link.title}</h2>
             <p>{link.description}</p>

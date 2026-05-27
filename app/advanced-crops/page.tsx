@@ -119,8 +119,8 @@ export default function AdvancedCropsPage() {
             Use this Build A Ring Farm advanced crops guide to review community reported rare effects, event-based value boosts, sprays, and offline limits without treating unverified numbers as official facts.
           </p>
           <div className="hero-actions">
-            <Link className="primary-link" href="/gear-shop/">Read gear shop guide</Link>
-            <Link className="secondary-link" href="/crops/">Read crops guide</Link>
+            <Link prefetch={false} className="primary-link" href="/gear-shop/">Read gear shop guide</Link>
+            <Link prefetch={false} className="secondary-link" href="/crops/">Read crops guide</Link>
           </div>
         </div>
         <img className="hero-image" src={siteData.assets.hero} alt={`${siteData.game.name} Roblox thumbnail`} />
@@ -217,7 +217,7 @@ export default function AdvancedCropsPage() {
       </section>
       <section className="route-grid" aria-label="Related guides">
         {relatedLinks.map((link) => (
-          <Link className="route-card" href={link.href} key={link.href}>
+          <Link prefetch={false} className="route-card" href={link.href} key={link.href}>
             <span className="card-rule" />
             <h2>{link.title}</h2>
             <p>{link.description}</p>

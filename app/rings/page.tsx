@@ -105,8 +105,8 @@ export default function RingsPage() {
           <h1>Build A Ring Farm Rings Guide</h1>
           <p className="lede">Use this Build A Ring Farm rings guide to compare reported ring multipliers, upgrade timing, best-ring questions, and calculator links without treating pending values as verified.</p>
           <div className="hero-actions">
-            <Link className="primary-link" href="/calculator/">Open calculator</Link>
-            <Link className="secondary-link" href="/upgrades/">Read upgrades</Link>
+            <Link prefetch={false} className="primary-link" href="/calculator/">Open calculator</Link>
+            <Link prefetch={false} className="secondary-link" href="/upgrades/">Read upgrades</Link>
           </div>
         </div>
         <img className="hero-image" src={heroImage} alt="Build A Ring Farm Roblox thumbnail" />
@@ -164,7 +164,7 @@ export default function RingsPage() {
 
       <section className="section-heading"><p className="eyebrow">Related guides</p><h2>Ring route links</h2></section>
       <section className="route-grid" aria-label="Ring route links">
-        {relatedLinks.map((link) => <Link className="route-card" href={link.href} key={link.href}><span className="card-rule" /><h2>{link.title}</h2><p>{link.description}</p></Link>)}
+        {relatedLinks.map((link) => <Link prefetch={false} className="route-card" href={link.href} key={link.href}><span className="card-rule" /><h2>{link.title}</h2><p>{link.description}</p></Link>)}
       </section>
 
       <section className="faq-section">

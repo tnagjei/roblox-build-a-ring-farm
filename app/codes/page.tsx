@@ -77,7 +77,7 @@ export default function CodesPage() {
           <p className="lede">Check community reported Build A Ring Farm codes, possible rewards, last checked status, and safe redeem notes. Reported codes are testing leads, not verified active codes.</p>
           <div className="hero-actions">
             <a className="primary-link" href={siteData.game.robloxUrl} target="_blank" rel="noopener noreferrer">Open Roblox page</a>
-            <Link className="secondary-link" href="/money-farming/">Read money farming</Link>
+            <Link prefetch={false} className="secondary-link" href="/money-farming/">Read money farming</Link>
           </div>
         </div>
         <img className="hero-image" src={siteData.assets.hero} alt="Build A Ring Farm Roblox thumbnail" />
@@ -142,7 +142,7 @@ export default function CodesPage() {
         <div className="section-heading"><p className="eyebrow">Related guides</p><h2 id="codes-related-heading">Build A Ring Farm code routes</h2></div>
         <div className="related-grid">
           {relatedGuides.map((page) => (
-            <Link className="related-link" href={page.href} key={page.href}><span><strong>{page.title}</strong><small>{page.description}</small></span><span className="link-arrow">→</span></Link>
+            <Link prefetch={false} className="related-link" href={page.href} key={page.href}><span><strong>{page.title}</strong><small>{page.description}</small></span><span className="link-arrow">→</span></Link>
           ))}
         </div>
       </section>

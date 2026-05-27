@@ -132,8 +132,8 @@ export default function SpraysPage() {
             Use this Build A Ring Farm sprays guide to compare cross-source community reported spray effects, gear shop use, rare crop value, weather events, ROI, and source status without treating any spray claim as official data.
           </p>
           <div className="hero-actions">
-            <Link className="primary-link" href="/gear-shop/">Read gear shop</Link>
-            <Link className="secondary-link" href="/advanced-crops/">Read advanced crops</Link>
+            <Link prefetch={false} className="primary-link" href="/gear-shop/">Read gear shop</Link>
+            <Link prefetch={false} className="secondary-link" href="/advanced-crops/">Read advanced crops</Link>
           </div>
         </div>
         <img className="hero-image" src={heroImage} alt="Build A Ring Farm Roblox thumbnail" />
@@ -214,7 +214,7 @@ export default function SpraysPage() {
       </section>
       <section className="route-grid" aria-label="Related guides">
         {relatedLinks.map((link) => (
-          <Link className="route-card" href={link.href} key={link.href}>
+          <Link prefetch={false} className="route-card" href={link.href} key={link.href}>
             <span className="card-rule" />
             <h2>{link.title}</h2>
             <p>{link.description}</p>
