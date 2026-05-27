@@ -111,8 +111,8 @@ export default function CalculatorPage() {
           <h1>Build A Ring Farm Calculator</h1>
           <p className="lede">Use this Build A Ring Farm calculator as a reported value estimator for plant count, observed crop value, mutation, ring, fertilizer, and repeated harvest planning without fixed official numbers.</p>
           <div className="hero-actions">
-            <Link className="primary-link" href="/rings/">Compare rings</Link>
-            <Link className="secondary-link" href="/money-farming/">Plan money route</Link>
+            <Link prefetch={false} className="primary-link" href="/rings/">Compare rings</Link>
+            <Link prefetch={false} className="secondary-link" href="/money-farming/">Plan money route</Link>
           </div>
         </div>
         <img className="hero-image" src={heroImage} alt="Build A Ring Farm Roblox thumbnail" />
@@ -173,7 +173,7 @@ export default function CalculatorPage() {
 
       <section className="section-heading"><p className="eyebrow">Related guides</p><h2>Calculator route links</h2></section>
       <section className="route-grid" aria-label="Calculator route links">
-        {relatedLinks.map((link) => <Link className="route-card" href={link.href} key={link.href}><span className="card-rule" /><h2>{link.title}</h2><p>{link.description}</p></Link>)}
+        {relatedLinks.map((link) => <Link prefetch={false} className="route-card" href={link.href} key={link.href}><span className="card-rule" /><h2>{link.title}</h2><p>{link.description}</p></Link>)}
       </section>
 
       <section className="faq-section">

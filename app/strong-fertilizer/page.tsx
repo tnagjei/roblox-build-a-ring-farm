@@ -94,8 +94,8 @@ export default function StrongFertilizerPage() {
           <h1>Build A Ring Farm Strong Fertilizer</h1>
           <p className="lede">Track Strong Fertilizer as a reported growth and code reward lead with source status, ROI checks, and recheck steps.</p>
           <div className="hero-actions">
-            <Link className="primary-link" href="/fertilizer/">Read fertilizer guide</Link>
-            <Link className="secondary-link" href="/seeds/">Check seed reward leads</Link>
+            <Link prefetch={false} className="primary-link" href="/fertilizer/">Read fertilizer guide</Link>
+            <Link prefetch={false} className="secondary-link" href="/seeds/">Check seed reward leads</Link>
           </div>
         </div>
         <img className="hero-image" src={heroImage} alt="Build A Ring Farm Roblox thumbnail" />
@@ -153,7 +153,7 @@ export default function StrongFertilizerPage() {
 
       <section className="section-heading"><p className="eyebrow">Related guides</p><h2>Strong Fertilizer route links</h2></section>
       <section className="route-grid">
-        {relatedLinks.map((link) => <Link className="route-card" href={link.href} key={link.href}><span className="card-rule" /><h2>{link.title}</h2><p>{link.description}</p></Link>)}
+        {relatedLinks.map((link) => <Link prefetch={false} className="route-card" href={link.href} key={link.href}><span className="card-rule" /><h2>{link.title}</h2><p>{link.description}</p></Link>)}
       </section>
 
       <section className="faq-section">

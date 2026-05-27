@@ -94,8 +94,8 @@ export default function RainbowMutationPage() {
           <h1>Build A Ring Farm Rainbow Mutation</h1>
           <p className="lede">Track the reported Rainbow Mutation route, Rainbow Spray link, Galaxy event lead, and source status without treating any value claim as final data.</p>
           <div className="hero-actions">
-            <Link className="primary-link" href="/rainbow-spray/">Read Rainbow Spray</Link>
-            <Link className="secondary-link" href="/mutations/">Compare mutations</Link>
+            <Link prefetch={false} className="primary-link" href="/rainbow-spray/">Read Rainbow Spray</Link>
+            <Link prefetch={false} className="secondary-link" href="/mutations/">Compare mutations</Link>
           </div>
         </div>
         <img className="hero-image" src={heroImage} alt="Build A Ring Farm Roblox thumbnail" />
@@ -153,7 +153,7 @@ export default function RainbowMutationPage() {
 
       <section className="section-heading"><p className="eyebrow">Related guides</p><h2>Rainbow route links</h2></section>
       <section className="route-grid">
-        {relatedLinks.map((link) => <Link className="route-card" href={link.href} key={link.href}><span className="card-rule" /><h2>{link.title}</h2><p>{link.description}</p></Link>)}
+        {relatedLinks.map((link) => <Link prefetch={false} className="route-card" href={link.href} key={link.href}><span className="card-rule" /><h2>{link.title}</h2><p>{link.description}</p></Link>)}
       </section>
 
       <section className="faq-section">

@@ -35,7 +35,7 @@ export function RelatedGrid({ currentPageKey, relatedKeys }: RelatedGridProps) {
       </div>
       <nav className="related-grid" aria-label="Related guides">
         {relatedPages.map((page) => (
-          <Link className="related-link" key={page.path} href={page.path}>
+          <Link prefetch={false} className="related-link" key={page.path} href={page.path}>
             <span>{page.focus}</span>
             <span className="link-arrow">→</span>
           </Link>

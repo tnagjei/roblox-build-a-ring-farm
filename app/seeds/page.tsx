@@ -165,8 +165,8 @@ export default function SeedsPage() {
             Use this Build A Ring Farm seeds guide to understand seed packs, crop unlocks, planting choices, reported code rewards, and how seeds fit into crop value and progression.
           </p>
           <div className="hero-actions">
-            <Link className="primary-link" href="/crops/">Read crops guide</Link>
-            <Link className="secondary-link" href="/codes/">Check codes</Link>
+            <Link prefetch={false} className="primary-link" href="/crops/">Read crops guide</Link>
+            <Link prefetch={false} className="secondary-link" href="/codes/">Check codes</Link>
           </div>
         </div>
         <img className="hero-image" src={siteData.assets.hero} alt={`${siteData.game.name} Roblox thumbnail`} />
@@ -237,7 +237,7 @@ export default function SeedsPage() {
       </section>
       <section className="route-grid" aria-label="Related guides">
         {relatedLinks.map((link) => (
-          <Link className="route-card" href={link.href} key={link.href}>
+          <Link prefetch={false} className="route-card" href={link.href} key={link.href}>
             <span className="card-rule" />
             <h2>{link.title}</h2>
             <p>{link.description}</p>

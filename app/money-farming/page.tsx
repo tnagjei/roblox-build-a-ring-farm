@@ -110,8 +110,8 @@ export default function MoneyFarmingPage() {
             Use this Build A Ring Farm money farming guide to plan cash routes through seeds, crops, upgrades, rare crop effects, code rewards, and offline income without relying on fake per-second numbers.
           </p>
           <div className="hero-actions">
-            <Link className="primary-link" href="/upgrades/">Read upgrades guide</Link>
-            <Link className="secondary-link" href="/seeds/">Read seeds guide</Link>
+            <Link prefetch={false} className="primary-link" href="/upgrades/">Read upgrades guide</Link>
+            <Link prefetch={false} className="secondary-link" href="/seeds/">Read seeds guide</Link>
           </div>
         </div>
         <img className="hero-image" src={siteData.assets.hero} alt={`${siteData.game.name} Roblox thumbnail`} />
@@ -182,7 +182,7 @@ export default function MoneyFarmingPage() {
       </section>
       <section className="route-grid" aria-label="Related guides">
         {relatedLinks.map((link) => (
-          <Link className="route-card" href={link.href} key={link.href}>
+          <Link prefetch={false} className="route-card" href={link.href} key={link.href}>
             <span className="card-rule" />
             <h2>{link.title}</h2>
             <p>{link.description}</p>

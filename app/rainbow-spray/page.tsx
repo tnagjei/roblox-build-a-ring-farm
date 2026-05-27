@@ -88,8 +88,8 @@ export default function RainbowSprayPage() {
           <h1>Build A Ring Farm Rainbow Spray</h1>
           <p className="lede">Track Rainbow Spray as a reported item lead connected to Rainbow Mutation, gear shop decisions, source status, and recheck steps.</p>
           <div className="hero-actions">
-            <Link className="primary-link" href="/rainbow-mutation/">Read Rainbow Mutation</Link>
-            <Link className="secondary-link" href="/sprays/">Compare sprays</Link>
+            <Link prefetch={false} className="primary-link" href="/rainbow-mutation/">Read Rainbow Mutation</Link>
+            <Link prefetch={false} className="secondary-link" href="/sprays/">Compare sprays</Link>
           </div>
         </div>
         <img className="hero-image" src={heroImage} alt="Build A Ring Farm Roblox thumbnail" />
@@ -133,7 +133,7 @@ export default function RainbowSprayPage() {
 
       <section className="section-heading"><p className="eyebrow">Related guides</p><h2>Rainbow Spray route links</h2></section>
       <section className="route-grid">
-        {relatedLinks.map((link) => <Link className="route-card" href={link.href} key={link.href}><span className="card-rule" /><h2>{link.title}</h2><p>{link.description}</p></Link>)}
+        {relatedLinks.map((link) => <Link prefetch={false} className="route-card" href={link.href} key={link.href}><span className="card-rule" /><h2>{link.title}</h2><p>{link.description}</p></Link>)}
       </section>
 
       <section className="faq-section">

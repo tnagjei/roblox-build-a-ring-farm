@@ -100,7 +100,7 @@ export function CodesPageTemplate({ content, locale }: CodesPageTemplateProps) {
                   {content.hero.primaryAction.label}
                 </a>
               ) : (
-                <Link className="primary-link" href={content.hero.primaryAction.href}>{content.hero.primaryAction.label}</Link>
+                <Link prefetch={false} className="primary-link" href={content.hero.primaryAction.href}>{content.hero.primaryAction.label}</Link>
               )
             ) : null}
             {content.hero.secondaryAction ? (
@@ -109,7 +109,7 @@ export function CodesPageTemplate({ content, locale }: CodesPageTemplateProps) {
                   {content.hero.secondaryAction.label}
                 </a>
               ) : (
-                <Link className="secondary-link" href={content.hero.secondaryAction.href}>{content.hero.secondaryAction.label}</Link>
+                <Link prefetch={false} className="secondary-link" href={content.hero.secondaryAction.href}>{content.hero.secondaryAction.label}</Link>
               )
             ) : null}
           </div>

@@ -117,8 +117,8 @@ export function HomePageTemplate({ content, locale }: HomePageTemplateProps) {
           <h1>{content.hero.h1}</h1>
           <p className="lede">{content.hero.lede}</p>
           <div className="hero-actions">
-            {content.hero.primaryAction ? (content.hero.primaryAction.external ? <a className="primary-link" href={actionHref(content.hero.primaryAction.href)} target="_blank" rel="noopener noreferrer">{content.hero.primaryAction.label}</a> : <Link className="primary-link" href={content.hero.primaryAction.href}>{content.hero.primaryAction.label}</Link>) : null}
-            {content.hero.secondaryAction ? (content.hero.secondaryAction.external ? <a className="secondary-link" href={actionHref(content.hero.secondaryAction.href)} target="_blank" rel="noopener noreferrer">{content.hero.secondaryAction.label}</a> : <Link className="secondary-link" href={content.hero.secondaryAction.href}>{content.hero.secondaryAction.label}</Link>) : null}
+            {content.hero.primaryAction ? (content.hero.primaryAction.external ? <a className="primary-link" href={actionHref(content.hero.primaryAction.href)} target="_blank" rel="noopener noreferrer">{content.hero.primaryAction.label}</a> : <Link prefetch={false} className="primary-link" href={content.hero.primaryAction.href}>{content.hero.primaryAction.label}</Link>) : null}
+            {content.hero.secondaryAction ? (content.hero.secondaryAction.external ? <a className="secondary-link" href={actionHref(content.hero.secondaryAction.href)} target="_blank" rel="noopener noreferrer">{content.hero.secondaryAction.label}</a> : <Link prefetch={false} className="secondary-link" href={content.hero.secondaryAction.href}>{content.hero.secondaryAction.label}</Link>) : null}
           </div>
         </div>
         <img className="hero-image" src={siteData.assets.hero} alt={`${siteData.game.name} Roblox thumbnail`} />
@@ -133,7 +133,7 @@ export function HomePageTemplate({ content, locale }: HomePageTemplateProps) {
       <section className="content-grid single-column-grid">{content.snapshotTables.map((table) => <SnapshotTable key={table.title} table={table} />)}</section>
 
       <section className="section-heading"><p className="eyebrow">{content.directory.eyebrow}</p><h2>{content.directory.title}</h2></section>
-      <section className="route-grid" aria-label={content.directory.title}>{directoryCards.map((card) => <Link className="route-card" href={card.href} key={card.href}><span className="card-rule" /><h2>{card.title}</h2><p>{card.description}</p></Link>)}</section>
+      <section className="route-grid" aria-label={content.directory.title}>{directoryCards.map((card) => <Link prefetch={false} className="route-card" href={card.href} key={card.href}><span className="card-rule" /><h2>{card.title}</h2><p>{card.description}</p></Link>)}</section>
 
       <section className="section-heading"><p className="eyebrow">{content.research.eyebrow}</p><h2>{content.research.title}</h2></section>
       <section className="research-grid">{content.research.cards.map((card) => <article className="research-card" key={card.title}><span className="card-rule" /><h2>{card.title}</h2><p>{card.description}</p></article>)}</section>
@@ -147,7 +147,7 @@ export function HomePageTemplate({ content, locale }: HomePageTemplateProps) {
       <HomeVideoGuides locale={locale} eyebrow={content.videos.eyebrow} title={content.videos.title} lede={content.videos.lede} note={content.videos.note} relatedLabel={content.videos.relatedLabel} openLabel={content.videos.openLabel} />
 
       <section className="section-heading"><p className="eyebrow">{content.popularSearchesMeta.eyebrow}</p><h2>{content.popularSearchesMeta.title}</h2></section>
-      <section className="search-entrance-grid" aria-label={content.popularSearchesMeta.ariaLabel}>{popularSearches.map((card) => <Link className="search-entrance-card" href={card.href} key={card.href}><span className="card-rule" /><h3>{card.title}</h3><p>{card.description}</p><span className="covers-label">{card.coversLabel}</span><span className="covers-list">{card.covers}</span></Link>)}</section>
+      <section className="search-entrance-grid" aria-label={content.popularSearchesMeta.ariaLabel}>{popularSearches.map((card) => <Link prefetch={false} className="search-entrance-card" href={card.href} key={card.href}><span className="card-rule" /><h3>{card.title}</h3><p>{card.description}</p><span className="covers-label">{card.coversLabel}</span><span className="covers-list">{card.covers}</span></Link>)}</section>
 
       <section className="faq-section"><div className="section-heading"><p className="eyebrow">{content.faqMeta.eyebrow}</p><h2>{content.faqMeta.title}</h2></div><div className="faq-list">{faqItems.map((item) => <details key={item.q}><summary>{item.q}</summary><p>{item.a}</p></details>)}</div></section>
     </main>

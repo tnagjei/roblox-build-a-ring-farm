@@ -53,7 +53,7 @@ export function GuidePage({ page }: GuidePageProps) {
             <a className="primary-link" href={siteData.game.robloxUrl} target="_blank" rel="noopener noreferrer">
               Open Roblox page
             </a>
-            <Link className="secondary-link" href="/">Back to hub</Link>
+            <Link prefetch={false} className="secondary-link" href="/">Back to hub</Link>
           </div>
         </div>
         <img className="hero-image" src={siteData.assets.hero} alt={`${siteData.game.name} Roblox thumbnail`} />

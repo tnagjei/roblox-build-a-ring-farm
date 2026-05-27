@@ -99,8 +99,8 @@ export default function Update3StatusPage() {
           <h1>Build A Ring Farm Update 3 Codes</h1>
           <p className="lede">Track Build A Ring Farm Update 3 codes, reported reward leads, pending mutation and event claims, and safe recheck steps without calling unverified strings active.</p>
           <div className="hero-actions">
-            <Link className="primary-link" href="/codes/">Check codes</Link>
-            <Link className="secondary-link" href="/updates/">Read updates</Link>
+            <Link prefetch={false} className="primary-link" href="/codes/">Check codes</Link>
+            <Link prefetch={false} className="secondary-link" href="/updates/">Read updates</Link>
           </div>
         </div>
         <img className="hero-image" src={heroImage} alt="Build A Ring Farm Roblox thumbnail" />
@@ -151,7 +151,7 @@ export default function Update3StatusPage() {
 
       <section className="section-heading"><p className="eyebrow">Related guides</p><h2>Update 3 recheck links</h2></section>
       <section className="route-grid" aria-label="Update 3 recheck links">
-        {relatedLinks.map((link) => <Link className="route-card" href={link.href} key={link.href}><span className="card-rule" /><h2>{link.title}</h2><p>{link.description}</p></Link>)}
+        {relatedLinks.map((link) => <Link prefetch={false} className="route-card" href={link.href} key={link.href}><span className="card-rule" /><h2>{link.title}</h2><p>{link.description}</p></Link>)}
       </section>
 
       <section className="faq-section">

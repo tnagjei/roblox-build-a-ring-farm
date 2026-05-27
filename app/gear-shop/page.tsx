@@ -123,8 +123,8 @@ export default function GearShopPage() {
             Use this Build A Ring Farm gear shop guide to compare sprays, fertilizer, rare crop value, upgrade timing, and ROI checks without treating unverified gear data as official facts.
           </p>
           <div className="hero-actions">
-            <Link className="primary-link" href="/upgrades/">Read upgrades guide</Link>
-            <Link className="secondary-link" href="/advanced-crops/">Read advanced crops</Link>
+            <Link prefetch={false} className="primary-link" href="/upgrades/">Read upgrades guide</Link>
+            <Link prefetch={false} className="secondary-link" href="/advanced-crops/">Read advanced crops</Link>
           </div>
         </div>
         <img className="hero-image" src={heroImage} alt="Build A Ring Farm Roblox thumbnail" />
@@ -180,7 +180,7 @@ export default function GearShopPage() {
       </section>
       <section className="route-grid" aria-label="Related guides">
         {relatedLinks.map((link) => (
-          <Link className="route-card" href={link.href} key={link.href}>
+          <Link prefetch={false} className="route-card" href={link.href} key={link.href}>
             <span className="card-rule" />
             <h2>{link.title}</h2>
             <p>{link.description}</p>
