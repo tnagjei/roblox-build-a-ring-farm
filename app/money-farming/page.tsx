@@ -81,6 +81,8 @@ const relatedLinks = [
   { href: "/seeds/", title: "Seeds", description: "Choose seed packs and seed routes that support cash flow." },
   { href: "/crops/", title: "Crops", description: "Understand the crop loop behind every money route." },
   { href: "/gear-shop/", title: "Gear Shop", description: "Compare sprays, fertilizer, and item ROI before spending cash." },
+  { href: "/strong-fertilizer/", title: "Strong Fertilizer", description: "Keep fertilizer effects source-labeled before using them in cash routes." },
+  { href: "/rainbow-mutation/", title: "Rainbow Mutation", description: "Treat rare-effect routes as reported until stronger evidence exists." },
   { href: "/upgrades/", title: "Upgrades", description: "Compare upgrade cost against repeated cycle value." },
   { href: "/advanced-crops/", title: "Advanced Crops", description: "Review community reported rare effects and value boosts." },
   { href: "/codes/", title: "Codes", description: "Check code rewards that may support progression." }

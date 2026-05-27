@@ -21,7 +21,7 @@ type FriendLink = { name: string; url: string; badgeUrl?: string };
 type NavItem = { href: string; label: string };
 
 const primaryNavSlugs = ["codes", "calculator", "beginners-guide", "money-farming"];
-const guideMenuSlugs = ["rings", "update-3-status", "seeds", "crops", "upgrades", "gear-shop", "sprays", "mutations", "fertilizer", "offline-income", "farm-layout", "advanced-crops", "weather-events", "tier-list", "updates"];
+const guideMenuSlugs = ["rings", "update-3-status", "seeds", "crops", "upgrades", "gear-shop", "sprays", "rainbow-spray", "mutations", "rainbow-mutation", "fertilizer", "strong-fertilizer", "offline-income", "farm-layout", "advanced-crops", "weather-events", "tier-list", "updates"];
 
 function shortLocaleLabel(code: string): string {
   const labels: Record<string, string> = { en: "EN", "zh-tw": "繁中", th: "TH" };

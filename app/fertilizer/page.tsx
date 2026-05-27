@@ -33,6 +33,7 @@ const sections = [
 ];
 
 const relatedLinks = [
+  { href: "/strong-fertilizer/", title: "Strong Fertilizer", description: "Check the focused source-status page before using Strong Fertilizer." },
   { href: "/gear-shop/", title: "Gear Shop", description: "Compare fertilizer with other gear shop decisions." },
   { href: "/sprays/", title: "Sprays", description: "Compare fertilizer with spray-based rare effect testing." },
   { href: "/money-farming/", title: "Money Farming", description: "Check whether fertilizer fits your cash route." },

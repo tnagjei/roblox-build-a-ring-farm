@@ -6,8 +6,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { absoluteUrl } from "@/lib/seo";
 
-const pageTitle = "Build A Ring Farm Mutations Guide | Rare Effects & Weather Events";
-const pageDescription = "Build A Ring Farm mutations guide covering rare effects, sprays, weather events, tier logic, stacking checks, money farming links, and source status.";
+const pageTitle = "Build A Ring Farm Mutations List | Effects & Sprays";
+const pageDescription = "Build A Ring Farm mutations list covering reported Rainbow, Wet, Frozen, spray routes, weather event leads, stacking checks, and source status.";
 const heroImage = "/images/official-hero-image.webp";
 const crossSourceStatus = "Cross-source community reported";
 
