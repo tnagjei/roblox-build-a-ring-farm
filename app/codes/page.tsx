@@ -11,6 +11,8 @@ import { siteData } from "@/lib/site-data";
 import { absoluteUrl } from "@/lib/seo";
 import "./codes-page.css";
 
+const pageLastChecked = "2026-05-28";
+
 const reportedCodes = [
   { code: "PLANTRUSH", reward: "Unknown or competitor-claimed reward", status: "Competitor reported", sourceStatus: "Pending in-game verification", lastChecked: "May 2026" },
   { code: "UPDATE2", reward: "Tropical Seed Pack", status: "Community reported", sourceStatus: "Needs testing", lastChecked: "May 2026" },
@@ -73,7 +75,7 @@ export default function CodesPage() {
     "@type": "Article",
     headline: "Build A Ring Farm Codes",
     description: "Community reported Build A Ring Farm codes, competitor claims, reported rewards, source status, and safe redeem steps.",
-    dateModified: siteData.codes.lastChecked,
+    dateModified: pageLastChecked,
     mainEntityOfPage: absoluteUrl("/codes/")
   };
 
