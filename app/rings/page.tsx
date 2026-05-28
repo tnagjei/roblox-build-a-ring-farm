@@ -32,6 +32,19 @@ const ringRows = [
   { topic: "Ring multiplier calculator", purpose: "Send numeric estimates to the calculator page for source-aware planning.", status: reportedStatus }
 ];
 
+const reportedMultiplierRows = [
+  { ring: "Base Ring", multiplier: "7x", source: "Competitor reported claim", status: "Pending in-game verification", calculatorUse: "Use only as a reported preset" },
+  { ring: "Middle Ring", multiplier: "13x", source: "Competitor reported claim", status: "Pending in-game verification", calculatorUse: "Use only as a reported preset" },
+  { ring: "Outer Ring", multiplier: "19x", source: "Competitor reported claim", status: "Pending in-game verification", calculatorUse: "Use only as a reported preset" }
+];
+
+const verificationRows = [
+  { step: "1", check: "Record ring state", evidence: "Screenshot the visible ring level or ring name before testing." },
+  { step: "2", check: "Sell one comparable crop route", evidence: "Record plant count, crop name, mutation state, and sell result." },
+  { step: "3", check: "Change only the ring variable", evidence: "Do not add a new mutation, spray, or fertilizer in the same first test." },
+  { step: "4", check: "Repeat on another server", evidence: "One result is a lead. Repeatable results can upgrade confidence." }
+];
+
 const priorityRows = [
   { stage: "Early", action: "Stabilize crops before chasing ring multipliers.", status: "Strategy" },
   { stage: "Mid", action: "Compare ring upgrades against crop and gear shop ROI.", status: "Strategy" },
@@ -87,6 +100,7 @@ const relatedLinks = [
 
 const faq = [
   { q: "Are Build A Ring Farm ring multipliers verified here?", a: "No. Ring multiplier values stay reported or pending until official or repeatable in-game proof exists." },
+  { q: "What are the reported ring multipliers?", a: "Some competitor pages report Base Ring 7x, Middle Ring 13x, and Outer Ring 19x. This site keeps those as reported claims, not verified facts." },
   { q: "What are the best rings in Build A Ring Farm?", a: "This page does not publish a verified best-ring ranking. Use stage-based upgrade timing until values are confirmed." },
   { q: "Can rings be used in the calculator?", a: "Yes. Use reported ring multipliers as estimates in the calculator, not as verified values." },
   { q: "Should beginners chase ring upgrades first?", a: "Usually no. Beginners should stabilize crops, selling, and basic upgrades before spending around ring routes." }
@@ -122,6 +136,22 @@ export default function RingsPage() {
       <section className="content-grid single-column-grid">
         <article className="guide-card data-card">
           <span className="card-rule" />
+          <p className="eyebrow">Reported watchlist</p>
+          <h2>Reported ring multiplier watchlist</h2>
+          <p>These values are included because players may see them on competitor pages. They are not marked verified here.</p>
+          <div className="data-list">
+            {reportedMultiplierRows.map((row) => (
+              <div className="data-row four-field-row" key={row.ring}>
+                <div><span>Ring</span><strong>{row.ring}</strong></div>
+                <div><span>Reported multiplier</span><strong>{row.multiplier}</strong></div>
+                <div><span>Source</span><strong>{row.source}</strong></div>
+                <div><span>Status</span><StatusBadge status={row.status} /></div>
+              </div>
+            ))}
+          </div>
+        </article>
+        <article className="guide-card data-card">
+          <span className="card-rule" />
           <p className="eyebrow">Ring topics</p>
           <h2>Reported ring guide coverage</h2>
           <div className="data-list">
@@ -130,6 +160,20 @@ export default function RingsPage() {
                 <div><span>Topic</span><strong>{row.topic}</strong></div>
                 <div><span>Purpose</span><strong>{row.purpose}</strong></div>
                 <div><span>Status</span><StatusBadge status={row.status} /></div>
+              </div>
+            ))}
+          </div>
+        </article>
+        <article className="guide-card data-card">
+          <span className="card-rule" />
+          <p className="eyebrow">Verification log</p>
+          <h2>Ring multiplier verification checklist</h2>
+          <div className="data-list">
+            {verificationRows.map((row) => (
+              <div className="data-row three-field-row" key={row.step}>
+                <div><span>Step</span><strong>{row.step}</strong></div>
+                <div><span>Check</span><strong>{row.check}</strong></div>
+                <div><span>Evidence</span><strong>{row.evidence}</strong></div>
               </div>
             ))}
           </div>
