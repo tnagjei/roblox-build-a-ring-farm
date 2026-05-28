@@ -9,7 +9,7 @@ import { absoluteUrl } from "@/lib/seo";
 const pageTitle = "Build A Ring Farm Update 3 Codes | Reported Status";
 const pageDescription = "Build A Ring Farm Update 3 codes status with reported leads, pending verification, recheck steps, Roblox source notes, and safe code testing rules.";
 const heroImage = "/images/official-hero-image.webp";
-const lastChecked = "2026-05-25";
+const lastChecked = "2026-05-28";
 const nextRecheck = "After the next Roblox game update or new in-game code-box proof";
 
 export const metadata: Metadata = {
@@ -28,9 +28,26 @@ export const metadata: Metadata = {
 
 const statusRows = [
   { item: "Update 3 codes", status: "Reported only", note: "0 confirmed active Update 3 codes have been accepted here." },
+  { item: "PLANTRUSH code", status: "Competitor reported, pending verification", note: "Do not mark active until in-game proof confirms the code and reward." },
   { item: "Latest codes May 2026", status: "Pending", note: "External claims need official or in-game proof before promotion." },
   { item: "Honeycomb mutation", status: "Reported, pending verification", note: "Treat as a new mutation lead, not an official multiplier." },
-  { item: "Queen Bee event", status: "Reported, pending verification", note: "Treat as a recheck topic for weather and mutation pages." }
+  { item: "Queen Bee event", status: "Reported, pending verification", note: "Treat as a recheck topic for weather and mutation pages." },
+  { item: "Alien mutation", status: "Reported, pending verification", note: "Treat as a recheck topic for mutation testing." },
+  { item: "Farm mutation", status: "Reported, pending verification", note: "Confirm this is a mutation label before using it as data." }
+];
+
+const codeClaimRows = [
+  { code: "PLANTRUSH", source: "Competitor active-code claim", ourStatus: "Not verified active here", nextAction: "Test only inside the real game UI." },
+  { code: "BARF:3", source: "Competitor and community claim", ourStatus: "Reported, needs testing", nextAction: "Record accepted or rejected result." },
+  { code: "THANKYOU", source: "Competitor and community claim", ourStatus: "Reported, needs testing", nextAction: "Record reward text if accepted." },
+  { code: "UPDATE2", source: "Competitor and community claim", ourStatus: "Reported, needs testing", nextAction: "Check whether it still works after updates." }
+];
+
+const mutationClusterRows = [
+  { lead: "Honeycomb", relatedClaim: "6.5x competitor-reported multiplier", verificationStatus: "Pending in-game verification" },
+  { lead: "Queen Bee event", relatedClaim: "Possible Honeycomb trigger", verificationStatus: "Pending event proof" },
+  { lead: "Alien", relatedClaim: "Update 3 mutation lead", verificationStatus: "Pending in-game verification" },
+  { lead: "Farm mutation", relatedClaim: "Update 3 farming route lead", verificationStatus: "Pending label proof" }
 ];
 
 const recheckSteps = [
@@ -81,6 +98,7 @@ const relatedLinks = [
 
 const faq = [
   { q: "Are Build A Ring Farm Update 3 codes verified?", a: "No. This site currently has 0 confirmed active Update 3 codes." },
+  { q: "Is PLANTRUSH active?", a: "PLANTRUSH is a competitor reported claim here, not a verified active code. It needs repeatable in-game proof before promotion." },
   { q: "Can reported Update 3 codes be tested?", a: "Yes, but only inside the real game UI, and they should stay reported or pending until proof exists." },
   { q: "Does Update 3 prove Honeycomb or Queen Bee values?", a: "No. Honeycomb and Queen Bee are reported leads here, not verified official values." },
   { q: "When can an Update 3 code become verified?", a: "Only after official or repeatable in-game proof records the code, reward, date, and result." }
@@ -126,6 +144,35 @@ export default function Update3StatusPage() {
                 <div><span>Lead</span><strong>{row.item}</strong></div>
                 <div><span>Status</span><StatusBadge status={row.status} /></div>
                 <div><span>Note</span><strong>{row.note}</strong></div>
+              </div>
+            ))}
+          </div>
+        </article>
+        <article className="guide-card data-card">
+          <span className="card-rule" />
+          <p className="eyebrow">Code claim watchlist</p>
+          <h2>Update 3 code claim watchlist</h2>
+          <div className="data-list">
+            {codeClaimRows.map((row) => (
+              <div className="data-row four-field-row" key={row.code}>
+                <div><span>Code</span><strong>{row.code}</strong></div>
+                <div><span>Source</span><strong>{row.source}</strong></div>
+                <div><span>Our status</span><strong>{row.ourStatus}</strong></div>
+                <div><span>Next action</span><strong>{row.nextAction}</strong></div>
+              </div>
+            ))}
+          </div>
+        </article>
+        <article className="guide-card data-card">
+          <span className="card-rule" />
+          <p className="eyebrow">Mutation cluster</p>
+          <h2>Update 3 mutation pending cluster</h2>
+          <div className="data-list">
+            {mutationClusterRows.map((row) => (
+              <div className="data-row three-field-row" key={row.lead}>
+                <div><span>Lead</span><strong>{row.lead}</strong></div>
+                <div><span>Related claim</span><strong>{row.relatedClaim}</strong></div>
+                <div><span>Status</span><StatusBadge status={row.verificationStatus} /></div>
               </div>
             ))}
           </div>
