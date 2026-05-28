@@ -1,5 +1,5 @@
 // input: `/codes/` route request
-// output: codes CTR experiment page with reported code cards, copy actions, safe redeem notes, FAQ, and related links
+// output: codes CTR experiment page with reported code cards, competitor claim watchlist, safe redeem notes, FAQ, and related links
 // pos: codes route（更新规则：文件变更需同步 SEO_INDEX_LEDGER.md）
 
 import type { Metadata } from "next";
@@ -12,12 +12,23 @@ import { absoluteUrl } from "@/lib/seo";
 import "./codes-page.css";
 
 const reportedCodes = [
+  { code: "PLANTRUSH", reward: "Unknown or competitor-claimed reward", status: "Competitor reported", sourceStatus: "Pending in-game verification", lastChecked: "May 2026" },
   { code: "UPDATE2", reward: "Tropical Seed Pack", status: "Community reported", sourceStatus: "Needs testing", lastChecked: "May 2026" },
   { code: "THANKYOU", reward: "Autumn Spray", status: "Community reported", sourceStatus: "Needs testing", lastChecked: "May 2026" },
   { code: "BARF:3", reward: "Acid Spray", status: "Community reported", sourceStatus: "Needs testing", lastChecked: "May 2026" },
   { code: "100KVISITS", reward: "5-Minute Time Skip", status: "Community reported", sourceStatus: "Needs testing", lastChecked: "May 2026" },
   { code: "2KLIKES", reward: "Tropical Seed Pack", status: "Community reported", sourceStatus: "Needs testing", lastChecked: "May 2026" },
   { code: "UPDATE1", reward: "Powerful Fertilizer x3", status: "Community reported", sourceStatus: "Needs testing", lastChecked: "May 2026" }
+];
+
+const competitorClaimRows = [
+  { code: "PLANTRUSH", claimedReward: "Unconfirmed reward claim", competitorStatus: "Claimed active by competitor", ourStatus: "Not verified active here", nextAction: "Test only inside the real game UI" },
+  { code: "BARF:3", claimedReward: "Acid Spray", competitorStatus: "Claimed active by competitor", ourStatus: "Community reported, needs testing", nextAction: "Record reward text if accepted" },
+  { code: "THANKYOU", claimedReward: "Autumn Spray", competitorStatus: "Claimed active by competitor", ourStatus: "Community reported, needs testing", nextAction: "Test and record server date" },
+  { code: "UPDATE2", claimedReward: "Tropical Seed Pack", competitorStatus: "Claimed active by competitor", ourStatus: "Community reported, needs testing", nextAction: "Check code box and reward text" },
+  { code: "UPDATE1", claimedReward: "Powerful Fertilizer x3", competitorStatus: "Claimed active by competitor", ourStatus: "Community reported, needs testing", nextAction: "Confirm whether reward still works" },
+  { code: "2KLIKES", claimedReward: "Tropical Seed Pack", competitorStatus: "Claimed active by competitor", ourStatus: "Community reported, needs testing", nextAction: "Confirm in-game response" },
+  { code: "100KVISITS", claimedReward: "5-Minute Time Skip", competitorStatus: "Claimed active by competitor", ourStatus: "Community reported, needs testing", nextAction: "Confirm in-game response" }
 ];
 
 const relatedGuides = [
@@ -31,9 +42,10 @@ const relatedGuides = [
 
 const faq = [
   { q: "Are there verified Build A Ring Farm codes today?", a: "No. This site currently lists 0 verified active codes because no official or repeatable in-game proof has been accepted yet." },
+  { q: "Is PLANTRUSH verified here?", a: "No. PLANTRUSH is listed only as a competitor reported claim and remains pending until in-game proof confirms the code and reward." },
   { q: "Can I test community reported Build A Ring Farm codes?", a: "Yes, but only inside the real Roblox game UI. Treat reward claims as pending until a working result is recorded." },
   { q: "Where do I paste Build A Ring Farm codes?", a: "Use only a real code, gift, reward, or settings button inside the game UI. If no redeem box appears, keep the claim pending." },
-  { q: "Why do other sites show different codes?", a: "Some sites publish community strings before verifying them. This page keeps reported leads separate from verified active codes." },
+  { q: "Why do other sites show different codes?", a: "Some sites publish community strings before verifying them. This page keeps competitor claims, community reported leads, and verified active codes separate." },
   { q: "Can code rewards help money farming?", a: "Yes, if a code truly gives cash, seed packs, sprays, fertilizer, or time skips. Until verified, use the reward as a lead, not a fact." },
   { q: "What should I avoid on code pages?", a: "Avoid outside verification pages, browser add-ons, downloads, or tools that claim they are required for code redemption." }
 ];
@@ -42,7 +54,7 @@ export const metadata: Metadata = buildLocalizedMetadata({
   locale: "en",
   slug: "codes",
   title: "Build A Ring Farm Codes 2026 | Reported Rewards & Safe Redeem",
-  description: "Check Build A Ring Farm codes, reported rewards, last checked status, safe redeem steps, and community code leads without fake active claims."
+  description: "Check Build A Ring Farm codes, reported rewards, competitor claims, last checked status, safe redeem steps, and community code leads without fake active claims."
 });
 
 export default function CodesPage() {
@@ -60,7 +72,7 @@ export default function CodesPage() {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: "Build A Ring Farm Codes",
-    description: "Community reported Build A Ring Farm codes, reported rewards, source status, and safe redeem steps.",
+    description: "Community reported Build A Ring Farm codes, competitor claims, reported rewards, source status, and safe redeem steps.",
     dateModified: siteData.codes.lastChecked,
     mainEntityOfPage: absoluteUrl("/codes/")
   };
@@ -74,7 +86,7 @@ export default function CodesPage() {
         <div className="hero-copy">
           <p className="eyebrow">Codes status</p>
           <h1>Build A Ring Farm Codes</h1>
-          <p className="lede">Check community reported Build A Ring Farm codes, possible rewards, last checked status, and safe redeem notes. Reported codes are testing leads, not verified active codes.</p>
+          <p className="lede">Check community reported Build A Ring Farm codes, competitor claims, possible rewards, last checked status, and safe redeem notes. Reported codes are testing leads, not verified active codes.</p>
           <div className="hero-actions">
             <a className="primary-link" href={siteData.game.robloxUrl} target="_blank" rel="noopener noreferrer">Open Roblox page</a>
             <Link prefetch={false} className="secondary-link" href="/money-farming/">Read money farming</Link>
@@ -106,6 +118,25 @@ export default function CodesPage() {
           ))}
         </div>
         <p className="codes-source-note">Code status is community reported and may change with game updates. Tell us if a code stops working.</p>
+      </section>
+
+      <section className="content-grid single-column-grid" aria-labelledby="competitor-claims-heading">
+        <article className="guide-card data-card">
+          <span className="card-rule" />
+          <p className="eyebrow">Competitor watchlist</p>
+          <h2 id="competitor-claims-heading">Competitor reported code claims</h2>
+          <p>These are claims players may see on other sites. They are not verified active codes here until a repeatable in-game test confirms the code and reward.</p>
+          <div className="data-list">
+            {competitorClaimRows.map((row) => (
+              <div className="data-row four-field-row" key={row.code}>
+                <div><span>Code</span><strong>{row.code}</strong></div>
+                <div><span>Claimed reward</span><strong>{row.claimedReward}</strong></div>
+                <div><span>Our status</span><strong>{row.ourStatus}</strong></div>
+                <div><span>Next action</span><strong>{row.nextAction}</strong></div>
+              </div>
+            ))}
+          </div>
+        </article>
       </section>
 
       <section className="status-band" aria-labelledby="verified-codes-heading">
