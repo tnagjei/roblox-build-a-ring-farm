@@ -6,8 +6,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { absoluteUrl } from "@/lib/seo";
 
-const pageTitle = "Build A Ring Farm Mutations List | Effects & Sprays";
-const pageDescription = "Build A Ring Farm mutations list covering reported Rainbow, Honeycomb, Wet, Frozen, spray routes, weather event leads, stacking checks, and source status.";
+const pageTitle = "Build A Ring Farm Mutations List | Pending Effects";
+const pageDescription = "Build A Ring Farm mutations list covering reported Cosmic, Bubblegum, Fire, Starfall, Admin, Rainbow, stacking checks, and source status now.";
 const heroImage = "/images/official-hero-image.webp";
 const crossSourceStatus = "Cross-source community reported";
 const competitorReportedStatus = "Competitor reported, pending verification";
@@ -27,6 +27,11 @@ export const metadata: Metadata = {
 };
 
 const mutationRows = [
+  { mutation: "Cosmic", tier: "S lead", route: "Update 4 mutation lead", status: "Reported, pending in-game verification" },
+  { mutation: "Bubblegum", tier: "S lead", route: "Update 4 mutation lead", status: "Reported, pending in-game verification" },
+  { mutation: "Fire", tier: "S lead", route: "Update 4 mutation lead", status: "Reported, pending in-game verification" },
+  { mutation: "Starfall", tier: "A lead", route: "Update 4 stacking lead", status: "Reported, pending in-game verification" },
+  { mutation: "Admin", tier: "A lead", route: "Update 4 admin-route lead", status: "Reported, pending in-game verification" },
   { mutation: "Honeycomb", tier: "S lead", route: "Update 3 and Queen Bee event lead", status: "Reported, pending verification" },
   { mutation: "Alien", tier: "A lead", route: "Update 3 mutation lead", status: "Reported, pending verification" },
   { mutation: "Farm mutation", tier: "A lead", route: "Update 3 farming route lead", status: "Reported, pending verification" },
@@ -38,7 +43,12 @@ const mutationRows = [
 ];
 
 const multiplierRows = [
+  { mutation: "Fire", multiplier: "10x", trigger: "Update 4 pending preset", chance: "Pending", status: "Pending in-game verification" },
+  { mutation: "Bubblegum", multiplier: "9x", trigger: "Update 4 pending preset", chance: "Pending", status: "Pending in-game verification" },
+  { mutation: "Cosmic", multiplier: "8x", trigger: "Update 4 pending preset", chance: "Pending", status: "Pending in-game verification" },
   { mutation: "Honeycomb", multiplier: "6.5x", trigger: "Queen Bee or Update 3 lead", chance: "Pending", status: competitorReportedStatus },
+  { mutation: "Admin", multiplier: "5x", trigger: "Update 4 pending preset", chance: "Pending", status: "Pending in-game verification" },
+  { mutation: "Starfall", multiplier: "4x", trigger: "Update 4 pending preset", chance: "Pending", status: "Pending in-game verification" },
   { mutation: "Rainbow", multiplier: "5x", trigger: "Galaxy event or Rainbow Spray lead", chance: "Pending", status: crossSourceStatus },
   { mutation: "Farm", multiplier: "4x", trigger: "Update 3 farming route lead", chance: "Pending", status: competitorReportedStatus },
   { mutation: "Alien", multiplier: "3.25x", trigger: "Update 3 mutation lead", chance: "Pending", status: competitorReportedStatus },
@@ -58,6 +68,11 @@ const stackingChecks = [
 ];
 
 const verificationLogRows = [
+  { lead: "Cosmic", nextCheck: "Confirm 8x pending preset and trigger", requiredEvidence: "Repeatable in-game test showing crop, trigger, before value, after value, and server date." },
+  { lead: "Bubblegum", nextCheck: "Confirm 9x pending preset and trigger", requiredEvidence: "Repeatable in-game test showing crop, trigger, before value, after value, and server date." },
+  { lead: "Fire", nextCheck: "Confirm 10x pending preset and trigger", requiredEvidence: "Repeatable in-game test showing crop, trigger, before value, after value, and server date." },
+  { lead: "Starfall", nextCheck: "Confirm multiplier and stacking behavior", requiredEvidence: "Do not mark stacking verified without repeated one-variable tests." },
+  { lead: "Admin", nextCheck: "Confirm trigger source and availability", requiredEvidence: "Official or in-game evidence showing Admin is a player-available mutation label." },
   { lead: "Honeycomb", nextCheck: "Confirm Queen Bee trigger and multiplier", requiredEvidence: "Video or screenshots showing crop, trigger, before value, after value, and server date." },
   { lead: "Alien", nextCheck: "Confirm trigger source and multiplier", requiredEvidence: "Repeatable in-game test with one changed variable." },
   { lead: "Farm", nextCheck: "Separate Farm mutation from the game name", requiredEvidence: "Clear UI evidence that Farm is a mutation label, not generic wording." },
@@ -68,6 +83,7 @@ const sections = [
   { h2: "What are mutations in Build A Ring Farm?", h3: "Mutation meaning", body: ["Mutations are cross-source community reported rare crop effects that may change crop value or route priority. This page treats mutation names as research leads, not official Roblox data.", "The safest way to understand Build A Ring Farm mutations is to connect them with sprays, weather events, advanced crops, and tier-list logic without pretending the exact numbers are confirmed."], list: ["Use mutations as rare-effect leads.", "Do not treat multipliers as official unless verified.", "Compare mutations with spray cost and event timing."] },
   { h2: "Build A Ring Farm mutation route by player stage", h3: "Beginner, mid-game, late-game", body: ["Beginners should not chase mutations first. The better route is to stabilize seeds, crops, selling, and upgrades before spending time on rare-effect testing.", "Mid-game players can start comparing Wet, Frozen, and Void routes if their base cash loop is stable. Late-game players can compare Radioactive and Rainbow leads only after checking spray cost, event timing, and crop value."], list: ["Beginner: crops, selling, upgrades.", "Mid-game: test lower-risk effect routes.", "Late-game: compare high-value mutation leads.", "Always recheck after updates."] },
   { h2: "Can mutations stack?", h3: "Stacking is unverified", body: ["Stacking behavior is one of the highest-risk claims. Unless repeatable in-game tests prove it, mutation stacking should stay marked as needs verification.", "A useful test should record the crop, active event, spray used, before value, after value, and whether the result persists offline."], list: ["Do not write guaranteed stacking.", "Do not copy stacking claims from competitors.", "Record screenshots before promoting a claim."] },
+  { h2: "Update 4 mutation leads", h3: "Cosmic, Bubblegum, Fire, Starfall, and Admin are pending", body: ["Cosmic mutation, Bubblegum mutation, Fire mutation, Starfall mutation, and Admin mutation are useful Update 4 recheck leads because players may see these terms on other guide pages. They should not be treated as official mutation data without stronger evidence.", "Cosmic 8x, Bubblegum 9x, Fire 10x, Starfall 4x, and Admin 5x are pending presets only. If future in-game tests confirm behavior, record the date, crop, trigger, before value, after value, and source before changing the status."], list: ["Cosmic mutation: reported, pending in-game verification.", "Bubblegum mutation: reported, pending in-game verification.", "Fire mutation: reported, pending in-game verification.", "Starfall stacking: pending, not verified.", "Admin mutation: reported, pending in-game verification."] },
   { h2: "Update 3 mutation leads", h3: "Honeycomb, Alien, and Farm are pending", body: ["Honeycomb mutation, Alien mutation, and Farm mutation are useful recheck leads because players may see these terms on other guide pages. They should not be treated as official mutation data without stronger evidence.", "Use these names as recheck leads. If future in-game tests confirm behavior, record the date, crop, trigger, before value, after value, and source before changing the status."], list: ["Honeycomb mutation: reported, pending verification.", "Alien mutation: reported, pending verification.", "Farm mutation: reported, pending verification."] },
   { h2: "Mutations vs sprays and weather events", h3: "Two trigger paths", body: ["Multiple community sources connect mutations to both sprays and weather events. Sprays may directly test an effect, while events may trigger similar effects through timing or chance.", "This creates a clear internal-link cluster: sprays explain item use, weather events explain event routes, advanced crops explain value context, and this page explains mutation intent."], list: ["Wet connects to Rain and Wet Spray.", "Frozen connects to Blizzard and Frozen Spray.", "Rainbow connects to Galaxy and Rainbow Spray."] },
   { h2: "What still needs verification", h3: "Pending evidence", body: ["A strong mutation page needs exact effect behavior, confirmed values, stacking rules, offline behavior, and update history. Until then, this page should remain source-aware and conservative.", "If future tests confirm a mutation, record the source, date, test method, and result before changing its status."], list: ["Exact mutation values.", "Stacking rules.", "Offline behavior.", "Event and spray interactions."] }
@@ -87,7 +103,8 @@ const faq = [
   { q: "Are Build A Ring Farm mutations official on this site?", a: "No. Mutation effects are cross-source community reported until official notes or in-game evidence confirms them." },
   { q: "What is the strongest reported mutation?", a: "Some competitor pages report Honeycomb or Rainbow as high-value leads. This site treats those as reported claims until tested." },
   { q: "Is Honeycomb 6.5x verified here?", a: "No. Honeycomb 6.5x is listed only as a competitor reported claim and remains pending until repeatable in-game proof exists." },
-  { q: "Can mutations stack?", a: "Stacking behavior has not been verified here. Treat stacking claims as needs verification." },
+  { q: "Can Starfall or other mutations stack?", a: "Starfall stacking behavior has not been verified here. Treat stacking claims as pending in-game verification." },
+  { q: "Are Cosmic 8x, Bubblegum 9x, and Fire 10x verified?", a: "No. They are pending presets only until repeatable in-game proof exists." },
   { q: "Are Honeycomb, Alien, and Farm mutations verified?", a: "No. They are reported Update 3 leads here and remain pending until official or repeatable in-game proof exists." },
   { q: "Should beginners chase mutations?", a: "No. Beginners should stabilize crops, selling, and upgrades before chasing rare effects." }
 ];
@@ -97,7 +114,7 @@ function Badge({ value }: { value: string }) { return <span className="source-ba
 export default function MutationsPage() {
   return (
     <main className="page-main">
-      <section className="page-hero compact-hero"><div className="hero-copy"><p className="eyebrow">Mutation effects guide</p><h1>Build A Ring Farm Mutations Guide</h1><p className="lede">Compare cross-source community reported Build A Ring Farm mutations, effect tiers, spray routes, weather event links, stacking questions, and source status without treating any mutation claim as official.</p><div className="hero-actions"><Link prefetch={false} className="primary-link" href="/sprays/">Read sprays</Link><Link prefetch={false} className="secondary-link" href="/tier-list/">Read tier list</Link></div></div><img className="hero-image" src={heroImage} alt="Build A Ring Farm Roblox thumbnail" /></section>
+      <section className="page-hero compact-hero"><div className="hero-copy"><p className="eyebrow">Mutation effects guide</p><h1>Build A Ring Farm Mutations Guide</h1><p className="lede">Compare cross-source community reported Build A Ring Farm mutations, Cosmic, Bubblegum, Fire, Starfall, Admin, effect tiers, spray routes, weather event links, stacking questions, and source status without treating any mutation claim as official.</p><div className="hero-actions"><Link prefetch={false} className="primary-link" href="/sprays/">Read sprays</Link><Link prefetch={false} className="secondary-link" href="/tier-list/">Read tier list</Link></div></div><img className="hero-image" src={heroImage} alt="Build A Ring Farm Roblox thumbnail" /></section>
       <section className="guide-card evidence-note-card"><span className="card-rule" /><p className="eyebrow">Evidence note</p><h2>Mutation data is cross-source community reported</h2><p>No official mutation table has been confirmed here. Use this page as a planning and verification guide.</p></section>
       <section className="content-grid single-column-grid">
         <article className="guide-card data-card"><span className="card-rule" /><p className="eyebrow">Reported multiplier matrix</p><h2>Reported mutation multiplier matrix</h2><p>These multiplier values are tracking leads. Do not treat them as official until repeatable in-game evidence exists.</p><div className="data-list">{multiplierRows.map((row) => <div className="data-row four-field-row" key={row.mutation}><div><span>Mutation</span><strong>{row.mutation}</strong></div><div><span>Reported multiplier</span><strong>{row.multiplier}</strong></div><div><span>Trigger</span><strong>{row.trigger}</strong></div><div><span>Status</span><Badge value={row.status} /></div></div>)}</div></article>

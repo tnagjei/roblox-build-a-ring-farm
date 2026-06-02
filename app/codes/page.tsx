@@ -11,29 +11,30 @@ import { siteData } from "@/lib/site-data";
 import { absoluteUrl } from "@/lib/seo";
 import "./codes-page.css";
 
-const pageLastChecked = "2026-05-28";
+const pageLastChecked = "2026-06-02";
 
 const reportedCodes = [
-  { code: "PLANTRUSH", reward: "Unknown or competitor-claimed reward", status: "Competitor reported", sourceStatus: "Pending in-game verification", lastChecked: "May 2026" },
-  { code: "UPDATE2", reward: "Tropical Seed Pack", status: "Community reported", sourceStatus: "Needs testing", lastChecked: "May 2026" },
-  { code: "THANKYOU", reward: "Autumn Spray", status: "Community reported", sourceStatus: "Needs testing", lastChecked: "May 2026" },
-  { code: "BARF:3", reward: "Acid Spray", status: "Community reported", sourceStatus: "Needs testing", lastChecked: "May 2026" },
-  { code: "100KVISITS", reward: "5-Minute Time Skip", status: "Community reported", sourceStatus: "Needs testing", lastChecked: "May 2026" },
-  { code: "2KLIKES", reward: "Tropical Seed Pack", status: "Community reported", sourceStatus: "Needs testing", lastChecked: "May 2026" },
-  { code: "UPDATE1", reward: "Powerful Fertilizer x3", status: "Community reported", sourceStatus: "Needs testing", lastChecked: "May 2026" }
+  { code: "PLANTRUSH", reward: "Dexerto reported Plant Rush Box; PCGamesN/buildaringfarm.net reported Plant Rush Boss Box", status: "Community reported", sourceStatus: "Pending in-game verification", lastChecked: "June 2026" },
+  { code: "UPDATE2", reward: "Pending reward", status: "Community reported", sourceStatus: "Needs testing", lastChecked: "June 2026" },
+  { code: "THANKYOU", reward: "Pending reward", status: "Community reported", sourceStatus: "Needs testing", lastChecked: "June 2026" },
+  { code: "BARF:3", reward: "Pending reward", status: "Community reported", sourceStatus: "Needs testing", lastChecked: "June 2026" },
+  { code: "100KVISITS", reward: "Pending reward", status: "Community reported", sourceStatus: "Needs testing", lastChecked: "June 2026" },
+  { code: "2KLIKES", reward: "Pending reward", status: "Community reported", sourceStatus: "Needs testing", lastChecked: "June 2026" },
+  { code: "UPDATE1", reward: "Pending reward", status: "Community reported", sourceStatus: "Needs testing", lastChecked: "June 2026" }
 ];
 
 const competitorClaimRows = [
-  { code: "PLANTRUSH", claimedReward: "Unconfirmed reward claim", competitorStatus: "Claimed active by competitor", ourStatus: "Not verified active here", nextAction: "Test only inside the real game UI" },
-  { code: "BARF:3", claimedReward: "Acid Spray", competitorStatus: "Claimed active by competitor", ourStatus: "Community reported, needs testing", nextAction: "Record reward text if accepted" },
-  { code: "THANKYOU", claimedReward: "Autumn Spray", competitorStatus: "Claimed active by competitor", ourStatus: "Community reported, needs testing", nextAction: "Test and record server date" },
-  { code: "UPDATE2", claimedReward: "Tropical Seed Pack", competitorStatus: "Claimed active by competitor", ourStatus: "Community reported, needs testing", nextAction: "Check code box and reward text" },
-  { code: "UPDATE1", claimedReward: "Powerful Fertilizer x3", competitorStatus: "Claimed active by competitor", ourStatus: "Community reported, needs testing", nextAction: "Confirm whether reward still works" },
-  { code: "2KLIKES", claimedReward: "Tropical Seed Pack", competitorStatus: "Claimed active by competitor", ourStatus: "Community reported, needs testing", nextAction: "Confirm in-game response" },
-  { code: "100KVISITS", claimedReward: "5-Minute Time Skip", competitorStatus: "Claimed active by competitor", ourStatus: "Community reported, needs testing", nextAction: "Confirm in-game response" }
+  { code: "PLANTRUSH", claimedReward: "Dexerto: Plant Rush Box; PCGamesN/buildaringfarm.net: Plant Rush Boss Box", competitorStatus: "Claimed active by third-party sites", ourStatus: "Community reported, not verified active here", nextAction: "Test only inside the real game UI" },
+  { code: "BARF:3", claimedReward: "Pending reward", competitorStatus: "Claimed active by third-party sites", ourStatus: "Community reported, needs testing", nextAction: "Record reward text if accepted" },
+  { code: "THANKYOU", claimedReward: "Pending reward", competitorStatus: "Claimed active by third-party sites", ourStatus: "Community reported, needs testing", nextAction: "Test and record server date" },
+  { code: "UPDATE2", claimedReward: "Pending reward", competitorStatus: "Claimed active by third-party sites", ourStatus: "Community reported, needs testing", nextAction: "Check code box and reward text" },
+  { code: "UPDATE1", claimedReward: "Pending reward", competitorStatus: "Claimed active by third-party sites", ourStatus: "Community reported, needs testing", nextAction: "Confirm whether reward still works" },
+  { code: "2KLIKES", claimedReward: "Pending reward", competitorStatus: "Claimed active by third-party sites", ourStatus: "Community reported, needs testing", nextAction: "Confirm in-game response" },
+  { code: "100KVISITS", claimedReward: "Pending reward", competitorStatus: "Claimed active by third-party sites", ourStatus: "Community reported, needs testing", nextAction: "Confirm in-game response" }
 ];
 
 const relatedGuides = [
+  { href: "/update-status/", title: "Update Status", description: "Reported Update 3 and pending Update 4 checks" },
   { href: "/update-3-status/", title: "Update 3 Status", description: "Reported Update 3 code and event checks" },
   { href: "/money-farming/", title: "Money Farming", description: "Use rewards as bonus progress, not a plan" },
   { href: "/seeds/", title: "Seeds Guide", description: "Seed packs and crop route context" },
@@ -47,7 +48,8 @@ const faq = [
   { q: "Is PLANTRUSH verified here?", a: "No. PLANTRUSH is listed only as a competitor reported claim and remains pending until in-game proof confirms the code and reward." },
   { q: "Can I test community reported Build A Ring Farm codes?", a: "Yes, but only inside the real Roblox game UI. Treat reward claims as pending until a working result is recorded." },
   { q: "Where do I paste Build A Ring Farm codes?", a: "Use only a real code, gift, reward, or settings button inside the game UI. If no redeem box appears, keep the claim pending." },
-  { q: "Why do other sites show different codes?", a: "Some sites publish community strings before verifying them. This page keeps competitor claims, community reported leads, and verified active codes separate." },
+  { q: "Why do other sites show different codes?", a: "Some sites publish community strings before verifying them. This page keeps third-party claims, community reported leads, and verified active codes separate." },
+  { q: "Is the official Discord source verified?", a: "No. The official Discord link is pending here until a developer-linked source confirms it." },
   { q: "Can code rewards help money farming?", a: "Yes, if a code truly gives cash, seed packs, sprays, fertilizer, or time skips. Until verified, use the reward as a lead, not a fact." },
   { q: "What should I avoid on code pages?", a: "Avoid outside verification pages, browser add-ons, downloads, or tools that claim they are required for code redemption." }
 ];
@@ -55,8 +57,8 @@ const faq = [
 export const metadata: Metadata = buildLocalizedMetadata({
   locale: "en",
   slug: "codes",
-  title: "Build A Ring Farm Codes 2026 | Reported Rewards & Safe Redeem",
-  description: "Check Build A Ring Farm codes, reported rewards, competitor claims, last checked status, safe redeem steps, and community code leads without fake active claims."
+  title: "Build A Ring Farm Codes 2026 | June Reported Rewards",
+  description: "Check Build A Ring Farm codes 2026 with June reported rewards, active vs verified status, PLANTRUSH source claims, and safe redeem rules today."
 });
 
 export default function CodesPage() {
@@ -74,7 +76,7 @@ export default function CodesPage() {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: "Build A Ring Farm Codes",
-    description: "Community reported Build A Ring Farm codes, competitor claims, reported rewards, source status, and safe redeem steps.",
+    description: "June 2026 community reported Build A Ring Farm codes, source-specific reward claims, source status, and safe redeem steps.",
     dateModified: pageLastChecked,
     mainEntityOfPage: absoluteUrl("/codes/")
   };
@@ -88,7 +90,7 @@ export default function CodesPage() {
         <div className="hero-copy">
           <p className="eyebrow">Codes status</p>
           <h1>Build A Ring Farm Codes</h1>
-          <p className="lede">Check community reported Build A Ring Farm codes, competitor claims, possible rewards, last checked status, and safe redeem notes. Reported codes are testing leads, not verified active codes.</p>
+          <p className="lede">Check June 2026 community reported Build A Ring Farm codes, source-specific reward claims, last checked status, and safe redeem notes. Reported codes are testing leads, not verified active codes.</p>
           <div className="hero-actions">
             <a className="primary-link" href={siteData.game.robloxUrl} target="_blank" rel="noopener noreferrer">Open Roblox page</a>
             <Link prefetch={false} className="secondary-link" href="/money-farming/">Read money farming</Link>
@@ -100,9 +102,9 @@ export default function CodesPage() {
       <section className="codes-card-section" aria-labelledby="reported-code-cards-heading">
         <div className="section-heading">
           <p className="eyebrow">Community reported codes</p>
-          <h2 id="reported-code-cards-heading">Reported Build A Ring Farm code leads</h2>
+          <h2 id="reported-code-cards-heading">June 2026 reported Build A Ring Farm code leads</h2>
         </div>
-        <p className="pending-codes-disclaimer">These code strings are useful testing leads, not verified active codes. Use them only inside the real Roblox game UI and treat the reward text as community reported until tested.</p>
+        <p className="pending-codes-disclaimer">These code strings are useful testing leads, not verified active codes. Use them only inside the real Roblox game UI and treat reward text as reported or pending until tested.</p>
         <div className="code-card-grid">
           {reportedCodes.map((item) => (
             <article className="code-card" key={item.code}>
@@ -125,8 +127,8 @@ export default function CodesPage() {
       <section className="content-grid single-column-grid" aria-labelledby="competitor-claims-heading">
         <article className="guide-card data-card">
           <span className="card-rule" />
-          <p className="eyebrow">Competitor watchlist</p>
-          <h2 id="competitor-claims-heading">Competitor reported code claims</h2>
+          <p className="eyebrow">Third-party watchlist</p>
+          <h2 id="competitor-claims-heading">Third-party reported code claims</h2>
           <p>These are claims players may see on other sites. They are not verified active codes here until a repeatable in-game test confirms the code and reward.</p>
           <div className="data-list">
             {competitorClaimRows.map((row) => (
@@ -166,7 +168,8 @@ export default function CodesPage() {
       </section>
 
       <section className="content-grid">
-        <article className="guide-card"><span className="card-rule" /><h2>Build A Ring Farm code status today</h2><p>The current verified active-code count on this site is still zero. The code cards above are community reported leads designed for safe in-game testing, not final proof.</p><ul><li>Verified active codes: 0</li><li>Community reported leads stay separate</li><li>Reward claims remain pending until tested</li></ul></article>
+        <article className="guide-card"><span className="card-rule" /><h2>Build A Ring Farm codes June 2026 status</h2><p>The current verified active-code count on this site is still zero. PLANTRUSH has source-specific reward claims: Dexerto reports Plant Rush Box, while PCGamesN and buildaringfarm.net report Plant Rush Boss Box. Both remain reported or pending.</p><ul><li>Verified active codes: 0</li><li>Community reported leads stay separate</li><li>Reward claims remain pending until tested</li></ul></article>
+        <article className="guide-card"><span className="card-rule" /><h2>Active vs verified code labels</h2><p>A third-party page may call a code active, but this site does not treat that as verified. Active is an outside claim; verified requires official or repeatable in-game proof.</p><ul><li>External active: reported claim only.</li><li>Verified active: official or repeatable proof.</li><li>Official Discord source: pending.</li></ul></article>
         <article className="guide-card"><span className="card-rule" /><h2>Why reported codes can fail</h2><p>A reported code may fail because the game has no confirmed redeem system, the string expired, the reward changed, or the claim was copied from another site.</p><ul><li>The reward may be different from the report.</li><li>The game UI may not expose a redeem box yet.</li><li>The source may be copying an unverified list.</li></ul></article>
         <article className="guide-card"><span className="card-rule" /><h2>How codes connect to farming progress</h2><p>If a verified code gives seed packs, sprays, fertilizer, time skips, or cash, it can speed up early progression. Until verified, treat every reward as a testing lead.</p><ul><li>Seed pack rewards can support early crops.</li><li>Sprays may connect to mutations and advanced crops.</li><li>Cash rewards should be reinvested into useful upgrades.</li></ul></article>
       </section>

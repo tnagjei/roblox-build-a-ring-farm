@@ -171,6 +171,9 @@ h3 { font-size: 20px; line-height: 1.2; }
 .data-row strong { display: block; overflow-wrap: anywhere; font-family: ui-sans-serif, system-ui, sans-serif; font-size: 14px; line-height: 1.35; }
 .data-row input { width: 100%; min-height: 40px; border: 1px solid rgba(9, 45, 44, 0.18); border-radius: 8px; padding: 8px 10px; color: var(--ink); background: rgba(255, 255, 255, 0.92); font: 700 14px/1.2 ui-sans-serif, system-ui, sans-serif; }
 .data-row input:focus { outline: 2px solid rgba(27, 127, 98, 0.26); outline-offset: 2px; }
+.preset-button-group { display: flex !important; flex-wrap: wrap; gap: 8px; }
+.inline-tool-button { border: 1px solid rgba(17, 20, 15, 0.16); border-radius: 6px; padding: 7px 9px; color: var(--ink); background: rgba(255, 255, 255, 0.8); font: inherit; font-size: 12px; font-weight: 800; line-height: 1.2; }
+.inline-tool-button:hover { border-color: rgba(27, 127, 98, 0.45); background: rgba(27, 127, 98, 0.08); }
 .source-badge { display: inline-block; width: fit-content; margin: 0; border: 1px solid rgba(196, 72, 54, 0.24); padding: 4px 8px; color: var(--accent-3); background: rgba(196, 72, 54, 0.08); font-family: ui-sans-serif, system-ui, sans-serif; font-size: 10px; font-weight: 900; line-height: 1.1; text-transform: uppercase; }
 .source-note { margin-top: 16px; color: var(--muted); font-family: ui-sans-serif, system-ui, sans-serif; font-size: 13px; }
 .guide-card h2, .route-card h2, .research-card h2 { font-size: clamp(23px, 3vw, 34px); }
@@ -221,7 +224,7 @@ details p { padding: 0 20px 20px; color: var(--muted); }
 .pending-codes-disclaimer { color: var(--muted); font-family: ui-sans-serif, system-ui, sans-serif; font-size: 14px; margin-bottom: 16px; }
 .pending-codes-table { display: grid; gap: 0; border: 2px solid var(--ink); background: var(--ink); overflow: hidden; }
 .pending-codes-table .status-row { grid-template-columns: 0.7fr 1.2fr 0.8fr 1.3fr; }
-.community-code-table .status-row { grid-template-columns: 0.55fr 0.9fr 1.15fr 1.7fr; }
+.community-code-table .status-row { grid-template-columns: 0.55fr 0.85fr 1.5fr 1.15fr 1.25fr; }
 .pending-codes-table code { font-family: ui-monospace, "Cascadia Code", Menlo, monospace; font-size: 13px; font-weight: 700; padding: 2px 8px; background: rgba(27, 127, 98, 0.12); border: 1px solid rgba(27, 127, 98, 0.24); }
 .redeem-steps { padding-left: 24px; margin-bottom: 16px; }
 .redeem-steps li { padding: 8px 0; font-family: ui-sans-serif, system-ui, sans-serif; border-bottom: 1px solid var(--line); }
@@ -247,6 +250,7 @@ details p { padding: 0 20px 20px; color: var(--muted); }
 .status-tag.research-only, .status-tag.needs-verification, .status-tag.rejected { color: var(--accent-3); border-color: rgba(196, 72, 54, 0.24); background: rgba(196, 72, 54, 0.1); }
 .claim-chip { display: block; border: 1px solid rgba(17, 20, 15, 0.1); padding: 6px 8px; color: var(--muted); background: rgba(248, 247, 239, 0.8); }
 .claim-chip + .claim-chip { margin-top: 6px; }
+.claim-chip-list { display: block; margin-top: 8px; }
 .timeline-list { display: grid; gap: 14px; margin-top: 18px; }
 .timeline-item { display: grid; grid-template-columns: auto 140px minmax(0, 1fr); gap: 12px 18px; align-items: start; border: 1px solid var(--line); padding: 18px; background: rgba(255, 253, 246, 0.9); }
 .timeline-item h3 { margin-bottom: 6px; }

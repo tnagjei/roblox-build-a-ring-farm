@@ -118,3 +118,63 @@ test("seeds table records sourceStatus for every field", () => {
     }
   }
 });
+
+test("June 2026 code claims remain reported or pending with source-specific PLANTRUSH rewards", () => {
+  const codes = read("content/i18n/en/codes.ts");
+  const data = JSON.parse(read("public/data/build-a-ring-farm.json"));
+
+  assert.match(codes, /June 2026/i, "codes content must cover June 2026 search intent");
+  assert.match(codes, /active vs verified/i, "codes content must explain active vs verified");
+  assert.match(codes, /PLANTRUSH/i, "codes content must mention PLANTRUSH");
+  assert.match(codes, /Plant Rush Box/i, "codes content must include Dexerto Plant Rush Box claim");
+  assert.match(codes, /Plant Rush Boss Box/i, "codes content must include PCGamesN or buildaringfarm.net Plant Rush Boss Box claim");
+  assert.doesNotMatch(codes, /PLANTRUSH[^"]*verified active/i, "PLANTRUSH must not be called verified active");
+
+  const plantrush = data.codes.communityReportedCodes.find((item) => item.code === "PLANTRUSH");
+  assert.ok(plantrush, "public data must include PLANTRUSH as a community reported lead");
+  assert.equal(plantrush.status.toLowerCase(), "community reported");
+  assert.match(plantrush.reportedReward, /Plant Rush Box|Plant Rush Boss Box/);
+  assert.ok(Array.isArray(plantrush.sourceClaims), "PLANTRUSH must preserve source-specific reward claims");
+});
+
+test("broader update status covers Update 4 as pending without patch-note certainty", () => {
+  const config = read("lib/game-config.ts");
+  const coreSlugs = extractArray(config, "coreSlugs");
+  const completedCoreSlugs = extractArray(config, "completedCoreSlugs");
+  const updateStatusPath = path.join(root, "app", "update-status", "page.tsx");
+
+  assert.ok(coreSlugs.includes("update-status"), "update-status must be declared as a core slug");
+  assert.ok(completedCoreSlugs.includes("update-status"), "update-status must be completed");
+  assert.ok(fs.existsSync(updateStatusPath), "Missing app/update-status/page.tsx");
+
+  const source = read("app/update-status/page.tsx");
+  assert.match(source, /Update 4/i, "update status page must cover Update 4 intent");
+  assert.match(source, /pending|reported/i, "Update 4 must be reported or pending");
+  assert.doesNotMatch(source, /official patch notes|verified patch notes/i, "Update 4 patch notes must not be presented as verified");
+});
+
+test("new June mutation claims are pending in mutations and calculator presets", () => {
+  const mutations = read("app/mutations/page.tsx");
+  const calculator = read("app/calculator/page.tsx");
+
+  for (const term of ["Cosmic", "Bubblegum", "Fire", "Starfall", "Admin"]) {
+    assert.match(mutations, new RegExp(term, "i"), `mutations page must include ${term}`);
+    assert.match(calculator, new RegExp(term, "i"), `calculator page must include ${term} preset`);
+  }
+
+  assert.match(mutations, /pending in-game verification/i, "new mutation claims must stay pending");
+  assert.match(calculator, /pending preset|pending in-game verification/i, "calculator presets must stay pending");
+  assert.doesNotMatch(mutations, /Starfall[^"]*verified stacking/i, "Starfall stacking must not be called verified");
+});
+
+test("official Discord source policy stays pending until source is confirmed", () => {
+  const codes = read("content/i18n/en/codes.ts");
+  const data = JSON.parse(read("public/data/build-a-ring-farm.json"));
+
+  assert.match(codes, /official Discord/i, "codes content must cover official Discord source policy");
+  assert.match(codes, /pending/i, "Discord source policy must remain pending");
+
+  const discordSource = data.game.officialLinks.find((item) => /Discord/i.test(item.label));
+  assert.ok(discordSource, "public data must include an official Discord source row");
+  assert.equal(discordSource.status, "pending");
+});

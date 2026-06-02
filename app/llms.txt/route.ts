@@ -9,6 +9,7 @@ const corePageKeys = [
   "codes",
   "calculator",
   "rings",
+  "update-status",
   "update-3-status",
   "beginners-guide",
   "crops",

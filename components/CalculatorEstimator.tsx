@@ -17,6 +17,14 @@ function formatEstimate(value: number): string {
   return new Intl.NumberFormat("en-US", { maximumFractionDigits: 2 }).format(value);
 }
 
+const pendingMutationPresets = [
+  { label: "Cosmic", value: "8", status: "pending preset" },
+  { label: "Bubblegum", value: "9", status: "pending preset" },
+  { label: "Fire", value: "10", status: "pending preset" },
+  { label: "Starfall", value: "4", status: "pending preset" },
+  { label: "Admin", value: "5", status: "pending preset" }
+];
+
 export default function CalculatorEstimator() {
   const [plantCount, setPlantCount] = useState("10");
   const [baseValue, setBaseValue] = useState("100");
@@ -65,6 +73,20 @@ export default function CalculatorEstimator() {
           <div><span>Use</span><strong>Use 1 when mutation value is unknown</strong></div>
           <div><span>Value</span><input aria-label="Mutation multiplier" inputMode="decimal" value={mutationMultiplier} onChange={(event) => setMutationMultiplier(event.target.value)} /></div>
         </label>
+        <div className="data-row three-field-row">
+          <div><span>Input helper</span><strong>Update 4 pending mutation presets</strong></div>
+          <div><span>Status</span><strong>Pending in-game verification</strong></div>
+          <div>
+            <span>Set multiplier</span>
+            <strong className="preset-button-group">
+              {pendingMutationPresets.map((preset) => (
+                <button key={preset.label} type="button" className="inline-tool-button" onClick={() => setMutationMultiplier(preset.value)}>
+                  {preset.label} {preset.value}x ({preset.status})
+                </button>
+              ))}
+            </strong>
+          </div>
+        </div>
         <label className="data-row three-field-row">
           <div><span>Input</span><strong>Ring multiplier</strong></div>
           <div><span>Use</span><strong>Use 1 if ring value is pending</strong></div>

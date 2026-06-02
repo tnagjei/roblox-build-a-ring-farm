@@ -7,8 +7,8 @@ import Link from "next/link";
 import { absoluteUrl } from "@/lib/seo";
 import CalculatorEstimator from "@/components/CalculatorEstimator";
 
-const pageTitle = "Build A Ring Farm Calculator | Reported Value Tool";
-const pageDescription = "Build A Ring Farm reported value estimator for crop value, plant count, mutation, ring, fertilizer, and run-count planning without fixed official numbers.";
+const pageTitle = "Build A Ring Farm Calculator | Pending Preset Tool";
+const pageDescription = "Build A Ring Farm calculator with pending mutation presets, player-entered values, reported multipliers, ring inputs, and safe estimate rules now.";
 const heroImage = "/images/official-hero-image.webp";
 const reportedStatus = "Reported, pending verification";
 
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 const estimateRows = [
   { input: "Plant count", use: "Count the crops you plan to sell.", status: "Player-entered" },
   { input: "Observed base value", use: "Enter the crop value you actually see in game.", status: "Player-entered" },
-  { input: "Mutation", use: "Compare Wet, Frozen, Void, Radioactive, Rainbow, Honeycomb, Alien, or Farm leads.", status: reportedStatus },
+  { input: "Mutation", use: "Compare Wet, Frozen, Void, Radioactive, Rainbow, Honeycomb, Cosmic, Bubblegum, Fire, Starfall, Admin, Alien, or Farm leads.", status: reportedStatus },
   { input: "Ring multiplier", use: "Apply a ring multiplier only after checking the rings page.", status: reportedStatus },
   { input: "Fertilizer", use: "Add only a player-entered or reported fertilizer value.", status: reportedStatus },
   { input: "Run count", use: "Compare repeated harvests without hard-coded cash-per-second claims.", status: "Player-entered" }
@@ -38,8 +38,17 @@ const estimateRows = [
 const scenarioRows = [
   { route: "Early crop loop", estimate: "Use base value only", note: "Best for players still unlocking stable crops.", status: "Pending values" },
   { route: "Mutation test", estimate: "Base value plus reported mutation lead", note: "Do not treat Honeycomb, Alien, or Farm values as official.", status: reportedStatus },
+  { route: "Update 4 preset test", estimate: "Use pending preset only", note: "Cosmic 8x, Bubblegum 9x, Fire 10x, Starfall 4x, and Admin 5x stay pending in-game verification.", status: "Pending preset" },
   { route: "Ring route", estimate: "Base value plus reported ring multiplier", note: "Use the rings guide before assuming a multiplier.", status: reportedStatus },
   { route: "Update 3 check", estimate: "No verified code reward added", note: "Use Update 3 code claims only as reported leads.", status: "Pending" }
+];
+
+const pendingPresetRows = [
+  { mutation: "Cosmic", preset: "8x", status: "Pending preset", note: "Needs in-game verification before stronger calculator use." },
+  { mutation: "Bubblegum", preset: "9x", status: "Pending preset", note: "Needs in-game verification before stronger calculator use." },
+  { mutation: "Fire", preset: "10x", status: "Pending preset", note: "Needs in-game verification before stronger calculator use." },
+  { mutation: "Starfall", preset: "4x", status: "Pending preset", note: "Stacking is pending, not verified." },
+  { mutation: "Admin", preset: "5x", status: "Pending preset", note: "Needs source, trigger, and availability proof." }
 ];
 
 const sections = [
@@ -88,6 +97,7 @@ const relatedLinks = [
   { href: "/rainbow-mutation/", title: "Rainbow Mutation", description: "Use source status before adding Rainbow into an estimate." },
   { href: "/strong-fertilizer/", title: "Strong Fertilizer", description: "Keep fertilizer inputs reported or player-entered." },
   { href: "/seeds/", title: "Seeds", description: "Use seed routes as calculator inputs, not verified reward promises." },
+  { href: "/update-status/", title: "Update Status", description: "Check Update 4 pending presets before using reported numbers." },
   { href: "/update-3-status/", title: "Update 3 Status", description: "Check reported Update 3 code and system claims before using rewards." }
 ];
 
@@ -109,7 +119,7 @@ export default function CalculatorPage() {
         <div className="hero-copy">
           <p className="eyebrow">Reported value estimator</p>
           <h1>Build A Ring Farm Calculator</h1>
-          <p className="lede">Use this Build A Ring Farm calculator as a reported value estimator for plant count, observed crop value, mutation, ring, fertilizer, and repeated harvest planning without fixed official numbers.</p>
+          <p className="lede">Use this Build A Ring Farm calculator as a reported value estimator for plant count, observed crop value, pending mutation presets, ring, fertilizer, and repeated harvest planning without fixed official numbers.</p>
           <div className="hero-actions">
             <Link prefetch={false} className="primary-link" href="/rings/">Compare rings</Link>
             <Link prefetch={false} className="secondary-link" href="/money-farming/">Plan money route</Link>
@@ -153,6 +163,22 @@ export default function CalculatorPage() {
                 <div><span>Estimate</span><strong>{row.estimate}</strong></div>
                 <div><span>Note</span><strong>{row.note}</strong></div>
                 <div><span>Status</span><StatusBadge status={row.status} /></div>
+              </div>
+            ))}
+          </div>
+        </article>
+        <article className="guide-card data-card">
+          <span className="card-rule" />
+          <p className="eyebrow">Pending presets</p>
+          <h2>Update 4 pending mutation presets</h2>
+          <p>These are planning presets only. Do not treat any multiplier as verified until repeatable in-game evidence exists.</p>
+          <div className="data-list">
+            {pendingPresetRows.map((row) => (
+              <div className="data-row four-field-row" key={row.mutation}>
+                <div><span>Mutation</span><strong>{row.mutation}</strong></div>
+                <div><span>Preset</span><strong>{row.preset}</strong></div>
+                <div><span>Status</span><StatusBadge status={row.status} /></div>
+                <div><span>Note</span><strong>{row.note}</strong></div>
               </div>
             ))}
           </div>

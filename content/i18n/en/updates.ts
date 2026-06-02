@@ -7,22 +7,31 @@ import type { StrategyPageContent } from "@/lib/content/page-types";
 export const enUpdatesPage: StrategyPageContent = {
   meta: {
     title: "Build A Ring Farm Updates | Update 3 Status & Codes",
-    description: "Follow Build A Ring Farm updates, Update 3 reported code leads, pending mutation and event checks, Roblox source notes, and safe recheck steps."
+    description: "Follow Build A Ring Farm updates, Update 3 and Update 4 reported code leads, pending mutation checks, Roblox source notes, and safe recheck steps."
   },
   slug: "updates",
   hero: {
     eyebrow: "Update tracker",
     h1: "Build A Ring Farm Updates",
-    lede: "Track Build A Ring Farm updates with Update 3 reported code leads, pending mutation checks, Roblox source notes, and safe recheck steps.",
-    primaryAction: { label: "Check Update 3 status", href: "/update-3-status/" },
+    lede: "Track Build A Ring Farm updates with Update 3 and Update 4 reported code leads, pending mutation checks, Roblox source notes, and safe recheck steps.",
+    primaryAction: { label: "Check update status", href: "/update-status/" },
     secondaryAction: { label: "Check codes", href: "/codes/" }
   },
   summaryCards: [
-    { title: "Update 3 status", description: "Update 3 code and reward claims stay reported or pending until official or in-game proof exists." },
+    { title: "Update status", description: "Update 3 and Update 4 code and reward claims stay reported or pending until official or in-game proof exists." },
     { title: "Mutation recheck", description: "Honeycomb, Alien, and Farm mutation leads need screenshots or repeatable in-game checks before stronger wording." },
     { title: "Event recheck", description: "Queen Bee and related event claims stay pending until source quality improves." }
   ],
   sections: [
+    {
+      heading: "Build A Ring Farm Update 4 pending entry",
+      subheading: "Reported signal, pending patch notes",
+      body: [
+        "Update 4 is a freshness signal, not proof that specific patch notes, rewards, multipliers, prices, or code strings are verified.",
+        "Use the update status page for the current verdict and keep Cosmic, Bubblegum, Fire, Starfall, Admin, and Update 4 code claims labeled reported or pending until stronger evidence exists."
+      ],
+      list: ["Update 4 patch notes: pending.", "Update 4 codes: reported or pending.", "Mutation presets: pending in-game verification.", "Do not promote third-party active labels into verified status."]
+    },
     {
       heading: "Build A Ring Farm Update 3 recheck entry",
       subheading: "2026-05-24 signal, pending proof",
@@ -61,6 +70,7 @@ export const enUpdatesPage: StrategyPageContent = {
     }
   ],
   relatedLinks: [
+    { href: "/update-status/", title: "Update Status", description: "Review Update 3 and Update 4 reported and pending leads." },
     { href: "/update-3-status/", title: "Update 3 Status", description: "Review the reported and pending status for Update 3 codes and new leads." },
     { href: "/codes/", title: "Codes", description: "Check verified active code count and reported code leads." },
     { href: "/mutations/", title: "Mutations", description: "Review Honeycomb, Alien, Farm, and stacking questions conservatively." },

@@ -6,14 +6,14 @@ import type { CodesPageContent } from "@/lib/content/page-types";
 
 export const enCodesPage: CodesPageContent = {
   meta: {
-    title: "Build A Ring Farm Codes 2026 | Reported Rewards & Safe Redeem",
-    description: "Check Build A Ring Farm codes, reported rewards, last checked status, safe redeem steps, and community code leads without fake active claims."
+    title: "Build A Ring Farm Codes 2026 | June Reported Rewards",
+    description: "Check Build A Ring Farm codes 2026 with June reported rewards, active vs verified status, PLANTRUSH source claims, and safe redeem rules today."
   },
   slug: "codes",
   hero: {
     eyebrow: "Codes status",
     h1: "Build A Ring Farm Codes",
-    lede: "Check community reported Build A Ring Farm codes, possible rewards, last checked status, and safe redeem notes. This page separates reported leads from verified active codes.",
+    lede: "Check June 2026 community reported Build A Ring Farm codes, possible rewards, last checked status, and safe redeem notes. This page separates reported leads from verified active codes.",
     primaryAction: { label: "Open Roblox page", href: "roblox", external: true },
     secondaryAction: { label: "Read money farming", href: "/money-farming/" }
   },
@@ -27,8 +27,8 @@ export const enCodesPage: CodesPageContent = {
   },
   communityCodes: {
     eyebrow: "Community reported codes",
-    title: "Community reported Build A Ring Farm code leads",
-    description: "These code strings are useful testing leads, not verified active codes. Use them only inside the real Roblox game UI and treat the reward text as community reported until tested.",
+    title: "June 2026 community reported Build A Ring Farm code leads",
+    description: "These code strings are useful testing leads, not verified active codes. Use them only inside the real Roblox game UI and treat the reward text as reported or pending until tested.",
     actionLabel: "Copy only for in-game testing",
     statusLabels: { "community reported": "Community reported", "not verified": "Not verified", "needs testing": "Needs testing", pending: "Pending", verified: "Verified", expired: "Expired" }
   },
@@ -73,12 +73,28 @@ export const enCodesPage: CodesPageContent = {
   },
   sections: [
     {
-      heading: "Build A Ring Farm code status today",
+      heading: "Build A Ring Farm codes June 2026 status",
       body: [
-        "The current verified active-code count on this site is still zero. The code cards above are community reported leads designed for safe in-game testing, not final proof.",
-        "This approach protects users from fake active-code lists while still answering the search intent behind Build A Ring Farm codes, rewards, and Update 3 code checks."
+        "The current verified active-code count on this site is still zero. The June 2026 code cards above are community reported leads designed for safe in-game testing, not final proof.",
+        "PLANTRUSH is the clearest source-conflict example: Dexerto reports a Plant Rush Box reward, while PCGamesN and buildaringfarm.net report a Plant Rush Boss Box reward. Both reward claims stay reported or pending here."
       ],
-      list: ["Verified active codes: 0", "Community reported leads: listed separately", "Reward claims: pending until tested", "Redeem location: only inside the Roblox game UI"]
+      list: ["Verified active codes: 0", "Community reported leads: listed separately", "PLANTRUSH reward claim: reported, source-specific", "Redeem location: only inside the Roblox game UI"]
+    },
+    {
+      heading: "Active vs verified code labels",
+      body: [
+        "A third-party page may call a Build A Ring Farm code active, but this site does not treat that as verified. Active means an outside source reports the string works; verified means this site has official or repeatable in-game proof.",
+        "Because no accepted proof exists yet, community reported strings can be tested by players but must not be promoted into the verified active table."
+      ],
+      list: ["External active: reported claim only.", "Verified active: official or repeatable in-game proof.", "Community reported: useful lead, not proof.", "Pending reward: reward text has not been confirmed here."]
+    },
+    {
+      heading: "Official Discord source policy",
+      body: [
+        "The official Discord source is pending until a developer-linked Discord URL is confirmed from the Roblox game page or another verified official channel.",
+        "Do not copy Discord invite links from third-party code pages into verified sources. A Discord claim can help guide research, but it stays pending until the source path is confirmed."
+      ],
+      list: ["Official Discord link: pending.", "Third-party Discord references: not proof.", "Developer-linked source required before promotion.", "Community reported must not become verified by wording alone."]
     },
     {
       heading: "Why reported codes can fail",

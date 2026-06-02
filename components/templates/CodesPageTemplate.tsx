@@ -19,6 +19,8 @@ type CommunityReportedCode = {
   code: string;
   status: string;
   reportedBy: string;
+  reportedReward?: string;
+  sourceClaims?: Array<{ source: string; claim: string; status: string }>;
 };
 
 type PendingCode = {
@@ -148,6 +150,7 @@ export function CodesPageTemplate({ content, locale }: CodesPageTemplateProps) {
             <div role="row" className="status-row status-head">
               <span role="columnheader">{locale === "zh-tw" ? "代碼" : "Code"}</span>
               <span role="columnheader">{locale === "zh-tw" ? "狀態" : "Status"}</span>
+              <span role="columnheader">{locale === "zh-tw" ? "回報獎勵" : "Reported reward"}</span>
               <span role="columnheader">{locale === "zh-tw" ? "回報來源" : "Reported by"}</span>
               <span role="columnheader">{locale === "zh-tw" ? "建議動作" : "Action"}</span>
             </div>
@@ -155,6 +158,16 @@ export function CodesPageTemplate({ content, locale }: CodesPageTemplateProps) {
               <div role="row" className="status-row" key={item.code}>
                 <span role="cell"><code>{item.code}</code></span>
                 <span role="cell">{statusText(item.status, content.communityCodes.statusLabels)}</span>
+                <span role="cell">
+                  {item.reportedReward || "Pending reward"}
+                  {item.sourceClaims && item.sourceClaims.length > 0 ? (
+                    <span className="claim-chip-list">
+                      {item.sourceClaims.map((claim) => (
+                        <span className="claim-chip" key={`${item.code}-${claim.source}`}>{claim.source}: {claim.claim} ({claim.status})</span>
+                      ))}
+                    </span>
+                  ) : null}
+                </span>
                 <span role="cell">{item.reportedBy}</span>
                 <span role="cell">{content.communityCodes.actionLabel}</span>
               </div>

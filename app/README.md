@@ -22,6 +22,7 @@
 - codes/：codes 页面
 - calculator/：calculator 工具型 SEO 页面
 - rings/：rings 与 ring multipliers 页面
+- update-status/：Update 3/Update 4 reported 与 pending 状态页面
 - update-3-status/：Update 3 codes 状态页面
 - beginners-guide/：新手指南页面
 - crops/：crops 长尾 SEO 页面
