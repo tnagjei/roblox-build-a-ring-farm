@@ -4,8 +4,9 @@
 
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import { sendGAEvent } from "@/lib/analytics";
 import { usePathname } from "next/navigation";
 import { getSlugFromPath, getLocalizedPath } from "@/lib/i18n/routes";
 import { localeMeta, type Locale } from "@/lib/i18n/locales";
@@ -65,6 +66,28 @@ export function SiteChrome({ children }: SiteChromeProps) {
   const currentSlug = normalizedCurrentSlug(pathname);
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const [isGuidesOpen, setIsGuidesOpen] = useState(false);
+
+  useEffect(() => {
+    function handleGlobalClick(event: MouseEvent) {
+      let target = event.target as HTMLElement | null;
+      while (target && target !== document.body) {
+        if (target.tagName === "A") {
+          const href = target.getAttribute("href");
+          if (href && (href.includes("roblox.com") || href.includes("robloxUrl"))) {
+            sendGAEvent("outbound_roblox_click", {
+              event_source: "outbound_link",
+              url: href
+            });
+          }
+          break;
+        }
+        target = target.parentElement;
+      }
+    }
+    document.addEventListener("click", handleGlobalClick);
+    return () => document.removeEventListener("click", handleGlobalClick);
+  }, []);
+
   const coreNavKeys = completedCoreSlugs.filter((slug) => slug !== "");
   const footerNavItems = coreNavKeys.map((key) => siteData.pages.find((p) => p.key === key)).filter((p) => p !== undefined).map((p) => ({ href: getLocalizedPath(currentLocale, p.path), label: p.focus }));
   const primaryNavItems = primaryNavSlugs.filter((slug) => completedCoreSlugs.includes(slug as never)).map((slug) => pageForSlug(slug, currentLocale)).filter((item): item is NavItem => Boolean(item));

@@ -10,3 +10,4 @@
 - page-registry.ts：生成 sitemap、robots 和完成路由清单
 - site-data.ts：导出公开 JSON 数据和页面查询 helper
 - seo.ts：生成 metadata、canonical、社交分享图引用和 JSON-LD
+- analytics.ts：封装 GA4 自定义事件的生产发送与容错处理

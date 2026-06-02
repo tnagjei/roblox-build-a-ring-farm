@@ -4,7 +4,8 @@
 // output: client-side reported value estimator with explicit source status labels
 // pos: calculator estimator component（更新规则：文件变更需同步本注释与所属目录 README）
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { sendGAEvent } from "@/lib/analytics";
 
 function parsePositiveNumber(value: string, fallback: number): number {
   const parsed = Number(value);
@@ -50,6 +51,76 @@ export default function CalculatorEstimator() {
       runs
     };
   }, [plantCount, baseValue, mutationMultiplier, ringMultiplier, fertilizerMultiplier, runCount]);
+
+  // 1. 防抖事件：处理 calculator_input_change
+  const [prevValues, setPrevValues] = useState({
+    plantCount: "10",
+    baseValue: "100",
+    mutationMultiplier: "1",
+    ringMultiplier: "1",
+    fertilizerMultiplier: "1",
+    runCount: "1"
+  });
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      const changedFields: string[] = [];
+      const currentValues = {
+        plantCount,
+        baseValue,
+        mutationMultiplier,
+        ringMultiplier,
+        fertilizerMultiplier,
+        runCount
+      };
+
+      (Object.keys(currentValues) as Array<keyof typeof currentValues>).forEach((key) => {
+        if (currentValues[key] !== prevValues[key]) {
+          changedFields.push(key);
+        }
+      });
+
+      if (changedFields.length > 0) {
+        changedFields.forEach((field) => {
+          const fieldKey = field as keyof typeof currentValues;
+          sendGAEvent("calculator_input_change", {
+            event_source: "calculator_input",
+            field_name: fieldKey,
+            field_value: currentValues[fieldKey]
+          });
+        });
+        setPrevValues(currentValues);
+      }
+    }, 1500);
+
+    return () => clearTimeout(handler);
+  }, [plantCount, baseValue, mutationMultiplier, ringMultiplier, fertilizerMultiplier, runCount, prevValues]);
+
+  // 2. 结果区展示或重新计算完成：处理 calculator_result_view
+  const [hasLoaded, setHasLoaded] = useState(false);
+
+  useEffect(() => {
+    if (!hasLoaded) {
+      sendGAEvent("calculator_result_view", {
+        event_source: "calculator_load",
+        estimated_harvest_value: estimates.perHarvest,
+        estimated_session_total: estimates.sessionTotal
+      });
+      setHasLoaded(true);
+      return;
+    }
+
+    const handler = setTimeout(() => {
+      sendGAEvent("calculator_result_view", {
+        event_source: "calculator_recalculate",
+        estimated_harvest_value: estimates.perHarvest,
+        estimated_session_total: estimates.sessionTotal
+      });
+    }, 1500);
+
+    return () => clearTimeout(handler);
+  }, [estimates.perHarvest, estimates.sessionTotal]);
+
 
   return (
     <section className="guide-card data-card" aria-label="Build A Ring Farm reported value estimator">
