@@ -32,6 +32,11 @@
       {
         "name": "Find us on AIBlog.Tools",
         "url": "https://aiblog.tools"
+      },
+      {
+        "name": "Featured on NewTool.site",
+        "url": "https://newtool.site/item/build-a-ring-farm-guide",
+        "badgeUrl": "https://newtool.site/badges/newtool-light.svg"
       }
     ]
   },
