@@ -25,10 +25,60 @@ const summaryCards = [
 ];
 
 const routeRows = [
-  { stage: "Early game", focus: "Keep all plots active", action: "Use steady seeds, harvest often, sell crops, and reinvest into basic upgrades.", status: "Strategy" },
-  { stage: "Mid game", focus: "Improve crop cycle value", action: "Compare seeds, crop value, upgrade timing, and reported code rewards.", status: "Strategy" },
-  { stage: "Late game", focus: "Scale high-value crops", action: "Use stronger upgrades and community reported rare crop effects only after source checks.", status: "Strategy" },
-  { stage: "Offline", focus: "Protect momentum", action: "Use offline earnings as a booster, not as proof of rare effect behavior.", status: "Pending data" }
+  {
+    stage: "First 10 Minutes",
+    goal: "Start a repeatable cash loop before chasing rare outcomes.",
+    whatToDo: "Keep every available plot active, harvest on time, sell quickly, and reinvest only into basic upgrades that help the next cycle.",
+    avoid: "Do not wait for a perfect rare crop, spend around unverified code rewards, or buy unclear spray routes before the base loop works.",
+    upgrade: "Upgrade when the purchase improves repeated harvests instead of one lucky run.",
+    calculator: "Use the calculator only with values you can see in game; otherwise keep the multiplier at 1.",
+    evidenceStatus: "Strategy, exact crop prices and grow times need verification"
+  },
+  {
+    stage: "First 1 Hour",
+    goal: "Turn early cash into a stable route with fewer idle plots.",
+    whatToDo: "Compare seed choices, crop cycle comfort, basic upgrades, and selling rhythm before testing community reported bonuses.",
+    avoid: "Do not build the plan around third-party code rewards, fixed best-crop claims, or exact income numbers that are not verified here.",
+    upgrade: "Upgrade when the farm can stay active after the purchase and the next cycles feel faster or easier to repeat.",
+    calculator: "Use the calculator to compare your observed base value against simple 1x and reported multiplier scenarios.",
+    evidenceStatus: "Strategy with Community reported reward leads"
+  },
+  {
+    stage: "Mid Game Upgrade Route",
+    goal: "Improve crop cycle value while keeping cash flow predictable.",
+    whatToDo: "Review crops, upgrades, fertilizer, and gear shop choices as route inputs, then test one change at a time.",
+    avoid: "Do not combine a new spray, mutation, ring, and fertilizer in one test because the result cannot be traced cleanly.",
+    upgrade: "Upgrade when the same purchase helps multiple harvest cycles or reduces repeated bottlenecks.",
+    calculator: "Use the calculator before expensive upgrades to compare player-entered base values with pending multipliers.",
+    evidenceStatus: "Needs verification for prices, multipliers, and upgrade costs"
+  },
+  {
+    stage: "Late Game Rare Crop Route",
+    goal: "Test rare crop and mutation routes without turning reported claims into facts.",
+    whatToDo: "Use advanced crops, sprays, and mutation guides to plan controlled tests around reported rare effects.",
+    avoid: "Do not call any rare crop the fixed best crop unless price, grow time, and multiplier evidence all support it.",
+    upgrade: "Upgrade only after the normal farming route is strong enough that rare-effect testing does not stall progress.",
+    calculator: "Use the calculator to compare reported rare-effect presets as planning estimates, not verified profit results.",
+    evidenceStatus: "Community reported and Pending until in-game evidence exists"
+  },
+  {
+    stage: "Offline Income Route",
+    goal: "Protect momentum while offline without inventing exact rates.",
+    whatToDo: "Before leaving, keep plots active, avoid stalled cycles, and favor upgrades that still support the next login.",
+    avoid: "Do not assume rare effects, weather events, sprays, or mutations trigger offline without a repeatable test.",
+    upgrade: "Upgrade before logging off only when the farm remains stable and the purchase supports normal crop cycles.",
+    calculator: "Use the calculator after logging back in to compare observed results against your expected route.",
+    evidenceStatus: "Official direction supports offline earnings, exact rates need verification"
+  },
+  {
+    stage: "When to Use Calculator",
+    goal: "Use estimates to choose between routes without fake precision.",
+    whatToDo: "Enter plant count, observed base value, and only the multipliers you can label as player-entered, reported, or pending.",
+    avoid: "Do not add fixed crop prices, grow time, upgrade cost, or income per minute unless you have real evidence.",
+    upgrade: "Use the estimate before a major spend, then recheck the result in game after the next harvest cycle.",
+    calculator: "Open the Build A Ring Farm calculator when two routes look close and you need a controlled comparison.",
+    evidenceStatus: "Estimator only; final profit optimization needs verified data"
+  }
 ];
 
 const mistakeRows = [
@@ -49,13 +99,13 @@ const sections = [
     list: ["Plant seeds or crops.", "Harvest when ready.", "Sell plants for cash.", "Reinvest cash into better crop cycles and upgrades.", "Use offline income as a progress booster."]
   },
   {
-    heading: "Best early money farming route",
-    subheading: "Early cash route",
+    heading: "Why this route avoids fixed best-crop claims",
+    subheading: "No fake precision",
     body: [
-      "The safest early money route is simple: keep every plot active, sell consistently, and buy upgrades that help every future harvest. Do not hold too much cash if a useful upgrade can improve repeated cycles.",
-      "Early players should avoid over-focusing on rare crop effects. If your base crop cycle is weak, rare-effect chasing can slow you down instead of helping."
+      "A fixed best-crop answer is not reliable unless crop sell value, grow time, upgrade state, multiplier behavior, and availability are all verified. This page keeps the advice stage-based until that evidence exists.",
+      "Use the calculator and route checks to compare what you observe in game. Treat community reported values as planning leads, not final income proof."
     ],
-    list: ["Keep plots active before optimizing rare outcomes.", "Choose seeds that support steady cash flow.", "Sell and reinvest instead of waiting for perfect crops.", "Buy upgrades that improve repeated cycles."]
+    list: ["No fixed best-crop claim without evidence.", "No cash-per-second claim without verified timing.", "No verified multiplier label without official or repeatable proof.", "Community reported values stay clearly labeled."]
   },
   {
     heading: "When codes can help money farming",
@@ -78,13 +128,16 @@ const sections = [
 ];
 
 const relatedLinks = [
+  { href: "/calculator/", title: "Calculator", description: "Compare player-entered values and reported multipliers before changing route." },
   { href: "/seeds/", title: "Seeds", description: "Choose seed packs and seed routes that support cash flow." },
   { href: "/crops/", title: "Crops", description: "Understand the crop loop behind every money route." },
   { href: "/gear-shop/", title: "Gear Shop", description: "Compare sprays, fertilizer, and item ROI before spending cash." },
+  { href: "/sprays/", title: "Sprays", description: "Treat spray effects as reported until stronger source evidence exists." },
   { href: "/strong-fertilizer/", title: "Strong Fertilizer", description: "Keep fertilizer effects source-labeled before using them in cash routes." },
   { href: "/rainbow-mutation/", title: "Rainbow Mutation", description: "Treat rare-effect routes as reported until stronger evidence exists." },
   { href: "/upgrades/", title: "Upgrades", description: "Compare upgrade cost against repeated cycle value." },
   { href: "/advanced-crops/", title: "Advanced Crops", description: "Review community reported rare effects and value boosts." },
+  { href: "/offline-income/", title: "Offline Income", description: "Keep offline earning rates broad until repeatable tests exist." },
   { href: "/codes/", title: "Codes", description: "Check code rewards that may support progression." }
 ];
 
@@ -111,7 +164,7 @@ export default function MoneyFarmingPage() {
           </p>
           <div className="hero-actions">
             <Link prefetch={false} className="primary-link" href="/upgrades/">Read upgrades guide</Link>
-            <Link prefetch={false} className="secondary-link" href="/seeds/">Read seeds guide</Link>
+            <Link prefetch={false} className="secondary-link" href="/calculator/">Open calculator</Link>
           </div>
         </div>
         <img className="hero-image" src={siteData.assets.hero} alt={`${siteData.game.name} Roblox thumbnail`} />
@@ -129,23 +182,27 @@ export default function MoneyFarmingPage() {
 
       <section className="section-heading">
         <p className="eyebrow">Route map</p>
-        <h2>Money farming route by stage</h2>
+        <h2>Money farming route by player stage</h2>
       </section>
       <section className="content-grid single-column-grid">
         <article className="guide-card data-card">
           <span className="card-rule" />
-          <p className="eyebrow">Strategy table</p>
-          <h2>Recommended cash route</h2>
+          <p className="eyebrow">Stage checklist</p>
+          <h2>First 10 minutes to late-game route</h2>
           <div className="data-list">
             {routeRows.map((row) => (
-              <div className="data-row four-field-row" key={row.stage}>
+              <div className="data-row three-field-row" key={row.stage}>
                 <div><span>Stage</span><strong>{row.stage}</strong></div>
-                <div><span>Focus</span><strong>{row.focus}</strong></div>
-                <div><span>Action</span><strong>{row.action}</strong></div>
-                <div><span>Status</span><StatusBadge status={row.status} /></div>
+                <div><span>Goal</span><strong>{row.goal}</strong></div>
+                <div><span>Evidence status</span><StatusBadge status={row.evidenceStatus} /></div>
+                <div><span>What to do</span><strong>{row.whatToDo}</strong></div>
+                <div><span>What to avoid</span><strong>{row.avoid}</strong></div>
+                <div><span>When to upgrade</span><strong>{row.upgrade}</strong></div>
+                <div><span>When to use calculator</span><strong>{row.calculator}</strong></div>
               </div>
             ))}
           </div>
+          <p className="source-note">Use the <Link prefetch={false} href="/calculator/">Build A Ring Farm calculator</Link> only with player-entered, Community reported, Pending, or Needs verification inputs. Do not turn an estimate into a verified income claim without proof.</p>
         </article>
 
         <article className="guide-card data-card">
