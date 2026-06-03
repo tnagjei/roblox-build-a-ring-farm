@@ -7,7 +7,7 @@ import Link from "next/link";
 import { absoluteUrl } from "@/lib/seo";
 
 const pageTitle = "Build A Ring Farm Rings Guide | Multipliers & Upgrades";
-const pageDescription = "Build A Ring Farm rings guide covering reported ring multipliers, Update 4 Farm Ring Bonuses, upgrade timing, best rings, calculator links, and safe source status.";
+const pageDescription = "Build A Ring Farm rings guide covering reported ring multipliers, Update 4 Farm Ring Bonuses, farm upgrade timing, and safe community source status.";
 const heroImage = "/images/official-hero-image.webp";
 const reportedStatus = "Reported, pending verification";
 

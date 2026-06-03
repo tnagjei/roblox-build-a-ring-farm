@@ -1,6 +1,6 @@
 /* input: SiteChrome dropdown navigation */
-/* output: compact overlay menus that do not stretch the header */
-/* pos: navigation-only patch styles */
+/* output: compact overlay menus and responsive header wrapping */
+/* pos: navigation-only patch styles（更新规则：文件变更需同步本注释与所属目录 README） */
 
 .site-header {
   overflow: visible;
@@ -106,8 +106,25 @@
 }
 
 @media (max-width: 900px) {
+  .site-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .brand {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .brand strong,
+  .brand small {
+    overflow-wrap: anywhere;
+  }
+
   .site-nav {
     flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 100%;
   }
 
   .guide-dropdown-menu,
@@ -120,5 +137,35 @@
   .language-dropdown-menu::before {
     right: auto;
     left: 20px;
+  }
+}
+
+@media (max-width: 560px) {
+  .site-nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .site-nav a,
+  .guide-dropdown,
+  .language-dropdown,
+  .guide-dropdown-trigger,
+  .language-dropdown-trigger {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .site-nav a,
+  .guide-dropdown-trigger,
+  .language-dropdown-trigger {
+    padding-inline: 10px;
+    text-align: center;
+    overflow-wrap: anywhere;
+    white-space: normal;
+  }
+
+  .site-nav .nav-cta {
+    grid-column: 1 / -1;
   }
 }

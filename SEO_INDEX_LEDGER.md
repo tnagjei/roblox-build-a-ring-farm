@@ -54,6 +54,7 @@
 | `/farm-ring-bonuses/` | `Build A Ring Farm Farm Ring Bonuses` | 新增 ring bonus 页 + `/rings/` 入口 | Third-party reported, pending verification | 2026-06-10 | 2026-06-17 | 不写固定 bonus、best ring、verified multiplier |
 | `/soil-quality-upgrades/` | `Build A Ring Farm Soil Quality Upgrades` | 新增 upgrade mechanics 页 + Guides 入口 | Third-party reported, pending verification | 2026-06-10 | 2026-06-17 | 不写固定价格、ROI、growth effect |
 | `/farm-skins/` | `Build A Ring Farm Farm Skins` | 新增 cosmetic mechanics 页 + Guides 入口 | Third-party reported, pending verification | 2026-06-10 | 2026-06-17 | 不把 cosmetic 写成 gameplay boost |
+| `/tier-list/` | `Build A Ring Farm pets tier list` 和 `best pets` | 页面内容全面加码重构为宠物梯度方向 | Community reported, pending verification | 2026-06-10 | 2026-06-17 | 不写官方排行，不写 verified，保持 source 标示 |
 
 ---
 
@@ -71,6 +72,7 @@
 | `/farm-ring-bonuses/` | 新增长尾页 | 待发现 | 待提交 / 待发现 | 已同步 | Update 4 rings 实验 | 提交索引后 7 / 14 天复查 |
 | `/soil-quality-upgrades/` | 新增长尾页 | 待发现 | 待提交 / 待发现 | 已同步 | Update 4 upgrades 实验 | 提交索引后 7 / 14 天复查 |
 | `/farm-skins/` | 新增长尾页 | 待发现 | 待提交 / 待发现 | 已同步 | Update 4 cosmetic 实验 | 提交索引后 7 / 14 天复查 |
+| `/tier-list/` | 强信号页加码 | 已索引，已有 GSC 表现 | 已索引 | 已确认 | 页面已重构为宠物梯度厚度，强化 5 处内链 | 2026-06-10 复查 query 流量 |
 
 ---
 

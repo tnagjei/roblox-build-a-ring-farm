@@ -7,7 +7,7 @@
 ## Files
 - README.md：本目录说明
 - globals.css：全站视觉样式
-- nav-fixes.css：顶部导航下拉浮层修复样式
+- nav-fixes.css：顶部导航下拉浮层与移动端换行修复样式
 - layout.tsx：根布局和全局 metadata
 - manifest.ts：PWA manifest 和安装图标配置
 - page.tsx：首页
@@ -37,7 +37,7 @@
 - strong-fertilizer/：Strong Fertilizer source status 长尾 SEO 页面
 - offline-income/：offline income 长尾 SEO 页面
 - farm-layout/：farm layout 长尾 SEO 页面
-- tier-list/：tier list 长尾 SEO 页面
+- tier-list/：pets tier list 长尾 SEO 页面
 - advanced-crops/：advanced crops 长尾 SEO 页面
 - money-farming/：money farming 长尾 SEO 页面
 - weather-events/：weather events 长尾 SEO 页面
