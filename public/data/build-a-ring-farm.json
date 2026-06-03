@@ -37,6 +37,11 @@
         "name": "Featured on NewTool.site",
         "url": "https://newtool.site/item/build-a-ring-farm-guide",
         "badgeUrl": "https://newtool.site/badges/newtool-light.svg"
+      },
+      {
+        "name": "Featured on DeepLaunch.io",
+        "url": "https://deeplaunch.io",
+        "badgeUrl": "https://deeplaunch.io/badge/badge_transparent.svg"
       }
     ]
   },
