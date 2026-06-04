@@ -57,17 +57,31 @@ export default function RootLayout({
     <html lang={gameConfig.defaultLocale}>
       <body>
         {googleAnalyticsId ? (
-          <>
-            <Script src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`} strategy="afterInteractive" />
-            <Script id="google-analytics" strategy="afterInteractive">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${googleAnalyticsId}');
-              `}
-            </Script>
-          </>
+          <Script id="google-analytics" strategy="afterInteractive">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${googleAnalyticsId}');
+              (function(){
+                function loadGoogleAnalytics(){
+                  if (document.getElementById('google-analytics-src')) return;
+                  var script = document.createElement('script');
+                  script.id = 'google-analytics-src';
+                  script.async = true;
+                  script.src = 'https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}';
+                  document.head.appendChild(script);
+                }
+                window.setTimeout(function(){
+                  if ('requestIdleCallback' in window) {
+                    window.requestIdleCallback(loadGoogleAnalytics, { timeout: 1000 });
+                  } else {
+                    loadGoogleAnalytics();
+                  }
+                }, 3000);
+              })();
+            `}
+          </Script>
         ) : null}
         {clarityId ? (
           <Script id="ms-clarity" strategy="afterInteractive">

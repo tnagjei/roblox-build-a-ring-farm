@@ -3,6 +3,7 @@
 // pos: multilingual homepage template（更新规则：文件变更需同步本注释与所属目录 README）
 
 import Link from "next/link";
+import { preload } from "react-dom";
 import { HomeVideoGuides } from "@/components/HomeVideoGuides";
 import { JsonLd } from "@/components/JsonLd";
 import type { HomeHubTable, HomePageContent, StatItem, TextSection } from "@/lib/content/page-types";
@@ -95,6 +96,8 @@ function SnapshotTable({ table }: { table: HomeHubTable }) {
 }
 
 export function HomePageTemplate({ content, locale }: HomePageTemplateProps) {
+  preload("/images/official-hero-image-mobile.webp", { as: "image", fetchPriority: "high", media: "(max-width: 560px)" });
+
   const directoryCards = [...content.directory.cards, ...extraDirectoryCards(locale).filter((card) => !hasPath(content.directory.cards, card.href))];
   const popularSearches = [...content.popularSearches, ...extraPopularSearches(locale).filter((card) => !hasPath(content.popularSearches, card.href))];
   const extraFaq = homepageExtraKeys
@@ -124,7 +127,7 @@ export function HomePageTemplate({ content, locale }: HomePageTemplateProps) {
         <picture>
           <source media="(max-width: 560px)" srcSet="/images/official-hero-image-mobile.webp" type="image/webp" />
           <source srcSet={siteData.assets.hero} type="image/webp" />
-          <img className="hero-image" src={siteData.assets.hero} alt={`${siteData.game.name} Roblox thumbnail`} width={768} height={432} fetchPriority="high" decoding="async" />
+          <img className="hero-image" src={siteData.assets.hero} alt={`${siteData.game.name} Roblox thumbnail`} width={480} height={270} fetchPriority="high" decoding="async" />
         </picture>
       </section>
 
