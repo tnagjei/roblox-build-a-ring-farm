@@ -7,8 +7,8 @@ import Script from "next/script";
 import "./globals.css";
 import "./language.css";
 import "./nav-fixes.css";
+import LazyAdLoader from "@/components/LazyAdLoader";
 import { SiteChrome } from "@/components/SiteChrome";
-import SocialBarAd from "@/components/SocialBarAd";
 import { gameConfig } from "@/lib/game-config";
 import { siteData } from "@/lib/site-data";
 import { siteUrl } from "@/lib/seo";
@@ -17,6 +17,7 @@ const isProduction = process.env.NODE_ENV === "production";
 const googleAnalyticsId = isProduction ? process.env.NEXT_PUBLIC_GA_ID || gameConfig.analytics.googleAnalyticsId : "";
 const adsenseClient = isProduction ? process.env.NEXT_PUBLIC_ADSENSE_CLIENT || gameConfig.analytics.adsenseClient : "";
 const clarityId = isProduction ? process.env.NEXT_PUBLIC_CLARITY_ID || gameConfig.analytics.clarityId : "";
+const socialBarSrc = isProduction ? process.env.NEXT_PUBLIC_SOCIAL_BAR_SRC || "" : "";
 const yandexVerification = process.env.NEXT_PUBLIC_YANDEX_VERIFICATION || gameConfig.analytics.yandexVerification;
 const thirdPartyAdScripts = isProduction ? gameConfig.analytics.thirdPartyAdScripts : [];
 
@@ -55,14 +56,6 @@ export default function RootLayout({
   return (
     <html lang={gameConfig.defaultLocale}>
       <body>
-        {adsenseClient ? (
-          <Script
-            async
-            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`}
-            crossOrigin="anonymous"
-            strategy="afterInteractive"
-          />
-        ) : null}
         {googleAnalyticsId ? (
           <>
             <Script src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`} strategy="afterInteractive" />
@@ -79,19 +72,18 @@ export default function RootLayout({
         {clarityId ? (
           <Script id="ms-clarity" strategy="afterInteractive">
             {`
-              (function(c,l,a,r,i,t,y){
-                  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-                  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-              })(window, document, "clarity", "script", "${clarityId}");
+              window.setTimeout(function(){
+                (function(c,l,a,r,i,t,y){
+                    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+                })(window, document, "clarity", "script", "${clarityId}");
+              }, 5000);
             `}
           </Script>
         ) : null}
-        {thirdPartyAdScripts.map((src) => (
-          <Script key={src} src={src} strategy="lazyOnload" />
-        ))}
         <SiteChrome>{children}</SiteChrome>
-        <SocialBarAd />
+        <LazyAdLoader adsenseClient={adsenseClient} thirdPartyAdScripts={thirdPartyAdScripts} socialBarSrc={socialBarSrc} />
       </body>
     </html>
   );

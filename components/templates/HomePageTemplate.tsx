@@ -121,7 +121,11 @@ export function HomePageTemplate({ content, locale }: HomePageTemplateProps) {
             {content.hero.secondaryAction ? (content.hero.secondaryAction.external ? <a className="secondary-link" href={actionHref(content.hero.secondaryAction.href)} target="_blank" rel="noopener noreferrer">{content.hero.secondaryAction.label}</a> : <Link prefetch={false} className="secondary-link" href={content.hero.secondaryAction.href}>{content.hero.secondaryAction.label}</Link>) : null}
           </div>
         </div>
-        <img className="hero-image" src={siteData.assets.hero} alt={`${siteData.game.name} Roblox thumbnail`} />
+        <picture>
+          <source media="(max-width: 560px)" srcSet="/images/official-hero-image-mobile.webp" type="image/webp" />
+          <source srcSet={siteData.assets.hero} type="image/webp" />
+          <img className="hero-image" src={siteData.assets.hero} alt={`${siteData.game.name} Roblox thumbnail`} width={768} height={432} fetchPriority="high" decoding="async" />
+        </picture>
       </section>
 
       <section className="stats-strip" aria-label={content.hero.eyebrow}>{content.stats.map((stat) => <StatBox key={`${stat.valueKey}-${stat.label}`} value={statValue(stat)} label={stat.label} detail={stat.detail} />)}</section>

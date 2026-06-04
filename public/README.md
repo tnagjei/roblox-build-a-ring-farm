@@ -14,5 +14,5 @@
 - logo.svg：品牌 SVG 源图
 - logo.png：品牌 PNG 下载图
 - logo.webp：品牌 WEBP 下载图
-- images/：静态页面和社交图资源
+- images/：静态页面和社交图资源，包含桌面与移动端 hero WebP
 - data/：站点公开 JSON 数据
