@@ -15,8 +15,8 @@ export const gameConfig = {
   defaultLocale: "en",
   completedLocales: ["en"],
 
-  coreSlugs: ["", "codes", "updates", "update-status", "beginners-guide", "crops", "seeds", "upgrades", "gear-shop", "sprays", "rainbow-spray", "mutations", "rainbow-mutation", "fertilizer", "strong-fertilizer", "offline-income", "farm-layout", "advanced-crops", "money-farming", "weather-events", "tier-list", "calculator", "rings", "update-3-status", "250kusers-code", "official-discord", "plant-contracts", "farm-ring-bonuses", "soil-quality-upgrades", "farm-skins"],
-  completedCoreSlugs: ["", "codes", "updates", "update-status", "beginners-guide", "crops", "seeds", "upgrades", "gear-shop", "sprays", "rainbow-spray", "mutations", "rainbow-mutation", "fertilizer", "strong-fertilizer", "offline-income", "farm-layout", "advanced-crops", "money-farming", "weather-events", "tier-list", "calculator", "rings", "update-3-status", "250kusers-code", "official-discord", "plant-contracts", "farm-ring-bonuses", "soil-quality-upgrades", "farm-skins"],
+  coreSlugs: ["", "codes", "updates", "update-status", "beginners-guide", "crops", "seeds", "upgrades", "gear-shop", "sprays", "rainbow-spray", "mutations", "rainbow-mutation", "fertilizer", "strong-fertilizer", "offline-income", "farm-layout", "advanced-crops", "money-farming", "weather-events", "events", "pets", "tier-list", "calculator", "rings", "update-3-status", "250kusers-code", "official-discord", "plant-contracts", "farm-ring-bonuses", "soil-quality-upgrades", "farm-skins"],
+  completedCoreSlugs: ["", "codes", "updates", "update-status", "beginners-guide", "crops", "seeds", "upgrades", "gear-shop", "sprays", "rainbow-spray", "mutations", "rainbow-mutation", "fertilizer", "strong-fertilizer", "offline-income", "farm-layout", "advanced-crops", "money-farming", "weather-events", "events", "pets", "tier-list", "calculator", "rings", "update-3-status", "250kusers-code", "official-discord", "plant-contracts", "farm-ring-bonuses", "soil-quality-upgrades", "farm-skins"],
   englishOnlySlugs: ["scripts"],
   completedEnglishOnlySlugs: ["scripts"],
 
