@@ -23,6 +23,7 @@ const corePageKeys = [
   "strong-fertilizer",
   "offline-income",
   "farm-layout",
+  "pets",
   "tier-list",
   "advanced-crops",
   "weather-events",

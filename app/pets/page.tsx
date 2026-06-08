@@ -1,11 +1,17 @@
+// input: `/pets/` route request
+// output: English pets hub with community-reported pet roles, tier-list alignment, and source labels
+// pos: pets hub route content（更新规则：文件变更需同步本注释与所属目录 README）
+
 import type { Metadata } from "next";
 import Link from "next/link";
 import { absoluteUrl } from "@/lib/seo";
 
-const pageTitle = "Build A Ring Farm Pets Guide | Reported Pet Tier List";
-const pageDescription = "Build A Ring Farm pets guide with reported pet tier list leads, Starfall Griffin pending status, pet effects, source labels, and verification rules.";
+const pageTitle = "Build A Ring Farm Pets Guide | Best Pets & Bonuses";
+const pageDescription =
+  "Build A Ring Farm pets guide covering community-reported best pets, pet bonuses, tier-list links, beginner picks, and source status labels today.";
 const heroImage = "/images/official-hero-image.webp";
-const lastChecked = "2026-06-05";
+const communityStatus = "Community reported";
+const pendingStatus = "Pending in-game check";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -16,47 +22,72 @@ export const metadata: Metadata = {
     description: pageDescription,
     url: absoluteUrl("/pets/"),
     type: "article",
-    images: [{ url: absoluteUrl(heroImage), width: 1200, height: 630, alt: "Build A Ring Farm pets guide" }]
+    images: [{ url: absoluteUrl("/images/official-hero-image.webp"), width: 1200, height: 630, alt: "Build A Ring Farm pets guide" }]
   },
-  twitter: { card: "summary_large_image", title: pageTitle, description: pageDescription, images: [absoluteUrl(heroImage)] }
+  twitter: { card: "summary_large_image", title: pageTitle, description: pageDescription, images: [absoluteUrl("/images/official-hero-image.webp")] }
 };
 
-const petRows = [
-  { pet: "Starfall Griffin", reportedEffect: "Possible Starfall-related pet or stacking lead", sourceType: "Third-party / community signal", status: "High-risk pending", related: "Starfall mutation and events" },
-  { pet: "Unknown event pet", reportedEffect: "Event-linked pet claim needs a real name and screenshot", sourceType: "Community reported lead", status: "Pending", related: "Events" },
-  { pet: "Unknown farming pet", reportedEffect: "Possible money farming support, not verified", sourceType: "Community reported lead", status: "Needs verification", related: "Money farming" },
-  { pet: "Unknown mutation pet", reportedEffect: "Possible mutation support, not verified", sourceType: "Community reported lead", status: "Needs verification", related: "Mutations" }
+const topPetRows = [
+  { pet: "T-Rex", tier: "S", role: "Late-game money and mutation support", note: "Reported earnings boost plus mutation upgrade support.", status: communityStatus },
+  { pet: "Kitsune", tier: "S", role: "Mutation support and passive income scaling", note: "Reported as a strong high-rarity pet by public guides.", status: communityStatus },
+  { pet: "Hydra", tier: "S", role: "High-value crop mutation support", note: "Reported as a top pet, but exact cooldowns still need checking.", status: communityStatus },
+  { pet: "Velociraptor", tier: "S", role: "Growth speed support", note: "Reported time-skip style support for faster farming routes.", status: communityStatus },
+  { pet: "Crocodile", tier: "B", role: "Beginner to mid-game crop support", note: "Reported fully-grown plant support with lower access pressure.", status: communityStatus },
+  { pet: "Golden Retriever", tier: "D", role: "Starter filler pet", note: "Reported early filler value before stronger pets are available.", status: communityStatus },
+  { pet: "Capybara", tier: "D", role: "Starter seed luck support", note: "Reported seed luck support, not a late-game best pet claim.", status: communityStatus }
 ];
 
-const tierRows = [
-  { tier: "S", rule: "Reserved for pets with official or repeatable in-game proof", currentStatus: "No verified S-tier pet yet" },
-  { tier: "A", rule: "Strong community lead plus visible gameplay evidence", currentStatus: "Pending" },
-  { tier: "B", rule: "Useful reported effect but weak proof", currentStatus: "Pending" },
-  { tier: "C", rule: "Name or effect mentioned, but not enough proof for advice", currentStatus: "Pending" }
+const useCaseRows = [
+  { useCase: "Best reported overall", pets: "T-Rex, Kitsune, Hydra, Velociraptor", rule: "Use the tier list before spending major cash or Robux.", status: communityStatus },
+  { useCase: "Money farming", pets: "T-Rex, Kitsune, Hydra, Spinosaurus, Gallimimus", rule: "Treat earnings boosts as planning inputs, not confirmed calculator presets.", status: communityStatus },
+  { useCase: "Crop growth", pets: "Velociraptor, Polar Bear, Gallimimus, Crocodile, Elephant", rule: "Check growth support against observed harvest timing.", status: communityStatus },
+  { useCase: "Mutation support", pets: "T-Rex, Kitsune, Hydra, Mammoth", rule: "Keep chance and cooldown claims reported until tested in game.", status: communityStatus },
+  { useCase: "Fertilizer or treat support", pets: "Spinosaurus, Triceratops, Gorilla, Golden Retriever", rule: "Do not mix pet treat claims with gear-shop fertilizer proof.", status: communityStatus },
+  { useCase: "Beginner pets", pets: "Crocodile, Elephant, Llama, Golden Retriever, Capybara", rule: "Use them as starter support while building a stable crop loop.", status: communityStatus }
 ];
 
-const evidenceRows = [
-  { source: "Roblox game UI", use: "Pet names, prices, effects, unlock method", reliability: "High if visible and repeatable" },
-  { source: "Official developer channel", use: "Patch note or pet announcement", reliability: "High only if identity is confirmed" },
-  { source: "YouTube gameplay", use: "Visible pet UI and effect clues", reliability: "Medium; video opinion stays community reported" },
-  { source: "Reddit or Discord discussion", use: "Search demand and player leads", reliability: "Low to medium; keep pending" },
-  { source: "Competitor guide", use: "Structure and field ideas", reliability: "Low for facts unless independently checked" }
+const bonusRows = [
+  { bonus: "Earnings boost", examples: "T-Rex, Kitsune, Hydra", use: "Money farming and route comparison", status: communityStatus },
+  { bonus: "Growth support", examples: "Velociraptor, Polar Bear, Gallimimus, Crocodile", use: "Faster crop cycles and fewer idle plots", status: communityStatus },
+  { bonus: "Mutation support", examples: "T-Rex, Kitsune, Hydra, Mammoth", use: "Rare crop and advanced route testing", status: communityStatus },
+  { bonus: "Treat or fertilizer support", examples: "Spinosaurus, Triceratops, Gorilla, Golden Retriever", use: "Pet progression or crop timing support", status: communityStatus },
+  { bonus: "Seed luck support", examples: "Capybara", use: "Starter seed testing only", status: communityStatus },
+  { bonus: "Spray support", examples: "No reliable pet example yet", use: "Keep spray-specific pet support outside presets", status: pendingStatus }
+];
+
+const boundaryRows = [
+  { topic: "Starfall Griffin", rule: "Keep it as a high-risk pending lead until stronger source proof exists.", status: pendingStatus },
+  { topic: "Exact multipliers", rule: "Do not promote values from public guides into verified game data.", status: communityStatus },
+  { topic: "Calculator presets", rule: "Pet bonuses should remain manual inputs, not default confirmed presets.", status: pendingStatus },
+  { topic: "Single pet pages", rule: "Wait for stronger search demand before creating T-Rex, Kitsune, or Hydra pages.", status: "Deferred" }
 ];
 
 const relatedLinks = [
-  { href: "/tier-list/", title: "Tier List", description: "Pet tier list intent and source-safe ranking rules." },
-  { href: "/events/", title: "Events", description: "Event leads that may connect to pets and mutations." },
-  { href: "/mutations/", title: "Mutations", description: "Check Starfall, Honeycomb, Alien, Farm, and pending mutation leads." },
-  { href: "/calculator/", title: "Calculator", description: "Do not add pet bonuses into estimates until verified." },
-  { href: "/money-farming/", title: "Money Farming", description: "Treat pet effects as pending before changing routes." },
-  { href: "/farm-layout/", title: "Farm Layout", description: "Plan farm routes before assuming pet effects." }
+  { href: "/tier-list/", title: "Pets Tier List", description: "Compare the full community-reported S to D pet list." },
+  { href: "/money-farming/", title: "Money Farming", description: "Use pet roles inside safer cash routes." },
+  { href: "/calculator/", title: "Calculator", description: "Enter pet bonuses manually as pending inputs." },
+  { href: "/mutations/", title: "Mutations", description: "Separate mutation support from verified mutation values." },
+  { href: "/crops/", title: "Crops", description: "Check the base crop loop before chasing rare pets." },
+  { href: "/updates/", title: "Updates", description: "Recheck pets after game updates." }
 ];
 
 const faq = [
-  { q: "Is there a verified Build A Ring Farm pet tier list?", a: "No. This page keeps pet rankings as reported or pending until official or repeatable in-game evidence exists." },
-  { q: "Is Starfall Griffin verified?", a: "No. Starfall Griffin is a high-risk pending pet lead and should not be treated as a verified best pet." },
-  { q: "Can pet bonuses be used in the calculator?", a: "Only as manual pending notes. Do not add pet bonuses as verified calculator presets until the effect is proven." },
-  { q: "Why are some pet names unknown?", a: "Unknown placeholders are safer than invented names. A pet name should only be promoted when a reliable source or in-game UI confirms it." }
+  {
+    q: "What are the best pets in Build A Ring Farm?",
+    a: "The strongest community-reported pets are T-Rex, Kitsune, Hydra, and Velociraptor. This is not official developer data, so recheck the tier list and the game before spending major resources."
+  },
+  {
+    q: "Is this Build A Ring Farm pets guide official?",
+    a: "No. This is an independent fan guide. Pet names, tiers, effects, cooldowns, and boosts stay community reported or pending unless stronger proof is added."
+  },
+  {
+    q: "Do pet bonuses work in the calculator?",
+    a: "Use pet bonuses as manual pending inputs only. This site does not turn reported pet bonuses into verified calculator presets."
+  },
+  {
+    q: "Is Starfall Griffin a best pet?",
+    a: "Not here. Starfall Griffin remains a high-risk pending lead until better evidence confirms its role, source, and value."
+  }
 ];
 
 function StatusBadge({ status }: { status: string }) {
@@ -68,12 +99,14 @@ export default function PetsPage() {
     <main className="page-main">
       <section className="page-hero compact-hero">
         <div className="hero-copy">
-          <p className="eyebrow">Pets and pending tier list</p>
+          <p className="eyebrow">Community-reported pets hub</p>
           <h1>Build A Ring Farm Pets Guide</h1>
-          <p className="lede">Track Build A Ring Farm pets, reported pet tier list leads, Starfall Griffin claims, pet effects, and source status without inventing verified best pets.</p>
+          <p className="lede">
+            Use this Build A Ring Farm pets guide to connect the pets hub, pets tier list, pet bonuses, beginner choices, money farming roles, mutation support, and calculator boundaries without treating community data as official.
+          </p>
           <div className="hero-actions">
-            <Link prefetch={false} className="primary-link" href="/tier-list/">Open tier list</Link>
-            <Link prefetch={false} className="secondary-link" href="/events/">Check events</Link>
+            <Link prefetch={false} className="primary-link" href="/tier-list/">Open pets tier list</Link>
+            <a className="secondary-link" href="#pet-bonuses">Compare pet bonuses</a>
           </div>
         </div>
         <img className="hero-image" src={heroImage} alt="Build A Ring Farm Roblox thumbnail" />
@@ -81,54 +114,67 @@ export default function PetsPage() {
 
       <section className="guide-card evidence-note-card">
         <span className="card-rule" />
-        <p className="eyebrow">Current verdict</p>
-        <h2>Pets are reported or pending, not verified rankings</h2>
-        <p>Last checked: {lastChecked}. This page fixes the pets search gap while keeping every pet effect, tier, bonus, and Starfall Griffin claim in reported or pending status.</p>
+        <p className="eyebrow">Evidence status</p>
+        <h2>Pet data stays community reported</h2>
+        <p>
+          This pets hub aligns with the pets tier list, but it does not upgrade pet effects into verified facts. Treat pet tiers, boosts, cooldowns, rarity, and Egg Shop details as community reported until official or repeatable in-game proof is recorded.
+        </p>
       </section>
 
       <section className="content-grid single-column-grid">
         <article className="guide-card data-card">
           <span className="card-rule" />
-          <p className="eyebrow">Pet leads</p>
-          <h2>Reported Build A Ring Farm pet leads</h2>
+          <p className="eyebrow">Top reported pets</p>
+          <h2>Build A Ring Farm pets summary</h2>
+          <p>
+            The pets page now gives concrete names instead of empty placeholders. For the complete S to D ranking, use the dedicated pets tier list.
+          </p>
           <div className="data-list">
-            {petRows.map((row) => (
+            {topPetRows.map((row) => (
               <div className="data-row four-field-row" key={row.pet}>
-                <div><span>Pet / lead</span><strong>{row.pet}</strong></div>
-                <div><span>Reported effect</span><strong>{row.reportedEffect}</strong></div>
-                <div><span>Source type</span><strong>{row.sourceType}</strong></div>
+                <div><span>Pet</span><strong>{row.pet}</strong></div>
+                <div><span>Reported tier</span><strong>{row.tier}</strong></div>
+                <div><span>Role</span><strong>{row.role}</strong></div>
+                <div><span>Source status</span><strong>{row.note}</strong><StatusBadge status={row.status} /></div>
+              </div>
+            ))}
+          </div>
+        </article>
+      </section>
+
+      <section className="content-grid single-column-grid">
+        <article className="guide-card data-card">
+          <span className="card-rule" />
+          <p className="eyebrow">Use-case table</p>
+          <h2>Best pets by player goal</h2>
+          <div className="data-list">
+            {useCaseRows.map((row) => (
+              <div className="data-row four-field-row" key={row.useCase}>
+                <div><span>Use case</span><strong>{row.useCase}</strong></div>
+                <div><span>Pets</span><strong>{row.pets}</strong></div>
+                <div><span>Rule</span><strong>{row.rule}</strong></div>
                 <div><span>Status</span><StatusBadge status={row.status} /></div>
               </div>
             ))}
           </div>
         </article>
+      </section>
 
+      <section className="content-grid single-column-grid" id="pet-bonuses">
         <article className="guide-card data-card">
           <span className="card-rule" />
-          <p className="eyebrow">Tier rules</p>
-          <h2>Reported pet tier list rules</h2>
-          <p>The table below defines how this site will rank pets later. It is not a verified S / A / B / C ranking yet.</p>
+          <p className="eyebrow">Pet bonuses</p>
+          <h2>Pet bonus evidence table</h2>
+          <p>
+            Pet bonuses help players decide what to test next, but the calculator should keep them as manual pending inputs until stronger evidence exists.
+          </p>
           <div className="data-list">
-            {tierRows.map((row) => (
-              <div className="data-row three-field-row" key={row.tier}>
-                <div><span>Tier</span><strong>{row.tier}</strong></div>
-                <div><span>Use rule</span><strong>{row.rule}</strong></div>
-                <div><span>Current status</span><StatusBadge status={row.currentStatus} /></div>
-              </div>
-            ))}
-          </div>
-        </article>
-
-        <article className="guide-card data-card">
-          <span className="card-rule" />
-          <p className="eyebrow">Sources</p>
-          <h2>Pet evidence checklist</h2>
-          <div className="data-list">
-            {evidenceRows.map((row) => (
-              <div className="data-row three-field-row" key={row.source}>
-                <div><span>Source</span><strong>{row.source}</strong></div>
+            {bonusRows.map((row) => (
+              <div className="data-row four-field-row" key={row.bonus}>
+                <div><span>Bonus</span><strong>{row.bonus}</strong></div>
+                <div><span>Reported examples</span><strong>{row.examples}</strong></div>
                 <div><span>Use</span><strong>{row.use}</strong></div>
-                <div><span>Reliability</span><strong>{row.reliability}</strong></div>
+                <div><span>Status</span><StatusBadge status={row.status} /></div>
               </div>
             ))}
           </div>
@@ -136,14 +182,88 @@ export default function PetsPage() {
       </section>
 
       <section className="content-grid">
-        <article className="guide-card"><span className="card-rule" /><h2>How pets may affect farming</h2><p>Pet effects should be separated by use case: money farming, mutation support, crop support, spray support, layout support, and event support. None of these effects are verified here yet.</p><ul><li>Money farming bonuses stay pending.</li><li>Mutation support stays pending.</li><li>Event-linked pets need screenshots or video proof.</li></ul></article>
-        <article className="guide-card"><span className="card-rule" /><h2>Why this is not a fake best-pet list</h2><p>Players want the best pet, but a fake list would be worse than no list. This page records the evidence boundary first, then upgrades claims only when proof improves.</p><ul><li>No invented pet names.</li><li>No verified tier without proof.</li><li>No calculator bonus without source evidence.</li></ul></article>
+        <article className="guide-card">
+          <span className="card-rule" />
+          <h2>How this pets hub connects to the tier list</h2>
+          <h3>Hub first, full ranking second</h3>
+          <p>
+            This page answers broad Build A Ring Farm pets searches. The tier-list page answers ranking searches with a fuller S to D table, source notes, videos, and role comparisons.
+          </p>
+          <p>
+            Keeping both pages aligned matters because a player who enters through the pets hub should see the same pet names and caution labels that appear on the ranking page.
+          </p>
+        </article>
+
+        <article className="guide-card">
+          <span className="card-rule" />
+          <h2>How to use pets for money farming</h2>
+          <h3>Stable route before rare pets</h3>
+          <p>
+            Pets can support money farming, crop growth, mutation routes, or starter progression. They should not replace the basic loop of active plots, selling, upgrades, and controlled route testing.
+          </p>
+          <p>
+            If a reported pet bonus looks strong, test one route at a time before using it as a calculator input or buying a higher-rarity egg.
+          </p>
+        </article>
+
+        <article className="guide-card">
+          <span className="card-rule" />
+          <h2>What this page will not claim</h2>
+          <h3>No fake official pet data</h3>
+          <p>
+            This page does not claim official pet tiers, confirmed multipliers, confirmed cooldowns, or exact egg odds. It also does not turn Starfall Griffin into a best-pet recommendation.
+          </p>
+          <p>
+            The next safe expansion is stronger evidence capture, not a set of thin single-pet pages.
+          </p>
+        </article>
       </section>
 
-      <section className="section-heading"><p className="eyebrow">Related guides</p><h2>Pets route links</h2></section>
-      <section className="route-grid">{relatedLinks.map((link) => <Link prefetch={false} className="route-card" href={link.href} key={link.href}><span className="card-rule" /><h2>{link.title}</h2><p>{link.description}</p></Link>)}</section>
+      <section className="content-grid single-column-grid">
+        <article className="guide-card data-card">
+          <span className="card-rule" />
+          <p className="eyebrow">Boundary rules</p>
+          <h2>Pending and deferred pet topics</h2>
+          <div className="data-list">
+            {boundaryRows.map((row) => (
+              <div className="data-row three-field-row" key={row.topic}>
+                <div><span>Topic</span><strong>{row.topic}</strong></div>
+                <div><span>Rule</span><strong>{row.rule}</strong></div>
+                <div><span>Status</span><StatusBadge status={row.status} /></div>
+              </div>
+            ))}
+          </div>
+        </article>
+      </section>
 
-      <section className="faq-section"><div className="section-heading"><p className="eyebrow">FAQ</p><h2>Build A Ring Farm Pets FAQ</h2></div><div className="faq-list">{faq.map((item) => <details key={item.q}><summary>{item.q}</summary><p>{item.a}</p></details>)}</div></section>
+      <section className="section-heading">
+        <p className="eyebrow">Related guides</p>
+        <h2>Pet route links</h2>
+      </section>
+      <section className="route-grid" aria-label="Pet route links">
+        {relatedLinks.map((link) => (
+          <Link prefetch={false} className="route-card" href={link.href} key={link.href}>
+            <span className="card-rule" />
+            <h2>{link.title}</h2>
+            <p>{link.description}</p>
+          </Link>
+        ))}
+      </section>
+
+      <section className="faq-section">
+        <div className="section-heading">
+          <p className="eyebrow">FAQ</p>
+          <h2>Build A Ring Farm Pets FAQ</h2>
+        </div>
+        <div className="faq-list">
+          {faq.map((item) => (
+            <details key={item.q}>
+              <summary>{item.q}</summary>
+              <p>{item.a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
     </main>
   );
 }

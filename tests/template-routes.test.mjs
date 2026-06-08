@@ -1,3 +1,7 @@
+// input: lib/game-config route groups and app route files
+// output: Node test assertions for completed route inventory
+// pos: route inventory regression test（更新规则：路由数量变化需同步本注释与 tests/README）
+
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
@@ -28,7 +32,7 @@ test("sitemap route count matches completed pages", () => {
   const completedEnglishOnlySlugs = extractArray(config, "completedEnglishOnlySlugs");
 
   const expectedCount = completedLocales.length * completedCoreSlugs.length + completedEnglishOnlySlugs.length;
-  assert.equal(expectedCount, 31);
+  assert.equal(expectedCount, 32);
 });
 
 test("localized core routes exist for completed core slugs", () => {

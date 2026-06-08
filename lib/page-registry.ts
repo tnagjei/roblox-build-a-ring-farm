@@ -1,6 +1,6 @@
-// input: site config route groups and completion flags
+// input: site config route groups, completion flags, and trust page slugs
 // output: canonical route lists for sitemap, robots, footer, and hreflang
-// pos: site route registry
+// pos: site route registry（更新规则：路由注册变化需同步 app/README 与相关测试）
 
 import { gameConfig } from "@/lib/game-config";
 
@@ -10,7 +10,7 @@ export type RouteEntry = {
   locale: string;
   slug: string;
   path: string;
-  scope: "core" | "english-only";
+  scope: "core" | "english-only" | "trust";
   changeFrequency: ChangeFrequency;
   priority: number;
 };
@@ -79,7 +79,14 @@ export const englishOnlyRoutes: RouteEntry[] = completedEnglishOnlySlugs.map((sl
   priority: englishOnlyPriority(slug)
 }));
 
-export const sitemapRoutes: RouteEntry[] = [...completedCoreRoutes, ...englishOnlyRoutes];
+export const trustPageRoutes: RouteEntry[] = [
+  { locale: gameConfig.defaultLocale, slug: "about", path: "/about/", scope: "trust", changeFrequency: "monthly", priority: 0.45 },
+  { locale: gameConfig.defaultLocale, slug: "contact", path: "/contact/", scope: "trust", changeFrequency: "monthly", priority: 0.45 },
+  { locale: gameConfig.defaultLocale, slug: "privacy", path: "/privacy/", scope: "trust", changeFrequency: "monthly", priority: 0.4 },
+  { locale: gameConfig.defaultLocale, slug: "terms", path: "/terms/", scope: "trust", changeFrequency: "monthly", priority: 0.35 }
+];
+
+export const sitemapRoutes: RouteEntry[] = [...completedCoreRoutes, ...englishOnlyRoutes, ...trustPageRoutes];
 export const robotsAllowedRoutes = sitemapRoutes.map((route) => route.path);
 
 export function isCompletedLocale(locale: string): boolean {

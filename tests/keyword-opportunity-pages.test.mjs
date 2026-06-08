@@ -1,3 +1,7 @@
+// input: keyword opportunity route files, public data, and site config
+// output: Node test assertions for P0/P1 SEO opportunity coverage and evidence labels
+// pos: keyword opportunity regression test（更新规则：机会页变化需同步本注释与 tests/README）
+
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
@@ -151,6 +155,30 @@ test("broader update status covers Update 4 as pending without patch-note certai
   assert.match(source, /Update 4/i, "update status page must cover Update 4 intent");
   assert.match(source, /pending|reported/i, "Update 4 must be reported or pending");
   assert.doesNotMatch(source, /official patch notes|verified patch notes/i, "Update 4 patch notes must not be presented as verified");
+});
+
+test("June 2026 pets hub route is configured and source-labeled", () => {
+  const config = read("lib/game-config.ts");
+  const coreSlugs = extractArray(config, "coreSlugs");
+  const completedCoreSlugs = extractArray(config, "completedCoreSlugs");
+  const petsPage = read("app/pets/page.tsx");
+  const data = JSON.parse(read("public/data/build-a-ring-farm.json"));
+
+  assert.ok(coreSlugs.includes("pets"), "pets must be declared as a core slug");
+  assert.ok(completedCoreSlugs.includes("pets"), "pets must be completed");
+  assert.ok(fs.existsSync(path.join(root, "app", "pets", "README.md")), "Missing app/pets/README.md");
+
+  for (const term of ["T-Rex", "Kitsune", "Hydra", "Velociraptor", "Crocodile", "Golden Retriever", "Capybara"]) {
+    assert.match(petsPage, new RegExp(term, "i"), `pets page must include ${term}`);
+  }
+
+  assert.match(petsPage, /pet bonuses/i, "pets page must cover pet bonuses");
+  assert.match(petsPage, /Community reported|Pending in-game check/i, "pets page must keep source labels");
+  assert.doesNotMatch(petsPage, /verified (pet|tier|multiplier|cooldown|bonus)/i, "pets page must not verify pet claims");
+
+  const page = data.pages.find((item) => item.key === "pets");
+  assert.ok(page, "pets must exist in public data");
+  assert.ok(page.relatedPages.includes("tier-list"), "pets public data must link to tier-list");
 });
 
 test("new June mutation claims are pending in mutations and calculator presets", () => {

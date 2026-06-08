@@ -1,6 +1,6 @@
 // input: Build A Ring Farm site and game settings
 // output: single source of truth for site identity, locales, route groups, and optional integrations
-// pos: site configuration boundary
+// pos: site configuration boundary（更新规则：路由、域名或站点身份变化需同步 app/README 与测试）
 
 export const gameConfig = {
   siteName: "Build A Ring Farm Guide",

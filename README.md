@@ -1,14 +1,14 @@
 # Build A Ring Farm Guide
 
-- 用途：Build A Ring Farm Roblox 攻略站，覆盖 codes 状态、calculator、rings、mutations、sprays、fertilizer、Update 3 状态、新手指南、更新追踪和安全提醒。
+- 用途：Build A Ring Farm Roblox 攻略站，覆盖 codes 状态、calculator、rings、pets、mutations、sprays、fertilizer、Update 3 状态、新手指南、更新追踪、安全提醒和 AdSense 信任页。
 - 关键入口：`lib/game-config.ts`、`public/data/build-a-ring-farm.json`、`content/i18n/en/`、`app/`。
 - 边界原则：不编造 codes、奖励、数值、官方身份、Discord 链接或脚本下载。
 > 一旦根目录结构、运行方式或核心配置变化，请更新本文件
 
 ## Files
 
-- `app/`：App Router 页面、SEO 路由和全局样式
-- `components/`：站点 chrome、广告位、JSON-LD 和页面模板
+- `app/`：App Router 页面、SEO 路由、About/Contact/Privacy/Terms 信任页和全局样式
+- `components/`：站点 chrome、广告位、JSON-LD、首页入口和页面模板
 - `content/`：页面内容接线
 - `lib/game-config.ts`：站点和游戏参数配置
 - `lib/page-registry.ts`：完成页面、sitemap、robots、footer 页面注册表

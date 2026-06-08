@@ -8,7 +8,7 @@ import { absoluteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: `Privacy Policy | ${siteData.site.name}`,
-  description: `Privacy policy for ${siteData.site.name}, an independent Roblox fan guide with no account system.`,
+  description: `Privacy policy for ${siteData.site.name}, including contact email use, analytics, ads, external links, and Roblox account safety.`,
   alternates: {
     canonical: absoluteUrl("/privacy/")
   }
@@ -32,14 +32,27 @@ export default function PrivacyPage() {
           <span className="card-rule" />
           <h2>Data collection</h2>
           <p>
-            This site does not collect Roblox passwords, cookies, recovery codes, or account credentials. If analytics or ads are enabled, they should be disclosed here.
+            This site does not require an account and does not collect Roblox passwords, cookies, recovery codes, payment details, or account credentials.
+          </p>
+          <p>
+            If you email the site, your message and email address are used only to review the request, reply when needed, and keep a basic correction trail.
           </p>
         </article>
         <article className="guide-card">
           <span className="card-rule" />
-          <h2>Third-party services</h2>
+          <h2>Analytics and ads</h2>
           <p>
-            This site may link to Roblox and may use standard analytics, ads, or embedded media only when configured for the project.
+            This site may use Google Analytics, Google AdSense, Microsoft Clarity, and privacy-enhanced embedded media when those services are configured for production.
+          </p>
+          <p>
+            These services may process standard browser, device, cookie, performance, and interaction signals under their own policies.
+          </p>
+        </article>
+        <article className="guide-card">
+          <span className="card-rule" />
+          <h2>External links</h2>
+          <p>
+            This site may link to Roblox, official game pages, and source references. External websites have separate privacy and safety practices.
           </p>
         </article>
         <article className="guide-card">

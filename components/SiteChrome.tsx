@@ -1,8 +1,8 @@
-// input: app children, site config, page registry, and shared site data
-// output: locale-aware navigation, delayed sponsor placements, and footer shell limited to completed pages
-// pos: global chrome component（更新规则：导航、赞助位或 footer 变化需同步本注释与所属目录 README）
-
 "use client";
+
+// input: app children, site config, page registry, and shared site data
+// output: locale-aware navigation, delayed sponsor placements, trust links, and footer shell
+// pos: global chrome component（更新规则：导航、赞助位或 footer 变化需同步本注释与所属目录 README）
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
@@ -23,6 +23,12 @@ type NavItem = { href: string; label: string };
 
 const primaryNavSlugs = ["codes", "calculator", "beginners-guide", "money-farming"];
 const guideMenuSlugs = ["pets", "events", "tier-list", "rings", "update-status", "250kusers-code", "official-discord", "plant-contracts", "farm-ring-bonuses", "soil-quality-upgrades", "farm-skins", "update-3-status", "seeds", "crops", "upgrades", "gear-shop", "sprays", "rainbow-spray", "mutations", "rainbow-mutation", "fertilizer", "strong-fertilizer", "offline-income", "farm-layout", "advanced-crops", "weather-events", "updates"];
+const trustNavItems = [
+  { href: "/about/", label: "About" },
+  { href: "/contact/", label: "Contact" },
+  { href: "/privacy/", label: "Privacy" },
+  { href: "/terms/", label: "Terms" }
+];
 
 function shortLocaleLabel(code: string): string {
   const labels: Record<string, string> = { en: "EN", "zh-tw": "繁中", th: "TH" };
@@ -119,7 +125,7 @@ export function SiteChrome({ children }: SiteChromeProps) {
       {children}
       <div className="sponsor-mobile-bar" role="complementary" aria-label="Sponsored link"><span>Sponsored</span><SponsorCta className="sponsor-mobile-cta" label="Visit Sponsor" /></div>
       <AdBanner />
-      <footer className="site-footer"><div className="footer-clusters"><div className="footer-cluster"><h3>Guides</h3>{footerNavItems.map((item) => <Link prefetch={false} href={item.href} key={item.href}>{item.label}</Link>)}{isEnglish ? englishHighIntentSlugs.map((item) => <Link prefetch={false} href={item.href} key={item.href}>{item.label}</Link>) : null}</div><div className="footer-cluster"><h3>Languages</h3>{completedLocales.map((item) => <Link prefetch={false} href={getLocalizedPath(item.code, currentSlug)} key={item.code}>{item.label}</Link>)}</div><div className="footer-cluster"><h3>Official & Contact</h3><a href={siteData.game.robloxUrl} target="_blank" rel="noopener noreferrer">Play on Roblox</a>{gameConfig.robloxGroupUrl ? <a href={gameConfig.robloxGroupUrl} target="_blank" rel="noopener noreferrer">{officialGroupLabel}</a> : null}<a href={`mailto:${siteData.site.contactEmail}`}>Contact</a><Link prefetch={false} href={getLocalizedPath(currentLocale, "codes")}>Code Safety</Link></div></div>{friendLinks.length > 0 && <section className="friend-links-section"><div className="friend-links-container"><div className="friend-links-scroller">{[...friendLinks, ...friendLinks, ...friendLinks, ...friendLinks].map((link, i) => <a key={`${link.url}-${i}`} href={link.url} target="_blank" rel="noopener noreferrer" className="friend-link-item">{link.badgeUrl ? <img src={link.badgeUrl} alt={link.name} loading="lazy" decoding="async" /> : <span className="friend-link-text">{link.name}</span>}</a>)}</div></div></section>}<div className="footer-summary"><strong>{siteData.site.name}</strong><p>Independent fan guide. Not affiliated with Roblox Corporation or {developerName}.</p></div><div className="footer-meta"><span>Contact: {siteData.site.contactEmail}</span><span>Last full check: {siteData.site.lastFullCheck}</span></div><p className="copyright">© 2026 {siteData.site.copyrightOwner}. All Roblox trademarks belong to their respective owners.</p></footer>
+      <footer className="site-footer"><div className="footer-clusters"><div className="footer-cluster"><h3>Guides</h3>{footerNavItems.map((item) => <Link prefetch={false} href={item.href} key={item.href}>{item.label}</Link>)}{isEnglish ? englishHighIntentSlugs.map((item) => <Link prefetch={false} href={item.href} key={item.href}>{item.label}</Link>) : null}</div><div className="footer-cluster"><h3>Languages</h3>{completedLocales.map((item) => <Link prefetch={false} href={getLocalizedPath(item.code, currentSlug)} key={item.code}>{item.label}</Link>)}</div><div className="footer-cluster"><h3>Trust</h3>{trustNavItems.map((item) => <Link prefetch={false} href={item.href} key={item.href}>{item.label}</Link>)}</div><div className="footer-cluster"><h3>Official & Safety</h3><a href={siteData.game.robloxUrl} target="_blank" rel="noopener noreferrer">Play on Roblox</a>{gameConfig.robloxGroupUrl ? <a href={gameConfig.robloxGroupUrl} target="_blank" rel="noopener noreferrer">{officialGroupLabel}</a> : null}<Link prefetch={false} href={getLocalizedPath(currentLocale, "codes")}>Code Safety</Link></div></div>{friendLinks.length > 0 && <section className="friend-links-section"><div className="friend-links-container"><div className="friend-links-scroller">{friendLinks.map((link) => <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer" className="friend-link-item">{link.badgeUrl ? <><img src={link.badgeUrl} alt={link.name} width={88} height={31} loading="lazy" decoding="async" /><span className="friend-link-text">{link.name}</span></> : <span className="friend-link-text">{link.name}</span>}</a>)}</div></div></section>}<div className="footer-summary"><strong>{siteData.site.name}</strong><p>Independent fan guide. Not affiliated with Roblox Corporation or {developerName}.</p></div><div className="footer-meta"><span>Contact: {siteData.site.contactEmail}</span><span>Last full check: {siteData.site.lastFullCheck}</span></div><p className="copyright">© 2026 {siteData.site.copyrightOwner}. All Roblox trademarks belong to their respective owners.</p></footer>
     </div>
   );
 }
