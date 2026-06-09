@@ -8,7 +8,7 @@ import { absoluteUrl } from "@/lib/seo";
 import CalculatorEstimator from "@/components/CalculatorEstimator";
 
 const pageTitle = "Build A Ring Farm Calculator | Formula & Pending Presets";
-const pageDescription = "Build A Ring Farm calculator with formula explanation, pending mutation presets, player-entered values, reported multipliers, ring inputs, and safe estimate rules.";
+const pageDescription = "Build A Ring Farm calculator with formula explanation, pending presets, player-entered values, reported multipliers, rings, and safe estimate rules.";
 const heroImage = "/images/official-hero-image.webp";
 const reportedStatus = "Reported, pending verification";
 
