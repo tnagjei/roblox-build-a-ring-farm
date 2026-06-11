@@ -91,8 +91,9 @@ const petTierRows = [
     tier: "A",
     pet: "Spinosaurus",
     rarity: "Secret",
-    reportedEffect: "6.69x earnings boost, applies Strong Pet Treat every 600s",
-    role: "Support pet with strong reported boost",
+    // Strong Pet Treat 和 Super Pet Treat 都属于 pet treat 系统；Super Pet Treat 是 UPDATE5 claimed reward
+    reportedEffect: "6.69x earnings boost, applies Strong Pet Treat every 600s (note: Super Pet Treat is a separate item reportedly from UPDATE5 code — Beebom reported, pending)",
+    role: "Support pet with strong reported boost; connects to pet treat system",
     status: communityStatus
   },
   {
@@ -175,6 +176,8 @@ const roleRows = [
   { role: "Best for money farming", pets: "T-Rex, Kitsune, Hydra, Spinosaurus, Gallimimus", why: "They combine reported earnings boosts with mutation, growth, or treat support." },
   { role: "Best for crop support", pets: "Velociraptor, Polar Bear, Gallimimus, Crocodile, Elephant", why: "They are reported to speed growth, fully grow plants, or improve crop yield." },
   { role: "Best for mutation support", pets: "T-Rex, Kitsune, Hydra, Mammoth", why: "They are reported to upgrade plant mutations directly or by chance." },
+  // P0 补充：Super Pet Treat 是 UPDATE5 claimed reward，连接 pet treat 系统
+  { role: "Pet treat support", pets: "Spinosaurus (Strong Pet Treat, reported), Triceratops (Normal Pet Treat, reported)", why: "These pets apply pet treats on cooldown. Super Pet Treat is a separate item claimed as the UPDATE5 code reward by Beebom — treat effects remain pending in-game verification." },
   { role: "Spray support", pets: "Pending", why: "The current checked sources mention fertilizer, treats, growth, seed luck, and mutation effects, but no reliable spray-specific pet effect." }
 ];
 
@@ -252,7 +255,9 @@ const relatedLinks = [
   { href: "/gear-shop/", title: "Gear Shop", description: "Compare fertilizer, sprays, and item support routes." },
   { href: "/updates/", title: "Updates", description: "Recheck pet data after new updates." },
   { href: "/calculator/", title: "Calculator", description: "Estimate your farming growth and multiplier inputs." },
-  { href: "/codes/", title: "Codes", description: "Check reported code leads to claim extra rewards." }
+  // P0 互链：UPDATE5 / Super Pet Treat 连接 codes 页
+  { href: "/codes/", title: "Codes", description: "Check UPDATE5 reported Super Pet Treat reward and other June 2026 code claims." },
+  { href: "/pets/", title: "Pets Guide", description: "Pet treat types, Super Pet Treat pending boundary, and pet use cases." }
 ];
 
 const faq = [
@@ -279,6 +284,15 @@ const faq = [
   {
     q: "Does this tier list change after updates?",
     a: "Yes. Any new update can change pet abilities or prices. We recommend checking the updates page regularly to see if tiers need changes."
+  },
+  // P0 新增：Super Pet Treat 和 UPDATE5 问题
+  {
+    q: "What is Super Pet Treat in Build A Ring Farm?",
+    a: "Super Pet Treat is a pet item reported as the reward for the UPDATE5 code, according to Beebom (June 2026). It is different from Strong Pet Treat (applied by Spinosaurus) and Normal Pet Treat (applied by Triceratops). The Super Pet Treat effect on pet progression is pending in-game verification. Do not treat it as a confirmed boost in the calculator."
+  },
+  {
+    q: "How does UPDATE5 connect to the pets tier list?",
+    a: "UPDATE5 is a third-party reported code with a claimed reward of Super Pet Treat. Because Super Pet Treat is a pet system item, this tier list notes the connection without confirming the effect. Check the codes page for the full UPDATE5 watchlist and the pets guide for the pet treat evidence boundary."
   }
 ];
 

@@ -50,7 +50,10 @@ const bonusRows = [
   { bonus: "Earnings boost", examples: "T-Rex, Kitsune, Hydra", use: "Money farming and route comparison", status: communityStatus },
   { bonus: "Growth support", examples: "Velociraptor, Polar Bear, Gallimimus, Crocodile", use: "Faster crop cycles and fewer idle plots", status: communityStatus },
   { bonus: "Mutation support", examples: "T-Rex, Kitsune, Hydra, Mammoth", use: "Rare crop and advanced route testing", status: communityStatus },
-  { bonus: "Treat or fertilizer support", examples: "Spinosaurus, Triceratops, Gorilla, Golden Retriever", use: "Pet progression or crop timing support", status: communityStatus },
+  // P0: Super Pet Treat 是 UPDATE5 claimed reward，效果 pending。Strong Pet Treat 由 Spinosaurus 申请
+  { bonus: "Strong Pet Treat (reported by Spinosaurus)", examples: "Spinosaurus (every 600s)", use: "Pet progression support; treat effect on pets is pending in-game verification", status: communityStatus },
+  { bonus: "Super Pet Treat (reported as UPDATE5 reward)", examples: "UPDATE5 — Beebom reported, pending", use: "Claimed reward from UPDATE5 code; higher treat effect than Strong Pet Treat is claimed but not verified. Do not use as a calculator preset.", status: pendingStatus },
+  { bonus: "Normal Pet Treat (reported by Triceratops)", examples: "Triceratops (every 300s), Golden Retriever (fertilizer context)", use: "Pet progression support; treat effect pending", status: communityStatus },
   { bonus: "Seed luck support", examples: "Capybara", use: "Starter seed testing only", status: communityStatus },
   { bonus: "Spray support", examples: "No reliable pet example yet", use: "Keep spray-specific pet support outside presets", status: pendingStatus }
 ];
@@ -58,12 +61,15 @@ const bonusRows = [
 const boundaryRows = [
   { topic: "Starfall Griffin", rule: "Keep it as a high-risk pending lead until stronger source proof exists.", status: pendingStatus },
   { topic: "Exact multipliers", rule: "Do not promote values from public guides into verified game data.", status: communityStatus },
+  { topic: "Super Pet Treat effect", rule: "UPDATE5 is a Beebom-reported code with claimed reward Super Pet Treat. The treat effect on pets is pending in-game verification. Do not use as a calculator preset or verified boost.", status: pendingStatus },
   { topic: "Calculator presets", rule: "Pet bonuses should remain manual inputs, not default confirmed presets.", status: pendingStatus },
   { topic: "Single pet pages", rule: "Wait for stronger search demand before creating T-Rex, Kitsune, or Hydra pages.", status: "Deferred" }
 ];
 
 const relatedLinks = [
   { href: "/tier-list/", title: "Pets Tier List", description: "Compare the full community-reported S to D pet list." },
+  // P0 互链：UPDATE5 claimed reward 连接 codes 页
+  { href: "/codes/", title: "Codes", description: "Check UPDATE5 code claim with reported Super Pet Treat reward." },
   { href: "/money-farming/", title: "Money Farming", description: "Use pet roles inside safer cash routes." },
   { href: "/calculator/", title: "Calculator", description: "Enter pet bonuses manually as pending inputs." },
   { href: "/mutations/", title: "Mutations", description: "Separate mutation support from verified mutation values." },
@@ -87,6 +93,15 @@ const faq = [
   {
     q: "Is Starfall Griffin a best pet?",
     a: "Not here. Starfall Griffin remains a high-risk pending lead until better evidence confirms its role, source, and value."
+  },
+  // P0 新增：Super Pet Treat 和 UPDATE5 问题
+  {
+    q: "What is Super Pet Treat in Build A Ring Farm?",
+    a: "Super Pet Treat is a pet item reportedly obtainable from the UPDATE5 code, according to Beebom (June 2026). The exact in-game effect on pet progression is pending in-game verification. This page does not use Super Pet Treat as a verified calculator preset or confirmed boost."
+  },
+  {
+    q: "Is UPDATE5 a real Build A Ring Farm code?",
+    a: "UPDATE5 is a third-party reported code listed by Beebom in June 2026. This site does not mark it as verified active. The reported reward is Super Pet Treat. Test it only inside the real Roblox game UI and record whether it was accepted."
   }
 ];
 

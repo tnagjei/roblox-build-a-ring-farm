@@ -72,14 +72,26 @@
 
 ---
 
-## 6. Index 台账主表
+## 6. 2026-06-11 关键词文件执行记录
+
+来源文件：`buildaringfarm.org-keyword-research-2026-06-11.md`
+
+| 页面 | 目标 Query | 页面动作 | 证据等级 | 第 7 天复查 | 第 14 天复查 | 实验边界 |
+|---|---|---|---|---|---|---|
+| `/codes/` | `Build A Ring Farm UPDATE5 code`、`Build A Ring Farm Super Pet Treat`、`Build A Ring Farm codes June 2026` | 加入 UPDATE5（reportedCodes + competitorClaimRows），reward 标 Beebom reported Super Pet Treat，补充 Beebom/RadioTimes 来源说明，加入 /pets/ 和 /tier-list/ 互链，FAQ 新增 UPDATE5/Super Pet Treat 问题，更新 Title/Description 包含 UPDATE5 | Third-party reported, pending in-game verification | 2026-06-18 | 2026-06-25 | 不把 UPDATE5 放入 verified active table；Super Pet Treat 效果不写进 calculator preset |
+| `/pets/` | `Build A Ring Farm Super Pet Treat`、`Build A Ring Farm pet treats` | bonusRows 拆分为 Strong Pet Treat / Super Pet Treat (UPDATE5 claimed) / Normal Pet Treat 三行，boundaryRows 新增 Super Pet Treat effect pending 条目，relatedLinks 加入 /codes/ 互链，FAQ 新增 Super Pet Treat / UPDATE5 问题 | Beebom reported / Pending in-game verification | 2026-06-18 | 2026-06-25 | Super Pet Treat 效果不写成 verified；不用作 calculator 默认倍率 |
+| `/tier-list/` | `Build A Ring Farm Super Pet Treat`、`Build A Ring Farm pet treats` | roleRows 新增 Pet treat support 行，Spinosaurus reportedEffect 加注 Super Pet Treat 关联，relatedLinks 加入 /codes/ 和 /pets/ 互链，FAQ 新增 Super Pet Treat / UPDATE5 问题 | Community reported / Pending | 2026-06-18 | 2026-06-25 | Super Pet Treat 效果不标 verified；不与 Strong Pet Treat 混淆 |
+
+---
+
+## 7. Index 台账主表
 
 | 页面 | 页面组 | Google Index / GSC 状态 | Bing Index 状态 | Sitemap 状态 | 当前判断 | 下一个动作 |
 |---|---|---|---|---|---|---|
 | `/` | 首页 / Wiki Hub | 已索引，已有 GSC 表现 | 已索引 | 已确认 | 当前最强入口，不动 | 继续观察，不改 Title / Description |
-| `/codes/` | CTR 候选页 + code claim watchlist | 已索引，已有 GSC 表现 | 待复查 | 已确认 | 已加入 250KUSERS 和 source policy | 2026-06-10 复查 query |
-| `/update-status/` | Update status hub | 已上线 | 待复查 | 已确认 | 已承接 Update 4 mechanics watchlist | 2026-06-10 复查 |
-| `/rings/` | Rings + Farm Ring Bonuses | 已索引 | 待复查 | 已确认 | 已链接 Farm Ring Bonuses | 2026-06-10 复查 |
+| `/codes/` | CTR 候选页 + code claim watchlist | 已索引，已有 GSC 表现 | 待复查 | 已确认 | 2026-06-11 加入 UPDATE5 / Super Pet Treat，更新 Title 包含 UPDATE5，加入 /pets/ 互链 | 2026-06-18 复查 query |
+| `/update-status/` | Update status hub | 已上线 | 待复查 | 已确认 | 已承接 Update 4 mechanics watchlist | 2026-06-18 复查 |
+| `/rings/` | Rings + Farm Ring Bonuses | 已索引 | 待复查 | 已确认 | 已链接 Farm Ring Bonuses | 2026-06-18 复查 |
 | `/250kusers-code/` | 新增长尾页 | 待发现 | 待提交 / 待发现 | 已同步 | 新鲜 code 长尾实验 | 提交索引后 7 / 14 天复查 |
 | `/official-discord/` | 新增长尾页 | 待发现 | 待提交 / 待发现 | 已同步 | 来源信任页实验 | 提交索引后 7 / 14 天复查 |
 | `/plant-contracts/` | 新增长尾页 | 待发现 | 待提交 / 待发现 | 已同步 | Update 4 mechanics 实验 | 提交索引后 7 / 14 天复查 |
@@ -87,20 +99,24 @@
 | `/soil-quality-upgrades/` | 新增长尾页 | 待发现 | 待提交 / 待发现 | 已同步 | Update 4 upgrades 实验 | 提交索引后 7 / 14 天复查 |
 | `/farm-skins/` | 新增长尾页 | 待发现 | 待提交 / 待发现 | 已同步 | Update 4 cosmetic 实验 | 提交索引后 7 / 14 天复查 |
 | `/tier-list/` | 强信号页加码 | 已索引，已有 GSC 表现 | 已索引 | 已确认 | 页面已重构为宠物梯度厚度，强化 5 处内链 | 2026-06-10 复查 query 流量 |
-| `/pets/` | 404 修复 + pet tier hub | 新增，待发现 | 待提交 / 待发现 | 已同步 | 修复导航断点，承接 pets/pet tier list 意图 | 2026-06-12 复查 |
-| `/events/` | Events hub | 新增，待发现 | 待提交 / 待发现 | 已同步 | 承接 events/event mutations 意图 | 2026-06-12 复查 |
-| `/calculator/` | Tool / formula | 已索引或待复查 | 待复查 | 已确认 | 已加强 formula 和 planner 意图，但仍保持 estimator | 2026-06-12 复查 |
-| `/weather-events/` | Weather events | 已索引或待复查 | 待复查 | 已确认 | 已区分 weather events 和 events hub | 2026-06-12 复查 |
+| `/pets/` | 404 修复 + pet tier hub | 新增，待发现 | 待提交 / 待发现 | 已同步 | 2026-06-11 bonusRows 拆分 treat 类型，补 Super Pet Treat pending 边界，加入 /codes/ 互链 | 2026-06-18 复查 |
+| `/tier-list/` | 强信号页加码 | 已索引，已有 GSC 表现 | 已索引 | 已确认 | 2026-06-11 roleRows 加入 Pet treat support，Spinosaurus 加注 Super Pet Treat 关联，加入 /codes/ /pets/ 互链 | 2026-06-18 复查 query 流量 |
+| `/events/` | Events hub | 新增，待发现 | 待提交 / 待发现 | 已同步 | 承接 events/event mutations 意图 | 2026-06-18 复查 |
+| `/calculator/` | Tool / formula | 已索引或待复查 | 待复查 | 已确认 | 已加强 formula 和 planner 意图，Super Pet Treat 继续禁止作为 default preset | 2026-06-18 复查 |
+| `/weather-events/` | Weather events | 已索引或待复查 | 待复查 | 已确认 | 已区分 weather events 和 events hub | 2026-06-18 复查 |
 
 ---
 
-## 7. 当前禁止事项
+## 8. 当前禁止事项
 
 | 禁止事项 | 原因 |
 |---|---|
 | 不改首页 Title | 首页是最大流量入口 |
 | 不改首页 Description | 会污染当前最强页面判断 |
 | 不把 `250KUSERS` 写成 verified active | 只有第三方 reported claim，未做游戏内验证 |
+| 不把 `UPDATE5` 写成 verified active | Beebom 声称，未做游戏内验证 |
+| 不把 `Super Pet Treat` 效果写成 verified | UPDATE5 奖励 claim 来自 Beebom，效果未做游戏内验证 |
+| 不把 Super Pet Treat 写入 calculator 默认倍率 | 效果 pending，不能作为预设输入 |
 | 不把 Discord server existence 写成 code proof | 服务器可见不等于具体 code 官方确认 |
 | 不把 Update 4 mechanics 写成 official patch notes | 第三方 summary 不是官方 patch notes |
 | 不写固定 Plant Contracts rewards | 无官方或游戏内证据 |
@@ -113,14 +129,14 @@
 
 ---
 
-## 8. 下次需要补充的数据
+## 9. 下次需要补充的数据
 
 | 数据 | 用途 |
 |---|---|
-| 2026-06-10 新增 6 页索引状态 | 判断 2026-06-03 页面是否被发现 / 是否进入 GSC |
-| 2026-06-12 `/pets/`、`/events/`、`/calculator/` 复查 | 判断 2026-06-05 页面是否被发现 |
-| 2026-06-17 新增 6 页第 14 天数据 | 判断保留、加码、合并或停止 |
-| 2026-06-19 pets/events 第 14 天数据 | 判断是否加码宠物和事件内容 |
-| GSC Query 数据 | 看 `pets`、`pet tier list`、`events`、`calculator formula` 是否出现 impression |
+| 2026-06-18 codes/pets/tier-list 复查 | 判断 2026-06-11 UPDATE5 / Super Pet Treat 页面是否被发现 / 是否进入 GSC |
+| 2026-06-25 第 14 天数据 | 判断保留、加码、合并或停止 |
+| UPDATE5 游戏内测试结果 | 决定是否能把 reported 升级；如果 Super Pet Treat 兑现，记录效果并更新 pets/calculator |
+| Seeds/Crops 页面审计 | Beebom seeds tier list 发布后检查 /seeds/ 和 /crops/ 是否覆盖 Void Fruit、Garden Devourer、Dragonfruit |
+| GSC Query 数据 | 看 `UPDATE5`、`Super Pet Treat`、`pet treats`、`codes June 2026` 是否出现 impression |
 | Bing 页面索引状态 | 补 Bing Index 字段 |
 | 游戏内验证结果 | 决定是否能把 reported / pending 升级 |
