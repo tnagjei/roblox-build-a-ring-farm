@@ -7,8 +7,8 @@ import Link from "next/link";
 import { siteData } from "@/lib/site-data";
 import { absoluteUrl } from "@/lib/seo";
 
-const pageTitle = "Build A Ring Farm Seeds Guide | Packs & Progression";
-const pageDescription = "Build A Ring Farm seeds guide covering seed packs, crop unlocks, planting choices, code rewards, progression routes, and source checks.";
+const pageTitle = "Build A Ring Farm Seeds Guide | Tier List & High-Value Crops";
+const pageDescription = "Build A Ring Farm seeds guide: seed tier list, Void Fruit, Garden Devourer, Dragonfruit reported high-value crops, seed packs, progression routes, and source checks.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -89,6 +89,40 @@ const codeRewardRows = [
   }
 ];
 
+// P1: Beebom June 2026 seeds tier list 覆盖高价值词，标 reported，不升级为 verified
+const seedTierWatchlist = [
+  {
+    seed: "Void Fruit",
+    reportedTier: "High-value (Beebom June 2026)",
+    note: "Listed as top-tier seed in Beebom's June 2026 seeds tier list. Exact value, growth time, and mutation interaction not verified here.",
+    sourceStatus: "Beebom reported, pending in-game verification"
+  },
+  {
+    seed: "Garden Devourer",
+    reportedTier: "High-value (Beebom June 2026)",
+    note: "Listed as high-value seed by Beebom. Growth cycle, sell price, and ring multiplier interaction remain pending.",
+    sourceStatus: "Beebom reported, pending in-game verification"
+  },
+  {
+    seed: "Dragonfruit",
+    reportedTier: "High-value (Beebom June 2026)",
+    note: "Appears in Beebom seeds tier list as high-value crop. In-game sell price and availability not confirmed here.",
+    sourceStatus: "Beebom reported, pending in-game verification"
+  },
+  {
+    seed: "Passion Fruit",
+    reportedTier: "Mid-high (Beebom June 2026)",
+    note: "Appears in Beebom seeds tier list. Relative value vs Dragonfruit or Void Fruit needs in-game comparison.",
+    sourceStatus: "Beebom reported, pending in-game verification"
+  },
+  {
+    seed: "Elder Dragonroot",
+    reportedTier: "Mid-high (Beebom June 2026)",
+    note: "Beebom lists this in the June 2026 table. Growth time and cash-per-plot figure are not verified here.",
+    sourceStatus: "Beebom reported, pending in-game verification"
+  }
+];
+
 const sections = [
   {
     heading: "What are seeds in Build A Ring Farm?",
@@ -130,6 +164,8 @@ const sections = [
 
 const relatedLinks = [
   { href: "/crops/", title: "Crops", description: "Turn seed choices into crop cycles, harvests, and selling decisions." },
+  // P1 互链：seeds tier list 检查时加入 tier-list 入口
+  { href: "/tier-list/", title: "Pets Tier List", description: "Check pet treat and mutation support that may interact with high-value seeds." },
   { href: "/gear-shop/", title: "Gear Shop", description: "Compare sprays, fertilizer, and ROI after the seed route is stable." },
   { href: "/strong-fertilizer/", title: "Strong Fertilizer", description: "Check source status for fertilizer reward leads." },
   { href: "/advanced-crops/", title: "Advanced Crops", description: "Review rare crop effects and community reported value boosts." },
@@ -141,7 +177,11 @@ const faq = [
   { q: "What are seeds used for in Build A Ring Farm?", a: "Seeds start the farming loop by giving players crops to grow, harvest, sell, and reinvest into upgrades." },
   { q: "Are seed pack contents verified?", a: "Not fully on this site yet. Seed pack contents and odds should be verified with official notes or in-game evidence before being published as facts." },
   { q: "Which seed should beginners use first?", a: "Beginners should favor seeds that keep plots active and support steady crop income instead of chasing unverified rare outcomes." },
-  { q: "Can codes give seed packs?", a: "Some third-party code pages report seed pack rewards. These should be treated as community reported until rechecked." }
+  { q: "Can codes give seed packs?", a: "Some third-party code pages report seed pack rewards. These should be treated as community reported until rechecked." },
+  // P1 新增：seeds tier list 相关问题
+  { q: "What is the Build A Ring Farm seeds tier list?", a: "A seeds tier list ranks seeds by their reported value, growth speed, or cash output. Beebom published a June 2026 seeds tier list listing Void Fruit, Garden Devourer, Dragonfruit, Passion Fruit, and Elder Dragonroot as high-value options. This site tracks these as Beebom reported leads, not verified facts." },
+  { q: "Is Void Fruit the best seed in Build A Ring Farm?", a: "Void Fruit is listed as a high-value seed in Beebom's June 2026 seeds tier list. This site does not confirm it as the best seed because the exact sell price, growth time, and ring multiplier interaction have not been verified here. Treat it as a reported high-value research lead." },
+  { q: "What are high-value seeds in Build A Ring Farm?", a: "Based on Beebom's June 2026 seeds tier list, Void Fruit, Garden Devourer, and Dragonfruit are reported as high-value seeds. Passion Fruit and Elder Dragonroot also appear in that list. None of these are verified here with in-game screenshots or official data." }
 ];
 
 function FieldWithSource({ label, value, sourceStatus }: { label: string; value: string; sourceStatus: string }) {
@@ -213,6 +253,26 @@ export default function SeedsPage() {
                 {row.fields.map((field) => (
                   <FieldWithSource key={`${row.key}-${field.label}`} {...field} />
                 ))}
+              </div>
+            ))}
+          </div>
+        </article>
+
+        {/* P1: Beebom seeds tier watchlist — reported 高价值种子，不标 verified */}
+        <article className="guide-card data-card">
+          <span className="card-rule" />
+          <p className="eyebrow">Beebom reported, June 2026</p>
+          <h2>Build A Ring Farm seeds tier list watchlist</h2>
+          <p>
+            Beebom published a June 2026 seeds tier list covering Void Fruit, Garden Devourer, Dragonfruit, Passion Fruit, and Elder Dragonroot. This site tracks these as third-party reported leads only. Do not treat any value, growth time, or sell price from this table as verified game data.
+          </p>
+          <div className="data-list">
+            {seedTierWatchlist.map((row) => (
+              <div className="data-row four-field-row" key={row.seed}>
+                <div><span>Seed</span><strong>{row.seed}</strong></div>
+                <div><span>Reported tier</span><strong>{row.reportedTier}</strong></div>
+                <div><span>Note</span><strong>{row.note}</strong></div>
+                <div><span>Source status</span><span className="source-badge">{row.sourceStatus}</span></div>
               </div>
             ))}
           </div>
