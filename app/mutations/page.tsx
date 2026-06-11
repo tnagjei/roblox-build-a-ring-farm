@@ -79,6 +79,34 @@ const verificationLogRows = [
   { lead: "Queen Bee event", nextCheck: "Confirm event existence and mutation relation", requiredEvidence: "Event screenshot, mutation output, and sell result." }
 ];
 
+// P2: YouTube 有 Admin/Fire/Bubblegum/Cosmic mutation method 视频信号，只做搜索入口 lead，不写实测数据
+const mutationVideoLeads = [
+  {
+    method: "Admin mutation method",
+    signal: "YouTube video signal (June 2026)",
+    use: "Players searching this term may want to know how Admin mutation is triggered. This site tracks it as a reported lead — trigger source and availability are not verified here.",
+    rule: "Do not copy video-reported values as verified. Use the verification log to record any future in-game test."
+  },
+  {
+    method: "Fire mutation method",
+    signal: "YouTube video signal (June 2026)",
+    use: "Players searching this term may want to know how Fire mutation (reported 10x lead) is triggered. Trigger method is not verified here.",
+    rule: "Do not copy video-reported triggers or multipliers as verified facts."
+  },
+  {
+    method: "Bubblegum mutation method",
+    signal: "YouTube video signal (June 2026)",
+    use: "Players searching this term may want to know how Bubblegum mutation (reported 9x lead) is triggered. Trigger method is not verified here.",
+    rule: "Do not copy video-reported triggers or multipliers as verified facts."
+  },
+  {
+    method: "Cosmic mutation method",
+    signal: "YouTube video signal (June 2026)",
+    use: "Players searching this term may want to know how Cosmic mutation (reported 8x lead) is triggered. Trigger method is not verified here.",
+    rule: "Do not copy video-reported triggers or multipliers as verified facts."
+  }
+];
+
 const sections = [
   { h2: "What are mutations in Build A Ring Farm?", h3: "Mutation meaning", body: ["Mutations are cross-source community reported rare crop effects that may change crop value or route priority. This page treats mutation names as research leads, not official Roblox data.", "The safest way to understand Build A Ring Farm mutations is to connect them with sprays, weather events, advanced crops, and tier-list logic without pretending the exact numbers are confirmed."], list: ["Use mutations as rare-effect leads.", "Do not treat multipliers as official unless verified.", "Compare mutations with spray cost and event timing."] },
   { h2: "Build A Ring Farm mutation route by player stage", h3: "Beginner, mid-game, late-game", body: ["Beginners should not chase mutations first. The better route is to stabilize seeds, crops, selling, and upgrades before spending time on rare-effect testing.", "Mid-game players can start comparing Wet, Frozen, and Void routes if their base cash loop is stable. Late-game players can compare Radioactive and Rainbow leads only after checking spray cost, event timing, and crop value."], list: ["Beginner: crops, selling, upgrades.", "Mid-game: test lower-risk effect routes.", "Late-game: compare high-value mutation leads.", "Always recheck after updates."] },
@@ -106,7 +134,11 @@ const faq = [
   { q: "Can Starfall or other mutations stack?", a: "Starfall stacking behavior has not been verified here. Treat stacking claims as pending in-game verification." },
   { q: "Are Cosmic 8x, Bubblegum 9x, and Fire 10x verified?", a: "No. They are pending presets only until repeatable in-game proof exists." },
   { q: "Are Honeycomb, Alien, and Farm mutations verified?", a: "No. They are reported Update 3 leads here and remain pending until official or repeatable in-game proof exists." },
-  { q: "Should beginners chase mutations?", a: "No. Beginners should stabilize crops, selling, and upgrades before chasing rare effects." }
+  { q: "Should beginners chase mutations?", a: "No. Beginners should stabilize crops, selling, and upgrades before chasing rare effects." },
+  // P2 新增：mutation method 视频 lead 问题
+  { q: "Are there Build A Ring Farm mutation method videos?", a: "YouTube has community videos covering Admin, Fire, Bubblegum, and Cosmic mutation methods as of June 2026. This site uses them as search signal leads only. Video-reported trigger methods and multipliers are not verified here — use the verification log before treating any video claim as a fact." },
+  { q: "How do I trigger the Admin mutation in Build A Ring Farm?", a: "Admin mutation is a reported Update 4 lead tracked on this site. The trigger source is not verified here. YouTube community videos may show claimed methods, but these should be treated as video leads, not official or confirmed game mechanics." },
+  { q: "How do I get Fire or Bubblegum mutation in Build A Ring Farm?", a: "Fire (reported 10x) and Bubblegum (reported 9x) are pending mutation leads. YouTube community videos show claimed trigger methods as of June 2026. This site does not verify those triggers. Always test in game and record your own evidence before trusting a video claim." }
 ];
 
 function Badge({ value }: { value: string }) { return <span className="source-badge">{value}</span>; }
@@ -121,6 +153,26 @@ export default function MutationsPage() {
         <article className="guide-card data-card"><span className="card-rule" /><p className="eyebrow">Cross-source table</p><h2>Reported mutation tiers</h2><div className="data-list">{mutationRows.map((row) => <div className="data-row four-field-row" key={row.mutation}><div><span>Mutation</span><strong>{row.mutation}</strong></div><div><span>Tier lead</span><strong>{row.tier}</strong></div><div><span>Route</span><strong>{row.route}</strong></div><div><span>Status</span><Badge value={row.status} /></div></div>)}</div></article>
         <article className="guide-card data-card"><span className="card-rule" /><p className="eyebrow">Verification log</p><h2>Mutation verification log</h2><div className="data-list">{verificationLogRows.map((row) => <div className="data-row three-field-row" key={row.lead}><div><span>Lead</span><strong>{row.lead}</strong></div><div><span>Next check</span><strong>{row.nextCheck}</strong></div><div><span>Required evidence</span><strong>{row.requiredEvidence}</strong></div></div>)}</div></article>
         <article className="guide-card data-card"><span className="card-rule" /><p className="eyebrow">Test checklist</p><h2>Mutation stacking test checklist</h2><div className="data-list">{stackingChecks.map((row) => <div className="data-row three-field-row" key={row.step}><div><span>Step</span><strong>{row.step}</strong></div><div><span>Check</span><strong>{row.check}</strong></div><div><span>Evidence</span><strong>{row.evidence}</strong></div></div>)}</div></article>
+
+        {/* P2: YouTube mutation method video lead section - Admin/Fire/Bubblegum/Cosmic */}
+        <article className="guide-card data-card">
+          <span className="card-rule" />
+          <p className="eyebrow">YouTube video signal, June 2026</p>
+          <h2>Build A Ring Farm mutation method video leads</h2>
+          <p>
+            YouTube community videos covering Admin, Fire, Bubblegum, and Cosmic mutation methods have appeared as of June 2026. This site uses them as search signal leads only. Video-reported triggers, multipliers, and methods are not verified here. Use the verification log above before treating any video claim as a confirmed game fact.
+          </p>
+          <div className="data-list">
+            {mutationVideoLeads.map((row) => (
+              <div className="data-row four-field-row" key={row.method}>
+                <div><span>Method lead</span><strong>{row.method}</strong></div>
+                <div><span>Signal</span><strong>{row.signal}</strong></div>
+                <div><span>Player intent</span><strong>{row.use}</strong></div>
+                <div><span>Evidence rule</span><strong>{row.rule}</strong></div>
+              </div>
+            ))}
+          </div>
+        </article>
       </section>
       <section className="content-grid">{sections.map((section) => <article className="guide-card" key={section.h2}><span className="card-rule" /><h2>{section.h2}</h2><h3>{section.h3}</h3>{section.body.map((p) => <p key={p}>{p}</p>)}<ul>{section.list.map((item) => <li key={item}>{item}</li>)}</ul></article>)}</section>
       <section className="section-heading"><p className="eyebrow">Related guides</p><h2>What to read next</h2></section><section className="route-grid">{relatedLinks.map((link) => <Link prefetch={false} className="route-card" href={link.href} key={link.href}><span className="card-rule" /><h2>{link.title}</h2><p>{link.description}</p></Link>)}</section>
