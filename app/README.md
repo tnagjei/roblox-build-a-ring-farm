@@ -6,7 +6,7 @@
 
 ## Files
 - README.md：本目录说明
-- globals.css：全站视觉样式
+- globals.css：全站视觉样式，包含 source table 与 video reference 模块样式
 - nav-fixes.css：顶部导航下拉浮层与移动端换行修复样式
 - layout.tsx：根布局和全局 metadata
 - page.tsx：首页

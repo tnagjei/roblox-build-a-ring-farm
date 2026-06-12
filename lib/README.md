@@ -7,6 +7,7 @@
 ## Files
 - README.md：本目录说明
 - game-config.ts：站点身份、路由分组和集成配置
+- content/：共享内容类型与模板内容工厂
 - page-registry.ts：生成 sitemap、robots 和完成路由清单
 - site-data.ts：导出公开 JSON 数据和页面查询 helper
 - seo.ts：生成 metadata、canonical、社交分享图引用和 JSON-LD

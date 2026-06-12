@@ -206,3 +206,58 @@ test("official Discord source policy stays pending until source is confirmed", (
   assert.ok(discordSource, "public data must include an official Discord source row");
   assert.equal(discordSource.status, "pending");
 });
+
+test("June 2026 crop value blueprint is merged into existing pages without thin crop routes", () => {
+  const crops = read("lib/content/template-pages.ts");
+  const strategyTemplate = read("components/templates/StrategyPageTemplate.tsx");
+  const seeds = read("app/seeds/page.tsx");
+  const calculator = read("app/calculator/page.tsx");
+  const advancedCrops = read("app/advanced-crops/page.tsx");
+  const data = JSON.parse(read("public/data/build-a-ring-farm.json"));
+  const combined = `${crops}\n${seeds}\n${calculator}\n${advancedCrops}`;
+
+  for (const slug of ["void-fruit", "garden-devourer", "dragonfruit", "passion-fruit", "elder-dragonroot"]) {
+    assert.equal(fs.existsSync(path.join(root, "app", "crops", slug)), false, `Do not create thin /crops/${slug}/ route`);
+  }
+
+  for (const term of ["Void Fruit", "Garden Devourer", "Dragonfruit", "Passion Fruit", "Elder Dragonroot"]) {
+    assert.match(crops, new RegExp(term, "i"), `/crops/ content must include ${term}`);
+    assert.match(seeds, new RegExp(term, "i"), `/seeds/ content must include ${term}`);
+    assert.match(calculator, new RegExp(term, "i"), `/calculator/ content must include ${term}`);
+    assert.match(advancedCrops, new RegExp(term, "i"), `/advanced-crops/ content must include ${term}`);
+  }
+
+  for (const required of [
+    "Reported high-value crop leads",
+    "Crop value watchlist",
+    "Seed leads that need crop checks",
+    "High-value crops use manual inputs only",
+    "High-value crop leads are not rare-effect proof"
+  ]) {
+    assert.match(combined, new RegExp(required, "i"), `Missing required blueprint block: ${required}`);
+  }
+
+  for (const videoId of ["r8EATLyhrlw", "v1YgAOjuQRs", "9w9nu1RNefs", "Cqp6N-1Azzk", "gJrbZmzh3l8"]) {
+    assert.match(combined, new RegExp(videoId), `Missing YouTube embed id ${videoId}`);
+  }
+
+  assert.match(strategyTemplate, /youtube-nocookie\.com\/embed/, "Strategy template must use privacy-safe YouTube embeds");
+  assert.match(strategyTemplate, /loading="lazy"/, "Strategy template iframes must lazy load");
+  assert.match(strategyTemplate, /allowFullScreen/, "Strategy template iframes must allow fullscreen");
+  assert.match(strategyTemplate, /fallbackLabel/, "Strategy template must render fallback links");
+  assert.match(advancedCrops, /youtube-nocookie\.com\/embed/, "advanced-crops must use privacy-safe YouTube embeds");
+
+  assert.match(combined, /reported|pending|estimated/i, "Blueprint content must preserve source labels");
+  assert.match(calculator, /manual high-value crop inputs/i, "calculator must explain manual high-value crop input");
+  assert.doesNotMatch(calculator, /href="\/events\/"/, "calculator must not link to missing /events/ route");
+  assert.doesNotMatch(calculator, /Void Fruit[^"]*preset/i, "calculator must not create a Void Fruit preset");
+  assert.doesNotMatch(combined, /verified best crop|guaranteed best crop|official crop value|working crop value/i, "crop blueprint must not make unsupported value claims");
+
+  const cropsPage = data.pages.find((item) => item.key === "crops");
+  const calculatorPage = data.pages.find((item) => item.key === "calculator");
+  const advancedPage = data.pages.find((item) => item.key === "advanced-crops");
+  assert.match(cropsPage.primaryKeyword, /high value crops/i, "public data crops keyword must target the high-value crop intent");
+  assert.ok(cropsPage.relatedPages.includes("calculator"), "crops public data must link to calculator");
+  assert.ok(calculatorPage.relatedPages.includes("crops"), "calculator public data must link to crops");
+  assert.ok(advancedPage.relatedPages.includes("seeds"), "advanced-crops public data must link to seeds");
+});

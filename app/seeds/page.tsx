@@ -7,8 +7,8 @@ import Link from "next/link";
 import { siteData } from "@/lib/site-data";
 import { absoluteUrl } from "@/lib/seo";
 
-const pageTitle = "Build A Ring Farm Seeds Guide | Tier List & High-Value Crops";
-const pageDescription = "Build A Ring Farm seeds guide: seed tier list, Void Fruit, Garden Devourer, Dragonfruit reported high-value crops, seed packs, progression routes, and source checks.";
+const pageTitle = "Build A Ring Farm Seeds Guide | High-Value Crop Leads";
+const pageDescription = "Build A Ring Farm seeds guide covering Void Fruit, Garden Devourer, Dragonfruit, seed-to-crop planning, source labels, and calculator links.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -123,6 +123,39 @@ const seedTierWatchlist = [
   }
 ];
 
+const seedCropAlignmentRows = [
+  {
+    lead: "Void Fruit",
+    seedPageStatus: "Beebom reported high-value seed lead",
+    cropPageStatus: "Crop value, growth time, and sell value pending",
+    calculatorStatus: "Manual observed crop value only"
+  },
+  {
+    lead: "Garden Devourer",
+    seedPageStatus: "Beebom reported high-value seed lead",
+    cropPageStatus: "Crop value, growth time, and sell value pending",
+    calculatorStatus: "Manual observed crop value only"
+  },
+  {
+    lead: "Dragonfruit",
+    seedPageStatus: "Beebom reported high-value seed lead",
+    cropPageStatus: "Crop value and advanced-crop interaction pending",
+    calculatorStatus: "Manual observed crop value only"
+  },
+  {
+    lead: "Passion Fruit",
+    seedPageStatus: "Beebom reported mid-high seed lead",
+    cropPageStatus: "Crop value and source depth pending",
+    calculatorStatus: "Manual observed crop value only"
+  },
+  {
+    lead: "Elder Dragonroot",
+    seedPageStatus: "Beebom reported mid-high seed lead",
+    cropPageStatus: "Crop value and source depth pending",
+    calculatorStatus: "Manual observed crop value only"
+  }
+];
+
 const sections = [
   {
     heading: "What are seeds in Build A Ring Farm?",
@@ -132,6 +165,15 @@ const sections = [
       "Because seed packs can affect what players grow next, seeds deserve a separate Build A Ring Farm guide instead of being hidden inside a general crops page."
     ],
     list: ["Seeds start the crop cycle.", "Seed packs may unlock or supply crop options.", "Better seed choices should support your next upgrade goal.", "Exact pack contents should stay pending until verified."]
+  },
+  {
+    heading: "Seeds vs crops: inputs and outputs",
+    subheading: "Why a seed lead is not a crop value",
+    body: [
+      "Seeds are inputs. Crops are outputs. A reported high-value seed lead can help you decide what to watch, but it does not confirm the crop's growth time, sell value, or cash-per-plot result.",
+      "Use the seed watchlist to identify candidate names, then move to the crops guide for the crop value watchlist and to the calculator for player-entered estimates."
+    ],
+    list: ["Seed page status: reported or pending source label.", "Crop page status: growth time and sell value boundary.", "Calculator status: estimated only after manual input.", "Advanced crops status: rare-effect checks stay separate from base crop value."]
   },
   {
     heading: "Beginner seed strategy",
@@ -164,6 +206,7 @@ const sections = [
 
 const relatedLinks = [
   { href: "/crops/", title: "Crops", description: "Turn seed choices into crop cycles, harvests, and selling decisions." },
+  { href: "/calculator/", title: "Calculator", description: "Estimate crop value only after entering an observed value manually." },
   // P1 互链：seeds tier list 检查时加入 tier-list 入口
   { href: "/tier-list/", title: "Pets Tier List", description: "Check pet treat and mutation support that may interact with high-value seeds." },
   { href: "/gear-shop/", title: "Gear Shop", description: "Compare sprays, fertilizer, and ROI after the seed route is stable." },
@@ -181,7 +224,9 @@ const faq = [
   // P1 新增：seeds tier list 相关问题
   { q: "What is the Build A Ring Farm seeds tier list?", a: "A seeds tier list ranks seeds by their reported value, growth speed, or cash output. Beebom published a June 2026 seeds tier list listing Void Fruit, Garden Devourer, Dragonfruit, Passion Fruit, and Elder Dragonroot as high-value options. This site tracks these as Beebom reported leads, not verified facts." },
   { q: "Is Void Fruit the best seed in Build A Ring Farm?", a: "Void Fruit is listed as a high-value seed in Beebom's June 2026 seeds tier list. This site does not confirm it as the best seed because the exact sell price, growth time, and ring multiplier interaction have not been verified here. Treat it as a reported high-value research lead." },
-  { q: "What are high-value seeds in Build A Ring Farm?", a: "Based on Beebom's June 2026 seeds tier list, Void Fruit, Garden Devourer, and Dragonfruit are reported as high-value seeds. Passion Fruit and Elder Dragonroot also appear in that list. None of these are verified here with in-game screenshots or official data." }
+  { q: "What are high-value seeds in Build A Ring Farm?", a: "Based on Beebom's June 2026 seeds tier list, Void Fruit, Garden Devourer, and Dragonfruit are reported as high-value seeds. Passion Fruit and Elder Dragonroot also appear in that list. None of these are verified here with in-game screenshots or official data." },
+  { q: "Is Void Fruit a seed or a crop?", a: "Treat Void Fruit as a reported seed-to-crop lead here. The seed name can be tracked on this page, while the grown crop value and growth time stay pending on the crops guide." },
+  { q: "Can I calculate crop value from the seeds page?", a: "Use this page to find reported seed leads, then use the calculator only after you enter your own observed crop value. The result is estimated, not official." }
 ];
 
 function FieldWithSource({ label, value, sourceStatus }: { label: string; value: string; sourceStatus: string }) {
@@ -273,6 +318,25 @@ export default function SeedsPage() {
                 <div><span>Reported tier</span><strong>{row.reportedTier}</strong></div>
                 <div><span>Note</span><strong>{row.note}</strong></div>
                 <div><span>Source status</span><span className="source-badge">{row.sourceStatus}</span></div>
+              </div>
+            ))}
+          </div>
+        </article>
+
+        <article className="guide-card data-card">
+          <span className="card-rule" />
+          <p className="eyebrow">Seeds to crops alignment</p>
+          <h2>Seed leads that need crop checks</h2>
+          <p>
+            Use this alignment table before moving from a reported seed name to a crop value estimate. A seed lead can be useful, but the crop result still needs growth-time, sell-value, and calculator checks.
+          </p>
+          <div className="data-list">
+            {seedCropAlignmentRows.map((row) => (
+              <div className="data-row four-field-row" key={row.lead}>
+                <div><span>Lead</span><strong>{row.lead}</strong></div>
+                <div><span>Seed page status</span><strong>{row.seedPageStatus}</strong><span className="source-badge">reported</span></div>
+                <div><span>Crop page status</span><strong>{row.cropPageStatus}</strong><span className="source-badge">pending</span></div>
+                <div><span>Calculator status</span><strong>{row.calculatorStatus}</strong><span className="source-badge">estimated</span></div>
               </div>
             ))}
           </div>

@@ -301,73 +301,249 @@ export function createTemplateCodesPage(locale = "en"): CodesPageContent {
 function createCropsPage(locale: string): StrategyPageContent {
   return {
     meta: {
-      title: withLocale(`${gameConfig.gameName} Crops Guide | Farming Tips`, locale),
-      description: `${gameConfig.gameName} crops guide covering crop cycles, harvest timing, selling, seeds, gear shop choices, upgrades, and source-checked farming tips.`
+      title: withLocale(`${gameConfig.gameName} Crops Guide | High-Value Crop Leads`, locale),
+      description: `${gameConfig.gameName} crops guide with reported high-value leads, crop value watchlist, Void Fruit, Garden Devourer, Dragonfruit, and calculator-safe status labels.`
     },
     slug: "crops",
     hero: {
       eyebrow: "Crops and farming guide",
       h1: withLocale(`${gameConfig.gameName} Crops Guide`, locale),
-      lede: "Use this Build A Ring Farm crops guide to understand the farming loop: plant crops, wait for growth, harvest, sell for cash, upgrade production, and reinvest into a larger farm.",
+      lede: "Use this Build A Ring Farm crops guide to follow the crop loop, reported Build A Ring Farm high value crops, crop value watchlist, seed-to-crop handoff, and calculator boundaries without treating weak data as official values.",
       primaryAction: { label: "Read seeds guide", href: localizedHref(locale, "seeds") },
-      secondaryAction: { label: "Read gear shop", href: localizedHref(locale, "gear-shop") }
+      secondaryAction: { label: "Open calculator", href: localizedHref(locale, "calculator") }
     },
     summaryCards: [
-      { title: "Crop loop", description: "Plant, wait, harvest, sell, upgrade, and repeat without wasting early cash." },
-      { title: "Upgrade timing", description: "Prioritize upgrades that reduce waiting, increase output, or help expand production." },
-      { title: "No fake values", description: "This page avoids unverified crop prices, rare rates, and reward numbers." }
+      { title: "High-value leads", description: "Void Fruit, Garden Devourer, Dragonfruit, Passion Fruit, and Elder Dragonroot stay reported or pending here." },
+      { title: "Value watchlist", description: "Crop value, growth time, source, calculator use, and verification status are separated before any estimate." },
+      { title: "No fake prices", description: "This page does not publish official sell values, exact growth times, or strongest-crop claims without proof." }
     ],
     sections: [
       {
-        heading: "How crops work in Build A Ring Farm",
-        subheading: "Crop loop basics",
+        heading: "Source status before crop values",
+        subheading: "What not to treat as verified",
         body: [
-          "Build A Ring Farm is built around a simple farming loop. You grow crops, harvest them, sell the harvest for cash, and use that cash to expand or upgrade the farm.",
-          "For SEO and accuracy, this guide separates confirmed gameplay behavior from unverified tables. Until a crop value is checked in-game or from an official source, it should not be presented as a fixed number."
+          "A high-value crop lead is a search and third-party report signal, not proof of a fixed crop value. Beebom, Pro Game Guides, Fandom, YouTube, and other external pages can help discover terms players search for, but they do not make a sell value official on this site.",
+          "For this Build A Ring Farm crops guide, crop names can appear as reported leads. Growth time and sell value stay pending until official notes or repeatable in-game evidence confirms them. Calculator results stay estimated because they depend on player-entered values."
         ],
-        list: ["Grow crops on available plots.", "Harvest when the crop is ready.", "Sell harvests for cash.", "Use cash for upgrades, expansion, or faster progression."]
+        list: ["Use reported for third-party lead names.", "Use pending for growth time and sell value.", "Use estimated for calculator output.", "Do not call any crop the strongest choice without stronger proof."]
       },
       {
-        heading: "Best early crop strategy",
-        subheading: "Early crop choices",
+        heading: "Seeds vs crops: inputs and outputs",
+        subheading: "Why the seeds watchlist matters",
         body: [
-          "The safest early strategy is not to chase a single crop name. Focus on keeping plots active, avoiding idle time, and reinvesting cash into systems that increase the next harvest cycle.",
-          "If two crop choices are available, compare time to grow, expected selling value, and whether the crop supports your next upgrade. Do not judge only by the final sale number."
+          "Seeds are inputs and crops are outputs. A seed page can tell you which seed names are being discussed, while a crops page should explain what the grown crop means for harvest planning, value checks, and calculator use.",
+          "The current seed watchlist already tracks Void Fruit, Garden Devourer, Dragonfruit, Passion Fruit, and Elder Dragonroot as Beebom reported leads. This crops page mirrors those names so players can move from seed research to crop value planning without a broken path."
         ],
-        list: ["Keep every available plot working.", "Reinvest early cash instead of holding it too long.", "Favor consistent harvest cycles before risky long waits.", "Check whether an upgrade improves every later crop cycle."]
+        list: ["Start on the seeds page when you need source status for seed names.", "Use this crops page when you need value and growth-time boundaries.", "Use the calculator only after you have an observed base value.", "Move to advanced crops when rare effects or sprays enter the route."]
       },
       {
-        heading: "Crops, gear shop, and rare effects",
-        subheading: "When to test effects",
+        heading: "How to use high-value crops in the calculator",
+        subheading: "Manual observed base value only",
         body: [
-          "After the normal crop loop is stable, players can compare gear shop sprays, weather events, and advanced crop effects. Those systems can add value, but they should not replace basic farming logic.",
-          "Use rare crop claims as research leads. If a spray cost or effect value is not official or screenshot verified, keep it labeled as community reported."
+          "The calculator should not ship default presets for Void Fruit, Garden Devourer, Dragonfruit, Passion Fruit, or Elder Dragonroot. If you see one of these crops in game, record the observed base value first, then enter it manually.",
+          "This keeps the estimate useful without pretending the site owns a source-checked crop value table. If another guide gives a number, treat it as a reported input until you can repeat the result inside the game."
         ],
-        list: ["Use gear shop items after cash flow is stable.", "Check weather events before planning around event effects.", "Read advanced crops before trusting rare value tables."]
+        list: ["Do not use a default high-value crop preset.", "Enter plant count and observed base value yourself.", "Add reported mutation, ring, fertilizer, pet, or event modifiers only as pending inputs.", "Compare the estimate against the next actual sale before changing your farm route."]
       },
       {
-        heading: "Why this page does not list fake crop prices",
-        subheading: "Source rules",
+        heading: "Evidence status and update checks",
+        subheading: "Void Fruit status, Garden Devourer status, Dragonfruit status, Passion Fruit and Elder Dragonroot status",
         body: [
-          "Some competing pages publish crop tables before proving the source. That can attract clicks, but it creates a trust problem when prices, rare effects, or upgrade effects are wrong.",
-          "This site should add crop names, values, and advanced crop data only after a recorded source check. That makes the page slower to fill, but safer for long-term SEO."
+          "Each crop lead below needs the same upgrade path before it can become stronger content: source name, date, in-game screenshot or repeatable test, growth-time note, sell-value note, and calculator result. Until then, the row remains a watchlist item.",
+          "If Google Search Console later shows sustained impressions for one crop name and at least two accessible non-video sources provide independent structure, that crop can be considered for a separate page. Until then, this hub table is the safer SEO path."
         ],
-        list: ["Do not invent crop prices.", "Do not invent rare crop rates.", "Do not copy unsupported community tables.", "Add a source note when real crop data is verified."]
+        list: ["Void Fruit status: reported lead, pending in-game value check.", "Garden Devourer status: reported lead, pending growth-time and sell-value check.", "Dragonfruit status: reported lead, pending value and advanced-crop interaction check.", "Passion Fruit and Elder Dragonroot status: reported leads, pending stronger source and in-game checks."]
+      }
+    ],
+    dataTables: [
+      {
+        eyebrow: "Reported leads",
+        title: "Reported high-value crop leads",
+        description: "These rows satisfy the high-value crop search intent while keeping every weak fact labeled. They are not source-checked game values.",
+        rows: [
+          {
+            key: "void-fruit",
+            fields: [
+              { label: "Crop", value: "Void Fruit" },
+              { label: "Reported source", value: "Beebom June 2026 seeds tier list" },
+              { label: "Why players search it", value: "High-value crop and Void Fruit value intent" },
+              { label: "Growth time status", value: "Pending in-game check" },
+              { label: "Sell value status", value: "Pending in-game check" },
+              { label: "Calculator use", value: "Manual observed base value only", status: "estimated" },
+              { label: "Verification status", value: "Beebom reported, pending in-game verification", status: "reported" }
+            ]
+          },
+          {
+            key: "garden-devourer",
+            fields: [
+              { label: "Crop", value: "Garden Devourer" },
+              { label: "Reported source", value: "Beebom June 2026 seeds tier list" },
+              { label: "Why players search it", value: "Single-crop value and route questions" },
+              { label: "Growth time status", value: "Pending in-game check" },
+              { label: "Sell value status", value: "Pending in-game check" },
+              { label: "Calculator use", value: "Manual observed base value only", status: "estimated" },
+              { label: "Verification status", value: "Beebom reported, pending in-game verification", status: "reported" }
+            ]
+          },
+          {
+            key: "dragonfruit",
+            fields: [
+              { label: "Crop", value: "Dragonfruit" },
+              { label: "Reported source", value: "Beebom June 2026 seeds tier list and YouTube visual demand" },
+              { label: "Why players search it", value: "Crop value, seed relationship, and advanced-crop checks" },
+              { label: "Growth time status", value: "Pending in-game check" },
+              { label: "Sell value status", value: "Pending in-game check" },
+              { label: "Calculator use", value: "Manual observed base value only", status: "estimated" },
+              { label: "Verification status", value: "Reported, not value-verified here", status: "reported" }
+            ]
+          },
+          {
+            key: "passion-fruit",
+            fields: [
+              { label: "Crop", value: "Passion Fruit" },
+              { label: "Reported source", value: "Beebom June 2026 seeds tier list" },
+              { label: "Why players search it", value: "Seed-to-crop and value comparison intent" },
+              { label: "Growth time status", value: "Pending in-game check" },
+              { label: "Sell value status", value: "Pending in-game check" },
+              { label: "Calculator use", value: "Manual observed base value only", status: "estimated" },
+              { label: "Verification status", value: "Beebom reported, pending in-game verification", status: "reported" }
+            ]
+          },
+          {
+            key: "elder-dragonroot",
+            fields: [
+              { label: "Crop", value: "Elder Dragonroot" },
+              { label: "Reported source", value: "Beebom June 2026 seeds tier list" },
+              { label: "Why players search it", value: "Long-tail crop name, value, and obtain-intent searches" },
+              { label: "Growth time status", value: "Pending in-game check" },
+              { label: "Sell value status", value: "Pending in-game check" },
+              { label: "Calculator use", value: "Manual observed base value only", status: "estimated" },
+              { label: "Verification status", value: "Beebom reported, pending in-game verification", status: "reported" }
+            ]
+          }
+        ]
+      },
+      {
+        eyebrow: "Crop value table intent",
+        title: "Crop value watchlist",
+        description: "This watchlist replaces unsupported exact values with source, growth-time, sell-value, calculator, and verification status.",
+        rows: [
+          {
+            key: "watch-void-fruit",
+            fields: [
+              { label: "Crop", value: "Void Fruit" },
+              { label: "Reported tier", value: "High-value lead" },
+              { label: "Source", value: "Beebom reported" },
+              { label: "Growth time status", value: "Pending" },
+              { label: "Sell value status", value: "Pending" },
+              { label: "Calculator use", value: "Estimated only after player input" },
+              { label: "Verification status", value: "Reported, pending in-game check", status: "pending" }
+            ]
+          },
+          {
+            key: "watch-garden-devourer",
+            fields: [
+              { label: "Crop", value: "Garden Devourer" },
+              { label: "Reported tier", value: "High-value lead" },
+              { label: "Source", value: "Beebom reported" },
+              { label: "Growth time status", value: "Pending" },
+              { label: "Sell value status", value: "Pending" },
+              { label: "Calculator use", value: "Estimated only after player input" },
+              { label: "Verification status", value: "Reported, pending in-game check", status: "pending" }
+            ]
+          },
+          {
+            key: "watch-dragonfruit",
+            fields: [
+              { label: "Crop", value: "Dragonfruit" },
+              { label: "Reported tier", value: "High-value lead" },
+              { label: "Source", value: "Beebom reported; YouTube visual demand" },
+              { label: "Growth time status", value: "Pending" },
+              { label: "Sell value status", value: "Pending" },
+              { label: "Calculator use", value: "Estimated only after player input" },
+              { label: "Verification status", value: "Reported, pending in-game check", status: "pending" }
+            ]
+          },
+          {
+            key: "watch-passion-fruit",
+            fields: [
+              { label: "Crop", value: "Passion Fruit" },
+              { label: "Reported tier", value: "Mid-high lead" },
+              { label: "Source", value: "Beebom reported" },
+              { label: "Growth time status", value: "Pending" },
+              { label: "Sell value status", value: "Pending" },
+              { label: "Calculator use", value: "Estimated only after player input" },
+              { label: "Verification status", value: "Reported, pending in-game check", status: "pending" }
+            ]
+          },
+          {
+            key: "watch-elder-dragonroot",
+            fields: [
+              { label: "Crop", value: "Elder Dragonroot" },
+              { label: "Reported tier", value: "Mid-high lead" },
+              { label: "Source", value: "Beebom reported" },
+              { label: "Growth time status", value: "Pending" },
+              { label: "Sell value status", value: "Pending" },
+              { label: "Calculator use", value: "Estimated only after player input" },
+              { label: "Verification status", value: "Reported, pending in-game check", status: "pending" }
+            ]
+          }
+        ]
+      },
+      {
+        eyebrow: "Seeds to crops alignment",
+        title: "Seed leads that need crop checks",
+        description: "Use this table to move from seed research to crop planning without making unsupported value claims.",
+        rows: [
+          { key: "seed-crop-void-fruit", fields: [{ label: "Lead", value: "Void Fruit" }, { label: "Seed page status", value: "Beebom reported" }, { label: "Crop page status", value: "Pending growth and sell-value check" }, { label: "Calculator status", value: "Manual input only", status: "estimated" }] },
+          { key: "seed-crop-garden-devourer", fields: [{ label: "Lead", value: "Garden Devourer" }, { label: "Seed page status", value: "Beebom reported" }, { label: "Crop page status", value: "Pending growth and sell-value check" }, { label: "Calculator status", value: "Manual input only", status: "estimated" }] },
+          { key: "seed-crop-dragonfruit", fields: [{ label: "Lead", value: "Dragonfruit" }, { label: "Seed page status", value: "Beebom reported" }, { label: "Crop page status", value: "Pending value and rare-effect boundary check" }, { label: "Calculator status", value: "Manual input only", status: "estimated" }] },
+          { key: "seed-crop-passion-fruit", fields: [{ label: "Lead", value: "Passion Fruit" }, { label: "Seed page status", value: "Beebom reported" }, { label: "Crop page status", value: "Pending stronger source and in-game check" }, { label: "Calculator status", value: "Manual input only", status: "estimated" }] },
+          { key: "seed-crop-elder-dragonroot", fields: [{ label: "Lead", value: "Elder Dragonroot" }, { label: "Seed page status", value: "Beebom reported" }, { label: "Crop page status", value: "Pending stronger source and in-game check" }, { label: "Calculator status", value: "Manual input only", status: "estimated" }] }
+        ]
+      }
+    ],
+    videoSections: [
+      {
+        eyebrow: "Visual reference",
+        title: "Video guides for crop route context",
+        description: "These YouTube embeds satisfy video-style search demand only. They do not verify crop value, growth time, best crop, codes, rewards, or route numbers.",
+        videos: [
+          {
+            id: "r8EATLyhrlw",
+            title: "Build A Ring Farm crop route video guide",
+            description: "Visual route context from YouTube SERP. Use it as gameplay context, not as crop value evidence.",
+            fallbackLabel: "Watch the crop route video on YouTube"
+          },
+          {
+            id: "v1YgAOjuQRs",
+            title: "Build A Ring Farm best crops video guide",
+            description: "Best-crops video demand exists, but this page keeps best crop claims reported or pending.",
+            fallbackLabel: "Watch the best crops video on YouTube"
+          },
+          {
+            id: "9w9nu1RNefs",
+            title: "Build A Ring Farm all seeds and crops visual guide",
+            description: "Seeds and crops video demand exists, but this embed does not prove a complete crop list.",
+            fallbackLabel: "Watch the seeds and crops video on YouTube"
+          }
+        ]
       }
     ],
     relatedLinks: [
-      { href: localizedHref(locale, "seeds"), title: "Seeds", description: "Understand seed packs and inputs before comparing crop routes." },
-      { href: localizedHref(locale, "gear-shop"), title: "Gear Shop", description: "Compare sprays, fertilizer, and ROI after the crop loop is stable." },
-      { href: localizedHref(locale, "advanced-crops"), title: "Advanced Crops", description: "Review rare crop effects and community reported value boosts." },
-      { href: localizedHref(locale, "weather-events"), title: "Weather Events", description: "Review reported event effects that may change rare crop outcomes." },
-      { href: localizedHref(locale, "upgrades"), title: "Upgrades", description: "Plan upgrade timing after the crop loop is stable." },
-      { href: localizedHref(locale, "codes"), title: "Codes", description: "Check whether verified codes exist before using code lists." }
+      { href: localizedHref(locale, "seeds"), title: "Seeds", description: "Start with reported seed leads before checking crop value status." },
+      { href: localizedHref(locale, "calculator"), title: "Calculator", description: "Use manual observed crop values and estimated outputs only." },
+      { href: localizedHref(locale, "advanced-crops"), title: "Advanced Crops", description: "Separate high-value crop names from rare-effect and spray proof." },
+      { href: localizedHref(locale, "money-farming"), title: "Money Farming", description: "Turn stable crop checks into safer cash routes." },
+      { href: localizedHref(locale, "gear-shop"), title: "Gear Shop", description: "Compare sprays, fertilizer, and ROI after crop value checks." },
+      { href: localizedHref(locale, "weather-events"), title: "Weather Events", description: "Review reported event effects that may affect rare crop outcomes." }
     ],
     faq: [
-      { q: "What are crops in Build A Ring Farm?", a: "Crops are the core farming items players grow, harvest, and sell for cash in Build A Ring Farm." },
-      { q: "What is the best crop in Build A Ring Farm?", a: "A single best crop has not been verified here yet. Compare growth time, sale value, and upgrade goals before choosing." },
-      { q: "Should I use gear shop items on crops?", a: "Only after your normal crop loop is stable. Spray and gear claims should stay community reported until verified." },
-      { q: "Does this page list exact crop prices?", a: "No. Exact crop prices are not published here until official or in-game evidence confirms them." }
+      { q: "What are high-value crop leads in Build A Ring Farm?", a: "High-value crop leads are reported search and third-party signals for crops such as Void Fruit, Garden Devourer, Dragonfruit, Passion Fruit, and Elder Dragonroot. They are not source-checked game values here." },
+      { q: "Is Void Fruit the best crop in Build A Ring Farm?", a: "Void Fruit is tracked here as a Beebom reported lead with pending in-game verification. This page does not confirm it as the best crop." },
+      { q: "Does this page list exact crop values?", a: "No. Growth time and sell value remain pending until official or repeatable in-game evidence exists." },
+      { q: "Can I use these crops in the calculator?", a: "Yes, but only with manual observed base values. The calculator output is estimated and should not be treated as official." },
+      { q: "Why not create pages for each crop now?", a: "Individual crop pages would be thin without stronger source depth. These names stay in the hub watchlist until search demand and accessible evidence improve." }
     ]
   };
 }

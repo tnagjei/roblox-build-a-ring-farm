@@ -6,4 +6,4 @@
 
 ## Files
 - README.md：本目录说明
-- build-a-ring-farm.json：Build A Ring Farm 公开站点数据源，包含游戏身份、图片路径、codes 证据、核心页面文案、字段级 sourceStatus、索引实验字段以及友情链接
+- build-a-ring-farm.json：Build A Ring Farm 公开站点数据源，包含游戏身份、图片路径、codes 证据、核心页面文案、字段级 sourceStatus、第六章 crop value 互链摘要、索引实验字段以及友情链接

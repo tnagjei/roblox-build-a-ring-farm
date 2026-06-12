@@ -167,6 +167,7 @@ h3 { font-size: 20px; line-height: 1.2; }
 .data-row { display: grid; gap: 12px; align-items: center; border: 1px solid var(--line); border-radius: var(--radius); padding: 14px; background: rgba(248, 247, 239, 0.72); }
 .three-field-row { grid-template-columns: minmax(120px, 1fr) minmax(120px, 0.8fr) minmax(160px, 0.9fr); }
 .four-field-row { grid-template-columns: minmax(150px, 1fr) minmax(160px, 0.9fr) minmax(180px, 1.2fr) minmax(160px, 0.9fr); }
+.dynamic-field-row { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
 .data-row span { display: block; margin-bottom: 3px; color: var(--muted); font-family: ui-sans-serif, system-ui, sans-serif; font-size: 11px; font-weight: 800; text-transform: uppercase; }
 .data-row strong { display: block; overflow-wrap: anywhere; font-family: ui-sans-serif, system-ui, sans-serif; font-size: 14px; line-height: 1.35; }
 .data-row input { width: 100%; min-height: 40px; border: 1px solid rgba(9, 45, 44, 0.18); border-radius: 8px; padding: 8px 10px; color: var(--ink); background: rgba(255, 255, 255, 0.92); font: 700 14px/1.2 ui-sans-serif, system-ui, sans-serif; }

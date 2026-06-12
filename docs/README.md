@@ -6,5 +6,7 @@
 
 ## Files
 - README.md：本目录说明
+- buildaringfarm.org-serp-analysis-2026-06-11.md：最新谷歌三个核心词的 SERP 竞争对手与页面打法分析报告
+- buildaringfarm.org-keyword-research-[date].md：历史关键词扩展与机会矩阵研究日志
 - plans/：实现计划
 - research/：关键词、SERP、Roblox 数据与 codes 风险记录

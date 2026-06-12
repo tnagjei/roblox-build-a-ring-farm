@@ -1,6 +1,6 @@
 // input: typed localized strategy page content and locale
-// output: generic strategy guide page layout for updates, beginner guide, and safety pages
-// pos: multilingual strategy page template
+// output: generic strategy guide page layout with optional source tables and video sections
+// pos: multilingual strategy page template（更新规则：文件变更需同步本注释与所属目录 README）
 
 import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
@@ -17,6 +17,24 @@ type StrategyPageTemplateProps = {
 
 function actionHref(href: string): string {
   return href === "roblox" ? siteData.game.robloxUrl : href;
+}
+
+function youtubeEmbedUrl(id: string): string {
+  return `https://www.youtube-nocookie.com/embed/${id}`;
+}
+
+function youtubeWatchUrl(id: string): string {
+  return `https://www.youtube.com/watch?v=${id}`;
+}
+
+function rowClassName(fieldCount: number): string {
+  if (fieldCount <= 3) return "data-row three-field-row";
+  if (fieldCount <= 4) return "data-row four-field-row";
+  return "data-row dynamic-field-row";
+}
+
+function StatusBadge({ status }: { status: string }) {
+  return <span className="source-badge">{status}</span>;
 }
 
 function articleJsonLd(content: StrategyPageContent, locale: Locale) {
@@ -103,6 +121,68 @@ export function StrategyPageTemplate({ content, locale }: StrategyPageTemplatePr
           </article>
         ))}
       </section>
+
+      {content.dataTables && content.dataTables.length > 0 ? (
+        <section className="content-grid single-column-grid">
+          {content.dataTables.map((table) => (
+            <article className="guide-card data-card" key={table.title}>
+              <span className="card-rule" />
+              <p className="eyebrow">{table.eyebrow}</p>
+              <h2>{table.title}</h2>
+              {table.description ? <p>{table.description}</p> : null}
+              <div className="data-list">
+                {table.rows.map((row) => (
+                  <div className={rowClassName(row.fields.length)} key={row.key}>
+                    {row.fields.map((field) => (
+                      <div key={`${row.key}-${field.label}`}>
+                        <span>{field.label}</span>
+                        <strong>{field.value}</strong>
+                        {field.status ? <StatusBadge status={field.status} /> : null}
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </article>
+          ))}
+        </section>
+      ) : null}
+
+      {content.videoSections && content.videoSections.length > 0 ? (
+        <>
+          {content.videoSections.map((videoSection) => (
+            <section key={videoSection.title}>
+              <div className="section-heading">
+                <p className="eyebrow">{videoSection.eyebrow}</p>
+                <h2>{videoSection.title}</h2>
+                <p>{videoSection.description}</p>
+              </div>
+              <div className="video-grid">
+                {videoSection.videos.map((video) => (
+                  <article className="video-card" key={video.id}>
+                    <div className="video-frame">
+                      <iframe
+                        src={youtubeEmbedUrl(video.id)}
+                        title={video.title}
+                        loading="lazy"
+                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                      />
+                    </div>
+                    <div className="video-meta">
+                      <h3>{video.title}</h3>
+                      <p>{video.description}</p>
+                      <a href={youtubeWatchUrl(video.id)} target="_blank" rel="noopener noreferrer">
+                        {video.fallbackLabel}
+                      </a>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </section>
+          ))}
+        </>
+      ) : null}
 
       <section className="section-heading">
         <p className="eyebrow">{locale === "zh-tw" ? "相關攻略" : "Related guides"}</p>

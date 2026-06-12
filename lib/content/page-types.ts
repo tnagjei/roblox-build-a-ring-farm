@@ -30,6 +30,34 @@ export type TextSection = {
   list?: string[];
 };
 
+export type SourceField = {
+  label: string;
+  value: string;
+  status?: string;
+};
+
+export type SourceDataTable = {
+  eyebrow: string;
+  title: string;
+  description?: string;
+  rows: Array<{
+    key: string;
+    fields: SourceField[];
+  }>;
+};
+
+export type VideoGuideSection = {
+  eyebrow: string;
+  title: string;
+  description: string;
+  videos: Array<{
+    id: string;
+    title: string;
+    description: string;
+    fallbackLabel: string;
+  }>;
+};
+
 export type FaqItem = {
   q: string;
   a: string;
@@ -179,6 +207,8 @@ export type StrategyPageContent = {
     description: string;
   }>;
   sections: TextSection[];
+  dataTables?: SourceDataTable[];
+  videoSections?: VideoGuideSection[];
   relatedLinks: Array<{
     href: string;
     title: string;

@@ -8,7 +8,7 @@ import { siteData } from "@/lib/site-data";
 import { absoluteUrl } from "@/lib/seo";
 
 const pageTitle = "Build A Ring Farm Advanced Crops Guide | Rare Effects";
-const pageDescription = "Build A Ring Farm advanced crops guide covering rare effects, sprays, event odds, value boosts, offline limits, and source-checked claims.";
+const pageDescription = "Build A Ring Farm advanced crops guide linking high-value crop leads, rare effects, sprays, videos, calculator status, and source-safe checks.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 const summaryCards = [
   { title: "Community reported", description: "Useful leads from community sources, not official Roblox-confirmed numbers." },
   { title: "Event timing", description: "Separate normal farming from limited events, boosts, and online-only systems." },
-  { title: "Spray checks", description: "Treat spray costs and effects as source-status items until in-game proof exists." }
+  { title: "Crop lead boundary", description: "High-value crop names do not prove rare effects, sell values, or calculator presets." }
 ];
 
 const effectRows = [
@@ -49,7 +49,39 @@ const eventRows = [
   { eventName: "Galaxy Event", reportedEffect: "Rainbow", reportedChance: "1%", status: "Community reported" }
 ];
 
+const highValueCropRows = [
+  { crop: "Void Fruit", seedStatus: "Beebom reported lead", rareEffectLink: "Void effect name is separate from Void Fruit", calculatorStatus: "Manual input only", nextCheck: "Not a verified value; test base sell value and effect interaction." },
+  { crop: "Garden Devourer", seedStatus: "Beebom reported lead", rareEffectLink: "No rare-effect proof on this site", calculatorStatus: "Manual input only", nextCheck: "Not a verified value; record growth time and sale result." },
+  { crop: "Dragonfruit", seedStatus: "Beebom reported lead plus video demand", rareEffectLink: "Dragonfruit video does not prove crop value", calculatorStatus: "Manual input only", nextCheck: "Not a verified value; check base crop result before mutation claims." },
+  { crop: "Passion Fruit", seedStatus: "Beebom reported lead", rareEffectLink: "No rare-effect proof on this site", calculatorStatus: "Manual input only", nextCheck: "Not a verified value; needs stronger source depth." },
+  { crop: "Elder Dragonroot", seedStatus: "Beebom reported lead", rareEffectLink: "No rare-effect proof on this site", calculatorStatus: "Manual input only", nextCheck: "Not a verified value; needs repeatable in-game check." }
+];
+
+const videoGuides = [
+  {
+    id: "Cqp6N-1Azzk",
+    title: "Build A Ring Farm new plant visual reference",
+    description: "A visual reference for advanced crop research demand. It does not prove a complete plant list or any crop value.",
+    fallbackLabel: "Watch the new plant video on YouTube"
+  },
+  {
+    id: "gJrbZmzh3l8",
+    title: "Build A Ring Farm Dragonfruit visual reference",
+    description: "A Dragonfruit video signal from search results. It does not verify Dragonfruit value, growth time, or rare-effect behavior.",
+    fallbackLabel: "Watch the Dragonfruit video on YouTube"
+  }
+];
+
 const sections = [
+  {
+    heading: "High-value crop leads are not rare-effect proof",
+    subheading: "Crop name, mutation, spray, and weather event are different evidence layers",
+    body: [
+      "A reported high-value crop lead does not prove a rare effect. Void Fruit, Garden Devourer, Dragonfruit, Passion Fruit, and Elder Dragonroot can be useful names to track, but their base values, rare-effect interactions, and calculator use all need separate evidence.",
+      "This matters because players often search best crops, advanced crops, rare effects, sprays, and weather events together. The safer rule is to keep each layer separate until official notes or repeatable in-game tests connect them."
+    ],
+    list: ["Crop name: reported or pending lead.", "Base value: pending until observed in game.", "Rare effect: community reported unless tested.", "Calculator result: estimated after manual input."]
+  },
   {
     heading: "Source status: official vs community reported",
     subheading: "Evidence boundary",
@@ -90,6 +122,8 @@ const sections = [
 
 const relatedLinks = [
   { href: "/crops/", title: "Crops", description: "Start with the normal crop loop before chasing rare effects." },
+  { href: "/seeds/", title: "Seeds", description: "Check reported high-value seed leads before advanced crop research." },
+  { href: "/calculator/", title: "Calculator", description: "Use manual crop values before estimating rare-effect scenarios." },
   { href: "/gear-shop/", title: "Gear Shop", description: "Compare sprays, fertilizer, and gear value against rare crop effects." },
   { href: "/upgrades/", title: "Upgrades", description: "Compare gear and spray value against basic upgrade ROI." },
   { href: "/weather-events/", title: "Weather Events", description: "Review event effects that may connect to rare crop values." },
@@ -99,6 +133,8 @@ const relatedLinks = [
 
 const faq = [
   { q: "Are these rare crop values official?", a: "No. The exact values on this page are community reported and should be rechecked after updates." },
+  { q: "Are high-value crops the same as mutations?", a: "No. High-value crop leads are reported crop names, while mutations or rare effects are separate mechanics that need their own source checks." },
+  { q: "Is Dragonfruit value verified by the video embed?", a: "No. The Dragonfruit video is a visual reference for search demand only. It does not verify value, growth time, or rare-effect behavior." },
   { q: "What is the strongest reported rare crop effect?", a: "Community sources report Rainbow as the highest listed value boost at 5x, but this is not official-source verified on this site yet." },
   { q: "Can sprays improve crop value?", a: "Community sources report spray items for Wet, Frozen, Void, Radioactive, and Rainbow effects. Exact item behavior should still be tested in-game." },
   { q: "Can rare crop effects happen offline?", a: "Offline behavior is not verified here yet. The official page confirms offline earnings, but not rare effect triggering while offline." }
@@ -106,6 +142,14 @@ const faq = [
 
 function StatusBadge({ status }: { status: string }) {
   return <span className="source-badge">{status}</span>;
+}
+
+function youtubeEmbedUrl(id: string): string {
+  return `https://www.youtube-nocookie.com/embed/${id}`;
+}
+
+function youtubeWatchUrl(id: string): string {
+  return `https://www.youtube.com/watch?v=${id}`;
 }
 
 export default function AdvancedCropsPage() {
@@ -116,7 +160,7 @@ export default function AdvancedCropsPage() {
           <p className="eyebrow">Advanced crop effects guide</p>
           <h1>Build A Ring Farm Advanced Crops Guide</h1>
           <p className="lede">
-            Use this Build A Ring Farm advanced crops guide to review community reported rare effects, event-based value boosts, sprays, and offline limits without treating unverified numbers as official facts.
+            Use this Build A Ring Farm advanced crops guide to review high-value crop leads, community reported rare effects, event-based value boosts, sprays, and offline limits without treating unverified numbers as official facts.
           </p>
           <div className="hero-actions">
             <Link prefetch={false} className="primary-link" href="/gear-shop/">Read gear shop guide</Link>
@@ -197,6 +241,26 @@ export default function AdvancedCropsPage() {
             ))}
           </div>
         </article>
+
+        <article className="guide-card data-card">
+          <span className="card-rule" />
+          <p className="eyebrow">High-value crop cross-link</p>
+          <h2>High-value crop leads and advanced checks</h2>
+          <p>
+            These crop names can guide research, but each row remains not a verified value until base value, rare-effect interaction, and calculator use are checked separately.
+          </p>
+          <div className="data-list">
+            {highValueCropRows.map((row) => (
+              <div className="data-row dynamic-field-row" key={row.crop}>
+                <div><span>Crop</span><strong>{row.crop}</strong></div>
+                <div><span>Seed status</span><strong>{row.seedStatus}</strong><StatusBadge status="reported" /></div>
+                <div><span>Rare effect link</span><strong>{row.rareEffectLink}</strong><StatusBadge status="pending" /></div>
+                <div><span>Calculator status</span><strong>{row.calculatorStatus}</strong><StatusBadge status="estimated" /></div>
+                <div><span>Next check</span><strong>{row.nextCheck}</strong></div>
+              </div>
+            ))}
+          </div>
+        </article>
       </section>
 
       <section className="content-grid">
@@ -209,6 +273,38 @@ export default function AdvancedCropsPage() {
             <ul>{section.list.map((item) => <li key={item}>{item}</li>)}</ul>
           </article>
         ))}
+      </section>
+
+      <section>
+        <div className="section-heading">
+          <p className="eyebrow">Visual reference</p>
+          <h2>Visual references for advanced crop research</h2>
+          <p>
+            These videos are embedded for visual research context only. They do not verify every plant, Dragonfruit value, rare effect, or calculator input.
+          </p>
+        </div>
+        <div className="video-grid">
+          {videoGuides.map((video) => (
+            <article className="video-card" key={video.id}>
+              <div className="video-frame">
+                <iframe
+                  src={youtubeEmbedUrl(video.id)}
+                  title={video.title}
+                  loading="lazy"
+                  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              </div>
+              <div className="video-meta">
+                <h3>{video.title}</h3>
+                <p>{video.description}</p>
+                <a href={youtubeWatchUrl(video.id)} target="_blank" rel="noopener noreferrer">
+                  {video.fallbackLabel}
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section className="section-heading">
