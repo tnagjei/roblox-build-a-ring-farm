@@ -301,14 +301,14 @@ export function createTemplateCodesPage(locale = "en"): CodesPageContent {
 function createCropsPage(locale: string): StrategyPageContent {
   return {
     meta: {
-      title: withLocale(`${gameConfig.gameName} Crops Guide | High-Value Crop Leads`, locale),
-      description: `${gameConfig.gameName} crops guide with reported high-value leads, crop value watchlist, Void Fruit, Garden Devourer, Dragonfruit, and calculator-safe status labels.`
+      title: withLocale(`${gameConfig.gameName} Crop Value List | Source Differences`, locale),
+      description: `${gameConfig.gameName} crop value list with reported source differences for Void Fruit, Garden Devourer, Dragonfruit, calculator-safe labels, and pending checks.`
     },
     slug: "crops",
     hero: {
       eyebrow: "Crops and farming guide",
       h1: withLocale(`${gameConfig.gameName} Crops Guide`, locale),
-      lede: "Use this Build A Ring Farm crops guide to follow the crop loop, reported Build A Ring Farm high value crops, crop value watchlist, seed-to-crop handoff, and calculator boundaries without treating weak data as official values.",
+      lede: "Use this Build A Ring Farm crop value list to follow the crop loop, reported source differences, high-value crop watchlist, seed-to-crop handoff, and calculator boundaries without treating weak data as final values.",
       primaryAction: { label: "Read seeds guide", href: localizedHref(locale, "seeds") },
       secondaryAction: { label: "Open calculator", href: localizedHref(locale, "calculator") }
     },
@@ -318,6 +318,24 @@ function createCropsPage(locale: string): StrategyPageContent {
       { title: "No fake prices", description: "This page does not publish official sell values, exact growth times, or strongest-crop claims without proof." }
     ],
     sections: [
+      {
+        heading: "Why Build A Ring Farm crop values differ",
+        subheading: "Source pages mix seeds, crops, packs, and video claims",
+        body: [
+          "Void Fruit, Garden Devourer, and Dragonfruit now appear across several third-party result types, but the sources do not always agree on value, acquisition, or whether they are describing a seed, a crop, or a pack route.",
+          "The safer page pattern is to show the disagreement first, then keep calculator use manual. A disputed value can answer search intent, but it should not become a default number or route recommendation."
+        ],
+        list: ["Source snippets can repeat the same number without proving it.", "Different sites may mix crop value and seed acquisition.", "Video titles are discovery signals, not value proof.", "Use disputed when major sources conflict."]
+      },
+      {
+        heading: "How to use crop values safely",
+        subheading: "Manual input before route decisions",
+        body: [
+          "Use the matrix below as a source-difference table, not a preset list. If you grow one of these crops, record your observed sale value, server date, and any mutation or ring state before entering it in the calculator.",
+          "This protects the crop route from two common SEO errors: copying a third-party number as final data, or treating a high-value crop name as proof of the best money route."
+        ],
+        list: ["Record the observed base value before calculator use.", "Separate seed source from grown crop value.", "Keep mutation, ring, pet, event, and fertilizer effects separate.", "Retest after updates before changing route advice."]
+      },
       {
         heading: "Source status before crop values",
         subheading: "What not to treat as verified",
@@ -356,6 +374,78 @@ function createCropsPage(locale: string): StrategyPageContent {
       }
     ],
     dataTables: [
+      {
+        eyebrow: "Source differences",
+        title: "Reported crop value source differences",
+        description: "This matrix keeps crop value claims source-specific. It preserves disputed, reported, pending, and estimated labels instead of turning third-party numbers into calculator defaults.",
+        rows: [
+          {
+            key: "source-diff-void-fruit",
+            fields: [
+              { label: "Crop", value: "Void Fruit" },
+              { label: "Beebom", value: "360K reported value" },
+              { label: "PGG", value: "180K reported value" },
+              { label: "Sportskeeda", value: "180K snippet signal" },
+              { label: "Bo3", value: "360K reported value" },
+              { label: "Fandom", value: "No stable value captured in this matrix" },
+              { label: "Target status", value: "Value conflict between 180K and 360K", status: "disputed" },
+              { label: "Verification status", value: "Pending in-game value check", status: "pending" }
+            ]
+          },
+          {
+            key: "source-diff-garden-devourer",
+            fields: [
+              { label: "Crop", value: "Garden Devourer" },
+              { label: "Beebom", value: "350K reported value" },
+              { label: "PGG", value: "350K reported value" },
+              { label: "Sportskeeda", value: "Snippet pending" },
+              { label: "Bo3", value: "350K reported value" },
+              { label: "Fandom", value: "350K reported value" },
+              { label: "Target status", value: "Reported consensus around 350K" },
+              { label: "Verification status", value: "Reported consensus, not in-game verified here", status: "reported" }
+            ]
+          },
+          {
+            key: "source-diff-dragonfruit",
+            fields: [
+              { label: "Crop", value: "Dragonfruit" },
+              { label: "Beebom", value: "350K reported value" },
+              { label: "PGG", value: "350K reported value" },
+              { label: "Sportskeeda", value: "Source not used for stable value in this matrix" },
+              { label: "Bo3", value: "350K reported value" },
+              { label: "Fandom", value: "Placeholder / Tropical Seed Pack acquisition signal" },
+              { label: "Target status", value: "Value reported, acquisition differences remain" },
+              { label: "Verification status", value: "Reported value with disputed acquisition context", status: "disputed" }
+            ]
+          },
+          {
+            key: "source-diff-passion-fruit",
+            fields: [
+              { label: "Crop", value: "Passion Fruit" },
+              { label: "Beebom", value: "Seed-tier lead" },
+              { label: "PGG", value: "Pending source check" },
+              { label: "Sportskeeda", value: "Pending source check" },
+              { label: "Bo3", value: "Pending source check" },
+              { label: "Fandom", value: "Pending source check" },
+              { label: "Target status", value: "Keep existing watchlist row" },
+              { label: "Verification status", value: "Pending stronger source depth", status: "pending" }
+            ]
+          },
+          {
+            key: "source-diff-elder-dragonroot",
+            fields: [
+              { label: "Crop", value: "Elder Dragonroot" },
+              { label: "Beebom", value: "Seed-tier lead" },
+              { label: "PGG", value: "Pending source check" },
+              { label: "Sportskeeda", value: "Pending source check" },
+              { label: "Bo3", value: "Pending source check" },
+              { label: "Fandom", value: "Pending source check" },
+              { label: "Target status", value: "Keep existing watchlist row" },
+              { label: "Verification status", value: "Pending stronger source depth", status: "pending" }
+            ]
+          }
+        ]
+      },
       {
         eyebrow: "Reported leads",
         title: "Reported high-value crop leads",
@@ -510,6 +600,12 @@ function createCropsPage(locale: string): StrategyPageContent {
         description: "These YouTube embeds satisfy video-style search demand only. They do not verify crop value, growth time, best crop, codes, rewards, or route numbers.",
         videos: [
           {
+            id: "Cqp6N-1Azzk",
+            title: "Build A Ring Farm crop value video reference",
+            description: "SERP video reference for crop value demand. It does not settle Void Fruit, Garden Devourer, or Dragonfruit value conflicts.",
+            fallbackLabel: "Watch the crop value video on YouTube"
+          },
+          {
             id: "r8EATLyhrlw",
             title: "Build A Ring Farm crop route video guide",
             description: "Visual route context from YouTube SERP. Use it as gameplay context, not as crop value evidence.",
@@ -540,8 +636,12 @@ function createCropsPage(locale: string): StrategyPageContent {
     ],
     faq: [
       { q: "What are high-value crop leads in Build A Ring Farm?", a: "High-value crop leads are reported search and third-party signals for crops such as Void Fruit, Garden Devourer, Dragonfruit, Passion Fruit, and Elder Dragonroot. They are not source-checked game values here." },
+      { q: "Why do Void Fruit values differ?", a: "The current matrix preserves both 180K and 360K third-party claims for Void Fruit. That conflict is marked disputed until an in-game value check or stronger source resolves it." },
+      { q: "Is Garden Devourer 350K verified?", a: "No. Several sources report Garden Devourer around 350K, but this page treats that as reported consensus rather than in-game verification." },
+      { q: "Is Dragonfruit value verified?", a: "No. Dragonfruit has multiple 350K third-party claims, but acquisition context differs by source, so this page keeps the value reported and the acquisition boundary disputed." },
       { q: "Is Void Fruit the best crop in Build A Ring Farm?", a: "Void Fruit is tracked here as a Beebom reported lead with pending in-game verification. This page does not confirm it as the best crop." },
       { q: "Does this page list exact crop values?", a: "No. Growth time and sell value remain pending until official or repeatable in-game evidence exists." },
+      { q: "Can I use reported crop values in the calculator?", a: "Yes, only as manual inputs. Keep the output estimated and do not treat a reported number as a default preset." },
       { q: "Can I use these crops in the calculator?", a: "Yes, but only with manual observed base values. The calculator output is estimated and should not be treated as official." },
       { q: "Why not create pages for each crop now?", a: "Individual crop pages would be thin without stronger source depth. These names stay in the hub watchlist until search demand and accessible evidence improve." }
     ]

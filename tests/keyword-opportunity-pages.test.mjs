@@ -256,8 +256,71 @@ test("June 2026 crop value blueprint is merged into existing pages without thin 
   const cropsPage = data.pages.find((item) => item.key === "crops");
   const calculatorPage = data.pages.find((item) => item.key === "calculator");
   const advancedPage = data.pages.find((item) => item.key === "advanced-crops");
-  assert.match(cropsPage.primaryKeyword, /high value crops/i, "public data crops keyword must target the high-value crop intent");
+  assert.match(cropsPage.primaryKeyword, /high value crops|crop value list/i, "public data crops keyword must target the crop value intent");
   assert.ok(cropsPage.relatedPages.includes("calculator"), "crops public data must link to calculator");
   assert.ok(calculatorPage.relatedPages.includes("crops"), "calculator public data must link to crops");
   assert.ok(advancedPage.relatedPages.includes("seeds"), "advanced-crops public data must link to seeds");
+});
+
+test("June 15 SERP keyword blueprint refreshes inner pages without unsupported claims", () => {
+  const codes = read("app/codes/page.tsx");
+  const events = read("app/events/page.tsx");
+  const updateStatus = read("app/update-status/page.tsx");
+  const crops = read("lib/content/template-pages.ts");
+  const seeds = read("app/seeds/page.tsx");
+  const data = JSON.parse(read("public/data/build-a-ring-farm.json"));
+  const ledger = read("SEO_INDEX_LEDGER.md");
+
+  for (const route of [
+    "carnival-code",
+    "carnival-pass-tickets",
+    "update6",
+    "void-fruit-value",
+    "garden-devourer-value",
+    "dragonfruit-value",
+    "seeds-tier-list"
+  ]) {
+    assert.equal(fs.existsSync(path.join(root, "app", route)), false, `Do not create thin /${route}/ route`);
+  }
+
+  for (const term of ["CARNIVAL", "100 Carnival Pass Tickets", "UPDATE5", "250KUSERS", "PLANTRUSH"]) {
+    assert.match(codes, new RegExp(term, "i"), `/codes/ must include ${term}`);
+  }
+  for (const source of ["Beebom", "Pro Game Guides", "PCGamesN"]) {
+    assert.match(codes, new RegExp(source, "i"), `/codes/ must preserve ${source} source claim`);
+  }
+  assert.match(codes, /Build A Ring Farm Codes June 2026 \| CARNIVAL Reported/, "codes title must target CARNIVAL");
+  assert.match(codes, /syp2pjKl8uE/, "codes page must include CARNIVAL video reference");
+  assert.doesNotMatch(codes, /CARNIVAL works|CARNIVAL is verified|all codes confirmed/i, "CARNIVAL must stay reported or pending");
+
+  assert.match(events, /Carnival Pass Tickets/i, "events page must cover Carnival Pass Tickets");
+  assert.match(events, /Third-party reported, mechanics pending/i, "events page must keep Carnival mechanics pending");
+  assert.match(events, /K5KAcsH1Zcw/, "events page must include Carnival video reference");
+  assert.doesNotMatch(events, /event mechanics are verified|ticket shop verified|verified ticket odds/i, "events page must not confirm Carnival mechanics");
+
+  assert.match(updateStatus, /Update 6/i, "update-status must cover Update 6");
+  assert.match(updateStatus, /UPDATE6/i, "update-status must track UPDATE6");
+  assert.match(updateStatus, /Not verified as a code/i, "UPDATE6 must stay pending");
+  assert.match(updateStatus, /szp3NOtMOQ8/, "update-status must include Update 6 video reference");
+  assert.doesNotMatch(updateStatus, /UPDATE6 works|UPDATE6 active|Update 6 patch notes confirmed/i, "UPDATE6 must not be promoted");
+
+  for (const term of ["Reported crop value source differences", "Void Fruit", "180K", "360K", "Garden Devourer", "350K", "Dragonfruit", "disputed", "Cqp6N-1Azzk"]) {
+    assert.match(crops, new RegExp(term, "i"), `/crops/ template must include ${term}`);
+  }
+  assert.doesNotMatch(crops, /verified strongest crop|calculator preset value/i, "crops page must not create unsupported presets or strongest-crop claims");
+
+  assert.match(seeds, /Seed-to-crop value boundary/i, "seeds page must add seed-to-crop value boundary");
+  assert.match(seeds, /source-difference matrix|reported source-difference matrix/i, "seeds page must point value differences to crops");
+
+  const carnivalCode = data.codes.communityReportedCodes.find((item) => item.code === "CARNIVAL");
+  assert.ok(carnivalCode, "public data must include CARNIVAL as community reported code");
+  assert.equal(carnivalCode.status, "third-party reported");
+  assert.match(carnivalCode.reportedReward, /Carnival Pass Tickets/i);
+
+  const pagesByKey = Object.fromEntries(data.pages.map((page) => [page.key, page]));
+  assert.ok(pagesByKey.codes.relatedPages.includes("events"), "codes data must link to events");
+  assert.equal(pagesByKey.events.primaryKeyword, "Build A Ring Farm Carnival Pass Tickets");
+  assert.equal(pagesByKey["update-status"].primaryKeyword, "Build A Ring Farm Update 6 codes");
+  assert.equal(pagesByKey.crops.primaryKeyword, "Build A Ring Farm crop value list");
+  assert.match(ledger, /2026-06-15 SERP keyword blueprint/i, "ledger must record June 15 execution");
 });

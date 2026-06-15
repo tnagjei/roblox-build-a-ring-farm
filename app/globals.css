@@ -325,7 +325,7 @@ details p { padding: 0 20px 20px; color: var(--muted); }
 .friend-link-text { display: none; font-size: 14px; font-weight: 600; color: var(--text-soft); letter-spacing: 0.02em; }
 @media (max-width: 560px) {
   .friend-links-section { padding: 18px 0; }
-  .friend-links-scroller { flex-wrap: wrap; gap: 12px; padding: 0 16px; white-space: normal; animation: none; }
+  .friend-links-scroller { width: 100%; flex-shrink: 1; flex-wrap: wrap; gap: 12px; padding: 0 16px; white-space: normal; animation: none; }
   .friend-link-item { height: auto; opacity: 1; }
   .friend-link-item img { display: none; }
   .friend-link-text { display: inline; }

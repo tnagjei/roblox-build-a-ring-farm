@@ -1,15 +1,15 @@
 // input: `/update-status/` route request
-// output: English update status page covering reported Update 3 and pending Update 4 leads
+// output: English update status page covering reported Update 3, pending Update 4, Update 6 code signals, video reference, and source boundaries
 // pos: update-status route（更新规则：文件变更需同步本注释与所属目录 README）
 
 import type { Metadata } from "next";
 import Link from "next/link";
 import { absoluteUrl } from "@/lib/seo";
 
-const pageTitle = "Build A Ring Farm Update Status | Codes & Patch Notes";
-const pageDescription = "Track Build A Ring Farm update status, Update 3 and Update 4 reported leads, pending patch notes, code claims, mechanics, and safe verification steps.";
+const pageTitle = "Build A Ring Farm Update Status | Update 6 Code Signals";
+const pageDescription = "Track Build A Ring Farm Update 6 code signals, CARNIVAL reports, UPDATE6 pending status, patch note boundaries, and safe verification steps.";
 const heroImage = "/images/official-hero-image.webp";
-const lastChecked = "2026-06-03";
+const lastChecked = "2026-06-15";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -26,6 +26,7 @@ export const metadata: Metadata = {
 };
 
 const updateRows = [
+  { update: "Update 6", signal: "Third-party title and code-page signal", status: "Reported, pending verification", note: "Track Update 6 and UPDATE6 search demand without adding UPDATE6 to the active code table or writing patch notes as confirmed." },
   { update: "Update 3", signal: "Reported code and mutation leads", status: "Reported, pending verification", note: "Keep PLANTRUSH, Honeycomb, Alien, Farm, Queen Bee, and reward claims out of verified status until in-game proof exists." },
   { update: "Update 4", signal: "Search result and third-party lead", status: "Pending", note: "Patch notes are not verified here. Do not write official Update 4 rewards, prices, or multipliers without source proof." },
   { update: "Current code table", signal: "June 2026 third-party code pages", status: "Community reported", note: "External active labels are not verified active labels on this site." },
@@ -33,6 +34,8 @@ const updateRows = [
 ];
 
 const watchRows = [
+  { item: "CARNIVAL", currentLabel: "Third-party reported code claim", nextCheck: "Confirm whether it gives 100 Carnival Pass Tickets inside the real game UI before any stronger label." },
+  { item: "UPDATE6", currentLabel: "Not verified as a code", nextCheck: "Search and test only as a pending Update 6 signal; do not add it to the active code table." },
   { item: "250KUSERS", currentLabel: "Third-party reported", nextCheck: "Confirm the claimed 3 Minute Time Skip reward inside the real game UI." },
   { item: "PLANTRUSH", currentLabel: "Community reported", nextCheck: "Confirm whether the reward is Plant Rush Box, Plant Rush Boss Box, or neither." },
   { item: "Plant Contracts", currentLabel: "Third-party reported mechanic", nextCheck: "Confirm UI, requirements, rewards, and cooldown before route use." },
@@ -54,6 +57,15 @@ const mechanicLinks = [
 ];
 
 const sections = [
+  {
+    heading: "Build A Ring Farm Update 6 code signals",
+    subheading: "UPDATE6 is a pending search signal",
+    body: [
+      "Update 6 now has enough SERP and video-title demand to track on the update hub, but that does not make UPDATE6 a real code. CARNIVAL is the only new code string in this blueprint with a specific third-party reward claim.",
+      "Keep Update 6 content focused on boundaries: what is reported, what is still pending, where to test codes, and which claims should stay out of calculator defaults."
+    ],
+    list: ["Update 6 signal: reported by third-party titles and code-page demand.", "UPDATE6 label: not verified as a code.", "CARNIVAL label: third-party reported, pending in-game verification.", "Patch-note data: pending until official or repeatable evidence exists."]
+  },
   {
     heading: "Build A Ring Farm Update 4 status",
     subheading: "Pending until patch notes are verified",
@@ -84,6 +96,8 @@ const sections = [
 ];
 
 const faq = [
+  { q: "Is UPDATE6 a real Build A Ring Farm code?", a: "UPDATE6 is not verified as a code here. It is tracked as a pending Update 6 search and code-title signal only. Do not use it as an active-code entry unless the real game UI accepts it and the result is recorded." },
+  { q: "Is CARNIVAL related to Update 6?", a: "CARNIVAL is tracked as a third-party reported June 2026 code claim with a reported 100 Carnival Pass Tickets reward. The relation to Update 6 remains a source signal, not confirmed patch-note data." },
   { q: "Is Build A Ring Farm Update 4 verified here?", a: "No. Update 4 is a reported or pending lead until official notes or repeatable in-game proof exist." },
   { q: "Are Update 4 patch notes official on this site?", a: "No. Patch notes are pending here unless they come from a verified official source." },
   { q: "Are Plant Contracts verified?", a: "No. Plant Contracts are listed as a third-party reported mechanic pending proof." },
@@ -96,6 +110,14 @@ function StatusBadge({ status }: { status: string }) {
   return <span className="source-badge">{status}</span>;
 }
 
+function youtubeEmbedUrl(id: string): string {
+  return `https://www.youtube-nocookie.com/embed/${id}`;
+}
+
+function youtubeWatchUrl(id: string): string {
+  return `https://www.youtube.com/watch?v=${id}`;
+}
+
 export default function UpdateStatusPage() {
   return (
     <main className="page-main">
@@ -103,10 +125,10 @@ export default function UpdateStatusPage() {
         <div className="hero-copy">
           <p className="eyebrow">Update status</p>
           <h1>Build A Ring Farm Update Status</h1>
-          <p className="lede">Track Build A Ring Farm update status across Update 3 and Update 4 leads without calling reported codes, mechanics, patch notes, mutation multipliers, or reward claims verified.</p>
+          <p className="lede">Track Build A Ring Farm update status across Update 3, Update 4, Update 6, CARNIVAL, and UPDATE6 leads without calling reported codes, mechanics, patch notes, mutation multipliers, or reward claims verified.</p>
           <div className="hero-actions">
             <Link prefetch={false} className="primary-link" href="/codes/">Check codes</Link>
-            <Link prefetch={false} className="secondary-link" href="/plant-contracts/">Plant Contracts</Link>
+            <Link prefetch={false} className="secondary-link" href="/events/">Carnival tickets</Link>
           </div>
         </div>
         <img className="hero-image" src={heroImage} alt="Build A Ring Farm Roblox thumbnail" />
@@ -115,21 +137,47 @@ export default function UpdateStatusPage() {
       <section className="guide-card evidence-note-card">
         <span className="card-rule" />
         <p className="eyebrow">Current verdict</p>
-        <h2>Update 4 is pending, not verified patch-note data</h2>
-        <p>All unverified codes, rewards, mechanics, multipliers, prices, patch notes, and event claims remain reported or pending until stronger evidence exists.</p>
+        <h2>Update 6 and UPDATE6 are pending signals, not code proof</h2>
+        <p>All unverified codes, rewards, mechanics, multipliers, prices, patch notes, and event claims remain reported or pending until stronger evidence exists. CARNIVAL stays a reported code claim, and UPDATE6 stays a pending signal.</p>
         <p><strong>Last checked:</strong> {lastChecked}</p>
       </section>
 
       <section className="content-grid single-column-grid">
         <article className="guide-card data-card"><span className="card-rule" /><p className="eyebrow">Update table</p><h2>Reported and pending update status</h2><div className="data-list">{updateRows.map((row) => (<div className="data-row four-field-row" key={row.update}><div><span>Update</span><strong>{row.update}</strong></div><div><span>Signal</span><strong>{row.signal}</strong></div><div><span>Status</span><StatusBadge status={row.status} /></div><div><span>Note</span><strong>{row.note}</strong></div></div>))}</div></article>
-        <article className="guide-card data-card"><span className="card-rule" /><p className="eyebrow">Watchlist</p><h2>Update 4 pending watchlist</h2><div className="data-list">{watchRows.map((row) => (<div className="data-row three-field-row" key={row.item}><div><span>Item</span><strong>{row.item}</strong></div><div><span>Current label</span><StatusBadge status={row.currentLabel} /></div><div><span>Next check</span><strong>{row.nextCheck}</strong></div></div>))}</div></article>
+        <article className="guide-card data-card"><span className="card-rule" /><p className="eyebrow">Watchlist</p><h2>Update pending watchlist</h2><div className="data-list">{watchRows.map((row) => (<div className="data-row three-field-row" key={row.item}><div><span>Item</span><strong>{row.item}</strong></div><div><span>Current label</span><StatusBadge status={row.currentLabel} /></div><div><span>Next check</span><strong>{row.nextCheck}</strong></div></div>))}</div></article>
+      </section>
+
+      <section>
+        <div className="section-heading">
+          <p className="eyebrow">Video reference</p>
+          <h2>Build A Ring Farm Update 6 code video reference</h2>
+          <p>This video reference supports Update 6 and UPDATE6 search intent. It is not patch-note proof and does not make UPDATE6 an accepted code.</p>
+        </div>
+        <div className="video-grid">
+          <article className="video-card">
+            <div className="video-frame">
+              <iframe
+                src={youtubeEmbedUrl("szp3NOtMOQ8")}
+                title="Build A Ring Farm Update 6 code video reference"
+                loading="lazy"
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            </div>
+            <div className="video-meta">
+              <h3>Update 6 code video reference</h3>
+              <p>Use this only as a discovery lead. Update 6 code claims still need official or repeatable in-game evidence before promotion.</p>
+              <a href={youtubeWatchUrl("szp3NOtMOQ8")} target="_blank" rel="noopener noreferrer">Watch the Update 6 code video on YouTube</a>
+            </div>
+          </article>
+        </div>
       </section>
 
       <section className="section-heading"><p className="eyebrow">Mechanics</p><h2>Update 4 mechanics watchlist</h2></section><section className="route-grid">{mechanicLinks.map((link) => <Link prefetch={false} className="route-card" href={link.href} key={link.href}><span className="card-rule" /><h2>{link.title}</h2><p>{link.description}</p></Link>)}</section>
 
       <section className="content-grid">{sections.map((section) => (<article className="guide-card" key={section.heading}><span className="card-rule" /><h2>{section.heading}</h2><h3>{section.subheading}</h3>{section.body.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}<ul>{section.list.map((item) => <li key={item}>{item}</li>)}</ul></article>))}</section>
 
-      <section className="section-heading"><p className="eyebrow">Related guides</p><h2>Update status route links</h2></section><section className="route-grid" aria-label="Update status route links"><Link prefetch={false} className="route-card" href="/250kusers-code/"><span className="card-rule" /><h2>250KUSERS Code</h2><p>Track the newest reported code claim without marking it verified active.</p></Link><Link prefetch={false} className="route-card" href="/official-discord/"><span className="card-rule" /><h2>Official Discord</h2><p>Server discovered, but code announcement proof remains pending.</p></Link><Link prefetch={false} className="route-card" href="/update-3-status/"><span className="card-rule" /><h2>Update 3 Status</h2><p>Keep older Update 3 claims available without freezing the whole site in Update 3.</p></Link><Link prefetch={false} className="route-card" href="/codes/"><span className="card-rule" /><h2>Codes</h2><p>Review June 2026 reported code leads and active vs verified labels.</p></Link><Link prefetch={false} className="route-card" href="/calculator/"><span className="card-rule" /><h2>Calculator</h2><p>Use pending mutation presets only as planning inputs.</p></Link><Link prefetch={false} className="route-card" href="/mutations/"><span className="card-rule" /><h2>Mutations</h2><p>Check Cosmic, Bubblegum, Fire, Starfall, and Admin as pending leads.</p></Link></section>
+      <section className="section-heading"><p className="eyebrow">Related guides</p><h2>Update status route links</h2></section><section className="route-grid" aria-label="Update status route links"><Link prefetch={false} className="route-card" href="/250kusers-code/"><span className="card-rule" /><h2>250KUSERS Code</h2><p>Track the newest reported code claim without marking it verified active.</p></Link><Link prefetch={false} className="route-card" href="/events/"><span className="card-rule" /><h2>Events</h2><p>Keep Carnival Pass Tickets as a reported reward lead until event mechanics are confirmed.</p></Link><Link prefetch={false} className="route-card" href="/official-discord/"><span className="card-rule" /><h2>Official Discord</h2><p>Server discovered, but code announcement proof remains pending.</p></Link><Link prefetch={false} className="route-card" href="/update-3-status/"><span className="card-rule" /><h2>Update 3 Status</h2><p>Keep older Update 3 claims available without freezing the whole site in Update 3.</p></Link><Link prefetch={false} className="route-card" href="/codes/"><span className="card-rule" /><h2>Codes</h2><p>Review June 2026 reported code leads, CARNIVAL, and active vs verified labels.</p></Link><Link prefetch={false} className="route-card" href="/calculator/"><span className="card-rule" /><h2>Calculator</h2><p>Use pending mutation presets only as planning inputs.</p></Link><Link prefetch={false} className="route-card" href="/mutations/"><span className="card-rule" /><h2>Mutations</h2><p>Check Cosmic, Bubblegum, Fire, Starfall, and Admin as pending leads.</p></Link></section>
 
       <section className="faq-section"><div className="section-heading"><p className="eyebrow">FAQ</p><h2>Build A Ring Farm Update Status FAQ</h2></div><div className="faq-list">{faq.map((item) => <details key={item.q}><summary>{item.q}</summary><p>{item.a}</p></details>)}</div></section>
     </main>

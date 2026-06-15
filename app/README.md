@@ -6,7 +6,7 @@
 
 ## Files
 - README.md：本目录说明
-- globals.css：全站视觉样式，包含 source table 与 video reference 模块样式
+- globals.css：全站视觉样式，包含 source table、video reference 模块和移动端 footer friend links 样式
 - nav-fixes.css：顶部导航下拉浮层与移动端换行修复样式
 - layout.tsx：根布局和全局 metadata
 - page.tsx：首页
@@ -19,7 +19,8 @@
 - codes/：codes 页面
 - calculator/：calculator 工具型 SEO 页面
 - rings/：rings 与 ring multipliers 页面
-- update-status/：Update 3/Update 4 reported 与 pending 状态页面
+- update-status/：Update 3/Update 4/Update 6 reported 与 pending 状态页面
+- events/：events hub 页面，承接 Carnival Pass Tickets reported reward lead
 - update-3-status/：Update 3 codes 状态页面
 - 250kusers-code/：250KUSERS code 状态页面
 - official-discord/：official Discord 状态与安全边界页面

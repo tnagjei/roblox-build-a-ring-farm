@@ -86,13 +86,27 @@
 
 ---
 
-## 7. Index 台账主表
+## 7. 2026-06-15 SERP keyword blueprint 执行记录
+
+来源文件：`buildaringfarm-org-serp-keyword-blueprint-2026-06-15.md`
+
+| 页面 | 目标 Query | 页面动作 | 证据等级 | 第 7 天复查 | 第 14 天复查 | 实验边界 |
+|---|---|---|---|---|---|---|
+| `/codes/` | `Build A Ring Farm CARNIVAL code`、`Build A Ring Farm latest codes June 2026` | 新增 CARNIVAL 到 reportedCodes 与 source claim rows；reward 标 100 Carnival Pass Tickets reported；补 Beebom/PGG/PCGamesN source rows、FAQ、/events/ 和 /update-status/ 互链、YouTube reference `syp2pjKl8uE`；更新 Title/Description | Third-party reported, pending in-game verification | 2026-06-22 | 2026-06-29 | verified active count 仍为 0；不写 CARNIVAL confirmed |
+| `/events/` | `Build A Ring Farm Carnival Pass Tickets` | 新增 Carnival Pass Tickets row、current verdict、FAQ、/codes/ 和 /update-status/ 互链、YouTube reference `K5KAcsH1Zcw`；不新增 `/carnival-pass-tickets/` | Third-party reported reward lead, mechanics pending | 2026-06-22 | 2026-06-29 | 只承接 CARNIVAL reward claim；不写 ticket shop、odds、event rules 为 confirmed |
+| `/update-status/` | `Build A Ring Farm Update 6 codes`、`Build A Ring Farm UPDATE6` | 新增 Update 6 row、CARNIVAL/UPDATE6 watchRows、FAQ、/events/ 互链、YouTube reference `szp3NOtMOQ8`；更新 Title/Description | Third-party title/code-page signal, pending | 2026-06-22 | 2026-06-29 | UPDATE6 不进入 active code table；不写 patch notes 为 confirmed |
+| `/crops/` | `Build A Ring Farm crop value list` | 将 crops 模板改为 crop value list；新增 source differences matrix，覆盖 Void Fruit 180K/360K conflict、Garden Devourer 350K reported consensus、Dragonfruit 350K 与 acquisition dispute；新增视频 `Cqp6N-1Azzk` | Reported / disputed / pending / estimated | 2026-06-22 | 2026-06-29 | 不创建 `/void-fruit-value/`、`/garden-devourer-value/`、`/dragonfruit-value/`；不写 fixed strongest crop |
+| `/seeds/` | `Build A Ring Farm seeds tier list`、seed-to-crop value boundary | 仅补 source differences 入口和 FAQ，导向 `/crops/` 与 `/calculator/`；不新建 seeds tier list 页 | Reported / pending / estimated | 2026-06-22 | 2026-06-29 | 不把 seed row 变成 fixed crop value table |
+
+---
+
+## 8. Index 台账主表
 
 | 页面 | 页面组 | Google Index / GSC 状态 | Bing Index 状态 | Sitemap 状态 | 当前判断 | 下一个动作 |
 |---|---|---|---|---|---|---|
 | `/` | 首页 / Wiki Hub | 已索引，已有 GSC 表现 | 已索引 | 已确认 | 当前最强入口，不动 | 继续观察，不改 Title / Description |
-| `/codes/` | CTR 候选页 + code claim watchlist | 已索引，已有 GSC 表现 | 待复查 | 已确认 | 2026-06-11 加入 UPDATE5 / Super Pet Treat，更新 Title 包含 UPDATE5，加入 /pets/ 互链 | 2026-06-18 复查 query |
-| `/update-status/` | Update status hub | 已上线 | 待复查 | 已确认 | 已承接 Update 4 mechanics watchlist | 2026-06-18 复查 |
+| `/codes/` | CTR 候选页 + code claim watchlist | 已索引，已有 GSC 表现 | 待复查 | 已确认 | 2026-06-15 加入 CARNIVAL / Carnival Pass Tickets reported claim，Title 包含 CARNIVAL，加入 /events/ 互链 | 2026-06-22 复查 query |
+| `/update-status/` | Update status hub | 已上线 | 待复查 | 已确认 | 2026-06-15 承接 Update 6 / UPDATE6 signals，UPDATE6 仍 pending | 2026-06-22 复查 |
 | `/rings/` | Rings + Farm Ring Bonuses | 已索引 | 待复查 | 已确认 | 已链接 Farm Ring Bonuses | 2026-06-18 复查 |
 | `/250kusers-code/` | 新增长尾页 | 待发现 | 待提交 / 待发现 | 已同步 | 新鲜 code 长尾实验 | 提交索引后 7 / 14 天复查 |
 | `/official-discord/` | 新增长尾页 | 待发现 | 待提交 / 待发现 | 已同步 | 来源信任页实验 | 提交索引后 7 / 14 天复查 |
@@ -103,13 +117,13 @@
 | `/tier-list/` | 强信号页加码 | 已索引，已有 GSC 表现 | 已索引 | 已确认 | 页面已重构为宠物梯度厚度，强化 5 处内链 | 2026-06-10 复查 query 流量 |
 | `/pets/` | 404 修复 + pet tier hub | 新增，待发现 | 待提交 / 待发现 | 已同步 | 2026-06-11 bonusRows 拆分 treat 类型，补 Super Pet Treat pending 边界，加入 /codes/ 互链 | 2026-06-18 复查 |
 | `/tier-list/` | 强信号页加码 | 已索引，已有 GSC 表现 | 已索引 | 已确认 | 2026-06-11 roleRows 加入 Pet treat support，Spinosaurus 加注 Super Pet Treat 关联，加入 /codes/ /pets/ 互链 | 2026-06-18 复查 query 流量 |
-| `/events/` | Events hub | 新增，待发现 | 待提交 / 待发现 | 已同步 | 承接 events/event mutations 意图 | 2026-06-18 复查 |
+| `/events/` | Events hub | 新增，待发现 | 待提交 / 待发现 | 已同步 | 2026-06-15 承接 Carnival Pass Tickets reported reward lead，与 /codes/ 和 /update-status/ 互链 | 2026-06-22 复查 |
 | `/calculator/` | Tool / formula | 已索引或待复查 | 待复查 | 已确认 | 已加强 formula 和 planner 意图，Super Pet Treat 继续禁止作为 default preset | 2026-06-18 复查 |
 | `/weather-events/` | Weather events | 已索引或待复查 | 待复查 | 已确认 | 已区分 weather events 和 events hub | 2026-06-18 复查 |
 
 ---
 
-## 8. 当前禁止事项
+## 9. 当前禁止事项
 
 | 禁止事项 | 原因 |
 |---|---|
@@ -131,7 +145,7 @@
 
 ---
 
-## 9. 下次需要补充的数据
+## 10. 下次需要补充的数据
 
 | 数据 | 用途 |
 |---|---|

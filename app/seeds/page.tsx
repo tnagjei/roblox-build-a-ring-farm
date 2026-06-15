@@ -21,7 +21,8 @@ export const metadata: Metadata = {
 const summaryCards = [
   { title: "Seed packs", description: "Use seed packs as crop unlock leads, not as guaranteed value tables unless sources confirm them." },
   { title: "Crop progression", description: "Choose seeds by farming stage, crop loop stability, and upgrade goals." },
-  { title: "Code rewards", description: "Some community code lists mention seed pack rewards, but reward status still needs rechecking." }
+  { title: "Code rewards", description: "Some community code lists mention seed pack rewards, but reward status still needs rechecking." },
+  { title: "Source differences", description: "Use the crops guide for Void Fruit, Garden Devourer, and Dragonfruit value conflicts before calculator input." }
 ];
 
 const seedPackRows = [
@@ -176,6 +177,15 @@ const sections = [
     list: ["Seed page status: reported or pending source label.", "Crop page status: growth time and sell value boundary.", "Calculator status: estimated only after manual input.", "Advanced crops status: rare-effect checks stay separate from base crop value."]
   },
   {
+    heading: "Seed-to-crop value boundary",
+    subheading: "Where source differences belong",
+    body: [
+      "This seeds guide can identify reported seed names, but crop value conflicts belong on the crops page. Void Fruit, Garden Devourer, and Dragonfruit now have a source-difference matrix on /crops/ because third-party pages disagree on value or acquisition details.",
+      "Use /seeds/ for seed names and source labels, /crops/ for reported crop value source differences, and /calculator/ only after you enter an observed crop value manually."
+    ],
+    list: ["Seeds page: seed name and source label.", "Crops page: source differences and disputed crop value rows.", "Calculator page: manual observed value only.", "No seeds tier list row should become a fixed crop value."]
+  },
+  {
     heading: "Beginner seed strategy",
     subheading: "How to choose early seeds",
     body: [
@@ -205,7 +215,7 @@ const sections = [
 ];
 
 const relatedLinks = [
-  { href: "/crops/", title: "Crops", description: "Turn seed choices into crop cycles, harvests, and selling decisions." },
+  { href: "/crops/", title: "Crops", description: "Check reported crop value source differences before using seed leads as route inputs." },
   { href: "/calculator/", title: "Calculator", description: "Estimate crop value only after entering an observed value manually." },
   // P1 互链：seeds tier list 检查时加入 tier-list 入口
   { href: "/tier-list/", title: "Pets Tier List", description: "Check pet treat and mutation support that may interact with high-value seeds." },
@@ -226,7 +236,8 @@ const faq = [
   { q: "Is Void Fruit the best seed in Build A Ring Farm?", a: "Void Fruit is listed as a high-value seed in Beebom's June 2026 seeds tier list. This site does not confirm it as the best seed because the exact sell price, growth time, and ring multiplier interaction have not been verified here. Treat it as a reported high-value research lead." },
   { q: "What are high-value seeds in Build A Ring Farm?", a: "Based on Beebom's June 2026 seeds tier list, Void Fruit, Garden Devourer, and Dragonfruit are reported as high-value seeds. Passion Fruit and Elder Dragonroot also appear in that list. None of these are verified here with in-game screenshots or official data." },
   { q: "Is Void Fruit a seed or a crop?", a: "Treat Void Fruit as a reported seed-to-crop lead here. The seed name can be tracked on this page, while the grown crop value and growth time stay pending on the crops guide." },
-  { q: "Can I calculate crop value from the seeds page?", a: "Use this page to find reported seed leads, then use the calculator only after you enter your own observed crop value. The result is estimated, not official." }
+  { q: "Can I calculate crop value from the seeds page?", a: "Use this page to find reported seed leads, then use the calculator only after you enter your own observed crop value. The result is estimated, not official." },
+  { q: "Where should I compare seed-to-crop value differences?", a: "Use the crops guide for the reported source-difference matrix, then use the calculator only with your own observed crop value. The seeds page should not become a fixed crop value table." }
 ];
 
 function FieldWithSource({ label, value, sourceStatus }: { label: string; value: string; sourceStatus: string }) {

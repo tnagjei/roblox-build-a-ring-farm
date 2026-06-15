@@ -7,4 +7,4 @@
 ## Files
 - README.md：本目录说明
 - page-types.ts：共享页面内容类型，包含可选 source table 与 video guide 结构
-- template-pages.ts：通用策略页内容工厂，包含 crops 高价值作物 watchlist
+- template-pages.ts：通用策略页内容工厂，包含 crops crop value source differences 矩阵、高价值作物 watchlist 和视频参考
