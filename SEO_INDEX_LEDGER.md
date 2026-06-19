@@ -142,6 +142,13 @@
 | 不写 verified best pet | 宠物效果和排行缺游戏内证据 |
 | 不写 exact calculator formula | 公式和输入数据未完整验证 |
 | 不把 Starfall Griffin 写成 verified | 只能作为 high-risk pending lead |
+| 不把 `CARNIVAL` 写成 verified active | 只有第三方 reported claim（Beebom/PCGamesN/GamesRadar/PGG/Dexerto），100 Carnival Pass Tickets 未做游戏内验证 |
+| 不把 `UPDATE6` 写成 real code | 仅 pending Update 6 搜索信号，不进 active code table |
+| 不照搬 Dexerto 的 verified 措辞 | Dexerto 自称 verified 是第三方 claim，本站降级为 reported |
+| 不把 `Witherfang` 写成 verified value | Beebom/TechWiser 一致报 280K，仍标 reported，pending 游戏内核验 |
+| 不把 `Silver Artichoke` 写成确定值 | Beebom 280K 与 TechWiser 240K 冲突，必须标 disputed |
+| 不把 Witherfang/Silver Artichoke 写入 calculator default | reported/disputed 作物值只能手动输入，不作预设 |
+| 不新建 carnival-code/witherfang/silver-artichoke/dexerto-codes 薄页 | 蓝图判定薄页不稳定，由现有 hub 承接 |
 
 ---
 
@@ -156,3 +163,35 @@
 | GSC Query 数据 | 看 `UPDATE5`、`Super Pet Treat`、`pet treats`、`codes June 2026` 是否出现 impression |
 | Bing 页面索引状态 | 补 Bing Index 字段 |
 | 游戏内验证结果 | 决定是否能把 reported / pending 升级 |
+
+---
+
+## 11. 2026-06-18 SERP keyword blueprint 执行记录
+
+来源：`buildaringfarm-org-serp-keyword-blueprint-2026-06-18.md`。本轮按蓝图最终优先级刷新 6 个内页，核心红线是**不升级证据标签**（CARNIVAL/UPDATE6/作物值只能 reported/pending/disputed，绝不 verified/active/official）。
+
+### 11.1 执行动作表
+
+| 页面 | 优先级 | 动作 | 证据等级 | 复查日 |
+|---|---|---|---|---|
+| `/updates/` | P0 | content/i18n/en/updates.ts 重写为 Update 6 / CARNIVAL / UPDATE6 主叙事；旧 Update 3/4 下移为 historical recheck | CARNIVAL reported / UPDATE6 pending / Update 6 patch notes pending | 2026-06-25（第 7 天）|
+| `/codes/` | P0 | app/codes/page.tsx 新增 source freshness matrix（Beebom/PCGamesN/GamesRadar/PGG/Dexerto/RadioTimes）+ 2 条 FAQ；保留 0 verified active | 全部 reported，Dexerto verified 降级为 reported | 2026-06-25 |
+| `/seeds/` | P1 | app/seeds/page.tsx watchlist 追加 Witherfang(reported)、Silver Artichoke(disputed) + alignment 表 2 行 + 3 条 FAQ | Witherfang reported / Silver Artichoke disputed | 2026-06-25 |
+| `/crops/` | P1 | lib/content/template-pages.ts createCropsPage 两个 dataTables 各追加 Witherfang/Silver Artichoke 行 + 2 条 FAQ | Witherfang reported / Silver Artichoke disputed | 2026-06-25 |
+| `/events/` | P1 | 核对边界正确，无代码改动 | Carnival Pass Tickets reported / mechanics pending | 2026-06-25 |
+| `/update-status/` | P1 | 核对边界正确，无代码改动 | UPDATE6 pending / CARNIVAL reported | 2026-06-25 |
+
+### 11.2 本轮不做的事（蓝图判定）
+
+- 不新建 `/carnival-code/`、`/witherfang/`、`/silver-artichoke/`、`/dexerto-codes/` 等薄页路由
+- 不改主导航、sitemap、page-registry（现有路由已承接）
+- 不改首页（红线）
+- 不把任何 reported/pending/disputed 升级为 verified
+
+### 11.3 第 7/14 天复查重点（2026-06-25 / 2026-07-02）
+
+- GSC 是否出现 `Update 6 codes`、`CARNIVAL`、`UPDATE6`、`Witherfang`、`Silver Artichoke` impression
+- `/updates/` 是否被发现并索引
+- CARNIVAL 是否有游戏内核验结果（决定能否升级）
+- Silver Artichoke 数值冲突是否被新来源解决
+- 判断各页保留 / 加码 / 合并 / 停止

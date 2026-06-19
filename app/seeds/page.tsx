@@ -121,6 +121,20 @@ const seedTierWatchlist = [
     reportedTier: "Mid-high (Beebom June 2026)",
     note: "Beebom lists this in the June 2026 table. Growth time and cash-per-plot figure are not verified here.",
     sourceStatus: "Beebom reported, pending in-game verification"
+  },
+  // 2026-06-18 SERP 蓝图 P1：新增高价值种子线索，标 reported，不升级为 verified
+  {
+    seed: "Witherfang",
+    reportedTier: "Exotic (Beebom June 2026 seeds tier list)",
+    note: "Beebom and TechWiser both report Witherfang as an Exotic seed with a reported base income of 280K and acquisition from a Corrupted Seed Pack. Growth time, seed cost, and exact pack odds are not verified here.",
+    sourceStatus: "Beebom reported, pending in-game verification"
+  },
+  // 2026-06-18 SERP 蓝图 P1：Silver Artichoke 数值在 Beebom 与 TechWiser 之间冲突，必须标 disputed
+  {
+    seed: "Silver Artichoke",
+    reportedTier: "Exotic (Beebom June 2026 seeds tier list)",
+    note: "Beebom reports Silver Artichoke base income at 280K with a seed cost of 60T and a rare roll chance, while TechWiser reports 240K. Because the sources disagree, this row stays disputed and must not enter calculator defaults.",
+    sourceStatus: "Disputed, pending in-game verification"
   }
 ];
 
@@ -153,6 +167,19 @@ const seedCropAlignmentRows = [
     lead: "Elder Dragonroot",
     seedPageStatus: "Beebom reported mid-high seed lead",
     cropPageStatus: "Crop value and source depth pending",
+    calculatorStatus: "Manual observed crop value only"
+  },
+  // 2026-06-18 SERP 蓝图 P1：Witherfang 与 Silver Artichoke seed-to-crop 对齐行
+  {
+    lead: "Witherfang",
+    seedPageStatus: "Beebom reported Exotic seed lead, 280K reported base income",
+    cropPageStatus: "Reported value, pending in-game growth and sell-value check",
+    calculatorStatus: "Manual observed crop value only"
+  },
+  {
+    lead: "Silver Artichoke",
+    seedPageStatus: "Disputed seed lead, Beebom 280K vs TechWiser 240K",
+    cropPageStatus: "Disputed value, pending in-game resolution",
     calculatorStatus: "Manual observed crop value only"
   }
 ];
@@ -237,7 +264,11 @@ const faq = [
   { q: "What are high-value seeds in Build A Ring Farm?", a: "Based on Beebom's June 2026 seeds tier list, Void Fruit, Garden Devourer, and Dragonfruit are reported as high-value seeds. Passion Fruit and Elder Dragonroot also appear in that list. None of these are verified here with in-game screenshots or official data." },
   { q: "Is Void Fruit a seed or a crop?", a: "Treat Void Fruit as a reported seed-to-crop lead here. The seed name can be tracked on this page, while the grown crop value and growth time stay pending on the crops guide." },
   { q: "Can I calculate crop value from the seeds page?", a: "Use this page to find reported seed leads, then use the calculator only after you enter your own observed crop value. The result is estimated, not official." },
-  { q: "Where should I compare seed-to-crop value differences?", a: "Use the crops guide for the reported source-difference matrix, then use the calculator only with your own observed crop value. The seeds page should not become a fixed crop value table." }
+  { q: "Where should I compare seed-to-crop value differences?", a: "Use the crops guide for the reported source-difference matrix, then use the calculator only with your own observed crop value. The seeds page should not become a fixed crop value table." },
+  // 2026-06-18 SERP 蓝图 P1：Witherfang 与 Silver Artichoke 来源边界问答
+  { q: "Is Witherfang verified in Build A Ring Farm?", a: "No. Witherfang is listed as an Exotic seed in Beebom's June 2026 seeds tier list, with a reported base income of 280K and acquisition from a Corrupted Seed Pack. TechWiser reports the same 280K figure. This site tracks Witherfang as a third-party reported lead only. Growth time, seed cost, and exact pack odds are pending in-game verification." },
+  { q: "Why do sources disagree on Silver Artichoke?", a: "Beebom reports Silver Artichoke with a base income of 280K, a seed cost of 60T, and a rare roll chance, while TechWiser reports 240K. Because the two sources disagree on the value, this site labels Silver Artichoke as disputed. It must not enter calculator defaults until an in-game check or a stronger source resolves the conflict." },
+  { q: "Where does Witherfang come from in Build A Ring Farm?", a: "Beebom and TechWiser both report that Witherfang comes from a Corrupted Seed Pack, with a reported base income of 280K. This is a third-party reported acquisition lead, not verified here. Treat the pack source and value as pending until an in-game screenshot or repeatable test confirms them." }
 ];
 
 function FieldWithSource({ label, value, sourceStatus }: { label: string; value: string; sourceStatus: string }) {
@@ -318,9 +349,9 @@ export default function SeedsPage() {
         <article className="guide-card data-card">
           <span className="card-rule" />
           <p className="eyebrow">Beebom reported, June 2026</p>
-          <h2>Build A Ring Farm seeds tier list watchlist</h2>
+          <h2>Expanded June 2026 seed watchlist</h2>
           <p>
-            Beebom published a June 2026 seeds tier list covering Void Fruit, Garden Devourer, Dragonfruit, Passion Fruit, and Elder Dragonroot. This site tracks these as third-party reported leads only. Do not treat any value, growth time, or sell price from this table as verified game data.
+            Beebom published a June 2026 seeds tier list covering Void Fruit, Garden Devourer, Dragonfruit, Passion Fruit, and Elder Dragonroot, plus newer entries such as Witherfang and Silver Artichoke. This site tracks these as third-party reported leads only. Do not treat any value, growth time, or sell price from this table as verified game data.
           </p>
           <div className="data-list">
             {seedTierWatchlist.map((row) => (

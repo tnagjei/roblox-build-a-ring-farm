@@ -443,6 +443,34 @@ function createCropsPage(locale: string): StrategyPageContent {
               { label: "Target status", value: "Keep existing watchlist row" },
               { label: "Verification status", value: "Pending stronger source depth", status: "pending" }
             ]
+          },
+          // 2026-06-18 SERP 蓝图 P1：Witherfang 数值在 Beebom 与 TechWiser 一致(280K)，标 reported
+          {
+            key: "source-diff-witherfang",
+            fields: [
+              { label: "Crop", value: "Witherfang" },
+              { label: "Beebom", value: "280K reported base income, Corrupted Seed Pack acquisition" },
+              { label: "PGG", value: "Pending source check" },
+              { label: "Sportskeeda", value: "Pending source check" },
+              { label: "Bo3", value: "Pending source check" },
+              { label: "TechWiser", value: "280K reported base income, Corrupted Seed Pack acquisition" },
+              { label: "Target status", value: "Keep as reported lead, do not enter calculator default" },
+              { label: "Verification status", value: "Reported value, pending in-game growth and sell-value check", status: "reported" }
+            ]
+          },
+          // 2026-06-18 SERP 蓝图 P1：Silver Artichoke 数值在 Beebom(280K) 与 TechWiser(240K) 冲突，必须标 disputed
+          {
+            key: "source-diff-silver-artichoke",
+            fields: [
+              { label: "Crop", value: "Silver Artichoke" },
+              { label: "Beebom", value: "280K reported base income, 60T seed cost" },
+              { label: "PGG", value: "Pending source check" },
+              { label: "Sportskeeda", value: "Pending source check" },
+              { label: "Bo3", value: "Pending source check" },
+              { label: "TechWiser", value: "240K reported base income" },
+              { label: "Target status", value: "Keep as disputed lead, must not enter calculator default" },
+              { label: "Verification status", value: "Disputed value across sources, pending in-game resolution", status: "disputed" }
+            ]
           }
         ]
       },
@@ -509,6 +537,32 @@ function createCropsPage(locale: string): StrategyPageContent {
               { label: "Sell value status", value: "Pending in-game check" },
               { label: "Calculator use", value: "Manual observed base value only", status: "estimated" },
               { label: "Verification status", value: "Beebom reported, pending in-game verification", status: "reported" }
+            ]
+          },
+          // 2026-06-18 SERP 蓝图 P1：Witherfang reported lead
+          {
+            key: "witherfang",
+            fields: [
+              { label: "Crop", value: "Witherfang" },
+              { label: "Reported source", value: "Beebom June 2026 seeds tier list; TechWiser also reports 280K" },
+              { label: "Why players search it", value: "Exotic crop value, Corrupted Seed Pack acquisition, and seed-to-crop checks" },
+              { label: "Growth time status", value: "Pending in-game check" },
+              { label: "Sell value status", value: "Pending in-game check" },
+              { label: "Calculator use", value: "Manual observed base value only", status: "estimated" },
+              { label: "Verification status", value: "Reported 280K base income, pending in-game verification", status: "reported" }
+            ]
+          },
+          // 2026-06-18 SERP 蓝图 P1：Silver Artichoke disputed lead
+          {
+            key: "silver-artichoke",
+            fields: [
+              { label: "Crop", value: "Silver Artichoke" },
+              { label: "Reported source", value: "Beebom 280K and 60T seed cost; TechWiser 240K" },
+              { label: "Why players search it", value: "Exotic crop value, seed cost, and rare-roll chance checks" },
+              { label: "Growth time status", value: "Pending in-game check" },
+              { label: "Sell value status", value: "Disputed, pending in-game resolution" },
+              { label: "Calculator use", value: "Manual observed base value only", status: "estimated" },
+              { label: "Verification status", value: "Disputed value across sources, pending in-game resolution", status: "disputed" }
             ]
           }
         ]
@@ -640,6 +694,9 @@ function createCropsPage(locale: string): StrategyPageContent {
       { q: "Is Garden Devourer 350K verified?", a: "No. Several sources report Garden Devourer around 350K, but this page treats that as reported consensus rather than in-game verification." },
       { q: "Is Dragonfruit value verified?", a: "No. Dragonfruit has multiple 350K third-party claims, but acquisition context differs by source, so this page keeps the value reported and the acquisition boundary disputed." },
       { q: "Is Void Fruit the best crop in Build A Ring Farm?", a: "Void Fruit is tracked here as a Beebom reported lead with pending in-game verification. This page does not confirm it as the best crop." },
+      // 2026-06-18 SERP 蓝图 P1：Witherfang 与 Silver Artichoke 来源边界问答
+      { q: "Is Witherfang verified in Build A Ring Farm?", a: "No. Witherfang is reported as an Exotic crop by Beebom and TechWiser, with a reported base income of 280K and acquisition from a Corrupted Seed Pack. The two sources agree on the 280K figure, but this site keeps Witherfang as a reported lead only. Growth time, sell value, and exact pack odds are pending in-game verification." },
+      { q: "Why do sources disagree on Silver Artichoke?", a: "Beebom reports Silver Artichoke with a base income of 280K and a seed cost of 60T, while TechWiser reports 240K. Because the sources disagree on the value, this site labels Silver Artichoke as disputed. It must not enter calculator defaults until an in-game check or a stronger source resolves the conflict." },
       { q: "Does this page list exact crop values?", a: "No. Growth time and sell value remain pending until official or repeatable in-game evidence exists." },
       { q: "Can I use reported crop values in the calculator?", a: "Yes, only as manual inputs. Keep the output estimated and do not treat a reported number as a default preset." },
       { q: "Can I use these crops in the calculator?", a: "Yes, but only with manual observed base values. The calculator output is estimated and should not be treated as official." },

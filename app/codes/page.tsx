@@ -42,6 +42,18 @@ const competitorClaimRows = [
   { code: "100KVISITS", claimedReward: "Pending reward", competitorStatus: "Claimed active by third-party sites", ourStatus: "Community reported, needs testing", nextAction: "Confirm in-game response" }
 ];
 
+// 2026-06-18 SERP 蓝图 P0：source freshness matrix 把各第三方来源的 CARNIVAL 声明拆列，
+// 设计意图：让用户一眼看到「哪些来源报了 CARNIVAL、我们为什么仍写 reported」。
+// 红线：Dexerto 自称 verified，本站降级为 third-party reported，不照抄 verified 措辞。
+const sourceFreshnessRows = [
+  { source: "Beebom", lastObserved: "2026-06-13", carnivalClaim: "CARNIVAL reported, reward 100 Carnival Pass Tickets", ourLabel: "reported", whyNotVerified: "Third-party code page only, no in-game proof", nextCheck: "Test CARNIVAL inside real game UI and record reward text" },
+  { source: "PCGamesN", lastObserved: "2026-06-14", carnivalClaim: "CARNIVAL described as this week's new code, Carnival Pass Tickets", ourLabel: "reported", whyNotVerified: "Third-party code page only, no in-game proof", nextCheck: "Test CARNIVAL inside real game UI and record reward text" },
+  { source: "GamesRadar", lastObserved: "2026-06-15", carnivalClaim: "CARNIVAL added, reward 100 Carnival Pass Tickets", ourLabel: "reported", whyNotVerified: "Third-party code page only, no in-game proof", nextCheck: "Test CARNIVAL inside real game UI and record reward text" },
+  { source: "Pro Game Guides", lastObserved: "June 2026", carnivalClaim: "CARNIVAL marked NEW, Carnival Pass Tickets reward", ourLabel: "reported", whyNotVerified: "Third-party code page only, no in-game proof", nextCheck: "Test CARNIVAL inside real game UI and record reward text" },
+  { source: "Dexerto", lastObserved: "2026-06-17", carnivalClaim: "CARNIVAL listed, reward 100 Carnival Tickets; page says verified", ourLabel: "reported", whyNotVerified: "Dexerto's own verified wording is a third-party claim, not accepted proof here", nextCheck: "Treat Dexerto verified as reported; still needs in-game code result" },
+  { source: "RadioTimes", lastObserved: "Older result", carnivalClaim: "CARNIVAL not yet reflected; list skews older", ourLabel: "disputed", whyNotVerified: "Source freshness behind other June 2026 code pages", nextCheck: "Recheck once RadioTimes list updates" }
+];
+
 const relatedGuides = [
   { href: "/250kusers-code/", title: "250KUSERS Code", description: "Newest third-party reported code claim and safe test notes" },
   { href: "/events/", title: "Events Guide", description: "Carnival Pass Tickets are tracked as a reported reward lead, not confirmed mechanics" },
@@ -75,7 +87,10 @@ const faq = [
   { q: "Why do other sites show different codes?", a: "Some sites publish community strings before verifying them. This page keeps third-party claims, community reported leads, and verified active codes separate." },
   { q: "Is the official Discord source verified?", a: "A public directory currently shows a Build A Ring Farm server, so the server is listed as discovered here. Specific code announcement proof is still pending." },
   { q: "Can code rewards help money farming?", a: "Yes, if a code truly gives cash, seed packs, sprays, fertilizer, or time skips. Until verified, use the reward as a lead, not a fact." },
-  { q: "What should I avoid on code pages?", a: "Avoid outside verification pages, browser add-ons, downloads, or tools that claim they are required for code redemption." }
+  { q: "What should I avoid on code pages?", a: "Avoid outside verification pages, browser add-ons, downloads, or tools that claim they are required for code redemption." },
+  // 2026-06-18 SERP 蓝图：来源可信度问答，明确 Dexerto verified 措辞不能升级本站口径
+  { q: "Can Dexerto verify codes for this site?", a: "No. Dexerto labels codes as verified on its own page, but this site treats that as a third-party claim, not accepted proof. CARNIVAL stays reported here until official notes or a repeatable in-game check records the code response and reward text." },
+  { q: "Why does this page still say 0 verified active codes?", a: "Because no official or repeatable in-game proof has been accepted yet. Multiple third-party pages reporting CARNIVAL is reported convergence, not verification. Reported convergence answers search intent without turning into verified active status." }
 ];
 
 export const metadata: Metadata = buildLocalizedMetadata({
@@ -142,6 +157,9 @@ export default function CodesPage() {
       <section className="content-grid single-column-grid" aria-labelledby="competitor-claims-heading"><article className="guide-card data-card"><span className="card-rule" /><p className="eyebrow">Third-party watchlist</p><h2 id="competitor-claims-heading">Third-party reported code claims</h2><p>These are claims players may see on other sites. They are not verified active codes here until a repeatable in-game test confirms the code and reward.</p><div className="data-list">{competitorClaimRows.map((row) => (<div className="data-row four-field-row" key={row.code}><div><span>Code</span><strong>{row.code}</strong></div><div><span>Claimed reward</span><strong>{row.claimedReward}</strong></div><div><span>Our status</span><strong>{row.ourStatus}</strong></div><div><span>Next action</span><strong>{row.nextAction}</strong></div></div>))}</div></article></section>
 
       <section className="status-band" aria-labelledby="verified-codes-heading"><div><p className="eyebrow">Verified active codes</p><h2 id="verified-codes-heading">Verified active Build A Ring Farm codes</h2><p>No Build A Ring Farm code is marked verified active here until official or repeatable in-game proof exists.</p></div><div className="status-table" role="table" aria-label="Verified active Build A Ring Farm codes"><div role="row" className="status-row status-head"><span role="columnheader">Code</span><span role="columnheader">Reward</span><span role="columnheader">Source</span></div><div role="row" className="status-row empty-row"><span role="cell">No verified code yet</span><span role="cell">No verified reward yet</span><span role="cell">No verified source yet</span></div></div></section>
+
+      {/* 2026-06-18 SERP 蓝图 P0：source freshness matrix，把各来源 CARNIVAL 声明拆列，保护 0 verified active 口径 */}
+      <section className="content-grid single-column-grid" aria-labelledby="source-freshness-heading"><article className="guide-card data-card"><span className="card-rule" /><p className="eyebrow">Source freshness</p><h2 id="source-freshness-heading">Latest Build A Ring Farm codes June 2026 source status</h2><p>Several third-party code pages now report CARNIVAL with 100 Carnival Pass Tickets. That reported convergence answers the search intent, but it is not verification. Dexerto labels codes as verified on its own page, and this site treats that as a third-party claim only.</p><div className="data-list">{sourceFreshnessRows.map((row) => (<div className="data-row dynamic-field-row" key={row.source}><div><span>Source</span><strong>{row.source}</strong></div><div><span>Last observed</span><strong>{row.lastObserved}</strong></div><div><span>CARNIVAL claim</span><strong>{row.carnivalClaim}</strong></div><div><span>Our label</span><span className="source-badge">{row.ourLabel}</span></div><div><span>Why not verified</span><strong>{row.whyNotVerified}</strong></div><div><span>Next check</span><strong>{row.nextCheck}</strong></div></div>))}</div></article></section>
 
       <section className="redeem-guide-section" aria-labelledby="redeem-guide-heading"><div className="section-heading"><p className="eyebrow">Redeem guide</p><h2 id="redeem-guide-heading">How to redeem Build A Ring Farm codes safely</h2></div><ol className="redeem-steps"><li>Open Build A Ring Farm from the official Roblox game page.</li><li>Look for a real in-game codes, rewards, gift, or settings button.</li><li>Copy a reported code only if you understand that the status may still be pending.</li><li>Paste the code inside the game UI and record whether it worked.</li><li>Do not use outside verification pages or tools for code redemption.</li></ol><p className="redeem-note">If the game does not show a real code input UI, keep the claim pending instead of calling it active.</p></section>
 

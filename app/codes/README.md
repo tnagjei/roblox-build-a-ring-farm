@@ -6,4 +6,4 @@
 
 ## Files
 - README.md：本目录说明
-- page.tsx：`/codes/` 页面，包含 CARNIVAL Carnival Pass Tickets claim、latest codes June 2026、source rows 和 YouTube reference
+- page.tsx：`/codes/` 页面，包含 CARNIVAL Carnival Pass Tickets claim、latest codes June 2026、source rows、source freshness matrix（Beebom/PCGamesN/GamesRadar/PGG/Dexerto/RadioTimes）和 YouTube reference
