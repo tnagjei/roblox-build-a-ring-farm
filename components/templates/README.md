@@ -8,4 +8,4 @@
 - README.md：本目录说明
 - HomePageTemplate.tsx：首页模板，并自动补充已配置的高意图入口
 - CodesPageTemplate.tsx：codes 页面模板
-- StrategyPageTemplate.tsx：通用攻略页模板，支持可选 source table 和 YouTube visual reference 模块
+- StrategyPageTemplate.tsx：通用攻略页模板，支持可选 source table 和 YouTube no-cookie / lazy visual reference 模块

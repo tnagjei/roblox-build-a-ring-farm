@@ -6,4 +6,4 @@
 
 ## Files
 - README.md：本目录说明
-- build-a-ring-farm.json：Build A Ring Farm 公开站点数据源，包含游戏身份、图片路径、codes 证据、CARNIVAL/Update 6 页面文案、字段级 sourceStatus、crop value source differences 摘要、索引实验字段以及友情链接
+- build-a-ring-farm.json：Build A Ring Farm 公开站点数据源，包含游戏身份、图片路径、2026-06-22 CARNIVAL/BZZBZZ source matrix、Update 6 页面文案、字段级 sourceStatus、Uranium Reed crop value boundary、索引实验字段以及友情链接

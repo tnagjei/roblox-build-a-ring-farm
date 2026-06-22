@@ -6,4 +6,4 @@
 
 ## Files
 - README.md：本目录说明
-- page.tsx：`/events/` 页面，包含 Carnival Pass Tickets source boundary、事件分流表、YouTube reference 和 FAQ
+- page.tsx：`/events/` 页面，包含 Carnival Pass Tickets source boundary、事件分流表、2026-06-20 复核日期、YouTube no-cookie reference 和 FAQ

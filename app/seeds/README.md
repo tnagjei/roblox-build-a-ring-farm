@@ -6,4 +6,4 @@
 
 ## Files
 - README.md：本目录说明
-- page.tsx：`/seeds/` 页面，包含 seed pack 表、Expanded June 2026 seed watchlist（Beebom reported + 2026-06-18 新增 Witherfang reported / Silver Artichoke disputed）、seed-to-crop value boundary 和对齐表
+- page.tsx：`/seeds/` 页面，包含 seed pack 表、Expanded June 2026 seed watchlist（Witherfang reported / Silver Artichoke Fandom-conflict disputed / Uranium Reed pending / Admin Starroot related watchlist）、seed-to-crop value boundary 和对齐表

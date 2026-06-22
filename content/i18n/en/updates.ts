@@ -4,19 +4,19 @@
 
 import type { StrategyPageContent } from "@/lib/content/page-types";
 
-// 2026-06-18 SERP 蓝图 P0：把 updates hub 从 Update 3/4 语境刷新为 Update 6 / CARNIVAL / UPDATE6 当前裁决。
+// 2026-06-20 SERP 蓝图 P0：把 updates hub 从 Update 3/4 语境刷新为 June 2026 / Update 6 / CARNIVAL / UPDATE6 当前裁决。
 // 设计意图：站内其他页面已进入 CARNIVAL、Update 6、UPDATE6 语境，updates hub 仍旧会让用户/搜索引擎看到过期状态。
 // 旧 Update 3/4 内容下移为 historical recheck，不做主叙事。所有声明保持 reported / pending，不升级为 verified。
 export const enUpdatesPage: StrategyPageContent = {
   meta: {
-    title: "Build A Ring Farm Updates | Update 6 Signals",
-    description: "Track Build A Ring Farm updates, Update 6 code signals, CARNIVAL reported status, UPDATE6 pending checks, and safe source boundaries."
+    title: "Build A Ring Farm Updates June 2026 | Update 6 Status",
+    description: "Track Build A Ring Farm updates, CARNIVAL code signals, Update 6 status, and source-backed notes without treating unverified reports as official patch notes."
   },
   slug: "updates",
   hero: {
     eyebrow: "Update tracker",
-    h1: "Build A Ring Farm Updates",
-    lede: "Track Build A Ring Farm updates with Update 6 code signals, CARNIVAL reported status, UPDATE6 pending checks, and clear reported vs verified boundaries.",
+    h1: "Build A Ring Farm Updates and Update 6 Status",
+    lede: "Track Build A Ring Farm updates with the June 20, 2026 review: Update 6 code signals, CARNIVAL reported status, UPDATE6 pending checks, and clear reported vs verified boundaries.",
     primaryAction: { label: "Check update status", href: "/update-status/" },
     secondaryAction: { label: "Check codes", href: "/codes/" }
   },
@@ -30,13 +30,39 @@ export const enUpdatesPage: StrategyPageContent = {
     {
       eyebrow: "Current verdict",
       title: "Build A Ring Farm update status table",
-      description: "This table routes each Update 6 search question to its current label, best page, and what is not verified yet. Every row keeps reported or pending status.",
+      description: "This table routes each Update 6 search question to its current label, best page, and what is not verified yet. Every row keeps reported or pending status. Reviewed on June 20, 2026.",
       rows: [
         { key: "verdict-update-6", fields: [{ label: "Topic", value: "Update 6" }, { label: "Current label", value: "Reported, pending verification", status: "reported" }, { label: "Best page", value: "/update-status/" }, { label: "Not verified yet", value: "Patch notes, prices, multipliers, confirmed rewards", status: "pending" }] },
         { key: "verdict-carnival", fields: [{ label: "Topic", value: "CARNIVAL code" }, { label: "Current label", value: "Third-party reported code claim", status: "reported" }, { label: "Best page", value: "/codes/" }, { label: "Not verified yet", value: "Whether CARNIVAL is accepted and gives 100 Carnival Pass Tickets", status: "pending" }] },
         { key: "verdict-update6", fields: [{ label: "Topic", value: "UPDATE6" }, { label: "Current label", value: "Not verified as a code", status: "pending" }, { label: "Best page", value: "/update-status/" }, { label: "Not verified yet", value: "Whether UPDATE6 is a redeemable code at all", status: "pending" }] },
         { key: "verdict-carnival-tickets", fields: [{ label: "Topic", value: "Carnival Pass Tickets" }, { label: "Current label", value: "Reported reward lead, mechanics pending", status: "reported" }, { label: "Best page", value: "/events/" }, { label: "Not verified yet", value: "Ticket shop, event rules, drop rates, redemption mechanics", status: "pending" }] },
         { key: "verdict-source-boundary", fields: [{ label: "Topic", value: "Third-party source labels" }, { label: "Current label", value: "Reported only, including Dexerto's own verified claim", status: "reported" }, { label: "Best page", value: "/codes/" }, { label: "Not verified yet", value: "In-game code response and reward text", status: "pending" }] }
+      ]
+    },
+    {
+      eyebrow: "Evidence matrix",
+      title: "June 2026 update evidence layers",
+      description: "Use this evidence matrix before promoting any update, code, seed, crop, or event claim. Video and third-party source signals are useful discovery inputs, not official patch-note proof.",
+      rows: [
+        { key: "official-missing", fields: [{ label: "Layer", value: "Official patch notes" }, { label: "Current status", value: "No official Update 6 patch notes confirmed in this review", status: "pending" }, { label: "Use", value: "Do not write prices, rewards, multipliers, or release claims as confirmed" }] },
+        { key: "third-party-codes", fields: [{ label: "Layer", value: "Third-party codes" }, { label: "Current status", value: "CARNIVAL reported by multiple code lists", status: "reported" }, { label: "Use", value: "Route exact source claims to /codes/ and keep 0 verified active codes" }] },
+        { key: "youtube-reference", fields: [{ label: "Layer", value: "YouTube reference" }, { label: "Current status", value: "Update 6 videos exist, including YD6lrTRqpH0", status: "pending" }, { label: "Use", value: "Visual reference only, not verification proof" }] },
+        { key: "community-wiki", fields: [{ label: "Layer", value: "Community wiki and tier lists" }, { label: "Current status", value: "Witherfang, Silver Artichoke, Uranium Reed, and Admin Starroot remain reported or pending", status: "pending" }, { label: "Use", value: "Route seed names to /seeds/ and crop value conflicts to /crops/" }] }
+      ]
+    }
+  ],
+  videoSections: [
+    {
+      eyebrow: "Video reference",
+      title: "Build A Ring Farm Update 6 codes video reference",
+      description: "This embed covers Update 6 search demand only. It does not confirm official patch notes, UPDATE6 as a real code, CARNIVAL version ownership, prices, rewards, or multipliers.",
+      videos: [
+        {
+          id: "YD6lrTRqpH0",
+          title: "Build A Ring Farm Update 6 codes video reference",
+          description: "Use this as a visual reference only. Check /codes/ for source claims and /update-status/ for the short pending verdict.",
+          fallbackLabel: "Watch the Build A Ring Farm Update 6 codes video on YouTube"
+        }
       ]
     }
   ],
@@ -46,7 +72,7 @@ export const enUpdatesPage: StrategyPageContent = {
       subheading: "Update 6, CARNIVAL, and UPDATE6 right now",
       body: [
         "This updates hub now leads with the current Build A Ring Farm verdict instead of older Update 3 or Update 4 context. The current signals are Update 6 code demand, the CARNIVAL reported code claim, and the UPDATE6 pending signal.",
-        "CARNIVAL is the only new code string with a specific third-party reward claim: 100 Carnival Pass Tickets reported by Beebom, Pro Game Guides, PCGamesN, GamesRadar, and Dexerto. UPDATE6 is a search and code-title signal, not a verified code. Update 6 patch notes, prices, multipliers, and confirmed rewards are all pending."
+        "CARNIVAL is the only new code string with a specific third-party reward claim: 100 Carnival ticket style rewards reported by Pocket Tactics, RadioTimes, GamesRadar, PCGamesN, Beebom, Dexerto, and Pro Game Guides. UPDATE6 is a search and code-title signal, not a verified code. Update 6 patch notes, prices, multipliers, and confirmed rewards are all pending."
       ],
       list: ["Update 6 signal: reported by third-party titles and code-page demand.", "CARNIVAL: third-party reported, pending in-game verification.", "UPDATE6: not verified as a code, stays a pending signal.", "Patch notes, prices, multipliers: pending until official or repeatable evidence."]
     },
@@ -73,9 +99,9 @@ export const enUpdatesPage: StrategyPageContent = {
       subheading: "Routing each update question",
       body: [
         "Use /codes/ for the CARNIVAL code status and source freshness table. Use /events/ for the Carnival Pass Tickets reported reward lead and mechanics boundary. Use /update-status/ for the Update 6 code signals and UPDATE6 pending checks.",
-        "Seed and crop value leads belong on /seeds/ and /crops/. New entries such as Witherfang and Silver Artichoke stay reported or disputed there, never as calculator defaults."
+        "Seed and crop value leads belong on /seeds/ and /crops/. New entries such as Witherfang, Silver Artichoke, Uranium Reed, and Admin Starroot stay reported, disputed, or pending there, never as calculator defaults."
       ],
-      list: ["Codes: /codes/ for CARNIVAL and source freshness.", "Events: /events/ for Carnival Pass Tickets pending mechanics.", "Update status: /update-status/ for UPDATE6 and patch-note boundaries.", "Seeds and crops: /seeds/ and /crops/ for reported and disputed value leads."]
+      list: ["Codes: /codes/ for CARNIVAL and source freshness.", "Events: /events/ for Carnival Pass Tickets pending mechanics.", "Update status: /update-status/ for UPDATE6 and patch-note boundaries.", "Seeds and crops: /seeds/ and /crops/ for reported, disputed, and pending value leads."]
     },
     {
       heading: "Historical Update 3 and Update 4 recheck entries",
@@ -100,8 +126,8 @@ export const enUpdatesPage: StrategyPageContent = {
     { href: "/update-status/", title: "Update Status", description: "Update 6 code signals, CARNIVAL reports, and UPDATE6 pending checks." },
     { href: "/codes/", title: "Codes", description: "CARNIVAL code status, source freshness table, and 0 verified active codes." },
     { href: "/events/", title: "Events Guide", description: "Carnival Pass Tickets reported reward lead and pending mechanics boundary." },
-    { href: "/seeds/", title: "Seeds Guide", description: "Expanded June 2026 seed watchlist including Witherfang and Silver Artichoke." },
-    { href: "/crops/", title: "Crops Guide", description: "Reported crop value source differences, including Witherfang and Silver Artichoke." },
+    { href: "/seeds/", title: "Seeds Guide", description: "Expanded June 2026 seed watchlist including Witherfang, Silver Artichoke, Uranium Reed, and Admin Starroot." },
+    { href: "/crops/", title: "Crops Guide", description: "Reported crop value source differences, including Witherfang, Silver Artichoke, and Uranium Reed." },
     { href: "/update-3-status/", title: "Update 3 Status", description: "Older Update 3 reported and pending leads, kept as recheck context." },
     { href: "/mutations/", title: "Mutations", description: "Honeycomb, Alien, Farm, and stacking questions, conservatively labeled." },
     { href: "/calculator/", title: "Calculator", description: "Use reported values only as manual inputs, never as default presets." }
@@ -112,6 +138,7 @@ export const enUpdatesPage: StrategyPageContent = {
     { q: "Where should I check CARNIVAL?", a: "Use /codes/ for the CARNIVAL code status and source freshness table. CARNIVAL is a third-party reported June 2026 code claim for 100 Carnival Pass Tickets, pending in-game verification." },
     { q: "Why does this page still mention Update 3?", a: "Update 3 and Update 4 entries are kept as historical recheck context so older references resolve. They are no longer the current narrative; Update 6, CARNIVAL, and UPDATE6 now lead this updates hub." },
     { q: "Is CARNIVAL related to Update 6?", a: "CARNIVAL is tracked as a third-party reported June 2026 code claim. Its relation to Update 6 is a source signal, not confirmed patch-note data." },
+    { q: "Does the Update 6 video prove the update details?", a: "No. The Update 6 video embed is a YouTube reference only. It does not confirm official patch notes, UPDATE6 as a real code, or any specific reward, price, multiplier, seed, or crop value." },
     { q: "Are Build A Ring Farm updates verified here?", a: "No. Update signals are recheck topics. Specific codes, values, prices, patch notes, and event claims still need official or in-game proof before stronger wording." },
     { q: "What should change after a real in-game check?", a: "Record the source, date, server state, result, and reward text before changing any claim from pending to a stronger status." },
     { q: "Should calculator presets use Update 6 values?", a: "No. CARNIVAL, UPDATE6, and any new seed or crop values stay reported or pending. The calculator only accepts manually entered observed values, never default presets from reported leads." }

@@ -11,11 +11,13 @@ import { siteData } from "@/lib/site-data";
 import { absoluteUrl } from "@/lib/seo";
 import "./codes-page.css";
 
-const pageLastChecked = "2026-06-15";
+const pageLastChecked = "2026-06-22";
 
 const reportedCodes = [
   // CARNIVAL：2026-06-15 SERP 蓝图新增第三方声称代码，奖励为 Carnival Pass Tickets，待游戏内验证
-  { code: "CARNIVAL", reward: "Third-party reported: 100 Carnival Pass Tickets. Reported reward only; source pending in-game verification.", status: "Third-party reported", sourceStatus: "Pending in-game verification", lastChecked: "June 2026" },
+  { code: "CARNIVAL", reward: "Multi-source reported: 100 Carnival ticket style rewards. Sources use Carnival Pass Tickets, Carnival Tickets, or carnival tickets wording.", status: "Third-party reported", sourceStatus: "Pending in-game verification", lastChecked: "June 22, 2026 review" },
+  // 2026-06-22 SERP 蓝图 P0：BZZBZZ 出现在 Beebom/PCGamesN，本站只收 reported lead
+  { code: "BZZBZZ", reward: "Beebom and PCGamesN reported a June 2026 code lead. Reward wording is still pending here.", status: "Third-party reported", sourceStatus: "Pending in-game verification", lastChecked: "June 22, 2026 review" },
   // UPDATE5：Beebom 2026-06-09 新声称代码，奖励为 Super Pet Treat，待游戏内验证
   { code: "UPDATE5", reward: "Beebom reported: Super Pet Treat (pet treat item). Third-party reported only — not verified active here.", status: "Third-party reported", sourceStatus: "Pending in-game verification", lastChecked: "June 2026" },
   { code: "250KUSERS", reward: "Third-party reported 3 Minute Time Skip", status: "Third-party reported", sourceStatus: "Pending in-game verification", lastChecked: "June 2026" },
@@ -29,7 +31,8 @@ const reportedCodes = [
 ];
 
 const competitorClaimRows = [
-  { code: "CARNIVAL", claimedReward: "100 Carnival Pass Tickets (Beebom, Pro Game Guides, PCGamesN claim rows)", competitorStatus: "Listed by third-party code pages as a June 2026 CARNIVAL code", ourStatus: "Third-party reported; pending in-game verification", nextAction: "Test inside real game UI; record code response and ticket reward text before promotion" },
+  { code: "CARNIVAL", claimedReward: "100 Carnival ticket style rewards (Pocket Tactics, RadioTimes, GamesRadar, PCGamesN, Beebom, Dexerto, Pocket Gamer, Pro Game Guides)", competitorStatus: "Listed by multiple third-party code pages during the June 22, 2026 review", ourStatus: "Third-party reported; pending in-game verification", nextAction: "Test inside real game UI; record code response and exact ticket reward wording before promotion" },
+  { code: "BZZBZZ", claimedReward: "Reward wording pending (Beebom and PCGamesN reported lead)", competitorStatus: "Appears in June 2026 third-party code lists", ourStatus: "Third-party reported, not verified active here", nextAction: "Test inside real game UI; record accepted or failed response before any stronger label" },
   // UPDATE5：Beebom 2026-06-09 声称新代码，奖励连接 pet treat 系统
   { code: "UPDATE5", claimedReward: "Super Pet Treat (Beebom, June 2026)", competitorStatus: "Beebom listed as new active code — claimed reward connects pet treat system", ourStatus: "Third-party reported, not verified active here. Super Pet Treat effect also pending.", nextAction: "Test inside real game UI; if accepted, record reward text and check /pets/ treat section" },
   { code: "250KUSERS", claimedReward: "3 Minute Time Skip (RadioTimes, Beebom, Dexerto — multiple sources June 2026)", competitorStatus: "Claimed active by multiple third-party sites", ourStatus: "Third-party reported, not verified active here", nextAction: "Test only inside the real game UI" },
@@ -42,16 +45,18 @@ const competitorClaimRows = [
   { code: "100KVISITS", claimedReward: "Pending reward", competitorStatus: "Claimed active by third-party sites", ourStatus: "Community reported, needs testing", nextAction: "Confirm in-game response" }
 ];
 
-// 2026-06-18 SERP 蓝图 P0：source freshness matrix 把各第三方来源的 CARNIVAL 声明拆列，
+// 2026-06-22 SERP 蓝图 P0：source freshness matrix 把各第三方来源的 CARNIVAL 声明拆列，
 // 设计意图：让用户一眼看到「哪些来源报了 CARNIVAL、我们为什么仍写 reported」。
 // 红线：Dexerto 自称 verified，本站降级为 third-party reported，不照抄 verified 措辞。
 const sourceFreshnessRows = [
-  { source: "Beebom", lastObserved: "2026-06-13", carnivalClaim: "CARNIVAL reported, reward 100 Carnival Pass Tickets", ourLabel: "reported", whyNotVerified: "Third-party code page only, no in-game proof", nextCheck: "Test CARNIVAL inside real game UI and record reward text" },
-  { source: "PCGamesN", lastObserved: "2026-06-14", carnivalClaim: "CARNIVAL described as this week's new code, Carnival Pass Tickets", ourLabel: "reported", whyNotVerified: "Third-party code page only, no in-game proof", nextCheck: "Test CARNIVAL inside real game UI and record reward text" },
-  { source: "GamesRadar", lastObserved: "2026-06-15", carnivalClaim: "CARNIVAL added, reward 100 Carnival Pass Tickets", ourLabel: "reported", whyNotVerified: "Third-party code page only, no in-game proof", nextCheck: "Test CARNIVAL inside real game UI and record reward text" },
-  { source: "Pro Game Guides", lastObserved: "June 2026", carnivalClaim: "CARNIVAL marked NEW, Carnival Pass Tickets reward", ourLabel: "reported", whyNotVerified: "Third-party code page only, no in-game proof", nextCheck: "Test CARNIVAL inside real game UI and record reward text" },
-  { source: "Dexerto", lastObserved: "2026-06-17", carnivalClaim: "CARNIVAL listed, reward 100 Carnival Tickets; page says verified", ourLabel: "reported", whyNotVerified: "Dexerto's own verified wording is a third-party claim, not accepted proof here", nextCheck: "Treat Dexerto verified as reported; still needs in-game code result" },
-  { source: "RadioTimes", lastObserved: "Older result", carnivalClaim: "CARNIVAL not yet reflected; list skews older", ourLabel: "disputed", whyNotVerified: "Source freshness behind other June 2026 code pages", nextCheck: "Recheck once RadioTimes list updates" }
+  { source: "Pocket Tactics", lastObserved: "2026-06-20 review", carnivalClaim: "CARNIVAL reported, reward wording: 100 carnival tickets", ourLabel: "reported", whyNotVerified: "Third-party code page only, no in-game proof", nextCheck: "Record exact in-game response and compare ticket wording" },
+  { source: "RadioTimes", lastObserved: "2026-06-18 article", carnivalClaim: "CARNIVAL reported, reward wording: 100x Carnival Pass Tickets", ourLabel: "reported", whyNotVerified: "Third-party code page only; deeper interaction may show reCAPTCHA", nextCheck: "Recheck source freshness and test in the real game UI" },
+  { source: "GamesRadar", lastObserved: "2026-06-20 review", carnivalClaim: "CARNIVAL reported, reward wording: 100 Carnival Pass Tickets", ourLabel: "reported", whyNotVerified: "Third-party code page only, no in-game proof", nextCheck: "Test CARNIVAL inside real game UI and record reward text" },
+  { source: "PCGamesN", lastObserved: "2026-06-20 review", carnivalClaim: "CARNIVAL reported, reward wording: 100 Carnival Pass Tickets", ourLabel: "reported", whyNotVerified: "Third-party code page only, no in-game proof", nextCheck: "Test CARNIVAL inside real game UI and record reward text" },
+  { source: "Beebom", lastObserved: "2026-06-20 review", carnivalClaim: "CARNIVAL reported, reward wording: 100 Carnival Pass Tickets", ourLabel: "reported", whyNotVerified: "Third-party code page only, no in-game proof", nextCheck: "Test CARNIVAL inside real game UI and record reward text" },
+  { source: "Dexerto", lastObserved: "2026-06-20 review", carnivalClaim: "CARNIVAL listed, reward wording: 100 Carnival Tickets; page says verified", ourLabel: "reported", whyNotVerified: "Dexerto's own verified wording is a third-party claim, not accepted proof here", nextCheck: "Treat Dexerto verified as reported; still needs in-game code result" },
+  { source: "Pocket Gamer", lastObserved: "2026-06-22 review", carnivalClaim: "CARNIVAL appears in a June 2026 code list", ourLabel: "reported", whyNotVerified: "Third-party code page only, no in-game proof", nextCheck: "Record exact in-game response before stronger wording" },
+  { source: "Pro Game Guides", lastObserved: "June 2026", carnivalClaim: "CARNIVAL marked NEW, Carnival Pass Tickets reward", ourLabel: "reported", whyNotVerified: "Third-party code page only, no in-game proof", nextCheck: "Test CARNIVAL inside real game UI and record reward text" }
 ];
 
 const relatedGuides = [
@@ -61,6 +66,7 @@ const relatedGuides = [
   { href: "/pets/", title: "Pets Guide", description: "See Super Pet Treat reported connection and pet treat section" },
   { href: "/tier-list/", title: "Pets Tier List", description: "Check Super Pet Treat pending note and support pet tiers" },
   { href: "/official-discord/", title: "Official Discord", description: "Server discovered, announcement proof still pending" },
+  { href: "/updates/", title: "Updates", description: "June 2026 Update 6 status, CARNIVAL relation note, and UPDATE6 boundary" },
   { href: "/update-status/", title: "Update Status", description: "Update 6 code signals, CARNIVAL reports, and UPDATE6 pending checks" },
   { href: "/update-3-status/", title: "Update 3 Status", description: "Reported Update 3 code and event checks" },
   { href: "/money-farming/", title: "Money Farming", description: "Use rewards as bonus progress, not a plan" },
@@ -73,9 +79,10 @@ const relatedGuides = [
 const faq = [
   { q: "Are there verified Build A Ring Farm codes today?", a: "No. This site currently lists 0 verified active codes because no official or repeatable in-game proof has been accepted yet." },
   { q: "Is CARNIVAL active in Build A Ring Farm?", a: "CARNIVAL is tracked here as a third-party reported June 2026 code claim. The reported reward is 100 Carnival Pass Tickets, but this page keeps the status as pending until an in-game check records the result." },
-  { q: "What does CARNIVAL give in Build A Ring Farm?", a: "Beebom, Pro Game Guides, and PCGamesN style code pages report CARNIVAL as giving 100 Carnival Pass Tickets. This site treats that as a source claim, not a confirmed reward." },
+  { q: "What does CARNIVAL give in Build A Ring Farm?", a: "Pocket Tactics, RadioTimes, GamesRadar, PCGamesN, Beebom, Dexerto, Pocket Gamer, and Pro Game Guides report CARNIVAL as a 100-ticket style reward. The wording differs between Carnival Pass Tickets, Carnival Tickets, and carnival tickets, so this site keeps the reward wording reported rather than confirmed." },
   { q: "What if CARNIVAL fails?", a: "Keep the code in the reported or pending bucket, record the server date if possible, and do not turn the failed test into a global expired-code claim without repeat checks." },
-  { q: "What are the latest reported Build A Ring Farm codes in June 2026?", a: "The latest reported list tracked here includes CARNIVAL, UPDATE5, 250KUSERS, and PLANTRUSH. Each one remains a reported or pending lead until in-game proof is accepted." },
+  { q: "What are the latest reported Build A Ring Farm codes in June 2026?", a: "The latest reported list tracked here includes CARNIVAL, BZZBZZ, UPDATE5, 250KUSERS, and PLANTRUSH. Each one remains a reported or pending lead until in-game proof is accepted." },
+  { q: "Is BZZBZZ verified in Build A Ring Farm?", a: "No. BZZBZZ is tracked as a Beebom and PCGamesN reported June 2026 lead only. It stays pending until the real game UI accepts it and the reward text is recorded." },
   // P0 新增：UPDATE5 相关问题
   { q: "Is UPDATE5 active in Build A Ring Farm?", a: "UPDATE5 is a third-party reported code claim listed by Beebom in June 2026. This site does not mark it as verified active. The reported reward is Super Pet Treat, but that effect is also pending in-game verification. Test it only inside the real Roblox game UI." },
   { q: "What does UPDATE5 give in Build A Ring Farm?", a: "Beebom reported that UPDATE5 gives a Super Pet Treat. This site tracks that as a third-party reported claim only. The Super Pet Treat effect on pets is also not yet verified here. See the pets guide for more context on pet treats." },
@@ -90,15 +97,17 @@ const faq = [
   { q: "What should I avoid on code pages?", a: "Avoid outside verification pages, browser add-ons, downloads, or tools that claim they are required for code redemption." },
   // 2026-06-18 SERP 蓝图：来源可信度问答，明确 Dexerto verified 措辞不能升级本站口径
   { q: "Can Dexerto verify codes for this site?", a: "No. Dexerto labels codes as verified on its own page, but this site treats that as a third-party claim, not accepted proof. CARNIVAL stays reported here until official notes or a repeatable in-game check records the code response and reward text." },
-  { q: "Why does this page still say 0 verified active codes?", a: "Because no official or repeatable in-game proof has been accepted yet. Multiple third-party pages reporting CARNIVAL is reported convergence, not verification. Reported convergence answers search intent without turning into verified active status." }
+  { q: "Why does this page still say 0 verified active codes?", a: "Because no official or repeatable in-game proof has been accepted yet. Multiple third-party pages reporting CARNIVAL is reported convergence, not verification. Reported convergence answers search intent without turning into verified active status." },
+  { q: "Does RadioTimes prove CARNIVAL works?", a: "No. RadioTimes reporting CARNIVAL on its June 18, 2026 article only proves that RadioTimes listed the claim. It does not prove the code was accepted in this site's game test." },
+  { q: "Why does Pocket Tactics say carnival tickets instead of Carnival Pass Tickets?", a: "That is a source wording difference. This page keeps the exact wording difference visible because third-party reward names are not accepted as confirmed game text until the real game UI is checked." }
 ];
 
 export const metadata: Metadata = buildLocalizedMetadata({
   locale: "en",
   slug: "codes",
-  // TDH：加入 CARNIVAL 与 June 2026，核心词靠前，Title 53 字符
-  title: "Build A Ring Farm Codes June 2026 | CARNIVAL Reported",
-  description: "Build A Ring Farm codes June 2026 with CARNIVAL reported for Carnival Pass Tickets, UPDATE5, 250KUSERS, source claims, and pending verification."
+  // TDH：2026-06-22 蓝图改成 Source Matrix，承接 latest codes + source terms
+  title: "Build A Ring Farm Codes June 2026 | Source Matrix Guide",
+  description: "Build A Ring Farm codes June 2026 source matrix with CARNIVAL, BZZBZZ, reward wording differences, third-party reports, and pending verification."
 });
 
 function youtubeEmbedUrl(id: string): string {
@@ -123,8 +132,8 @@ export default function CodesPage() {
   const articleJsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: "Build A Ring Farm Codes",
-    description: "June 2026 community reported Build A Ring Farm codes, CARNIVAL Carnival Pass Tickets claim, source-specific reward claims, source status, and safe redeem steps.",
+    headline: "Build A Ring Farm Codes June 2026",
+    description: "June 2026 community reported Build A Ring Farm codes, CARNIVAL and BZZBZZ source matrix, reward wording differences, source status, and safe redeem steps.",
     dateModified: pageLastChecked,
     mainEntityOfPage: absoluteUrl("/codes/")
   };
@@ -137,8 +146,8 @@ export default function CodesPage() {
       <section className="page-hero compact-hero codes-hero">
         <div className="hero-copy">
           <p className="eyebrow">Codes status</p>
-          <h1>Build A Ring Farm Codes</h1>
-          <p className="lede">Check June 2026 community reported Build A Ring Farm codes, CARNIVAL Carnival Pass Tickets claims, source-specific reward rows, last checked status, and safe redeem notes. Reported codes are testing leads, not verified active codes.</p>
+          <h1>Build A Ring Farm Codes June 2026</h1>
+          <p className="lede">Check June 2026 community reported Build A Ring Farm codes, CARNIVAL and BZZBZZ source rows, reward wording conflicts, last checked status, and safe redeem notes. Reported codes are testing leads, not verified active codes.</p>
           <div className="hero-actions">
             <a className="primary-link" href={siteData.game.robloxUrl} target="_blank" rel="noopener noreferrer">Open Roblox page</a>
             <Link prefetch={false} className="secondary-link" href="/250kusers-code/">250KUSERS status</Link>
@@ -158,38 +167,38 @@ export default function CodesPage() {
 
       <section className="status-band" aria-labelledby="verified-codes-heading"><div><p className="eyebrow">Verified active codes</p><h2 id="verified-codes-heading">Verified active Build A Ring Farm codes</h2><p>No Build A Ring Farm code is marked verified active here until official or repeatable in-game proof exists.</p></div><div className="status-table" role="table" aria-label="Verified active Build A Ring Farm codes"><div role="row" className="status-row status-head"><span role="columnheader">Code</span><span role="columnheader">Reward</span><span role="columnheader">Source</span></div><div role="row" className="status-row empty-row"><span role="cell">No verified code yet</span><span role="cell">No verified reward yet</span><span role="cell">No verified source yet</span></div></div></section>
 
-      {/* 2026-06-18 SERP 蓝图 P0：source freshness matrix，把各来源 CARNIVAL 声明拆列，保护 0 verified active 口径 */}
-      <section className="content-grid single-column-grid" aria-labelledby="source-freshness-heading"><article className="guide-card data-card"><span className="card-rule" /><p className="eyebrow">Source freshness</p><h2 id="source-freshness-heading">Latest Build A Ring Farm codes June 2026 source status</h2><p>Several third-party code pages now report CARNIVAL with 100 Carnival Pass Tickets. That reported convergence answers the search intent, but it is not verification. Dexerto labels codes as verified on its own page, and this site treats that as a third-party claim only.</p><div className="data-list">{sourceFreshnessRows.map((row) => (<div className="data-row dynamic-field-row" key={row.source}><div><span>Source</span><strong>{row.source}</strong></div><div><span>Last observed</span><strong>{row.lastObserved}</strong></div><div><span>CARNIVAL claim</span><strong>{row.carnivalClaim}</strong></div><div><span>Our label</span><span className="source-badge">{row.ourLabel}</span></div><div><span>Why not verified</span><strong>{row.whyNotVerified}</strong></div><div><span>Next check</span><strong>{row.nextCheck}</strong></div></div>))}</div></article></section>
+      {/* 2026-06-22 SERP 蓝图 P0：source freshness matrix，把各来源 CARNIVAL 声明拆列，保护 0 verified active 口径 */}
+      <section className="content-grid single-column-grid" aria-labelledby="source-freshness-heading"><article className="guide-card data-card"><span className="card-rule" /><p className="eyebrow">Source freshness</p><h2 id="source-freshness-heading">Latest Build A Ring Farm codes June 2026 source matrix</h2><p>CARNIVAL is now reported by 8 third-party code sources in this June 22, 2026 review. BZZBZZ is also tracked as a Beebom and PCGamesN reported lead. That source count answers latest codes intent, but it is not verification. Reward wording differs across sources: Carnival Pass Tickets, Carnival Tickets, and carnival tickets all appear.</p><div className="data-list">{sourceFreshnessRows.map((row) => (<div className="data-row dynamic-field-row" key={row.source}><div><span>Source</span><strong>{row.source}</strong></div><div><span>Last observed</span><strong>{row.lastObserved}</strong></div><div><span>CARNIVAL claim</span><strong>{row.carnivalClaim}</strong></div><div><span>Our label</span><span className="source-badge">{row.ourLabel}</span></div><div><span>Why not verified</span><strong>{row.whyNotVerified}</strong></div><div><span>Next check</span><strong>{row.nextCheck}</strong></div></div>))}</div></article></section>
 
       <section className="redeem-guide-section" aria-labelledby="redeem-guide-heading"><div className="section-heading"><p className="eyebrow">Redeem guide</p><h2 id="redeem-guide-heading">How to redeem Build A Ring Farm codes safely</h2></div><ol className="redeem-steps"><li>Open Build A Ring Farm from the official Roblox game page.</li><li>Look for a real in-game codes, rewards, gift, or settings button.</li><li>Copy a reported code only if you understand that the status may still be pending.</li><li>Paste the code inside the game UI and record whether it worked.</li><li>Do not use outside verification pages or tools for code redemption.</li></ol><p className="redeem-note">If the game does not show a real code input UI, keep the claim pending instead of calling it active.</p></section>
 
       <section>
         <div className="section-heading">
           <p className="eyebrow">Video reference</p>
-          <h2>Build A Ring Farm CARNIVAL code video reference</h2>
-          <p>This video is a visual SERP reference for the CARNIVAL code search. It does not verify the CARNIVAL code, Carnival Pass Tickets reward, or any latest codes June 2026 claim.</p>
+          <h2>Build A Ring Farm latest codes June 2026 video reference</h2>
+          <p>This video is a visual SERP reference for latest codes search demand. Video references are not verification proof for CARNIVAL, Carnival Pass Tickets, UPDATE5, 250KUSERS, or PLANTRUSH.</p>
         </div>
         <div className="video-grid">
           <article className="video-card">
             <div className="video-frame">
               <iframe
-                src={youtubeEmbedUrl("syp2pjKl8uE")}
-                title="Build A Ring Farm CARNIVAL code video reference"
+                src={youtubeEmbedUrl("v0B3mUtj4_A")}
+                title="Build A Ring Farm latest codes June 2026 video reference"
                 loading="lazy"
-                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
               />
             </div>
             <div className="video-meta">
-              <h3>CARNIVAL code video reference</h3>
-              <p>Use this only as a CARNIVAL discovery lead. In-game result text is still required before changing source status.</p>
-              <a href={youtubeWatchUrl("syp2pjKl8uE")} target="_blank" rel="noopener noreferrer">Watch the CARNIVAL code video on YouTube</a>
+              <h3>Latest codes video reference</h3>
+              <p>Use this only as a discovery lead. In-game result text is still required before changing source status.</p>
+              <a href={youtubeWatchUrl("v0B3mUtj4_A")} target="_blank" rel="noopener noreferrer">Watch the latest codes video on YouTube</a>
             </div>
           </article>
         </div>
       </section>
 
-      <section className="content-grid"><article className="guide-card"><span className="card-rule" /><h2>Build A Ring Farm latest codes June 2026 status</h2><p>The current verified active-code count on this site is still zero. CARNIVAL, UPDATE5, 250KUSERS, and PLANTRUSH are all third-party or community reported claims, not verified active codes here.</p><ul><li>Verified active codes: 0</li><li>CARNIVAL: third-party reported reward, 100 Carnival Pass Tickets (pending)</li><li>UPDATE5 — Beebom reported, reward: Super Pet Treat (pending)</li><li>Third-party reported leads stay separate</li><li>Reward claims remain pending until tested</li></ul></article><article className="guide-card"><span className="card-rule" /><h2>UPDATE5 and Super Pet Treat evidence boundary</h2><p>UPDATE5 is a new code reported by Beebom in June 2026. The claimed reward is Super Pet Treat, a pet item that connects to the <a href="/pets/">pets guide</a> and <a href="/tier-list/">pets tier list</a>. Neither the code nor the Super Pet Treat effect is verified here.</p><ul><li>UPDATE5 status: Beebom third-party reported, pending in-game verification</li><li>Super Pet Treat effect: pending — do not use as a calculator preset</li><li>See <a href="/pets/">pets guide</a> for pet treat context</li></ul></article><article className="guide-card"><span className="card-rule" /><h2>Active vs verified code labels</h2><p>A third-party page may call a code active, but this site does not treat that as verified. Active is an outside claim; verified requires official or repeatable in-game proof.</p><ul><li>External active: reported claim only.</li><li>Verified active: official or repeatable proof.</li><li>Official Discord server: discovered, announcement proof pending.</li></ul></article><article className="guide-card"><span className="card-rule" /><h2>How codes connect to farming progress</h2><p>If a verified code gives seed packs, sprays, fertilizer, time skips, tickets, or cash, it can speed up early progression. Until verified, treat every reward as a testing lead.</p><ul><li>CARNIVAL reported reward: 100 Carnival Pass Tickets, connected to <a href="/events/">events guide</a> as a pending reward lead.</li><li>UPDATE5 reported reward: Super Pet Treat — connect to <a href="/pets/">pets guide</a> for context.</li><li>Seed pack rewards can support early crops.</li><li>Sprays may connect to mutations and advanced crops.</li></ul></article></section>
+      <section className="content-grid"><article className="guide-card"><span className="card-rule" /><h2>Build A Ring Farm latest codes June 2026 status</h2><p>The current verified active-code count on this site is still zero. CARNIVAL, BZZBZZ, UPDATE5, 250KUSERS, and PLANTRUSH are all third-party or community reported claims, not verified active codes here.</p><ul><li>Verified active codes: 0</li><li>CARNIVAL: third-party reported reward, 100 Carnival Pass Tickets (pending)</li><li>BZZBZZ: Beebom and PCGamesN reported lead (pending)</li><li>UPDATE5: Beebom reported, reward: Super Pet Treat (pending)</li><li>Reward claims remain pending until tested</li></ul></article><article className="guide-card"><span className="card-rule" /><h2>UPDATE5 and Super Pet Treat evidence boundary</h2><p>UPDATE5 is a new code reported by Beebom in June 2026. The claimed reward is Super Pet Treat, a pet item that connects to the <a href="/pets/">pets guide</a> and <a href="/tier-list/">pets tier list</a>. Neither the code nor the Super Pet Treat effect is verified here.</p><ul><li>UPDATE5 status: Beebom third-party reported, pending in-game verification</li><li>Super Pet Treat effect: pending — do not use as a calculator preset</li><li>See <a href="/pets/">pets guide</a> for pet treat context</li></ul></article><article className="guide-card"><span className="card-rule" /><h2>Active vs verified code labels</h2><p>A third-party page may call a code active, but this site does not treat that as verified. Active is an outside claim; verified requires official or repeatable in-game proof.</p><ul><li>External active: reported claim only.</li><li>Verified active: official or repeatable proof.</li><li>Official Discord server: discovered, announcement proof pending.</li></ul></article><article className="guide-card"><span className="card-rule" /><h2>How codes connect to farming progress</h2><p>If a verified code gives seed packs, sprays, fertilizer, time skips, tickets, or cash, it can speed up early progression. Until verified, treat every reward as a testing lead.</p><ul><li>CARNIVAL reported reward: 100 Carnival Pass Tickets, connected to <a href="/events/">events guide</a> as a pending reward lead.</li><li>BZZBZZ reward wording: pending until in-game result text exists.</li><li>Seed pack rewards can support early crops.</li><li>Sprays may connect to mutations and advanced crops.</li></ul></article></section>
 
       <section className="related-grid-section" aria-labelledby="codes-related-heading"><div className="section-heading"><p className="eyebrow">Related guides</p><h2 id="codes-related-heading">Build A Ring Farm code routes</h2></div><div className="related-grid">{relatedGuides.map((page) => (<Link prefetch={false} className="related-link" href={page.href} key={page.href}><span><strong>{page.title}</strong><small>{page.description}</small></span><span className="link-arrow">→</span></Link>))}</div></section>
 

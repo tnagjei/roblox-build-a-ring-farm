@@ -7,4 +7,4 @@
 ## Files
 - README.md：本目录说明
 - page.tsx：`/updates/` 渲染入口，调用 `StrategyPageTemplate` 渲染 `content/i18n/en/updates.ts` 的内容
-- （内容源）content/i18n/en/updates.ts：updates hub 的实际内容数据，2026-06-18 SERP 蓝图刷新为 Update 6 signals 主叙事
+- （内容源）content/i18n/en/updates.ts：updates hub 的实际内容数据，2026-06-20 SERP 蓝图刷新为 June 2026 / Update 6 / CARNIVAL / UPDATE6 当前裁决，并加入 evidence matrix 与 `YD6lrTRqpH0` 视频参考

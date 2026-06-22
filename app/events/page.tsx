@@ -9,7 +9,7 @@ import { absoluteUrl } from "@/lib/seo";
 const pageTitle = "Build A Ring Farm Events Guide | Carnival Tickets Pending";
 const pageDescription = "Build A Ring Farm events guide with Carnival Pass Tickets reported reward, weather events, update leads, and pending mechanics verification steps.";
 const heroImage = "/images/official-hero-image.webp";
-const lastChecked = "2026-06-15";
+const lastChecked = "2026-06-20";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -152,7 +152,7 @@ export default function EventsPage() {
                 src={youtubeEmbedUrl("K5KAcsH1Zcw")}
                 title="Carnival Pass Tickets video reference"
                 loading="lazy"
-                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
               />
             </div>

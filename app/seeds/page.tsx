@@ -8,7 +8,7 @@ import { siteData } from "@/lib/site-data";
 import { absoluteUrl } from "@/lib/seo";
 
 const pageTitle = "Build A Ring Farm Seeds Guide | High-Value Crop Leads";
-const pageDescription = "Build A Ring Farm seeds guide covering Void Fruit, Garden Devourer, Dragonfruit, seed-to-crop planning, source labels, and calculator links.";
+const pageDescription = "Build A Ring Farm seeds guide covering Witherfang, Silver Artichoke, Uranium Reed, Admin Starroot, source labels, and calculator-safe boundaries.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -22,7 +22,7 @@ const summaryCards = [
   { title: "Seed packs", description: "Use seed packs as crop unlock leads, not as guaranteed value tables unless sources confirm them." },
   { title: "Crop progression", description: "Choose seeds by farming stage, crop loop stability, and upgrade goals." },
   { title: "Code rewards", description: "Some community code lists mention seed pack rewards, but reward status still needs rechecking." },
-  { title: "Source differences", description: "Use the crops guide for Void Fruit, Garden Devourer, and Dragonfruit value conflicts before calculator input." }
+  { title: "Source differences", description: "Use the crops guide for Void Fruit, Witherfang, Silver Artichoke, Uranium Reed, and other value conflicts before calculator input." }
 ];
 
 const seedPackRows = [
@@ -129,12 +129,25 @@ const seedTierWatchlist = [
     note: "Beebom and TechWiser both report Witherfang as an Exotic seed with a reported base income of 280K and acquisition from a Corrupted Seed Pack. Growth time, seed cost, and exact pack odds are not verified here.",
     sourceStatus: "Beebom reported, pending in-game verification"
   },
-  // 2026-06-18 SERP 蓝图 P1：Silver Artichoke 数值在 Beebom 与 TechWiser 之间冲突，必须标 disputed
+  // 2026-06-22 SERP 蓝图 P0：Silver Artichoke 仍标 disputed，冲突点改为 Fandom 字段无法消解
   {
     seed: "Silver Artichoke",
     reportedTier: "Exotic (Beebom June 2026 seeds tier list)",
-    note: "Beebom reports Silver Artichoke base income at 280K with a seed cost of 60T and a rare roll chance, while TechWiser reports 240K. Because the sources disagree, this row stays disputed and must not enter calculator defaults.",
+    note: "Beebom and TechWiser report Silver Artichoke around 280K with 60T and Roll-style details, while Fandom fields do not settle the value or cost conflict. This row stays disputed and must not enter calculator defaults.",
     sourceStatus: "Disputed, pending in-game verification"
+  },
+  // 2026-06-20 SERP 蓝图 P0/P1：Uranium Reed 与 Admin Starroot 只做 watchlist，不做 calculator default
+  {
+    seed: "Uranium Reed",
+    reportedTier: "A-tier watchlist (Beebom / TechWiser June 2026)",
+    note: "Beebom and TechWiser report Uranium Reed around 180K, but acquisition is still TBA or pending. This row is a watchlist lead, not a verified seed route.",
+    sourceStatus: "Pending, acquisition TBA"
+  },
+  {
+    seed: "Admin Starroot",
+    reportedTier: "Related watchlist (Beebom / TechWiser June 2026)",
+    note: "Admin Starroot appears as a related June 2026 seed lead in third-party tier-list coverage. It is tracked as a related watchlist row only because this blueprint does not make it a primary keyword.",
+    sourceStatus: "Reported, pending in-game verification"
   }
 ];
 
@@ -178,8 +191,20 @@ const seedCropAlignmentRows = [
   },
   {
     lead: "Silver Artichoke",
-    seedPageStatus: "Disputed seed lead, Beebom 280K vs TechWiser 240K",
+    seedPageStatus: "Disputed seed lead, Beebom/TechWiser 280K with Fandom field conflict",
     cropPageStatus: "Disputed value, pending in-game resolution",
+    calculatorStatus: "Manual observed crop value only"
+  },
+  {
+    lead: "Uranium Reed",
+    seedPageStatus: "Pending seed lead, reported 180K with TBA acquisition",
+    cropPageStatus: "Reported value handoff, acquisition pending",
+    calculatorStatus: "Manual observed crop value only"
+  },
+  {
+    lead: "Admin Starroot",
+    seedPageStatus: "Related reported seed lead, not a primary keyword",
+    cropPageStatus: "Pending source depth before any value table promotion",
     calculatorStatus: "Manual observed crop value only"
   }
 ];
@@ -207,7 +232,7 @@ const sections = [
     heading: "Seed-to-crop value boundary",
     subheading: "Where source differences belong",
     body: [
-      "This seeds guide can identify reported seed names, but crop value conflicts belong on the crops page. Void Fruit, Garden Devourer, and Dragonfruit now have a source-difference matrix on /crops/ because third-party pages disagree on value or acquisition details.",
+      "This seeds guide can identify reported seed names, but crop value conflicts belong on the crops page. Void Fruit, Garden Devourer, Dragonfruit, Witherfang, Silver Artichoke, and Uranium Reed now have source-difference rows on /crops/ because third-party pages disagree on value or acquisition details.",
       "Use /seeds/ for seed names and source labels, /crops/ for reported crop value source differences, and /calculator/ only after you enter an observed crop value manually."
     ],
     list: ["Seeds page: seed name and source label.", "Crops page: source differences and disputed crop value rows.", "Calculator page: manual observed value only.", "No seeds tier list row should become a fixed crop value."]
@@ -267,8 +292,11 @@ const faq = [
   { q: "Where should I compare seed-to-crop value differences?", a: "Use the crops guide for the reported source-difference matrix, then use the calculator only with your own observed crop value. The seeds page should not become a fixed crop value table." },
   // 2026-06-18 SERP 蓝图 P1：Witherfang 与 Silver Artichoke 来源边界问答
   { q: "Is Witherfang verified in Build A Ring Farm?", a: "No. Witherfang is listed as an Exotic seed in Beebom's June 2026 seeds tier list, with a reported base income of 280K and acquisition from a Corrupted Seed Pack. TechWiser reports the same 280K figure. This site tracks Witherfang as a third-party reported lead only. Growth time, seed cost, and exact pack odds are pending in-game verification." },
-  { q: "Why do sources disagree on Silver Artichoke?", a: "Beebom reports Silver Artichoke with a base income of 280K, a seed cost of 60T, and a rare roll chance, while TechWiser reports 240K. Because the two sources disagree on the value, this site labels Silver Artichoke as disputed. It must not enter calculator defaults until an in-game check or a stronger source resolves the conflict." },
-  { q: "Where does Witherfang come from in Build A Ring Farm?", a: "Beebom and TechWiser both report that Witherfang comes from a Corrupted Seed Pack, with a reported base income of 280K. This is a third-party reported acquisition lead, not verified here. Treat the pack source and value as pending until an in-game screenshot or repeatable test confirms them." }
+  { q: "Why do sources disagree on Silver Artichoke?", a: "Beebom and TechWiser report Silver Artichoke around 280K with 60T and Roll-style details, while Fandom fields do not settle the value or cost conflict. This site labels Silver Artichoke as disputed and keeps it out of calculator defaults until an in-game check or stronger source resolves the conflict." },
+  { q: "Where does Witherfang come from in Build A Ring Farm?", a: "Beebom and TechWiser both report that Witherfang comes from a Corrupted Seed Pack, with a reported base income of 280K. This is a third-party reported acquisition lead, not verified here. Treat the pack source and value as pending until an in-game screenshot or repeatable test confirms them." },
+  { q: "Why is Uranium Reed marked pending?", a: "Beebom and TechWiser both report Uranium Reed around 180K, but the acquisition method is TBA or pending in this review. That makes Uranium Reed a watchlist lead, not a verified seed route or calculator default." },
+  { q: "Can I farm Uranium Reed now?", a: "This review does not have enough evidence to confirm a farm route for Uranium Reed. Track it as a pending seed and crop value lead until a stronger source or in-game test confirms acquisition." },
+  { q: "Is Admin Starroot part of the main June 20 keyword queue?", a: "No. Admin Starroot is included only as a related watchlist lead because third-party seed-tier coverage mentions it. This page does not treat it as a verified seed, crop value, or calculator input." }
 ];
 
 function FieldWithSource({ label, value, sourceStatus }: { label: string; value: string; sourceStatus: string }) {
@@ -351,7 +379,7 @@ export default function SeedsPage() {
           <p className="eyebrow">Beebom reported, June 2026</p>
           <h2>Expanded June 2026 seed watchlist</h2>
           <p>
-            Beebom published a June 2026 seeds tier list covering Void Fruit, Garden Devourer, Dragonfruit, Passion Fruit, and Elder Dragonroot, plus newer entries such as Witherfang and Silver Artichoke. This site tracks these as third-party reported leads only. Do not treat any value, growth time, or sell price from this table as verified game data.
+            Beebom published a June 2026 seeds tier list covering Void Fruit, Garden Devourer, Dragonfruit, Passion Fruit, Elder Dragonroot, Witherfang, Silver Artichoke, Uranium Reed, and Admin Starroot style watchlist entries. This site tracks these as third-party reported, disputed, or pending leads only. Do not treat any value, growth time, or sell price from this table as verified game data.
           </p>
           <div className="data-list">
             {seedTierWatchlist.map((row) => (

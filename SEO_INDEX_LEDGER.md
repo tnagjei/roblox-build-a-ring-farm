@@ -2,7 +2,7 @@
 
 > 站点：`https://www.buildaringfarm.org`  
 > 建立日期：2026-05-26  
-> 当前阶段：第 0 周到第 14 天观察期 + 低风险长尾实验 + 2026-06-05 pets/events expansion  
+> 当前阶段：第 0 周到第 14 天观察期 + 低风险长尾实验 + 2026-06-20 source matrix refresh
 > 目标指标：Index 覆盖页面数、GSC Query 覆盖、页面级 Impression 变化、404 修复  
 > 规则：首页 TDH 不动；所有未验证数据必须保持 Community reported / Third-party reported / Pending / Needs verification。
 
@@ -105,8 +105,9 @@
 | 页面 | 页面组 | Google Index / GSC 状态 | Bing Index 状态 | Sitemap 状态 | 当前判断 | 下一个动作 |
 |---|---|---|---|---|---|---|
 | `/` | 首页 / Wiki Hub | 已索引，已有 GSC 表现 | 已索引 | 已确认 | 当前最强入口，不动 | 继续观察，不改 Title / Description |
-| `/codes/` | CTR 候选页 + code claim watchlist | 已索引，已有 GSC 表现 | 待复查 | 已确认 | 2026-06-15 加入 CARNIVAL / Carnival Pass Tickets reported claim，Title 包含 CARNIVAL，加入 /events/ 互链 | 2026-06-22 复查 query |
-| `/update-status/` | Update status hub | 已上线 | 待复查 | 已确认 | 2026-06-15 承接 Update 6 / UPDATE6 signals，UPDATE6 仍 pending | 2026-06-22 复查 |
+| `/codes/` | CTR 候选页 + code claim watchlist | 已索引，已有 GSC 表现 | 待复查 | 已确认 | 2026-06-22 扩展 CARNIVAL 8-source matrix，追加 BZZBZZ reported lead，保留 0 verified active，视频参考改为 `v0B3mUtj4_A` | 2026-06-29 复查 query |
+| `/update-status/` | Update status hub | 已上线 | 待复查 | 已确认 | 2026-06-15 承接 Update 6 / UPDATE6 signals，UPDATE6 仍 pending；2026-06-20 仅同步视频 iframe 权限 | 2026-06-27 复查 |
+| `/updates/` | Updates hub | 已上线 | 待复查 | 已确认 | 2026-06-20 刷新为 June 2026 / Update 6 / CARNIVAL / UPDATE6 当前裁决，加入 evidence matrix 和 `YD6lrTRqpH0` | 2026-06-27 复查 |
 | `/rings/` | Rings + Farm Ring Bonuses | 已索引 | 待复查 | 已确认 | 已链接 Farm Ring Bonuses | 2026-06-18 复查 |
 | `/250kusers-code/` | 新增长尾页 | 待发现 | 待提交 / 待发现 | 已同步 | 新鲜 code 长尾实验 | 提交索引后 7 / 14 天复查 |
 | `/official-discord/` | 新增长尾页 | 待发现 | 待提交 / 待发现 | 已同步 | 来源信任页实验 | 提交索引后 7 / 14 天复查 |
@@ -117,7 +118,9 @@
 | `/tier-list/` | 强信号页加码 | 已索引，已有 GSC 表现 | 已索引 | 已确认 | 页面已重构为宠物梯度厚度，强化 5 处内链 | 2026-06-10 复查 query 流量 |
 | `/pets/` | 404 修复 + pet tier hub | 新增，待发现 | 待提交 / 待发现 | 已同步 | 2026-06-11 bonusRows 拆分 treat 类型，补 Super Pet Treat pending 边界，加入 /codes/ 互链 | 2026-06-18 复查 |
 | `/tier-list/` | 强信号页加码 | 已索引，已有 GSC 表现 | 已索引 | 已确认 | 2026-06-11 roleRows 加入 Pet treat support，Spinosaurus 加注 Super Pet Treat 关联，加入 /codes/ /pets/ 互链 | 2026-06-18 复查 query 流量 |
-| `/events/` | Events hub | 新增，待发现 | 待提交 / 待发现 | 已同步 | 2026-06-15 承接 Carnival Pass Tickets reported reward lead，与 /codes/ 和 /update-status/ 互链 | 2026-06-22 复查 |
+| `/events/` | Events hub | 新增，待发现 | 待提交 / 待发现 | 已同步 | 2026-06-20 保持 Carnival Pass Tickets reported reward lead，不扩展为 event mechanics proof | 2026-06-27 复查 |
+| `/seeds/` | Seeds guide | 已上线 | 待复查 | 已确认 | 2026-06-22 保留 Uranium Reed pending 与 Admin Starroot related watchlist，Silver Artichoke 改为 Fandom-conflict disputed 口径 | 2026-06-29 复查 |
+| `/crops/` | Crop value list | 已上线 | 待复查 | 已确认 | 2026-06-22 扩展 Witherfang/Silver Artichoke/Uranium Reed source differences，Silver Artichoke 不进入 calculator default | 2026-06-29 复查 |
 | `/calculator/` | Tool / formula | 已索引或待复查 | 待复查 | 已确认 | 已加强 formula 和 planner 意图，Super Pet Treat 继续禁止作为 default preset | 2026-06-18 复查 |
 | `/weather-events/` | Weather events | 已索引或待复查 | 待复查 | 已确认 | 已区分 weather events 和 events hub | 2026-06-18 复查 |
 
@@ -142,13 +145,15 @@
 | 不写 verified best pet | 宠物效果和排行缺游戏内证据 |
 | 不写 exact calculator formula | 公式和输入数据未完整验证 |
 | 不把 Starfall Griffin 写成 verified | 只能作为 high-risk pending lead |
-| 不把 `CARNIVAL` 写成 verified active | 只有第三方 reported claim（Beebom/PCGamesN/GamesRadar/PGG/Dexerto），100 Carnival Pass Tickets 未做游戏内验证 |
+| 不把 `CARNIVAL` 写成 verified active | 只有第三方 reported claim（Pocket Tactics/RadioTimes/GamesRadar/PCGamesN/Beebom/Dexerto/Pocket Gamer/PGG），100 ticket reward wording 未做游戏内验证 |
+| 不把 `BZZBZZ` 写成 verified active | 只有 Beebom/PCGamesN reported lead，reward wording 和游戏内结果仍 pending |
 | 不把 `UPDATE6` 写成 real code | 仅 pending Update 6 搜索信号，不进 active code table |
 | 不照搬 Dexerto 的 verified 措辞 | Dexerto 自称 verified 是第三方 claim，本站降级为 reported |
 | 不把 `Witherfang` 写成 verified value | Beebom/TechWiser 一致报 280K，仍标 reported，pending 游戏内核验 |
-| 不把 `Silver Artichoke` 写成确定值 | Beebom 280K 与 TechWiser 240K 冲突，必须标 disputed |
-| 不把 Witherfang/Silver Artichoke 写入 calculator default | reported/disputed 作物值只能手动输入，不作预设 |
-| 不新建 carnival-code/witherfang/silver-artichoke/dexerto-codes 薄页 | 蓝图判定薄页不稳定，由现有 hub 承接 |
+| 不把 `Silver Artichoke` 写成确定值 | Beebom/TechWiser 280K 信号仍缺游戏内核验，且 Fandom 字段不能消解 value/cost 冲突，必须标 disputed |
+| 不把 `Uranium Reed` 写成 verified value | Beebom/TechWiser 报 180K，但 acquisition 为 TBA/pending，必须标 pending |
+| 不把 Witherfang/Silver Artichoke/Uranium Reed 写入 calculator default | reported/disputed/pending 作物值只能手动输入，不作预设 |
+| 不新建 carnival-code/source-brand/witherfang/silver-artichoke/uranium-reed 薄页 | 蓝图判定薄页不稳定，由现有 hub 承接 |
 
 ---
 
@@ -157,9 +162,10 @@
 | 数据 | 用途 |
 |---|---|
 | 2026-06-18 codes/pets/tier-list 复查 | 判断 2026-06-11 UPDATE5 / Super Pet Treat 页面是否被发现 / 是否进入 GSC |
-| 2026-06-25 第 14 天数据 | 判断保留、加码、合并或停止 |
+| 2026-06-27 source matrix 复查 | 看 CARNIVAL、Update 6、Witherfang、Silver Artichoke、Uranium Reed 是否出现 GSC impression |
+| 2026-06-25 / 2026-06-27 第 14 天数据 | 判断保留、加码、合并或停止 |
 | UPDATE5 游戏内测试结果 | 决定是否能把 reported 升级；如果 Super Pet Treat 兑现，记录效果并更新 pets/calculator |
-| Seeds/Crops 页面审计 | Beebom seeds tier list 发布后检查 /seeds/ 和 /crops/ 是否覆盖 Void Fruit、Garden Devourer、Dragonfruit |
+| Seeds/Crops 页面审计 | 检查 /seeds/ 和 /crops/ 是否覆盖 Void Fruit、Garden Devourer、Dragonfruit、Witherfang、Silver Artichoke、Uranium Reed |
 | GSC Query 数据 | 看 `UPDATE5`、`Super Pet Treat`、`pet treats`、`codes June 2026` 是否出现 impression |
 | Bing 页面索引状态 | 补 Bing Index 字段 |
 | 游戏内验证结果 | 决定是否能把 reported / pending 升级 |
@@ -195,3 +201,58 @@
 - CARNIVAL 是否有游戏内核验结果（决定能否升级）
 - Silver Artichoke 数值冲突是否被新来源解决
 - 判断各页保留 / 加码 / 合并 / 停止
+
+---
+
+## 12. 2026-06-20 SERP keyword blueprint 执行记录
+
+来源：`buildaringfarm-org-serp-keyword-blueprint-2026-06-20.md`。本轮在 06-18 基础上做 source freshness refresh，核心红线不变：CARNIVAL、UPDATE6、Witherfang、Silver Artichoke、Uranium Reed 不能升级为 verified。
+
+### 12.1 执行动作表
+
+| 页面 | 优先级 | 动作 | 证据等级 | 复查日 |
+|---|---|---|---|---|
+| `/codes/` | P0 | app/codes/page.tsx 扩展 source freshness matrix 到 Pocket Tactics/RadioTimes/GamesRadar/PCGamesN/Beebom/Dexerto/PGG；保留 0 verified active；新增 reward wording FAQ；视频参考改为 `J8XELNgjn-Y` | Third-party reported / reward wording disputed by source wording | 2026-06-27 |
+| `/updates/` | P0 | content/i18n/en/updates.ts 刷新 Title/Description/H1/Lede；加入 Update 6 status card、evidence matrix、`YD6lrTRqpH0` 视频参考、CARNIVAL relation pending 和 Update 6 patch notes pending FAQ | CARNIVAL reported / UPDATE6 pending / official patch notes pending | 2026-06-27 |
+| `/seeds/` | P1 | app/seeds/page.tsx 追加 Uranium Reed pending 与 Admin Starroot related watchlist；保留 Witherfang reported、Silver Artichoke disputed；新增 seed-to-crop alignment 与 FAQ | Uranium Reed pending / Admin Starroot related reported lead | 2026-06-27 |
+| `/crops/` | P1 | lib/content/template-pages.ts 扩展 source differences、reported high-value leads、watchlist、seed-to-crop alignment 和 FAQ，加入 Uranium Reed 180K pending、Fandom/Sportskeeda/Roll odds 边界 | Witherfang reported / Silver Artichoke disputed / Uranium Reed pending | 2026-06-27 |
+| `/events/` | P1 | 维持 Carnival Pass Tickets pending mechanics 文案，仅同步 YouTube iframe permission 口径 | Carnival Pass Tickets reported / mechanics pending | 2026-06-27 |
+| `/update-status/` | P1 | 维持 UPDATE6 pending 与 CARNIVAL reported 文案，仅同步 YouTube iframe permission 口径 | UPDATE6 pending / CARNIVAL reported | 2026-06-27 |
+
+### 12.2 本轮不做的事（蓝图判定）
+
+- 不新建 `/radiotimes-carnival/`、`/pocket-tactics-carnival/`、`/gamesradar-carnival/` 等 source-brand 薄页
+- 不新建 `/witherfang/`、`/silver-artichoke/`、`/uranium-reed/` 等单作物薄页
+- 不把 Dexerto 的 verified wording 继承为本站 verified
+- 不把 Witherfang、Silver Artichoke、Uranium Reed 写进 calculator default
+- 不写官方 patch notes、ticket shop、odds、event rules、crop value confirmed
+
+### 12.3 第 7/14 天复查重点（2026-06-27 / 2026-07-04）
+
+- GSC 是否出现 `CARNIVAL code`、`latest codes June 2026`、`Update 6 status`、`Witherfang`、`Silver Artichoke`、`Uranium Reed`
+- CARNIVAL 是否取得游戏内 redeem proof，包含日期、服务器状态、返回文本、reward text
+- RadioTimes、Pocket Tactics、GamesRadar、Dexerto 的 CARNIVAL wording 是否继续一致或发生变动
+- Uranium Reed acquisition 是否被更强来源或游戏内截图确认
+- Silver Artichoke 的 Fandom value/cost 字段冲突是否解除
+
+---
+
+## 13. 2026-06-22 SERP keyword blueprint 执行记录
+
+来源：`buildaringfarm-org-serp-keyword-blueprint-2026-06-22.md`。本轮只做差量刷新：补 `/codes/` source matrix 和 BZZBZZ，修 Silver Artichoke 证据口径；不新建 source-brand 页或单种子页。
+
+| 页面 | 优先级 | 动作 | 证据等级 | 复查日 |
+|---|---|---|---|---|
+| `/codes/` | P0 | app/codes/page.tsx 追加 BZZBZZ reported lead，CARNIVAL source matrix 增加 Pocket Gamer，视频参考改为 `v0B3mUtj4_A`，Title 改为 Source Matrix | CARNIVAL reported / BZZBZZ reported / 0 verified active | 2026-06-29 |
+| `/seeds/` | P0 | app/seeds/page.tsx 将 Silver Artichoke 从 Beebom-vs-TechWiser 冲突改为 Fandom field conflict disputed 口径 | Silver Artichoke disputed | 2026-06-29 |
+| `/crops/` | P0 | lib/content/template-pages.ts 同步 Silver Artichoke source-diff、watchlist、FAQ，不进入 calculator default | Silver Artichoke disputed / manual only | 2026-06-29 |
+| `public/data` | P0 | build-a-ring-farm.json 同步 lastFullCheck、BZZBZZ、Pocket Gamer、Source Matrix title | Reported / pending | 2026-06-29 |
+| `tests` | P0 | keyword-opportunity-pages.test.mjs 增加 BZZBZZ、Pocket Gamer、`v0B3mUtj4_A`、06-22 ledger 断言 | Regression guard | 每次测试 |
+
+### 13.1 本轮不做的事
+
+- 不新建 `/radiotimes-carnival/`、`/pocket-tactics-carnival/`、`/gamesradar-carnival/`
+- 不新建 `/witherfang/`、`/silver-artichoke/`、`/uranium-reed/`
+- 不把 `CARNIVAL`、`BZZBZZ`、`UPDATE6` 写成 verified active
+- 不把 Silver Artichoke、Witherfang、Uranium Reed 写进 calculator default
+- 不加 optional 视频，现有必要视频位已覆盖搜索意图

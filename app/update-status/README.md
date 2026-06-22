@@ -5,4 +5,4 @@
 > 一旦本目录内容变化，请更新本文件
 
 ## Files
-- page.tsx：Update status 页面，覆盖 Update 3、Update 4、Update 6、CARNIVAL、UPDATE6、pending mutation presets 和视频参考
+- page.tsx：Update status 页面，覆盖 Update 3、Update 4、Update 6、CARNIVAL、UPDATE6、pending mutation presets、2026-06-20 复核日期和 YouTube no-cookie 视频参考

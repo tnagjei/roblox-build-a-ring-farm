@@ -9,7 +9,7 @@ import { absoluteUrl } from "@/lib/seo";
 const pageTitle = "Build A Ring Farm Update Status | Update 6 Code Signals";
 const pageDescription = "Track Build A Ring Farm Update 6 code signals, CARNIVAL reports, UPDATE6 pending status, patch note boundaries, and safe verification steps.";
 const heroImage = "/images/official-hero-image.webp";
-const lastChecked = "2026-06-15";
+const lastChecked = "2026-06-20";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -160,7 +160,7 @@ export default function UpdateStatusPage() {
                 src={youtubeEmbedUrl("szp3NOtMOQ8")}
                 title="Build A Ring Farm Update 6 code video reference"
                 loading="lazy"
-                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
               />
             </div>

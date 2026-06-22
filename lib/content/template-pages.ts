@@ -451,14 +451,15 @@ function createCropsPage(locale: string): StrategyPageContent {
               { label: "Crop", value: "Witherfang" },
               { label: "Beebom", value: "280K reported base income, Corrupted Seed Pack acquisition" },
               { label: "PGG", value: "Pending source check" },
-              { label: "Sportskeeda", value: "Pending source check" },
+              { label: "Sportskeeda", value: "280K snippet signal" },
               { label: "Bo3", value: "Pending source check" },
               { label: "TechWiser", value: "280K reported base income, Corrupted Seed Pack acquisition" },
+              { label: "Fandom", value: "280K style Plants row and Witherfang placeholder / Corrupted Seed Pack lead" },
               { label: "Target status", value: "Keep as reported lead, do not enter calculator default" },
               { label: "Verification status", value: "Reported value, pending in-game growth and sell-value check", status: "reported" }
             ]
           },
-          // 2026-06-18 SERP 蓝图 P1：Silver Artichoke 数值在 Beebom(280K) 与 TechWiser(240K) 冲突，必须标 disputed
+          // 2026-06-22 SERP 蓝图 P0：Silver Artichoke 继续 disputed，冲突点保留在 Fandom 字段不完整/不一致
           {
             key: "source-diff-silver-artichoke",
             fields: [
@@ -467,9 +468,26 @@ function createCropsPage(locale: string): StrategyPageContent {
               { label: "PGG", value: "Pending source check" },
               { label: "Sportskeeda", value: "Pending source check" },
               { label: "Bo3", value: "Pending source check" },
-              { label: "TechWiser", value: "240K reported base income" },
+              { label: "TechWiser", value: "280K reported base income with 60T / Roll-style details" },
+              { label: "Fandom", value: "Stub and Plants fields do not settle the value or cost conflict" },
+              { label: "Roll odds", value: "TechWiser reports 1/2,133,189,359 roll odds; pending in-game check" },
               { label: "Target status", value: "Keep as disputed lead, must not enter calculator default" },
               { label: "Verification status", value: "Disputed value across sources, pending in-game resolution", status: "disputed" }
+            ]
+          },
+          // 2026-06-20 SERP 蓝图 P1：Uranium Reed 180K 一致但获取方式 TBA，标 pending
+          {
+            key: "source-diff-uranium-reed",
+            fields: [
+              { label: "Crop", value: "Uranium Reed" },
+              { label: "Beebom", value: "180K reported value, acquisition TBA" },
+              { label: "PGG", value: "Generic seeds guide, not precise Uranium Reed proof" },
+              { label: "Sportskeeda", value: "Pending source check" },
+              { label: "Bo3", value: "Generic tier-list signal, not precise enough" },
+              { label: "TechWiser", value: "180K reported value, acquisition TBA" },
+              { label: "Fandom", value: "Plants row incomplete or placeholder" },
+              { label: "Target status", value: "Keep as pending watchlist lead, do not enter calculator default" },
+              { label: "Verification status", value: "Reported 180K, acquisition pending", status: "pending" }
             ]
           }
         ]
@@ -557,12 +575,25 @@ function createCropsPage(locale: string): StrategyPageContent {
             key: "silver-artichoke",
             fields: [
               { label: "Crop", value: "Silver Artichoke" },
-              { label: "Reported source", value: "Beebom 280K and 60T seed cost; TechWiser 240K" },
+              { label: "Reported source", value: "Beebom and TechWiser around 280K with 60T / Roll details; Fandom fields conflict" },
               { label: "Why players search it", value: "Exotic crop value, seed cost, and rare-roll chance checks" },
               { label: "Growth time status", value: "Pending in-game check" },
               { label: "Sell value status", value: "Disputed, pending in-game resolution" },
               { label: "Calculator use", value: "Manual observed base value only", status: "estimated" },
               { label: "Verification status", value: "Disputed value across sources, pending in-game resolution", status: "disputed" }
+            ]
+          },
+          // 2026-06-20 SERP 蓝图 P1：Uranium Reed pending value handoff
+          {
+            key: "uranium-reed",
+            fields: [
+              { label: "Crop", value: "Uranium Reed" },
+              { label: "Reported source", value: "Beebom and TechWiser report 180K, acquisition TBA" },
+              { label: "Why players search it", value: "New seed or crop value lead with pending acquisition" },
+              { label: "Growth time status", value: "Pending in-game check" },
+              { label: "Sell value status", value: "Reported 180K, not verified here" },
+              { label: "Calculator use", value: "Manual observed base value only", status: "estimated" },
+              { label: "Verification status", value: "Pending acquisition and in-game value check", status: "pending" }
             ]
           }
         ]
@@ -631,6 +662,42 @@ function createCropsPage(locale: string): StrategyPageContent {
               { label: "Calculator use", value: "Estimated only after player input" },
               { label: "Verification status", value: "Reported, pending in-game check", status: "pending" }
             ]
+          },
+          {
+            key: "watch-witherfang",
+            fields: [
+              { label: "Crop", value: "Witherfang" },
+              { label: "Reported tier", value: "Exotic lead" },
+              { label: "Source", value: "Beebom / TechWiser / Fandom / Sportskeeda reported 280K signals" },
+              { label: "Growth time status", value: "Pending" },
+              { label: "Sell value status", value: "Reported 280K" },
+              { label: "Calculator use", value: "Estimated only after player input" },
+              { label: "Verification status", value: "Reported, pending in-game check", status: "reported" }
+            ]
+          },
+          {
+            key: "watch-silver-artichoke",
+            fields: [
+              { label: "Crop", value: "Silver Artichoke" },
+              { label: "Reported tier", value: "Exotic disputed lead" },
+              { label: "Source", value: "Beebom / TechWiser 280K signals; Fandom value fields conflict" },
+              { label: "Growth time status", value: "Pending" },
+              { label: "Sell value status", value: "Disputed" },
+              { label: "Calculator use", value: "Estimated only after player input" },
+              { label: "Verification status", value: "Disputed, pending in-game check", status: "disputed" }
+            ]
+          },
+          {
+            key: "watch-uranium-reed",
+            fields: [
+              { label: "Crop", value: "Uranium Reed" },
+              { label: "Reported tier", value: "A-tier pending lead" },
+              { label: "Source", value: "Beebom and TechWiser report 180K, acquisition TBA" },
+              { label: "Growth time status", value: "Pending" },
+              { label: "Sell value status", value: "Reported 180K" },
+              { label: "Calculator use", value: "Estimated only after player input" },
+              { label: "Verification status", value: "Pending acquisition and in-game check", status: "pending" }
+            ]
           }
         ]
       },
@@ -643,7 +710,10 @@ function createCropsPage(locale: string): StrategyPageContent {
           { key: "seed-crop-garden-devourer", fields: [{ label: "Lead", value: "Garden Devourer" }, { label: "Seed page status", value: "Beebom reported" }, { label: "Crop page status", value: "Pending growth and sell-value check" }, { label: "Calculator status", value: "Manual input only", status: "estimated" }] },
           { key: "seed-crop-dragonfruit", fields: [{ label: "Lead", value: "Dragonfruit" }, { label: "Seed page status", value: "Beebom reported" }, { label: "Crop page status", value: "Pending value and rare-effect boundary check" }, { label: "Calculator status", value: "Manual input only", status: "estimated" }] },
           { key: "seed-crop-passion-fruit", fields: [{ label: "Lead", value: "Passion Fruit" }, { label: "Seed page status", value: "Beebom reported" }, { label: "Crop page status", value: "Pending stronger source and in-game check" }, { label: "Calculator status", value: "Manual input only", status: "estimated" }] },
-          { key: "seed-crop-elder-dragonroot", fields: [{ label: "Lead", value: "Elder Dragonroot" }, { label: "Seed page status", value: "Beebom reported" }, { label: "Crop page status", value: "Pending stronger source and in-game check" }, { label: "Calculator status", value: "Manual input only", status: "estimated" }] }
+          { key: "seed-crop-elder-dragonroot", fields: [{ label: "Lead", value: "Elder Dragonroot" }, { label: "Seed page status", value: "Beebom reported" }, { label: "Crop page status", value: "Pending stronger source and in-game check" }, { label: "Calculator status", value: "Manual input only", status: "estimated" }] },
+          { key: "seed-crop-witherfang", fields: [{ label: "Lead", value: "Witherfang" }, { label: "Seed page status", value: "Reported 280K, Corrupted Seed Pack lead" }, { label: "Crop page status", value: "Reported, pending in-game value check" }, { label: "Calculator status", value: "Manual input only", status: "estimated" }] },
+          { key: "seed-crop-silver-artichoke", fields: [{ label: "Lead", value: "Silver Artichoke" }, { label: "Seed page status", value: "Disputed, Roll lead and source conflict" }, { label: "Crop page status", value: "Disputed value conflict" }, { label: "Calculator status", value: "Manual input only", status: "estimated" }] },
+          { key: "seed-crop-uranium-reed", fields: [{ label: "Lead", value: "Uranium Reed" }, { label: "Seed page status", value: "Pending, reported 180K and TBA acquisition" }, { label: "Crop page status", value: "Pending acquisition and in-game check" }, { label: "Calculator status", value: "Manual input only", status: "estimated" }] }
         ]
       }
     ],
@@ -696,7 +766,8 @@ function createCropsPage(locale: string): StrategyPageContent {
       { q: "Is Void Fruit the best crop in Build A Ring Farm?", a: "Void Fruit is tracked here as a Beebom reported lead with pending in-game verification. This page does not confirm it as the best crop." },
       // 2026-06-18 SERP 蓝图 P1：Witherfang 与 Silver Artichoke 来源边界问答
       { q: "Is Witherfang verified in Build A Ring Farm?", a: "No. Witherfang is reported as an Exotic crop by Beebom and TechWiser, with a reported base income of 280K and acquisition from a Corrupted Seed Pack. The two sources agree on the 280K figure, but this site keeps Witherfang as a reported lead only. Growth time, sell value, and exact pack odds are pending in-game verification." },
-      { q: "Why do sources disagree on Silver Artichoke?", a: "Beebom reports Silver Artichoke with a base income of 280K and a seed cost of 60T, while TechWiser reports 240K. Because the sources disagree on the value, this site labels Silver Artichoke as disputed. It must not enter calculator defaults until an in-game check or a stronger source resolves the conflict." },
+      { q: "Why do sources disagree on Silver Artichoke?", a: "Beebom and TechWiser report Silver Artichoke around 280K with 60T and Roll-style details, while Fandom Plants and stub fields do not settle the value or cost conflict. This site labels Silver Artichoke as disputed and keeps it out of calculator defaults until an in-game check or stronger source resolves the conflict." },
+      { q: "Why is Uranium Reed marked pending?", a: "Beebom and TechWiser both report Uranium Reed around 180K, but acquisition is TBA or incomplete in this review. This page keeps Uranium Reed pending and out of calculator defaults until a stronger source or in-game check confirms acquisition and value." },
       { q: "Does this page list exact crop values?", a: "No. Growth time and sell value remain pending until official or repeatable in-game evidence exists." },
       { q: "Can I use reported crop values in the calculator?", a: "Yes, only as manual inputs. Keep the output estimated and do not treat a reported number as a default preset." },
       { q: "Can I use these crops in the calculator?", a: "Yes, but only with manual observed base values. The calculator output is estimated and should not be treated as official." },
